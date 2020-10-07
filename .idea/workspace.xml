@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/SMARTEC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SMARTEC.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/hola.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +18,9 @@
     </execution>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -172,21 +174,64 @@
       <workItem from="1602022226906" duration="2804000" />
       <workItem from="1602026060333" duration="2189000" />
       <workItem from="1602047918038" duration="622000" />
-      <workItem from="1602048556201" duration="1324000" />
+      <workItem from="1602048556201" duration="4993000" />
+      <workItem from="1602053600736" duration="719000" />
+      <workItem from="1602100027556" duration="935000" />
+      <workItem from="1602105133635" duration="269000" />
     </task>
+    <task id="LOCAL-00001" summary="Correcion de libreria de la base de datos(Shema(192)),">
+      <created>1602050322581</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1602050322581</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Correcion de libreria de la base de datos(Shema(192))," />
+    <option name="LAST_COMMIT_MESSAGE" value="Correcion de libreria de la base de datos(Shema(192))," />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="232" y="0" key="#Plugins" timestamp="1602053473950">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="232" y="0" key="#Plugins/0.0.1280.680@0.0.1280.680" timestamp="1602053473950" />
+    <state x="265" y="0" key="CommitChangelistDialog2" timestamp="1602050321161">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="265" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1602050321161" />
     <state x="420" y="95" key="FileChooserDialogImpl" timestamp="1602048537008">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="420" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1602048537008" />
-    <state x="336" y="164" key="com.intellij.ide.util.TipDialog" timestamp="1602048557598">
+    <state x="120" y="50" key="MergeDialog" timestamp="1602050859031">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="336" y="164" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1602048557598" />
+    <state x="120" y="50" key="MergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1602050859031" />
+    <state x="352" y="56" key="MultipleFileMergeDialog" timestamp="1602050869040">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="352" y="56" key="MultipleFileMergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1602050869040" />
+    <state x="474" y="263" key="NewPhpFileDialog" timestamp="1602052357161">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="474" y="263" key="NewPhpFileDialog/0.0.1280.680@0.0.1280.680" timestamp="1602052357161" />
+    <state x="232" y="73" key="Vcs.Push.Dialog.v2" timestamp="1602050345035">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="232" y="73" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1602050345035" />
+    <state x="336" y="164" key="com.intellij.ide.util.TipDialog" timestamp="1602100036879">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="336" y="164" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1602100036879" />
+    <state x="449" y="257" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602105145823">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="449" y="257" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1602105145823" />
   </component>
 </project>
