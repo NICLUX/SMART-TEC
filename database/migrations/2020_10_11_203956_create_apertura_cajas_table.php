@@ -15,6 +15,9 @@ class CreateAperturaCajasTable extends Migration
     {
         Schema::create('apertura_cajas', function (Blueprint $table) {
             $table->id();
+            $table->double("efectivo_inicial");
+            $table->boolean("activa")->default(false);
+            $table->string("id_usuario")->nullable();
             $table->timestamps();
         });
     }

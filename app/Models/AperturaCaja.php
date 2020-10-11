@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class AperturaCaja extends Model
 {
     use HasFactory;
+    protected $fillable=["efectivo_inicial","id_usuario"];
 }
