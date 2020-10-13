@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="Modificacion de campos del menu lateral">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="Modificacion de campos del menu lateral" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -182,6 +179,7 @@
       <workItem from="1602105133635" duration="622000" />
       <workItem from="1602563509587" duration="6626000" />
       <workItem from="1602608157527" duration="1281000" />
+      <workItem from="1602610695784" duration="92000" />
     </task>
     <task id="LOCAL-00001" summary="Correcion de libreria de la base de datos(Shema(192)),">
       <created>1602050322581</created>
@@ -245,10 +243,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="232" y="73" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1602105628835" />
-    <state x="336" y="164" key="com.intellij.ide.util.TipDialog" timestamp="1602608167468">
+    <state x="336" y="164" key="com.intellij.ide.util.TipDialog" timestamp="1602610810122">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="336" y="164" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1602608167468" />
+    <state x="336" y="164" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1602610810122" />
     <state x="449" y="257" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602563871379">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
