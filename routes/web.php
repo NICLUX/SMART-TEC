@@ -23,6 +23,9 @@ Route::get('/cc', function () {
     return view('hola');
 });
 
+Route::get('/dashboard', 'UsuarioController@create')
+    ->name('/dashboard');
+
 
 //-----------Apertura de Caja ------------------//
 Route::get("/apertura_caja",[AperturaCajaController::class,"index"])->name("apertura.index");//Trae todos las aperturas realizadas
