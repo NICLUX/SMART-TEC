@@ -128,6 +128,7 @@
                 <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
 
             </div>
+            <a class="btn btn-secondary" href="{{route('register')}}"> CREAR USUARIO</a>
         </div>
 
     </header><!-- /header -->
@@ -139,7 +140,7 @@
     </div> <!-- .content -->
 </div><!-- /#right-panel -->
 
-<a class="btn btn-primary" href="{{route('register')}}"> CREAR USUARIO</a>
+
 <!-- Right Panel -->
 
 <script src="vendors/jquery/dist/jquery.min.js"></script>
