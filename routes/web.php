@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('principal');
+    return view('auth/login');
 });
 
 
@@ -34,5 +34,5 @@ Route::post("/apertura/crear",[AperturaCajaController::class,"store"])->name("ap
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    return view('principal');
 })->name('dashboard');

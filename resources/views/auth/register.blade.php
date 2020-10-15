@@ -13,7 +13,7 @@
             </div>
 
             <div>
-                <x-jet-label for="name" value="{{ __('Nombre de Usuario') }}" />
+                <x-jet-label for="usuario" value="{{ __('Nombre de Usuario') }}" />
                 <x-jet-input id="usuario"  class="form-control" type="text" name="usuario" :value="old('usuario')" required autofocus autocomplete="usuario" />
             </div>
             <div>
