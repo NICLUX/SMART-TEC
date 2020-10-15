@@ -44,6 +44,9 @@ Route::get('/register', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('principal');
 })->name('dashboard');
+ //________________comprass__________________________//
+Route::get("/compras",[\App\Http\Controllers\CompraController::class,"index"])->name("compras.index");
+Route::get("/compras/crear",[\App\Http\Controllers\CompraController::class,"index"])->name("compras.crear");
 
 //-----------Ventas------------------//
 Route::get("/ventas",[\App\Http\Controllers\VentaController::class,"index"])->name("ventas.index");//Trae todos las aperturas realizadas
