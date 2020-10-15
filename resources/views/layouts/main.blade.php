@@ -110,9 +110,39 @@
 
             </div>
         </div>
-        @if (Route::has('register'))
-            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-        @endif
+        <div >
+            <div class="btn-group dropright">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdown2" data-toggle="dropdown">
+                    Opciones
+                </button>
+                <div class="dropdown-menu">
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                    @endif
+                    <div>
+                        <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
+                            {{ __('Prerfil') }}
+                        </x-jet-responsive-nav-link>
+                    </div>
+
+                    @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+                        <x-jet-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
+                            {{ __('API Tokens') }}
+                        </x-jet-responsive-nav-link>
+                    @endif
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+
+                        <x-jet-responsive-nav-link href="{{ route('logout') }}"
+                                                   onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
+                            {{ __('Salir') }}
+                        </x-jet-responsive-nav-link>
+                    </form>
+                </div>
+            </div>
+
+        </div>
     </header><!-- /header -->
     <!-- Header-->
 
