@@ -45,6 +45,13 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('principal');
 })->name('dashboard');
 
+//-----------Ventas------------------//
+Route::get("/ventas",[\App\Http\Controllers\VentaController::class,"index"])->name("ventas.index");//Trae todos las aperturas realizadas
+
+//-----------Servicios------------------//
+Route::get("/servicios",[\App\Http\Controllers\ServicioController::class,"index"])->name("servicios.index");
+Route::get("/servicios/crear",[\App\Http\Controllers\ServicioController::class,"store"])->name("servicios.crear");
+
 //agregar clientes...
 
 Route::get('/yu', function () {
