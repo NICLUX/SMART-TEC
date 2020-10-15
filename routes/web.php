@@ -39,3 +39,13 @@ Route::get('/register', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('principal');
 })->name('dashboard');
+
+//agregar clientes...
+
+Route::get('/yu', function () {
+    return view('cliente');
+});
+
+
+
+
