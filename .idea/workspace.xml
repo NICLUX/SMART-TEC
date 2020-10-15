@@ -19,10 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="nueva nodificacion del vistas de login y registro de usuarios">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +207,7 @@
       <workItem from="1602100027556" duration="935000" />
       <workItem from="1602105133635" duration="269000" />
       <workItem from="1602255454674" duration="785000" />
-      <workItem from="1602730549900" duration="10140000" />
+      <workItem from="1602730549900" duration="10458000" />
     </task>
     <task id="LOCAL-00001" summary="Correcion de libreria de la base de datos(Shema(192)),">
       <created>1602050322581</created>
@@ -246,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602737585528</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="nueva nodificacion del vistas de login y registro de usuarios y creacion de usuario.">
+      <created>1602740960774</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1602740960774</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,18 +264,19 @@
     <MESSAGE value="Correcion de libreria de la base de datos(Shema(192))," />
     <MESSAGE value="creacion de boton y tabla de usuarios" />
     <MESSAGE value="nueva nodificacion del vistas de login y registro de usuarios" />
-    <option name="LAST_COMMIT_MESSAGE" value="nueva nodificacion del vistas de login y registro de usuarios" />
+    <MESSAGE value="nueva nodificacion del vistas de login y registro de usuarios y creacion de usuario." />
+    <option name="LAST_COMMIT_MESSAGE" value="nueva nodificacion del vistas de login y registro de usuarios y creacion de usuario." />
   </component>
   <component name="WindowStateProjectService">
     <state x="232" y="0" key="#Plugins" timestamp="1602053473950">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="232" y="0" key="#Plugins/0.0.1280.680@0.0.1280.680" timestamp="1602053473950" />
-    <state x="298" y="0" key="CommitChangelistDialog2" timestamp="1602737633703">
+    <state x="298" y="0" key="CommitChangelistDialog2" timestamp="1602740958000">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="265" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1602105596785" />
-    <state x="298" y="0" key="CommitChangelistDialog2/0.0.1440.860@0.0.1440.860" timestamp="1602737633703" />
+    <state x="298" y="0" key="CommitChangelistDialog2/0.0.1440.860@0.0.1440.860" timestamp="1602740958000" />
     <state x="420" y="95" key="FileChooserDialogImpl" timestamp="1602048537008">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
