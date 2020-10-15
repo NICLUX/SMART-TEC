@@ -19,11 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="creacion de boton y tabla de usuarios">
+    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/View/Components/AppLayout.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/Components/AppLayout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/View/Components/GuestLayout.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/Components/GuestLayout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,6 +181,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -209,7 +211,7 @@
       <workItem from="1602100027556" duration="935000" />
       <workItem from="1602105133635" duration="269000" />
       <workItem from="1602255454674" duration="785000" />
-      <workItem from="1602730549900" duration="2180000" />
+      <workItem from="1602730549900" duration="5785000" />
     </task>
     <task id="LOCAL-00001" summary="Correcion de libreria de la base de datos(Shema(192)),">
       <created>1602050322581</created>
@@ -225,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602731642234</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="nueva nodificacion del vistas de login y registro de usuarios">
+      <created>1602732835860</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1602732835860</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,18 +246,19 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Correcion de libreria de la base de datos(Shema(192))," />
     <MESSAGE value="creacion de boton y tabla de usuarios" />
-    <option name="LAST_COMMIT_MESSAGE" value="creacion de boton y tabla de usuarios" />
+    <MESSAGE value="nueva nodificacion del vistas de login y registro de usuarios" />
+    <option name="LAST_COMMIT_MESSAGE" value="nueva nodificacion del vistas de login y registro de usuarios" />
   </component>
   <component name="WindowStateProjectService">
     <state x="232" y="0" key="#Plugins" timestamp="1602053473950">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="232" y="0" key="#Plugins/0.0.1280.680@0.0.1280.680" timestamp="1602053473950" />
-    <state x="298" y="0" key="CommitChangelistDialog2" timestamp="1602731747516">
+    <state x="298" y="0" key="CommitChangelistDialog2" timestamp="1602732834489">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="265" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1602105596785" />
-    <state x="298" y="0" key="CommitChangelistDialog2/0.0.1440.860@0.0.1440.860" timestamp="1602731747516" />
+    <state x="298" y="0" key="CommitChangelistDialog2/0.0.1440.860@0.0.1440.860" timestamp="1602732834489" />
     <state x="420" y="95" key="FileChooserDialogImpl" timestamp="1602048537008">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -266,19 +276,20 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="474" y="263" key="NewPhpFileDialog/0.0.1280.680@0.0.1280.680" timestamp="1602052357161" />
-    <state x="232" y="73" key="Vcs.Push.Dialog.v2" timestamp="1602050345035">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="261" y="92" key="Vcs.Push.Dialog.v2" timestamp="1602732882246">
+      <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="232" y="73" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1602050345035" />
+    <state x="261" y="92" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1602732882246" />
     <state x="336" y="164" key="com.intellij.ide.util.TipDialog" timestamp="1602100036879">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="336" y="164" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1602100036879" />
-    <state x="505" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602731752665">
+    <state x="505" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602733007556">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="449" y="257" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1602105145823" />
     <state x="479" y="275" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1602618371513" />
-    <state x="505" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.860@0.0.1440.860" timestamp="1602731752665" />
+    <state x="505" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.860@0.0.1440.860" timestamp="1602733007556" />
   </component>
 </project>

@@ -1,4 +1,5 @@
 <x-guest-layout>
+
     @section('content')
 
         <x-jet-validation-errors class="mb-4" />
@@ -7,22 +8,31 @@
             @csrf
 
             <div>
-                <x-jet-label for="name" value="{{ __('Name') }}" />
+                <x-jet-label for="name" value="{{ __('Nombre') }}" />
                 <x-jet-input id="name"  class="form-control" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
 
-            <div class="mt-4">
+            <div>
+                <x-jet-label for="name" value="{{ __('Nombre de Usuario') }}" />
+                <x-jet-input id="usuario"  class="form-control" type="text" name="usuario" :value="old('usuario')" required autofocus autocomplete="usuario" />
+            </div>
+            <div>
+                <x-jet-label for="name" value="{{ __('Telefono') }}" />
+                <x-jet-input id="telefono"  class="form-control" type="text" name="telefono" :value="old('telefono')" required autofocus autocomplete="telefono" />
+            </div>
+
+            <div>
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email"  class="form-control" type="email" name="email" :value="old('email')" required />
             </div>
 
-            <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
+            <div>
+                <x-jet-label for="password" value="{{ __('Contraseña') }}" />
                 <x-jet-input id="password"  class="form-control" type="password" name="password" required autocomplete="new-password" />
             </div>
 
-            <div class="mt-4">
-                <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+            <div>
+                <x-jet-label for="password_confirmation" value="{{ __('Confirme Contraseña') }}" />
                 <x-jet-input id="password_confirmation"  class="form-control" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
@@ -36,6 +46,5 @@
                 </x-jet-button>
             </div>
         </form>
-
     @endsection
 </x-guest-layout>

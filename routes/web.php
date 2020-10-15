@@ -25,7 +25,7 @@ Route::get('/cc', function () {
 });
 
 //-----------pantalla de Usuario a traves de Boton ------------------//
-Route::get('/register', [UsuarioController::class, "create"])->name('register');//Se desplaza a la pantalla principal de Usuario
+//Route::get('/register', [UsuarioController::class, "create"])->name('register');//Se desplaza a la pantalla principal de Usuario
 
 
 //-----------Apertura de Caja ------------------//
