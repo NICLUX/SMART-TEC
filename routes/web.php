@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AperturaCajaController;
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,10 +24,15 @@ Route::get('/cc', function () {
     return view('hola');
 });
 
-Route::get('/dashboard', 'UsuarioController@create')
-    ->name('/dashboard');
+//-----------pantalla de Usuario a traves de Boton ------------------//
+Route::get('/register', [UsuarioController::class, "create"])->name('register');//Se desplaza a la pantalla principal de Usuario
 
 
 //-----------Apertura de Caja ------------------//
 Route::get("/apertura_caja",[AperturaCajaController::class,"index"])->name("apertura.index");//Trae todos las aperturas realizadas
 Route::post("/apertura/crear",[AperturaCajaController::class,"store"])->name("apertura.crear");//Crea una nueva apertura de caja
+
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
