@@ -6,8 +6,6 @@
 <html class="no-js" lang="en">
 <!--<![endif]-->
 
-
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -139,7 +137,6 @@
     </div> <!-- .content -->
 </div><!-- /#right-panel -->
 
-<a class="btn btn-primary" href="{{route('register')}}"> CREAR USUARIO</a>
 <!-- Right Panel -->
 
 <script src="vendors/jquery/dist/jquery.min.js"></script>
@@ -183,4 +180,5 @@
 
 </script>
 </body>
+
 </html>
