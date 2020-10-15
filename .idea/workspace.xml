@@ -19,11 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="">
+    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="nueva nodificacion del vistas de login y registro de usuarios">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -211,7 +209,7 @@
       <workItem from="1602100027556" duration="935000" />
       <workItem from="1602105133635" duration="269000" />
       <workItem from="1602255454674" duration="785000" />
-      <workItem from="1602730549900" duration="6794000" />
+      <workItem from="1602730549900" duration="10140000" />
     </task>
     <task id="LOCAL-00001" summary="Correcion de libreria de la base de datos(Shema(192)),">
       <created>1602050322581</created>
@@ -241,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602736603230</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="nueva nodificacion del vistas de login y registro de usuarios">
+      <created>1602737585528</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1602737585528</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,11 +266,11 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="232" y="0" key="#Plugins/0.0.1280.680@0.0.1280.680" timestamp="1602053473950" />
-    <state x="298" y="0" key="CommitChangelistDialog2" timestamp="1602736600214">
+    <state x="298" y="0" key="CommitChangelistDialog2" timestamp="1602737633703">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="265" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1602105596785" />
-    <state x="298" y="0" key="CommitChangelistDialog2/0.0.1440.860@0.0.1440.860" timestamp="1602736600214" />
+    <state x="298" y="0" key="CommitChangelistDialog2/0.0.1440.860@0.0.1440.860" timestamp="1602737633703" />
     <state x="420" y="95" key="FileChooserDialogImpl" timestamp="1602048537008">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -292,11 +297,11 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="336" y="164" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1602100036879" />
-    <state x="505" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602736701258">
+    <state x="505" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602739244961">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="449" y="257" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1602105145823" />
     <state x="479" y="275" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1602618371513" />
-    <state x="505" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.860@0.0.1440.860" timestamp="1602736701258" />
+    <state x="505" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.860@0.0.1440.860" timestamp="1602739244961" />
   </component>
 </project>

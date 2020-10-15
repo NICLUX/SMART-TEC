@@ -5,9 +5,6 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="en">
 <!--<![endif]-->
-
-
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,9 +55,9 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Administrador</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-user-plus"></i><a href="ui-buttons.html">Usuarios</a></li>
+                        <li><i class="fa fa-users"></i><a href="ui-buttons.html">Usuarios</a></li>
                         <li><i class="fa fa-dollar"></i><a href="{{route("apertura.index")}}">Apertura</a></li>
-                        <li><i class="fa fa-cart-arrow-down"></i><a href="ui-buttons.html">Punto de venta</a></li>
+                        <li><i class="fa fa-money "></i><a href="ui-buttons.html">Punto de venta</a></li>
                     </ul>
                 </li>
 
@@ -73,23 +70,11 @@
                         <li><i class="fa fa-product-hunt"></i><a href="tables-basic.html">Productos</a></li>
                     </ul>
                 </li>
-
-                <h3 class="menu-title">Registros</h3><!-- /.menu-title -->
-
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-registered"></i>Inventario general</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">Inventario</a></li>
-                    </ul>
-                </li>
-
-
                 <h3 class="menu-title">Generales</h3><!-- /.menu-title -->
 
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-pencil-square-o"></i>Informes</a>
+                       aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Inventario general</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">Ventas</a></li>
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">Ventas diarias</a></li>
@@ -97,14 +82,10 @@
                         <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Ventas Anuales</a></li>
                     </ul>
                 </li>
-
-                <h3 class="menu-title">NICLUX </h3><!-- /.menu-title -->
-                <<li class="menu-item-has-children dropdown">
+                <h3 class="menu-title">Acerca de </h3><!-- /.menu-title -->
+                <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-coffee"></i>Acerca de </a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-info"></i><a href="page-login.html">Informacion</a></li>
-                    </ul>
+                       aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-info-circle"></i>Acerca de </a>
                 </li>
 
 
@@ -129,7 +110,9 @@
 
             </div>
         </div>
-
+        @if (Route::has('register'))
+            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+        @endif
     </header><!-- /header -->
     <!-- Header-->
 
@@ -139,7 +122,6 @@
     </div> <!-- .content -->
 </div><!-- /#right-panel -->
 
-<a class="btn btn-primary" href="{{route('register')}}"> CREAR USUARIO</a>
 <!-- Right Panel -->
 
 <script src="vendors/jquery/dist/jquery.min.js"></script>
@@ -154,6 +136,7 @@
 
         var modal = $(this);
         modal.find('.modal-footer #idApertura').val(id_apertura);
+
     })
 </script>
 
@@ -182,5 +165,6 @@
     })(jQuery);
 
 </script>
+
 </body>
 </html>
