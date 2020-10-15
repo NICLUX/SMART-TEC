@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AperturaCajaController;
+use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,10 @@ Route::get('/cc', function () {
 //-----------Apertura de Caja ------------------//
 Route::get("/apertura_caja",[AperturaCajaController::class,"index"])->name("apertura.index");//Trae todos las aperturas realizadas
 Route::post("/apertura/crear",[AperturaCajaController::class,"store"])->name("apertura.crear");//Crea una nueva apertura de caja
+
+//---------------Categorias-----------------//
+Route::get("/categorias",[CategoriaController::class,"index"])->name("categorias.index"); // Trae todos las categorias
+Route::get("/categoria/nueva",[CategoriaController::class,"nuevo"])->name("categoria.nueva");
 
 Route::get('/register', function () {
     return view('auth/register');

@@ -16,15 +16,15 @@
     <link rel="apple-touch-icon" href="apple-icon.png">
     <link rel="shortcut icon" href="favicon.ico">
 
-    <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="vendors/themify-icons/css/themify-icons.css">
-    <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="vendors/selectFX/css/cs-skin-elastic.css">
-    <link rel="stylesheet" href="vendors/jqvmap/dist/jqvmap.min.css">
+    <link rel="stylesheet" href="/vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="/vendors/selectFX/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="/vendors/jqvmap/dist/jqvmap.min.css">
 
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
@@ -67,7 +67,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Catalogo</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-product-hunt"></i><a href="tables-basic.html">Productos</a></li>
+                        <li><i class="fa fa-product-hunt"></i><a href="{{route("categorias.index")}}">Productos</a></li>
                     </ul>
                 </li>
                 <h3 class="menu-title">Generales</h3><!-- /.menu-title -->
@@ -111,9 +111,9 @@
             </div>
         </div>
         <div >
-            <div class="btn-group dropright">
-                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdown2" data-toggle="dropdown">
-                    Opciones
+            <div class="btn-group dropright float-right">
+                <button class="btn btn-dark dropdown-toggle btn-sm" type="button" id="dropdown2" data-toggle="dropdown">
+                    {{auth()->user()->name}}
                 </button>
                 <div class="dropdown-menu">
                     @if (Route::has('register'))
@@ -154,10 +154,10 @@
 
 <!-- Right Panel -->
 
-<script src="vendors/jquery/dist/jquery.min.js"></script>
-<script src="vendors/popper.js/dist/umd/popper.min.js"></script>
-<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="/vendors/jquery/dist/jquery.min.js"></script>
+<script src="/vendors/popper.js/dist/umd/popper.min.js"></script>
+<script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/assets/js/main.js"></script>
 
 <script>
     $('#modalBorrarApertura').on('show.bs.modal', function (event) {
@@ -170,12 +170,12 @@
     })
 </script>
 
-<script src="vendors/chart.js/dist/Chart.bundle.min.js"></script>
-<script src="assets/js/dashboard.js"></script>
-<script src="assets/js/widgets.js"></script>
-<script src="vendors/jqvmap/dist/jquery.vmap.min.js"></script>
-<script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-<script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+<script src="/vendors/chart.js/dist/Chart.bundle.min.js"></script>
+<script src="/assets/js/dashboard.js"></script>
+<script src="/assets/js/widgets.js"></script>
+<script src="/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+<script src="/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+<script src="/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
 <script>
     (function($) {
         "use strict";
