@@ -70,11 +70,21 @@
                         <li><i class="fa fa-product-hunt"></i><a href="{{route("categorias.index")}}">Productos</a></li>
                     </ul>
                 </li>
-                <h3 class="menu-title">Generales</h3><!-- /.menu-title -->
+
+                <h3 class="menu-title">Inventarios</h3><!-- /.menu-title -->
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>General</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-product-hunt"></i><a href="{{route("categorias.index")}}">Inventario</a></li>
+                    </ul>
+                </li>
+
+                <h3 class="menu-title">Informes</h3><!-- /.menu-title -->
 
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Inventario general</a>
+                       aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-pencil-square-o"></i>Detalles</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">Ventas</a></li>
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">Ventas diarias</a></li>
@@ -82,10 +92,15 @@
                         <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Ventas Anuales</a></li>
                     </ul>
                 </li>
-                <h3 class="menu-title">Acerca de </h3><!-- /.menu-title -->
+
+
+                <h3 class="menu-title">Informacion</h3><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-info-circle"></i>Acerca de </a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="menu-icon fa fa-coffee"></i><a href="page-login.html">NiCLUX</a></li>
+                    </ul>
                 </li>
 
 
