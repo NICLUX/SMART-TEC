@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AperturaCajaController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,7 +36,17 @@ Route::post("/apertura/crear",[AperturaCajaController::class,"store"])->name("ap
 
 //---------------Categorias-----------------//
 Route::get("/categorias",[CategoriaController::class,"index"])->name("categorias.index"); // Trae todos las categorias
-Route::get("/categoria/nueva",[CategoriaController::class,"nuevo"])->name("categoria.nueva");
+Route::get("/categoria/nueva",[CategoriaController::class,"nuevo"])->name("categoria.nueva");//Muestra el formulario para crear una nueva categoria
+Route::post("/categorias/store",[CategoriaController::class,"store"])->name("categoria.store");//Crea una nueva categoria del formulario
+Route::get("/categoria/{id}/editar",[CategoriaController::class,"editar"])->name("categoria.editar");//Llama el formulario editar una categoria
+Route::put("/categoria/{id}/update",[CategoriaController::class,"update"])->name("categoria.update");//Actualiza la categoria en el formulario editar
+Route::get('/categoria/{id}/destroy',[CategoriaController::class,"destroy"])->name("categoria.destroy");//Borrar la categoria desde la tabla
+
+
+//-------------------Productos--------------------//
+Route::get("/productos",[ProductoController::class,"index"])->name("productos.index");//Muestra todos los productos en una tabla
+Route::get("/producto/nuevo",[ProductoController::class,"nuevo"])->name("producto.nuevo");//Muestra el formulario de crear un nuevo producto.
+
 
 Route::get('/register', function () {
     return view('auth/register');

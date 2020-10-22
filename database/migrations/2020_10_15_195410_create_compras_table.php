@@ -18,7 +18,7 @@ class CreateComprasTable extends Migration
             $table->string('id_usuario');
             $table->string('id_proveedores');
             $table->integer('total_compra');
-            $table->foreignId('id_usuario')->references('id')->on('productos');
+          //  $table->foreignId('id_usuario')->references('id')->on('productos');
             $table->timestamps();
         });
     }

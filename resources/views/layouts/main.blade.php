@@ -67,7 +67,8 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Catalogo</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-product-hunt"></i><a href="{{route("categorias.index")}}">Productos</a></li>
+                        <li><i class="fa fa-product-hunt"></i><a href="{{route("productos.index")}}">Productos</a></li>
+                        <li><i class="fa fa-cc-jcb"></i><a href="{{route("categorias.index")}}">Categorias</a></li>
                     </ul>
                 </li>
 
@@ -128,7 +129,7 @@
         <div >
             <div class="btn-group dropright float-right">
                 <button class="btn btn-dark dropdown-toggle btn-sm" type="button" id="dropdown2" data-toggle="dropdown">
-                    {{auth()->user()->name}}
+                    <!--    -->
                 </button>
                 <div class="dropdown-menu">
                     @if (Route::has('register'))
