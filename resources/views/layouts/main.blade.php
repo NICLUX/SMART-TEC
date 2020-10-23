@@ -129,7 +129,7 @@
         <div >
             <div class="btn-group dropright float-right">
                 <button class="btn btn-dark dropdown-toggle btn-sm" type="button" id="dropdown2" data-toggle="dropdown">
-                    <!--    -->
+                    <i class="fa fa-user-circle" aria-hidden="true"></i>
                 </button>
                 <div class="dropdown-menu">
                     @if (Route::has('register'))
