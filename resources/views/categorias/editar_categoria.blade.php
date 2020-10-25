@@ -57,7 +57,8 @@
                         <!-- Para ingresar una imagen -->
                         <div class="row">
                             <div class="col-2">
-                                <img src="/images/categorias/{{$categoria->imagen}}"
+                                <img
+                                        id="imagen_previa" src="/images/categorias/{{$categoria->imagen}}"
                                      onerror="this.src='/images/no_image.jpg'">
                             </div>
                             <div class="col-9">
@@ -66,6 +67,7 @@
                                     <input class="form-control  @error('imagen') is-invalid @enderror"
                                            accept="image/*"
                                            name="imagen_url"
+                                           onchange="verImagen(event)"
                                            type="file" placeholder="Ingrese una imagen"
                                     >
                                     <small class="text-muted">Solo formatos en imagen (.png,.jpg,.jpeg)</small>
@@ -88,5 +90,12 @@
 
         </div>
     </div>
+    <script>
+        //Permite mostrar la imagen seleccionada
+        var verImagen = function(event) {
+            var image = document.getElementById('imagen_previa');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
 @endsection
 

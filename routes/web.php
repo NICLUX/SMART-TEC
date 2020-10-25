@@ -46,7 +46,10 @@ Route::get('/categoria/{id}/destroy',[CategoriaController::class,"destroy"])->na
 //-------------------Productos--------------------//
 Route::get("/productos",[ProductoController::class,"index"])->name("productos.index");//Muestra todos los productos en una tabla
 Route::get("/producto/nuevo",[ProductoController::class,"nuevo"])->name("producto.nuevo");//Muestra el formulario de crear un nuevo producto.
-
+Route::post("/producto/store",[ProductoController::class,"store"])->name("producto.store");//Guarda el producto del formulario de productos
+Route::get("/producto/{id}/editar",[ProductoController::class,"editar"])->name("producto.editar");//Muestra el formulario de editar un producto
+Route::put("/producto/{id}/update",[ProductoController::class,"update"])->name("producto.update");//Guarda los datos del formulario editar
+Route::get("/producto/{id}/eliminar",[ProductoController::class,"destroy"])->name("producto.destroy");// Eliminar el producto de la tabla
 
 Route::get('/register', function () {
     return view('auth/register');

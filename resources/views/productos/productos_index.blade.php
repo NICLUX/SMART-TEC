@@ -61,10 +61,12 @@
                                           onclick="$('#callModalVistaPrevia{{$producto->id}}').click()"
                                           width="150px" height="150px" style="object-fit: contain"
                                           onerror="this.src='/images/no_image.jpg'"></td>
-                                <td><button class="btn btn-sm btn-success">
-                                        <i class="fa fa-pencil"></i></button>
+                                <td><a class="btn btn-sm btn-success"
+                                    href="{{route("producto.editar",["id"=>$producto->id])}}">
+                                        <i class="fa fa-pencil"></i></a>
 
-                                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                                    <a class="btn btn-danger btn-sm"
+                                    href="{{route("producto.destroy",["id"=>$producto->id])}}"><i class="fa fa-trash"></i></a>
                                 </td>
 
                             </tr>
