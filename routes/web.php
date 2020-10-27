@@ -82,8 +82,13 @@ Route::post("/compras/crear",[\App\Http\Controllers\CompraController::class,"sto
 Route::get("/ventas",[\App\Http\Controllers\VentaController::class,"index"])->name("ventas.index");//Trae todos las aperturas realizadas
 
 //-----------Servicios------------------//
-Route::get("/servicios",[\App\Http\Controllers\ServicioController::class,"index"])->name("servicios.index");
-Route::get("/servicios/crear",[\App\Http\Controllers\ServicioController::class,"store"])->name("servicios.crear");
+Route::get("/servicios",[\App\Http\Controllers\ServicioController::class,"index"])->name("servicios.index");//muestra todos los servicios
+Route::get("/servicios/crear",[\App\Http\Controllers\ServicioController::class,"create"])->name("servicios.crear");//formulario de crear servicio
+Route::post('/servicios/crear', [\App\Http\Controllers\ServicioController::class,"store"])->name('servicios.store');//crea el nuevo servicio
+Route::get("/servicios/{id}/editar",[CategoriaController::class,"editar"])->name("servicios.editar");//Llama el formulario editar un servicio
+Route::put("/servicios/{id}/update",[CategoriaController::class,"update"])->name("servicios.update");//Actualiza el servicio en el formulario editar
+Route::get('/servicios/{id}/destroy',[CategoriaController::class,"destroy"])->name("servicios.destroy");//Borrar el servicio desde la tabla
+
 
 //agregar clientes...
 
