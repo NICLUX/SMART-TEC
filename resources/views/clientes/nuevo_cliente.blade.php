@@ -42,12 +42,13 @@
 
                 <div class="form-group">
                     <label>Ingrese la direccion:</label>
-                    <textarea class="form-control @error('direccion') is-invalid @enderror"
-                              placeholder="Direccion exacta"
-                              required
-                              maxlength="80" name="direccion">
-                        {{old("direccion")}}
-                    </textarea>
+                    <input class="form-control @error('direccion') is-invalid @enderror"
+                           placeholder="Direccion exacta"
+                           required
+                           value="{{old("direccion")}}"
+                           maxlength="80" name="direccion">
+
+
                     @error('direccion')
                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
