@@ -57,6 +57,7 @@
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-users"></i><a href="ui-buttons.html">Usuarios</a></li>
                         <li><i class="fa fa-user-md"></i><a href="{{route("proveedores.index")}}">Proveedores</a></li>
+                        <li><i class="fa fa-user-plus"></i><a href="{{route("clientes.index")}}">Clientes</a></li>
 
                         <li><i class="fa fa-dollar"></i><a href="{{route("apertura.index")}}">Apertura</a></li>
                         <li><i class="fa fa-money "></i><a href="ui-buttons.html">Punto de venta</a></li>

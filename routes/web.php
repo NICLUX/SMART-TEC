@@ -59,6 +59,14 @@ Route::get("/proveedor/{id}/editar",[\App\Http\Controllers\ProveedorController::
 Route::put("/proveedor/{id}/update",[\App\Http\Controllers\ProveedorController::class,"update"])->name("proveedor.update");//Guarda los datos de actualizar proveedor
 Route::get("/proveedor/{id}/destroy",[\App\Http\Controllers\ProveedorController::class,"destroy"])->name("proveedor.destroy");//Borra un proveedor desde la lista
 
+//--------------------Clientes-----------------------//
+Route::get("/clientes",[\App\Http\Controllers\ClienteController::class,"index"])->name("clientes.index");//Muestra todos los clientes en una tabla
+Route::get("/cliente/nuevo",[\App\Http\Controllers\ClienteController::class,"nuevo"])->name("cliente.nuevo");//Muestra el formulario de crear un nuevo cliente
+Route::post("/cliente/store",[\App\Http\Controllers\ClienteController::class,"store"])->name("cliente.store");//Guarda el cliente del formulario
+Route::get("/cliente/{id}/editar",[\App\Http\Controllers\ClienteController::class,"editar"])->name("cliente.editar");//Muestra un formulario de editar un cliente
+Route::put("/cliente/{id}/update",[\App\Http\Controllers\ClienteController::class,"update"])->name("cliente.update");//Actualiza los datos del formulario de editar cliente
+Route::get("/cliente/{id}/destroy",[\App\Http\Controllers\ClienteController::class,"destroy"])->name("cliente.destroy");//Elimina el cliente de la tabla
+
 Route::get('/register', function () {
     return view('auth/register');
 })->name('register');
