@@ -4,15 +4,10 @@
 
 
 
-        <div>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">Agregar Nuevos Servicios</li>
-                </ol>
-                <div>
-                </div>
-            </nav>
-
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Nuevo Servicio</h3>
+            </div>
             <div class="card-body">
 
             <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
@@ -65,11 +60,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Ingrese el costo de venta:</label>
-                            <input class="form-control  @error('costo_venta') is-invalid @enderror"
-                                   placeholder="Costo de Venta"
+                            <label for="costo_venta">Ingrese el costo de la venta:</label>
+                            <input class="form-control @error('costo_venta') is-invalid @enderror" name="costo_venta"
+                                   id="costo_venta"
+                                   type="number"
+                                   min="0"
                                    required
-                                   value="{{old("costo_venta")}}" name="costo_venta">
+                                   placeholder="Ingrese el costo venta" maxlength="80">
                             @error('costo_venta')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -77,23 +74,29 @@
                             @enderror
                         </div>
 
-
                         <div class="form-group">
-                            <label>Seleccione una categoria:</label>
-                            <select name="form1" class="form-control" id="exampleFormControlSelect1">
-                                <div class="form-group">
-                                    <option>Seleccionar Categoria</option>
-                                    <option >Nueva</option>
-                                    @foreach($servicios as $item => $servicio) <option>{{$servicio->id_categoria}}</option>
+                            <label for="id_categoria">Seleccione una categoria</label>
+                            <div class="input-group">
+                                <select id="id_categoria"
+                                        name="id_categoria"
+                                        class="form-control @error('id_categoria') is-invalid @enderror" required>
+                                    <option value="" selected disabled>Seleccione una opcion</option>
+                                    @foreach($categorias as $categoria)
+                                        <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
                                     @endforeach
+                                </select>
+                                <div class="input-group-append">
+                                    <a class="btn btn-outline-success" href="{{route("categoria.nueva")}}" type="button"><i
+                                            class="fa fa-plus"></i></a>
                                 </div>
-                            </select>
+                            </div>
                             @error('id_categoria')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                             @enderror
                         </div>
+
                     <hr>
                         <button type="submit" class="btn btn-success">Guardar</button>
                 </form>

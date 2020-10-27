@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Categoria;
 use App\Models\Servicio;
 use Illuminate\Http\Request;
 
@@ -8,13 +9,14 @@ class ServicioController extends Controller
 {
         public function index (){
             $servicios = Servicio::paginate(10);
-            return view("servicio")->with("servicios", $servicios)->with('id_categoria');
+            return view("servicio")->with("servicios", $servicios);
     }
 
 
     public function create(){
-        $servicios = Servicio::paginate(10);
-        return view("agregar_servicio")->with("servicios", $servicios);
+
+        $categorias = Categoria::all();
+        return view("agregar_servicio")->with("categorias", $categorias);
     }
 
 
@@ -23,13 +25,11 @@ class ServicioController extends Controller
             "nombre"=>"required|max:80",
             "descripcion"=>"max:80",
             "costo_venta"=>"numeric|min:0",
-            "id_categoria"=>"alpha",
 
         ],[
             "nombre.required"=>"Se requiere ingresar el nombre del servicio",
             "descripcion.max"=>"La descripción debe ser menor a 80 caracteres",
-            "costo_venta.required"=>"se requiere ingresar el costo de venta",
-            "id_categoria.alpha"=>"la categoria debe ser alpha",
+            "costo_venta.numeric"=>"Se requiere que el costo de venta sea un numero",
         ]);
 
 
@@ -42,39 +42,48 @@ class ServicioController extends Controller
         $creado = $nuevoServicio->save();
 
         if ($creado){
-            return redirect()->route('servicio.index')
+            return redirect()->route('servicios.index')
                 ->with('mensaje', 'El servicio fue creado exitosamente.');
         }
     }
 
         public function edit($id){
-            $servicios = Servicio::findOrFail($id);
+            $servicio = Servicio::findOrFail($id);
+            $categorias = Categoria::all();
             return view("editar_servicio")
-                ->with("servicio", $servicios);
+                ->withCategorias($categorias)
+                ->with("servicio", $servicio);
         }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $this->validate($request, []);
+        $this->validate($request,[
+            "nombre"=>"required|max:80",
+            "descripcion"=>"max:80",
+            "costo_venta"=>"numeric|min:0",
 
-        $editarServicio = Servicio::findOrfail($request);
-        $editarServicio->nombre = $request->input("nombre");
-        $editarServicio->descripcion = $request->input("descripcion");
-        $editarServicio->costo_venta = $request->input("costo_venta");
-        $editarServicio->id_categoria = $request->input("id_categoria");
-        $editarServicio->save();
+        ],[
+            "nombre.required"=>"Se requiere ingresar el nombre del servicio",
+            "descripcion.max"=>"La descripción debe ser menor a 80 caracteres",
+            "costo_venta.numeric"=>"Se requiere que el costo de venta sea un numero",
+        ]);
 
-        return redirect()->route("servicios.index")->with("exito", "registro actualizado correctamente");
+        $actualizarServicio = Servicio::findOrFail($id);
+        $actualizarServicio->descripcion= $request->input("descripcion");
+        $actualizarServicio->costo_venta= $request->input("costo_venta");
+
+        $actualizarServicio->save();
+
+        return redirect()->route("servicios.index")
+            ->with("exito", "Se actualizo exitosamente el servicio.");
     }
 
-
-        //Metodo para borrar un servicio desde la tabla
         public function destroy($id){
-
-            $servicios = Servicio::findOrfail($id);
+            $servicios= Servicio::findOrFail($id);
             $servicios->delete();
+
             return redirect()->route("servicios.index")
-                ->with("exito","Se elimino correctamente el servicio");
+                ->with("exito", "Se elimino exitosamente el servicio.");
         }
 
 }

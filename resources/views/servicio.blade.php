@@ -41,26 +41,33 @@
                                 <th scope="col">Descripcion</th>
                                 <th scope="col">Costo</th>
                                 <th scope="col">Categoria</th>
-                                <th scope="col">Opciones</th>
+                                <th scope="col">Editar</th>
+                                <th scope="col">Eliminar</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($servicios as $item=> $servicio)
 
                                 <tr>
-                                    <th scope="col">{{$item+$servicios->firstItem()}}</th>
-                                    <td>{{$servicio->id}}</td>
+                                    <th scope="row">{{$servicio->id}}</th>
                                     <td>{{$servicio->nombre}}</td>
-                                    <td>{{$servicio->descripcion}}</td>
-                                    <td>{{$servicio->costo}}</td>
+                                    @if($servicio->descripcion)
+                                        <td>{{$servicio->descripcion}}</td>
+                                    @else
+                                        <td>n/a</td>
+                                    @endif
+                                    <td>{{$servicio->costo_venta}}</td>
                                     <td>{{$servicio ->id_categoria}}</td>
                                     <td>
                                         <a class="btn btn-sm btn-success"
-                                           href="{{route("servicios.editar",["id"=>$servicio->id])}}"
-                                           title="Editar"><i class="fa fa-pencil"></i></a>
+                                           href="{{route("servicios.editar",["id"=>$servicio->id])}}">
+                                            <i class="fa fa-pencil"></i></a>
+
+                                    </td>
+                                    <td>
                                         <a class="btn btn-sm btn-danger"
-                                           href="{{route("servicios.destroy",["id"=>$servicio->id])}}"
-                                           title="Eliminar"><i class="fa fa-trash"></i></a>
+                                           href="{{route("servicios.destroy",["id"=>$servicio->id])}}">
+                                            <i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
