@@ -53,6 +53,7 @@
                                        href="{{route("cliente.editar",["id"=>$cliente->id])}}"
                                        title="Editar"><i class="fa fa-pencil"></i></a>
                                     <a class="btn btn-sm btn-danger"
+                                       href="{{route("cliente.destroy",["id"=>$cliente->id])}}"
                                        title="Eliminar"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
