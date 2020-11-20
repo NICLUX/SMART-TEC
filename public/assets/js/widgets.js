@@ -14,6 +14,10 @@
             }
         });
     });
+   document.getElementById("selectProducto").select2({
+        placeholder: "Seleccione un producto",
+        allowClear: true
+    });
 
     //WidgetChart 1
     var ctx = document.getElementById( "widgetChart1" );

@@ -22,12 +22,15 @@
     <link rel="stylesheet" href="/vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="/vendors/selectFX/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="/vendors/jqvmap/dist/jqvmap.min.css">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+
 
 
     <link rel="stylesheet" href="/assets/css/style.css">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
+    @livewireStyles
 </head>
 
 <body>
@@ -80,7 +83,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>General</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-product-hunt"></i><a href="{{route("categorias.index")}}">Inventario</a></li>
+                        <li><i class="fa fa-product-hunt"></i><a href="{{route("inventario.index")}}">Inventario</a></li>
                     </ul>
                 </li>
 
@@ -168,6 +171,8 @@
 
     <div class="content mt-3">
         @yield('content')
+
+
     </div> <!-- .content -->
 </div><!-- /#right-panel -->
 
@@ -177,7 +182,7 @@
 <script src="/vendors/popper.js/dist/umd/popper.min.js"></script>
 <script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/assets/js/main.js"></script>
-
+@livewireScripts
 <script>
     $('#modalBorrarApertura').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
@@ -192,9 +197,13 @@
 <script src="/vendors/chart.js/dist/Chart.bundle.min.js"></script>
 <script src="/assets/js/dashboard.js"></script>
 <script src="/assets/js/widgets.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script src="/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
 <script src="/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
 <script src="/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+
 <script>
     (function($) {
         "use strict";
@@ -213,6 +222,15 @@
         });
     })(jQuery);
 
+</script>
+<script>
+    // In your Javascript (external .js resource or <script> tag)
+    $(document).ready(function() {
+        $('#selectProducto').select2({
+            placeholder: "Seleccione un producto",
+            allowClear: true
+        });
+    });
 </script>
 
 </body>

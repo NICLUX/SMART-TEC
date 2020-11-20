@@ -4,9 +4,27 @@
         <div class="card-header">
             <h3 class="card-title">Productos</h3>
         </div>
+
         <div class="card-body">
             <a class="btn btn-success btn-sm float-right" href="{{route("producto.nuevo")}}"><i class="fa fa-plus"></i>
                 Agregar</a>
+            <br>
+            <br>
+            <form method="get" action="{{route("producto.buscar")}}">
+                @csrf
+                <div class="form-inline my-2 my-lg-0 float-right">
+                    <input class="form-control"
+                           name="busqueda"
+                           @if(isset($busqueda))
+                           value="{{$busqueda}}"
+                           @endif
+                           type="search" placeholder="Buscar">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+
             <br>
             <hr>
 
@@ -28,54 +46,55 @@
 
                 </div>
             @endif
-            <div class="card card-body">
-                <div class="container-fluid">
-                    <table class="table">
-                        <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Descripcion</th>
-                            <th scope="col">Categoria</th>
-                            <th scope="col">Costo de compra</th>
-                            <th scope="col">Costo de venta</th>
-                            <th scope="col">Imagen</th>
-                            <th scope="col">Opciones</th>
+            @if($productos->count()>0)
+                <div class="card-columns">
+                    @foreach($productos as $producto)
+                        <div class="card">
+                            <img src="/images/productos/{{$producto->imagen_url}}"
+                                 class="card-img-top"
+                                 onclick="$('#callModalVistaPrevia{{$producto->id}}').click()"
+                                 onerror="this.src='/images/no_image.jpg'">
 
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($productos as $producto)
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>{{$producto->nombre}}</td>
+
+                            <div class="card-body">
+                                <h5 class="card-title">{{$producto->nombre}}</h5>
+                                <p class="card-text"><i class="fa fa-codepen"></i> {{$producto->nombre_categoria}}</p>
                                 @if($producto->descripcion)
-                                <td>{{$producto->descripcion}}</td>
-                                @else
-                                    <td>n/a</td>
+                                    <p class="card-text"><strong>Descripcion:</strong> {{$producto->descripcion}}</p>
                                 @endif
-                                <td>{{$producto->nombre_categoria}}</td>
-                                <td>{{$producto->costo_compra}}</td>
-                                <td>{{$producto->costo_venta}}</td>
-                                <td> <img src="/images/productos/{{$producto->imagen_url}}"
-                                          onclick="$('#callModalVistaPrevia{{$producto->id}}').click()"
-                                          width="150px" height="150px" style="object-fit: contain"
-                                          onerror="this.src='/images/no_image.jpg'"></td>
-                                <td><a class="btn btn-sm btn-success"
-                                    href="{{route("producto.editar",["id"=>$producto->id])}}">
-                                        <i class="fa fa-pencil"></i></a>
+                                <small class="text-muted"><i class="fa fa-dollar"></i> <strong>Costo compra:
+                                        Lps.</strong> {{$producto->costo_compra}}</small>
+                                <br>
+                                <small class="text-muted"><i class="fa fa-money"></i> <strong>Costo venta:
+                                        Lps.</strong> {{$producto->costo_venta}}</small>
 
-                                    <a class="btn btn-danger btn-sm"
-                                    href="{{route("producto.destroy",["id"=>$producto->id])}}"><i class="fa fa-trash"></i></a>
-                                </td>
+                                <br>
+                                @if($producto->en_stock)
+                                    <small class="text-muted"><i class="fa fa-star"></i> <strong>En Stock:
+                                            #</strong> {{$producto->en_stock}}</small>
+                                @else
+                                    <div class="alert alert-warning">
+                                        <small>Este producto no hay en stock</small>
+                                    </div>
 
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+                                @endif
+                                <br>
+                                <a class="btn btn-sm btn-success"
+                                   href="{{route("producto.editar",["id"=>$producto->id])}}">
+                                    <i class="fa fa-pencil"></i></a>
 
+                                <a class="btn btn-danger btn-sm"
+                                   href="{{route("producto.destroy",["id"=>$producto->id])}}">
+                                    <i class="fa fa-trash"></i></a>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-            </div>
+            @else
+                <div class="alert alert-info">
+                    No hay productos ingresados aun
+                </div>
+            @endif
         </div>
     </div>
 

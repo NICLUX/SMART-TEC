@@ -30,7 +30,24 @@
                 Agregar</a>
 
             <br>
-            <hr>
+            <br>
+            <form method="get" action="{{route("categoria.buscar")}}">
+                @csrf
+                <div class="form-inline my-2 my-lg-0 float-right">
+                    <input class="form-control"
+                           name="busqueda"
+                           @if(isset($busqueda))
+                           value="{{$busqueda}}"
+                           @endif
+                           type="search" placeholder="Buscar">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+
+            <br>
+            <br>
 
             <table class="table">
                 <thead class="thead-dark">

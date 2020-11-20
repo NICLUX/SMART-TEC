@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categoria;
+use App\Models\Inventario;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -15,6 +16,15 @@ class ProductoController extends Controller
         return view("productos.productos_index")->with("productos", $productos);
     }
 
+    public function buscarProducto(Request $request){
+        $busqueda = $request->input("busqueda");
+        $productos = Producto::where("nombre",
+            "like","%".$request->input("busqueda")."%")
+            ->paginate(10);
+
+        return view("productos.productos_index")
+            ->with("busqueda",$busqueda)->with("productos", $productos);
+    }
     public function nuevo()
     {
         $categorias = Categoria::all();
@@ -136,6 +146,8 @@ class ProductoController extends Controller
     public function destroy($id)
     {
         $producto= Producto::findOrFail($id);
+        $inventario = Inventario::where("id_producto","=",$id);
+        $inventario->delete();
         /***Si la imagen exite se debe eliminar  **/
         $img_anterior=public_path()."/images/productos/".$producto->imagen_url;
         if (File::exists($img_anterior)){

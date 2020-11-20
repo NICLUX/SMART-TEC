@@ -33,6 +33,9 @@ jQuery(document).ready(function($) {
 	// 	$('.user-menu').parent().removeClass('open');
 	// 	$('.user-menu').parent().toggleClass('open');
 	// });
-
+	jQuery('.select2').select2({
+		placeholder: "Seleccione una opcion",
+		allowClear: true
+	});
 
 });

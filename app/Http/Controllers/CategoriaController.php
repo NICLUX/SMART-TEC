@@ -22,6 +22,14 @@ class CategoriaController extends Controller
     public function nuevo(){
         return view("categorias.nueva_categoria");
     }
+    public function buscarCategoria(Request $request){
+        $busqueda = $request->input("busqueda");
+        $categorias = Categoria::where("nombre","like","%".$request->input("busqueda")."%")->paginate(5);
+        return view("categorias.categorias")
+            ->with("busqueda",$busqueda)->with("categorias",$categorias);
+
+
+    }
     public function store(Request $request){
         $this->validate($request,[
             "nombre"=>"required|max:80|unique:categorias,nombre",

@@ -10,11 +10,16 @@ class Producto extends Model
     use HasFactory;
 
     protected $fillable=["nombre", "costo_compra","id_categoria", "costo_venta", "imagen_url", "descripcion"];
-    protected $appends=["nombre_categoria"];
+    protected $appends=["nombre_categoria","en_stock"];
 
 
     public function getNombreCategoriaAttribute(){
         $nombreCategoria = Categoria::findOrFail($this->id_categoria)->value("nombre");
         return $nombreCategoria;
     }
+    public  function getEnStockAttribute(){
+        $inventario= Inventario::where("id_producto","=",$this->id)->value("cantidad");
+        return $inventario;
+    }
+
 }
