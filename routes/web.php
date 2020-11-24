@@ -99,7 +99,9 @@ Route::get("/inventario/{id}/producto/editar",[\App\Http\Controllers\InventarioC
 Route::put("/inventario/{id}/update",[\App\Http\Controllers\InventarioController::class,"update"])->name("inventario.update");
 Route::get("/inventario/{id}/producto/eliminar",[\App\Http\Controllers\InventarioController::class,"destroy"])->name("inventario.destroy");
 
-
+//------------------Venta------------------//
+Route::get("/ventas",\App\Http\Livewire\Ventas::class)->name("ventas.index");
+Route::get("/venta/crear",\App\Http\Livewire\CrearVenta::class)->name("venta.nuevo");
 
 
 
