@@ -1,0 +1,97 @@
+
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html,body{
+    background-image: url('https://www.tourinews.es/uploads/s1/16/86/25/paisaje-2.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+}
+.container{
+    height: 100%;
+    align-content: center;
+    color: #fdfcfc;
+}
+.card-footer{
+    margin-bottom: 30px;
+    margin-top: auto;
+}
+
+.card{
+    height: 570px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 600px;
+    background-color: rgba(0,0,0,0.5) !important;
+}
+
+.social_icon span{
+    font-size: 60px;
+    margin-left: 10px;
+    color: #FFC312;
+}
+
+.social_icon span:hover{
+    color: white;
+    cursor: pointer;
+}
+
+.card-header{
+    color: white;
+}
+.social_icon{
+    position: absolute;
+    right: 20px;
+    top: -45px;
+}
+
+.input-group-prepend span{
+    width: 50px;
+    background-color: #FFC312;
+    color: black;
+    border:0 !important;
+}
+.remember{
+    color: white;
+}
+
+.remember input
+{
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+.login_btn{
+    color: black;
+    background-color: #FFC312;
+    width: 100px;
+}
+
+.login_btn:hover{
+    color: black;
+    background-color: white;
+}
+
+.links{
+    color: white;
+}
+
+.links a{
+    margin-left: 4px;
+}
+brand_logo_container {
+    position: absolute;
+    height: 170px;
+    width: 170px;
+    top: -75px;
+    background-color: rgba(78, 70, 70, 0.5) !important;
+    padding: 10px;
+    text-align: center;
+}
+img{
+    width: 40%;
+    margin-left: 30%;
+}
