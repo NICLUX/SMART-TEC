@@ -274,7 +274,21 @@
       <option name="project" value="LOCAL" />
       <updated>1606241309043</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Correción de direccion en crear_cliente por input en vez de TextArea">
+      <created>1606241383240</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1606241383240</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Creacon de vistas usuario">
+      <created>1606241592610</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1606241592610</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,19 +312,24 @@
     <MESSAGE value="Creacion de proveedores su respectivo CRUD" />
     <MESSAGE value="Creacion de clientes_index.blade.php su respectivo CRUD" />
     <MESSAGE value="Permitir eliminar un cliente en clientes_index.blade.php" />
-    <MESSAGE value="Correción de direccion en crear_cliente por input en vez de TextArea" />
     <MESSAGE value="creacion de vistas usuario" />
-    <option name="LAST_COMMIT_MESSAGE" value="creacion de vistas usuario" />
+    <MESSAGE value="Correción de direccion en crear_cliente por input en vez de TextArea" />
+    <MESSAGE value="Creacon de vistas usuario" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creacon de vistas usuario" />
   </component>
   <component name="WindowStateProjectService">
     <state x="363" y="104" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1603690098741">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="363" y="104" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.738@0.0.1366.738" timestamp="1603690098741" />
-    <state x="259" y="17" key="CommitChangelistDialog2" timestamp="1606241306098">
+    <state x="259" y="17" key="CommitChangelistDialog2" timestamp="1606241591401">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="259" y="17" key="CommitChangelistDialog2/0.0.1440.860@0.0.1440.860" timestamp="1606241306098" />
+    <state x="259" y="17" key="CommitChangelistDialog2/0.0.1440.860@0.0.1440.860" timestamp="1606241591401" />
+    <state x="100" y="100" width="1240" height="660" key="DiffContextDialog" timestamp="1606241761711">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="100" y="100" width="1240" height="660" key="DiffContextDialog/0.0.1440.860@0.0.1440.860" timestamp="1606241761711" />
     <state x="517" y="292" key="NewPhpFileDialog" timestamp="1603762848620">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -319,10 +338,11 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="13" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1606186343128" />
-    <state x="275" y="101" key="Vcs.Push.Dialog.v2" timestamp="1603765462060">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state x="290" y="118" key="Vcs.Push.Dialog.v2" timestamp="1606241491830">
+      <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1603765462060" />
+    <state x="290" y="118" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1606241491830" />
     <state x="500" y="282" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606186591610">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
