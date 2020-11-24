@@ -20,18 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="Correción de direccion en crear_cliente por input en vez de TextArea">
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/CrearVenta.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/Ventas.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/DetalleVenta.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_24_033421_create_ventas_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_24_034500_create_detalle_ventas_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/ventas/crear-venta.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/ventas/ventas.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SMARTEC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SMARTEC.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Venta.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Venta.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,6 +163,9 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1jOwyGafamMNoJnAFFkh1zH3mAM" />
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -181,7 +173,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -195,15 +187,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\SMART-TEC\resources\views" />
+      <recent name="C:\wamp64\www\SMART-TEC\public\images" />
+      <recent name="C:\wamp64\www\SMART-TEC\public\images\logo" />
+      <recent name="C:\wamp64\www\SMART-TEC\public" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\SMART-TEC\resources\views\livewire\ventas" />
       <recent name="C:\wamp64\www\SMART-TEC\resources\views" />
       <recent name="C:\wamp64\www\SMART-TEC\resources\views\categorias" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\SMART-TEC\public\images" />
-      <recent name="C:\wamp64\www\SMART-TEC\public\images\logo" />
-      <recent name="C:\wamp64\www\SMART-TEC\public" />
     </key>
   </component>
   <component name="RunManager">
@@ -274,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603765459116</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="creacion de vistas usuario">
+      <created>1606241309043</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1606241309043</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,13 +299,18 @@
     <MESSAGE value="Creacion de clientes_index.blade.php su respectivo CRUD" />
     <MESSAGE value="Permitir eliminar un cliente en clientes_index.blade.php" />
     <MESSAGE value="Correción de direccion en crear_cliente por input en vez de TextArea" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correción de direccion en crear_cliente por input en vez de TextArea" />
+    <MESSAGE value="creacion de vistas usuario" />
+    <option name="LAST_COMMIT_MESSAGE" value="creacion de vistas usuario" />
   </component>
   <component name="WindowStateProjectService">
     <state x="363" y="104" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1603690098741">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="363" y="104" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.738@0.0.1366.738" timestamp="1603690098741" />
+    <state x="259" y="17" key="CommitChangelistDialog2" timestamp="1606241306098">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="259" y="17" key="CommitChangelistDialog2/0.0.1440.860@0.0.1440.860" timestamp="1606241306098" />
     <state x="517" y="292" key="NewPhpFileDialog" timestamp="1603762848620">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
