@@ -19,7 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="Correción de direccion en crear_cliente por input en vez de TextArea">
+    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="Creacon de vistas usuario">
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_11_2020_11_57_a__m__[Default_Changelist]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_11_2020_11_57_a__m__[Default_Changelist]1/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_11_2020_11_57_a__m___Default_Changelist_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_11_2020_11_57_a__m___Default_Changelist_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -173,7 +177,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Models" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -188,10 +192,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\SMART-TEC\app\Models" />
+      <recent name="C:\wamp64\www\SMART-TEC\resources\views\layouts" />
       <recent name="C:\wamp64\www\SMART-TEC\resources\views" />
       <recent name="C:\wamp64\www\SMART-TEC\public\images" />
       <recent name="C:\wamp64\www\SMART-TEC\public\images\logo" />
-      <recent name="C:\wamp64\www\SMART-TEC\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\SMART-TEC\resources\views\livewire\ventas" />
@@ -288,7 +293,35 @@
       <option name="project" value="LOCAL" />
       <updated>1606241592610</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Creacon de vistas usuario">
+      <created>1606241786528</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1606241786528</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Creacon de vistas usuario">
+      <created>1606241994745</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1606241994745</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Creacon de vistas usuario">
+      <created>1606242293265</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1606242293265</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Creacon de vistas usuario">
+      <created>1606243166339</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1606243166339</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,14 +351,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="Creacon de vistas usuario" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="522" y="223" key="#TODO" timestamp="1606242055071">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="522" y="223" key="#TODO/0.0.1440.860@0.0.1440.860" timestamp="1606242055071" />
     <state x="363" y="104" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1603690098741">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="363" y="104" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.738@0.0.1366.738" timestamp="1603690098741" />
-    <state x="259" y="17" key="CommitChangelistDialog2" timestamp="1606241591401">
+    <state x="259" y="17" key="CommitChangelistDialog2" timestamp="1606243164347">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="259" y="17" key="CommitChangelistDialog2/0.0.1440.860@0.0.1440.860" timestamp="1606241591401" />
+    <state x="259" y="17" key="CommitChangelistDialog2/0.0.1440.860@0.0.1440.860" timestamp="1606243164347" />
     <state x="100" y="100" width="1240" height="660" key="DiffContextDialog" timestamp="1606241761711">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
@@ -338,11 +375,11 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="13" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1606186343128" />
-    <state x="290" y="118" key="Vcs.Push.Dialog.v2" timestamp="1606241491830">
+    <state x="290" y="118" key="Vcs.Push.Dialog.v2" timestamp="1606243176121">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1603765462060" />
-    <state x="290" y="118" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1606241491830" />
+    <state x="290" y="118" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1606243176121" />
     <state x="500" y="282" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606186591610">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
