@@ -9,21 +9,38 @@ class ServicioController extends Controller
 {
         public function index (){
             $servicios = Servicio::paginate(10);
-            return view("servicio")->with("servicios", $servicios);
+            return view("servicios.servicio")->with("servicios", $servicios);
+    }
+
+    public function nuevaVista(){
+        $servicios = Servicio::paginate(10);
+        return view("servicios.vista_tabla_servicios")->with("servicios", $servicios);
+    }
+
+    public function buscarServicio(Request $request)
+    {
+        $busqueda = $request->input("busqueda");
+        $servicios = Servicio::where("nombre",
+            "like", "%" . $request->input("busqueda") . "%")
+            ->paginate(10);
+
+        return view("servicio")
+            ->with("busqueda", $busqueda)->with("servicios", $servicios);
+
     }
 
 
     public function create(){
 
         $categorias = Categoria::all();
-        return view("agregar_servicio")->with("categorias", $categorias);
+        return view("servicios.agregar_servicio")->with("categorias", $categorias);
     }
 
 
     public function store(request $request){
         $this->validate($request,[
-            "nombre"=>"required|max:80",
-            "descripcion"=>"max:80",
+            "nombre"=>"required|max:80|alpha",
+            "descripcion"=>"max:80|alpha",
             "costo_venta"=>"numeric|min:0",
 
         ],[
@@ -50,7 +67,7 @@ class ServicioController extends Controller
         public function edit($id){
             $servicio = Servicio::findOrFail($id);
             $categorias = Categoria::all();
-            return view("editar_servicio")
+            return view("servicios.editar_servicio")
                 ->withCategorias($categorias)
                 ->with("servicio", $servicio);
         }
@@ -58,8 +75,8 @@ class ServicioController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            "nombre"=>"required|max:80",
-            "descripcion"=>"max:80",
+            "nombre"=>"required|max:80|alpha",
+            "descripcion"=>"max:80|alpha",
             "costo_venta"=>"numeric|min:0",
 
         ],[

@@ -16,9 +16,9 @@
         <br><br>
         @if(session("exito"))
             <div class="alert alert-success ">
-                {{session("exito")}}
-            </div>
+             </div>
         @endif
+
         @if($compras->count()>0)
             <table class="table table-striped table-dark">
                 <thead>

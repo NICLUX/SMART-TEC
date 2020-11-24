@@ -54,7 +54,7 @@
                 <li class="active">
                     <a href="/"> <i class="menu-icon fa fa-home"></i>Inicio </a>
                 </li>
-                <h3 class="menu-title">Administracion</h3><!-- /.menu-title -->
+               <!--  <h3 class="menu-title">Administracion</h3> --><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Administrador</a>
                     <ul class="sub-menu children dropdown-menu">
@@ -68,17 +68,18 @@
                 </li>
 
 
-                <h3 class="menu-title">Productos</h3><!-- /.menu-title -->
+                <!-- <h3 class="menu-title">Productos</h3> --> <!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Catalogo</a>
+                       aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Productos</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-product-hunt"></i><a href="{{route("productos.index")}}">Productos</a></li>
-                        <li><i class="fa fa-cc-jcb"></i><a href="{{route("categorias.index")}}">Categorias</a></li>
+                        <li><i class="fa fa-product-hunt"></i><a href="{{route("categorias.index")}}">Productos</a></li>
+                        <li><i class="fa fa-servise-hunt"></i><a href="{{route("servicios.index")}}">Servicios</a></li>
                     </ul>
+
                 </li>
 
-                <h3 class="menu-title">Inventarios</h3><!-- /.menu-title -->
+               <!--  <h3 class="menu-title">Inventarios</h3> --><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>General</a>
@@ -87,11 +88,11 @@
                     </ul>
                 </li>
 
-                <h3 class="menu-title">Informes</h3><!-- /.menu-title -->
+                <!-- <h3 class="menu-title">Informes</h3> --><!-- /.menu-title -->
 
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-pencil-square-o"></i>Detalles</a>
+                       aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-pencil-square-o"></i>Informes</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("ventas.index")}}">Ventas</a></li>
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">Ventas diarias</a></li>
@@ -101,7 +102,7 @@
                 </li>
 
 
-                <h3 class="menu-title">Informacion</h3><!-- /.menu-title -->
+                <!-- <h3 class="menu-title">Informacion</h3> --><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-info-circle"></i>Acerca de </a>
@@ -135,7 +136,7 @@
         <div >
             <div class="btn-group dropright float-right">
                 <button class="btn btn-dark dropdown-toggle btn-sm" type="button" id="dropdown2" data-toggle="dropdown">
-                    <i class="fa fa-user-circle" aria-hidden="true"></i>
+
                 </button>
                 <div class="dropdown-menu">
                     @if (Route::has('register'))
