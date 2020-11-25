@@ -19,13 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="modificacion por errores">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_11_2020_11_57_a__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_11_2020_11_57_a__m___Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_11_2020_11_57_a__m___Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_11_2020_11_57_a__m___Default_Changelist_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -177,7 +171,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/profile" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -197,11 +191,11 @@
       <recent name="C:\wamp64\www\SMART-TEC\resources\views\categorias" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\SMART-TEC\resources\views\profile" />
       <recent name="C:\wamp64\www\SMART-TEC\app\Http" />
       <recent name="C:\wamp64\www\SMART-TEC\app\Models" />
       <recent name="C:\wamp64\www\SMART-TEC" />
       <recent name="C:\wamp64\www\SMART-TEC\resources\views\layouts" />
-      <recent name="C:\wamp64\www\SMART-TEC\resources\views" />
     </key>
   </component>
   <component name="RunManager">
@@ -328,7 +322,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606265775773</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="modificacion por errores">
+      <created>1606266281830</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1606266281830</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -371,10 +372,10 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="450" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.860@0.0.1440.860" timestamp="1606263918469" />
-    <state x="259" y="17" key="CommitChangelistDialog2" timestamp="1606265772927">
+    <state x="259" y="17" key="CommitChangelistDialog2" timestamp="1606266280191">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="259" y="17" key="CommitChangelistDialog2/0.0.1440.860@0.0.1440.860" timestamp="1606265772927" />
+    <state x="259" y="17" key="CommitChangelistDialog2/0.0.1440.860@0.0.1440.860" timestamp="1606266280191" />
     <state x="100" y="100" width="1240" height="660" key="DiffContextDialog" timestamp="1606241761711">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
