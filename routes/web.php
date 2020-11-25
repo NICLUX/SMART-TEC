@@ -3,7 +3,7 @@
 use App\Http\Controllers\AperturaCajaController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
-use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,6 +62,7 @@ Route::group(["middleware"=>"auth"],function () {
 
         //---------------Categorias-----------------//
         Route::get("/categorias",[CategoriaController::class,"index"])->name("categorias.index"); // Trae todos las categorias
+        Route::get("/categorias/busqueda",[CategoriaController::class,"buscarCategoria"])->name("categoria.buscar");//Busca entre las categorias en nombre
         Route::get("/categoria/nueva",[CategoriaController::class,"nuevo"])->name("categoria.nueva");//Muestra el formulario para crear una nueva categoria
         Route::post("/categorias/store",[CategoriaController::class,"store"])->name("categoria.store");//Crea una nueva categoria del formulario
         Route::get("/categoria/{id}/editar",[CategoriaController::class,"editar"])->name("categoria.editar");//Llama el formulario editar una categoria
