@@ -1,7 +1,5 @@
 <x-guest-layout>
-
     @section('content')
-
         <x-jet-validation-errors class="mb-4" />
     <h4 style="margin-left: 30%">Ingrese Datos Del Nuevo Usuario</h4><br>
 
