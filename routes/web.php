@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AperturaCajaController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\DetalleCompraController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -57,7 +58,7 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/cliente/{id}/destroy",[\App\Http\Controllers\ClienteController::class,"destroy"])->name("cliente.destroy");//Elimina el cliente de la tabla
 
         //-----------Apertura de Caja ------------------//
-        Route::get("/apertura_caja",[AperturaCajaController::class,"index"])->name("apertura.index");//Trae todos las aperturas realizadas
+        Route::get("/apertura_caja",\App\Http\Livewire\AperturaCajas::class)->name("apertura.index");//Trae todos las aperturas realizadas
         Route::post("/apertura/crear",[AperturaCajaController::class,"store"])->name("apertura.crear");//Crea una nueva apertura de caja
 
         //---------------Categorias-----------------//
@@ -72,6 +73,7 @@ Route::group(["middleware"=>"auth"],function () {
         //-------------------Productos--------------------//
 
         Route::get("/productos",[ProductoController::class,"index"])->name("productos.index");//Muestra todos los productos en una tabla
+        Route::get("/producto/busqueda",[ProductoController::class,"buscarProducto"])->name("producto.buscar");//Buscar Producto
         Route::get("/producto/nuevo",[ProductoController::class,"nuevo"])->name("producto.nuevo");//Muestra el formulario de crear un nuevo producto.
         Route::post("/producto/store",[ProductoController::class,"store"])->name("producto.store");//Guarda el producto del formulario de productos
         Route::get("/producto/{id}/editar",[ProductoController::class,"editar"])->name("producto.editar");//Muestra el formulario de editar un producto

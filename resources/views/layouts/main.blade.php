@@ -26,11 +26,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    @livewireStyles
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.js" defer></script>
     <link rel="stylesheet" href="/assets/css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    @livewireStyles
 </head>
 <body>
 <!-- Left Panel -->
@@ -135,22 +136,29 @@
             @stack('modals')
 
             @livewireScripts
+            @stack('scripts')
+
+            <script type="text/javascript">
+                window.livewire.on('destroyApertura', () => {
+                    $('#modalBorrarApertura').modal('hide');
+                });
+                window.livewire.on('editarApertura', () => {
+                    $('#modalEditarApertura').modal('hide');
+                });
+                window.livewire.on('crearApertura', () => {
+                    $('#modalCrearApertura').modal('hide');
+                });
+            </script>
     </div> <!-- .content -->
 </div><!-- /#right-panel -->
 <!-- Right Panel -->
+</div>
+<script src="/assets/js/main.js"></script>
 <script src="/vendors/jquery/dist/jquery.min.js"></script>
 <script src="/vendors/popper.js/dist/umd/popper.min.js"></script>
 <script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="/assets/js/main.js"></script>
 
-<script>
-    $('#modalBorrarApertura').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget);
-        var id_apertura = button.data('id');
-        var modal = $(this);
-        modal.find('.modal-footer #idApertura').val(id_apertura);
-    })
-</script>
+
 <script src="/vendors/chart.js/dist/Chart.bundle.min.js"></script>
 <script src="/assets/js/dashboard.js"></script>
 <script src="/assets/js/widgets.js"></script>

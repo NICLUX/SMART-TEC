@@ -11,7 +11,7 @@ class AperturaCajaController extends Controller
     {
         $aperturas = AperturaCaja::paginate(10);
 
-        return view("apertura_caja")->with("aperturas", $aperturas);
+        return view("apertura.apertura_caja")->with("aperturas", $aperturas);
     }
 
     public function store(Request $request)
@@ -20,6 +20,12 @@ class AperturaCajaController extends Controller
             "efectivo_inicial" => "numeric|required"
         ]);
 
+        $existeAperturaActiva = AperturaCaja::where("activa", "=",true)->get();
+
+        if ($existeAperturaActiva->count()>0){
+            return redirect()->route("apertura.index")->with("error", "No se puede crear la apertura porque ya existe una activa.");
+
+        }
         $apertura = new AperturaCaja();
         $apertura->efectivo_inicial =
             $request->input("efectivo_inicial");
@@ -35,8 +41,6 @@ class AperturaCajaController extends Controller
     {
         $apertura = AperturaCaja::findOrfail($id);
         $apertura->delete();
-
-        return redirect()->route("apertura.index")->with("exito", "Se elimino exitosamente la apertura");
 
     }
 }
