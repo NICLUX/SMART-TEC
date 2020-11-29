@@ -4,7 +4,6 @@
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Elimina tu cuenta de forma permanente.') }}
     </x-slot>
 
     <x-slot name="content">

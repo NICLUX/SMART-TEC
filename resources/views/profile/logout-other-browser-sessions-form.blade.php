@@ -4,7 +4,6 @@
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Administre y cierre la sesión de sus sesiones activas en otros navegadores y dispositivos.') }}
     </x-slot>
 
     <x-slot name="content">

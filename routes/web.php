@@ -39,7 +39,6 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/usuarios/{id}/editar",[UserController::class,"edit"])->name("usuarios.editar");
         Route::put("/usuarios/{id}/editar",[UserController::class,"update"])->name("usuarios.update");
 
-
         //-------------------------------------detalle compras-------------------------------------------------------------------//
 
         Route::get("/detalleCompras",[DetalleCompraController::class,"index"])->name("DetalleCompras.index");//Muestra todos los productos en una tabla
