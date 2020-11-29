@@ -26,7 +26,7 @@
                             <h4 >Usuario: {{$user->id}}</h4>
                             <button class="flex text-sm
                         "  width="50%"
-                                    style="margin-left: 5%; opacity: 0.8"   style="margin-left: 5%; opacity: 0.8"
+                                    style=" margin-left: 5%; opacity: 0.8"   style="margin-left: 5%; opacity: 0.8"
                                     height="20%">
                                 <img src="/images/categorias/{{$user->photo}}"
                                      onclick="$('#callModalVistaPrevia{{$user->id}}').click()"
@@ -38,7 +38,7 @@
                             <h6 class="container">Correo: {{$user->email}}</h6>
 
 
-                            <div>
+                            <div >
                                 <a class="btn btn-sm btn-success"
                                    href="{{route("usuarios.editar",["id"=>$user->id])}}">
                                     <i class="fa fa-pencil"></i>Editar</a>
@@ -79,10 +79,9 @@
                 .card-group{
                     margin-left: 12%;
                 }
-                a{
+                a {
                     margin: 10px;
                 }
-
             </style>
 @endsection
 

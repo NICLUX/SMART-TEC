@@ -26,21 +26,21 @@ Route::get('/yu', function () {
 });
 
 Route::group(["middleware"=>"auth"],function () {
+    Route::get("/usuarios/{id}/editar",[UserController::class,"edit"])->name("usuarios.editar");
+    Route::put("/usuarios/{id}/editar",[UserController::class,"update"])->name("usuarios.update");
+
     Route::group(['middleware' => 'admin'], function () {
         Route::get('/dashboard', function () {
             return view('principal');
         })->name('dashboard');
-        //----------------------------------------------perfil-----------------------------------------------------------------//
 
+        //----------------------------------------------perfil-----------------------------------------------------------------//
         Route::get("/usuarios",[UserController::class,"index"])->name("usuarios.index");
         Route::get("/usuarios/crear",[UserController::class,"create"])->name("usuarios.create");
         Route::post("/usuarios/store",[UserController::class,"store"])->name("usuarios.store");
         Route::get("/usuarios/{id}/eliminar",[UserController::class,"destroy"])->name("usuarios.destroy");// Eliminar el suario de la tabla
-        Route::get("/usuarios/{id}/editar",[UserController::class,"edit"])->name("usuarios.editar");
-        Route::put("/usuarios/{id}/editar",[UserController::class,"update"])->name("usuarios.update");
 
         //-------------------------------------detalle compras-------------------------------------------------------------------//
-
         Route::get("/detalleCompras",[DetalleCompraController::class,"index"])->name("DetalleCompras.index");//Muestra todos los productos en una tabla
         Route::get("/detalleCompras/nuevo",[DetalleCompraController::class,"nuevo"])->name("DetalleCompras.nuevo");//Muestra el formulario de crear un nuevo producto.
         Route::post("/detalleCompras/store",[DetalleCompraController::class,"store"])->name("DetalleCompras.store");//Guarda el producto del formulario de productos
@@ -70,7 +70,6 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get('/categoria/{id}/destroy',[CategoriaController::class,"destroy"])->name("categoria.destroy");//Borrar la categoria desde la tabla
 
         //-------------------Productos--------------------//
-
         Route::get("/productos",[ProductoController::class,"index"])->name("productos.index");//Muestra todos los productos en una tabla
         Route::get("/producto/busqueda",[ProductoController::class,"buscarProducto"])->name("producto.buscar");//Buscar Producto
         Route::get("/producto/nuevo",[ProductoController::class,"nuevo"])->name("producto.nuevo");//Muestra el formulario de crear un nuevo producto.
@@ -80,7 +79,6 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/producto/{id}/eliminar",[ProductoController::class,"destroy"])->name("producto.destroy");// Eliminar el producto de la tabla
 
         //------------------Proveedores-----------------------//
-
         Route::get("/proveedores",[\App\Http\Controllers\ProveedorController::class,"index"])->name("proveedores.index");//Muestra todos los proveedores registrados
         Route::get("/proveedor/crear",[\App\Http\Controllers\ProveedorController::class,"nuevo"])->name("proveedor.nuevo");//Muestra el formulario para crear un nuevo proveedor
         Route::post("/proveedor/store",[\App\Http\Controllers\ProveedorController::class,"store"])->name("proveedor.store");//Guardar el proveedor del formulario agregar
@@ -89,13 +87,13 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/proveedor/{id}/destroy",[\App\Http\Controllers\ProveedorController::class,"destroy"])->name("proveedor.destroy");//Borra un proveedor desde la lista
 
         //-----------Servicios------------------//
-
         Route::get("/servicios",[\App\Http\Controllers\ServicioController::class,"index"])->name("servicios.index");//muestra todos los servicios
         Route::get("/servicios/crear",[\App\Http\Controllers\ServicioController::class,"create"])->name("servicios.crear");//formulario de crear servicio
         Route::post('/servicios/crear', [\App\Http\Controllers\ServicioController::class,"store"])->name('servicios.store');//crea el nuevo servicio
         Route::get("/servicios/{id}/editar",[\App\Http\Controllers\ServicioController::class,"edit"])->name("servicios.editar");//Llama el formulario editar un servicio
         Route::put("/servicios/{id}/update",[\App\Http\Controllers\ServicioController::class,"update"])->name("servicios.update");//Actualiza el servicio en el formulario editar
         Route::get('/servicios/{id}/destroy',[\App\Http\Controllers\ServicioController::class,"destroy"])->name("servicios.destroy");//Borrar el servicio desde la tabla
+
         //-----------Ventas------------------//
         Route::get("/ventas",[\App\Http\Controllers\VentaController::class,"index"])->name("ventas.index");//Trae todos las aperturas realizadas
 

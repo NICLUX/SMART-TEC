@@ -3,10 +3,12 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js" lang="en" >
+<html class="no-js" lang="en">
 <!--<![endif]-->
 <head>
-    <meta charset="utf-8" name="csrf-token" content="{{ csrf_token() }}">
+
+
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Smart Tec</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
@@ -22,6 +24,7 @@
     <link rel="stylesheet" href="/vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="/vendors/selectFX/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="/vendors/jqvmap/dist/jqvmap.min.css">
+
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
     <!-- Styles -->
@@ -30,13 +33,14 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.js" defer></script>
     <link rel="stylesheet" href="/assets/css/style.css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     @livewireStyles
 </head>
+
 <body>
 <!-- Left Panel -->
 <aside id="left-panel" class="left-panel">
     <nav class="navbar navbar-expand-sm navbar-default">
+
         <div class="navbar-header">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu"
                     aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,6 +49,7 @@
             <a class="navbar-brand" href="/"><img src="/images/logo/logo.png" alt="Logo"></a>
             <a class="navbar-brand hidden" href="./"><img src="/images/logo/logo.png" alt="Logo"></a>
         </div>
+
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active">
@@ -61,6 +66,7 @@
                         <li><i class="fa fa-money "></i><a href="ui-buttons.html">Punto de venta</a></li>
                     </ul>
                 </li>
+
 
                 <h3 class="menu-title">Productos</h3><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
@@ -93,6 +99,8 @@
                         <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Ventas Anuales</a></li>
                     </ul>
                 </li>
+
+
                 <h3 class="menu-title">Informacion</h3><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
@@ -101,8 +109,10 @@
                         <li><i class="menu-icon fa fa-coffee"></i><a href="page-login.html">NiCLUX</a></li>
                     </ul>
                 </li>
+
+
             </ul>
-        </div><!-- /navbar-collapse -->
+        </div><!-- /.navbar-collapse -->
     </nav>
 </aside><!-- /#left-panel -->
 
@@ -116,48 +126,39 @@
     <!-- Header-->
     <header id="header" class="header">
 
-            <div class="header-menu">
+        <div class="header-menu">
+            <div class="col-sm-7">
+                <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
 
-                <div class="col-sm-7">
-                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
-
-                </div>
             </div>
+        </div>
 
         @livewire('navigation-dropdown')
 
     </header><!-- /header -->
-    <!-- Header-->
+
     <div class="content mt-3">
-        <div class="min-h-screen bg-gray-100">
-            <!-- Page Heading -->
-            </header>
         @yield('content')
-            @stack('modals')
-
-            @livewireScripts
-            @stack('scripts')
-
-            <script type="text/javascript">
-                window.livewire.on('destroyApertura', () => {
-                    $('#modalBorrarApertura').modal('hide');
-                });
-                window.livewire.on('editarApertura', () => {
-                    $('#modalEditarApertura').modal('hide');
-                });
-                window.livewire.on('crearApertura', () => {
-                    $('#modalCrearApertura').modal('hide');
-                });
-            </script>
     </div> <!-- .content -->
 </div><!-- /#right-panel -->
+
 <!-- Right Panel -->
-</div>
-<script src="/assets/js/main.js"></script>
+
 <script src="/vendors/jquery/dist/jquery.min.js"></script>
 <script src="/vendors/popper.js/dist/umd/popper.min.js"></script>
 <script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/assets/js/main.js"></script>
 
+<script>
+    $('#modalBorrarApertura').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var id_apertura = button.data('id');
+
+        var modal = $(this);
+        modal.find('.modal-footer #idApertura').val(id_apertura);
+
+    })
+</script>
 
 <script src="/vendors/chart.js/dist/Chart.bundle.min.js"></script>
 <script src="/assets/js/dashboard.js"></script>
@@ -168,6 +169,7 @@
 <script>
     (function($) {
         "use strict";
+
         jQuery('#vmap').vectorMap({
             map: 'world_en',
             backgroundColor: null,
@@ -181,7 +183,9 @@
             normalizeFunction: 'polynomial'
         });
     })(jQuery);
+
 </script>
-</div>
+
 </body>
 </html>
+
