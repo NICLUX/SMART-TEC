@@ -42,6 +42,7 @@ Route::group(["middleware"=>"auth"],function () {
 
         //-------------------------------------detalle compras-------------------------------------------------------------------//
         Route::get("/detalleCompras",[DetalleCompraController::class,"index"])->name("DetalleCompras.index");//Muestra todos los productos en una tabla
+        Route::get("/detalleCompras/total",[DetalleCompraController::class,"mostrarCompras"])->name("DetalleCompras.mostrarCompras");//Muestra todos los productos en una tabla
         Route::get("/detalleCompras/nuevo",[DetalleCompraController::class,"nuevo"])->name("DetalleCompras.nuevo");//Muestra el formulario de crear un nuevo producto.
         Route::post("/detalleCompras/store",[DetalleCompraController::class,"store"])->name("DetalleCompras.store");//Guarda el producto del formulario de productos
         Route::get("/detalleCompras/{id}/editar",[DetalleCompraController::class,"editar"])->name("DetalleCompra.editar");//Muestra el formulario de editar un producto
@@ -98,6 +99,14 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/ventas",[\App\Http\Controllers\VentaController::class,"index"])->name("ventas.index");//Trae todos las aperturas realizadas
 
     });
+
+    //------------------Inventario--------------//
+    Route::get("/inventarios",[\App\Http\Controllers\InventarioController::class,"index"])->name("inventario.index");
+    Route::get("/inventario/nuevo",[\App\Http\Controllers\InventarioController::class,"nuevo"])->name("inventario.nuevo");
+    Route::post("/inventario/store",[\App\Http\Controllers\InventarioController::class,"store"])->name("inventario.store");//Permite registrar un nuevo producto al inventario
+    Route::get("/inventario/{id}/producto/editar",[\App\Http\Controllers\InventarioController::class,"editar"])->name("inventario.editar");
+    Route::put("/inventario/{id}/update",[\App\Http\Controllers\InventarioController::class,"update"])->name("inventario.update");
+    Route::get("/inventario/{id}/producto/eliminar",[\App\Http\Controllers\InventarioController::class,"destroy"])->name("inventario.destroy");
 
     //________________comprass__________________________//
     Route::get("/compras",[\App\Http\Controllers\CompraController::class,"index"])->name("compras.index");//muestra todas las compras

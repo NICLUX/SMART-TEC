@@ -12,6 +12,12 @@ class DetalleCompraController extends Controller
         $detalle_compras = Detalle_compra::paginate(10);
         return view("d_compras.d_Compras")->with("detalle_compras",$detalle_compras);
     }
+    public function mostrarCompras()
+    {
+        $detalle_compras= Detalle_compra::all();
+        return view("compras.mostrarCompras")
+            ->with("detalle_compras", $detalle_compras);
+    }
 
     public function nuevo(){
         $proveedores = Proveedor::all();

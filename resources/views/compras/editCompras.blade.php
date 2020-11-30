@@ -1,7 +1,6 @@
 @extends("layouts.main")
 @section("content")
     <h4 style="margin-left: 30%">Ingrese la campra</h4><br>
-
     <form method="POST" action="{{ route('compras.crear') }}">
         @csrf
          <div>

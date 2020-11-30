@@ -30,10 +30,9 @@
                 <select class="form-control" id="exampleFormControlSelect1">
                 <div class="form-group">
                     <option>Seleccione El Id de Usuario</option>
-                    @foreach($compras as $item => $compra) <option>{{$compra->id_usuario}}</option>
+                    @foreach($users as $item => $user) <option>{{$user->id_usuario}}</option>
                     @endforeach
-                </div><a class="btn btn-outline-success" href="{{route("categoria.nueva")}}" type="button"><i
-                            class="fa fa-plus"></i></a>
+                </div>
                 </select>
                 </div>
 

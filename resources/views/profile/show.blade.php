@@ -12,12 +12,12 @@
                     Editar Perfil
                 </a>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6" style="margin-top: 20px">
                 <div class="mt-10 sm:mt-0">
                     @livewire('profile.delete-user-form')
                 </div>
             </div>
-        <div  style="margin-top: 10%">
+        <div>
 
             <div >
                 <div class="col-sm-6" style="margin-top: 20px">

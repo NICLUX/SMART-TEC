@@ -54,12 +54,13 @@
                                 <td>{{$detalle_compra->id_proveedor}}</td>
                                 <td>{{$detalle_compra->costo_compra}}</td>
                                 <td>{{$detalle_compra->cantidad}}</td>
-                                <td>{{$detalle_compra->cantidas * $detalle_compra->costo_compra}}</td>
+                                <td>{{$detalle_compra->cantidad * $detalle_compra->costo_compra}}</td>
                                 <td><a class="btn btn-sm btn-success"
                                        href="{{route("DetalleCompra.editar",["id"=>$detalle_compra->id])}}">
                                         <i class="fa fa-pencil"></i></a>
                                     <a class="btn btn-danger btn-sm"
-                                       href="{{route("DetalleCompra.destroy",["id"=>$detalle_compra->id])}}"><i class="fa fa-trash"></i></a>
+                                       href="{{route("DetalleCompra.destroy",["id"=>$detalle_compra->id])}}">
+                                        <i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach
