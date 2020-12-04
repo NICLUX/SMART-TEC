@@ -96,7 +96,9 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get('/servicios/{id}/destroy',[\App\Http\Controllers\ServicioController::class,"destroy"])->name("servicios.destroy");//Borrar el servicio desde la tabla
 
         //-----------Ventas------------------//
-        Route::get("/ventas",[\App\Http\Controllers\VentaController::class,"index"])->name("ventas.index");//Trae todos las aperturas realizadas
+        Route::get("/ventas",\App\Http\Livewire\Ventas::class)->name("ventas.index");//Trae todos las aperturas realizadas
+        Route::get("/venta/crear",\App\Http\Livewire\CrearVenta::class)->name("venta.nuevo");
+
 
     });
 

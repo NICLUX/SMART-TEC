@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class DetalleVenta extends Model
 {
     use HasFactory;
+    protected $appends=["producto"];
+
+
+    public function getProductoAttribute(){
+        $producto = Producto::findOrFail($this->id_producto);
+        return $producto;
+    }
+
 }

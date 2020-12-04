@@ -62,6 +62,7 @@
                 </tbody>
             </table>
 
+
         @else
             <div class="alert alert-info">
                 <h5><i class="fa fa-exclamation-triangle"></i> No hay aperturas de cajas registradas aun.</h5>

@@ -26,11 +26,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    @livewireStyles
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.js" defer></script>
+
     <link rel="stylesheet" href="/assets/css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    @livewireStyles
 </head>
 <body>
 <!-- Left Panel -->
@@ -76,7 +75,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>General</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-product-hunt"></i><a href="{{route("categorias.index")}}">Inventario</a></li>
+                        <li><i class="fa fa-product-hunt"></i><a href="{{route("inventario.index")}}">Inventario</a></li>
                     </ul>
                 </li>
 
@@ -86,7 +85,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-pencil-square-o"></i>Detalles</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">Ventas</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("ventas.index")}}">Ventas</a></li>
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">Ventas diarias</a></li>
                         <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Ventas mensuales</a></li>
                         <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Ventas Anuales</a></li>
@@ -133,6 +132,7 @@
             </header>
             @yield('content')
             @stack('modals')
+            @stack("scripts")
 
             @livewireScripts
         </div> <!-- .content -->

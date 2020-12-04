@@ -19,13 +19,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="modificacion por errores cometidos al subir">
+    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="Creacion del componente crear una venta y el listado de la venta">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_11_2020_11_57_a__m__[Default_Changelist]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_11_2020_11_57_a__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_11_2020_11_57_a__m___Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_11_2020_11_57_a__m___Default_Changelist_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/delete-user-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/delete-user-form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/logout-other-browser-sessions-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/logout-other-browser-sessions-form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/update-password-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/update-password-form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/users.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VentaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VentaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/CrearVenta.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/CrearVenta.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Ventas.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Ventas.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/DetalleVenta.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/DetalleVenta.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Venta.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Venta.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/aperturas/apertura-caja.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/aperturas/apertura-caja.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/ventas/crear-venta.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/ventas/crear-venta.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/ventas/ventas.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/ventas/ventas.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -169,18 +177,14 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1jOwyGafamMNoJnAFFkh1zH3mAM" />
-  <component name="ProjectLevelVcsManager">
-    <OptionsSetting value="false" id="Update" />
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -190,21 +194,19 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\SMART-TEC\public\images" />
+      <recent name="C:\wamp64\www\SMART-TEC\public\images\logo" />
+      <recent name="C:\wamp64\www\SMART-TEC\public" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\SMART-TEC\resources\views\livewire\ventas" />
       <recent name="C:\wamp64\www\SMART-TEC\resources\views" />
       <recent name="C:\wamp64\www\SMART-TEC\resources\views\categorias" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\SMART-TEC\resources\views\profile" />
-      <recent name="C:\wamp64\www\SMART-TEC\app\Http" />
-      <recent name="C:\wamp64\www\SMART-TEC\app\Models" />
-      <recent name="C:\wamp64\www\SMART-TEC" />
-      <recent name="C:\wamp64\www\SMART-TEC\resources\views\layouts" />
     </key>
   </component>
   <component name="RunManager">
@@ -238,9 +240,10 @@
       <workItem from="1603688716530" duration="5106000" />
       <workItem from="1603693901286" duration="9661000" />
       <workItem from="1606185642783" duration="721000" />
-      <workItem from="1606186494062" duration="8955000" />
-      <workItem from="1606623371882" duration="849000" />
-      <workItem from="1606628755652" duration="6236000" />
+      <workItem from="1606186494062" duration="9047000" />
+      <workItem from="1606967633225" duration="1560000" />
+      <workItem from="1606969593679" duration="13606000" />
+      <workItem from="1607022282164" duration="8247000" />
     </task>
     <task id="LOCAL-00001" summary="Creacion de cintrolador, modelo, migracion de categoria, productos, inventario">
       <created>1602800135286</created>
@@ -277,77 +280,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603765459116</updated>
     </task>
-    <task id="LOCAL-00006" summary="creacion de vistas usuario">
-      <created>1606241309043</created>
+    <task id="LOCAL-00006" summary="Creacion del componente crear una venta y el listado de la venta">
+      <created>1606195569274</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1606241309043</updated>
+      <updated>1606195569274</updated>
     </task>
-    <task id="LOCAL-00007" summary="Correción de direccion en crear_cliente por input en vez de TextArea">
-      <created>1606241383240</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1606241383240</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Creacon de vistas usuario">
-      <created>1606241592610</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1606241592610</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Creacon de vistas usuario">
-      <created>1606241786528</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1606241786528</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Creacon de vistas usuario">
-      <created>1606241994745</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1606241994745</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Creacon de vistas usuario">
-      <created>1606242293265</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1606242293265</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Creacon de vistas usuario">
-      <created>1606243166339</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1606243166339</updated>
-    </task>
-    <task id="LOCAL-00013" summary="modificacion por errores">
-      <created>1606265775773</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1606265775773</updated>
-    </task>
-    <task id="LOCAL-00014" summary="modificacion por errores">
-      <created>1606266281830</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1606266281830</updated>
-    </task>
-    <task id="LOCAL-00015" summary="modificacion por errores cometidos al subir">
-      <created>1606266469386</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1606266469386</updated>
-    </task>
-    <option name="localTasksCounter" value="16" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -371,58 +311,50 @@
     <MESSAGE value="Creacion de proveedores su respectivo CRUD" />
     <MESSAGE value="Creacion de clientes_index.blade.php su respectivo CRUD" />
     <MESSAGE value="Permitir eliminar un cliente en clientes_index.blade.php" />
-    <MESSAGE value="creacion de vistas usuario" />
     <MESSAGE value="Correción de direccion en crear_cliente por input en vez de TextArea" />
-    <MESSAGE value="Creacon de vistas usuario" />
-    <MESSAGE value="modificacion por errores" />
-    <MESSAGE value="modificacion por errores cometidos al subir" />
-    <option name="LAST_COMMIT_MESSAGE" value="modificacion por errores cometidos al subir" />
+    <MESSAGE value="Creacion del componente crear una venta y el listado de la venta" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creacion del componente crear una venta y el listado de la venta" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="522" y="223" key="#TODO" timestamp="1606242055071">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="522" y="223" key="#TODO/0.0.1440.860@0.0.1440.860" timestamp="1606242055071" />
     <state x="363" y="104" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1603690098741">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="363" y="104" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.738@0.0.1366.738" timestamp="1603690098741" />
-    <state x="450" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606263918469">
-      <screen x="0" y="0" width="1440" height="860" />
+    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607057138399">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="450" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.860@0.0.1440.860" timestamp="1606263918469" />
-    <state x="259" y="17" key="CommitChangelistDialog2" timestamp="1606266651857">
-      <screen x="0" y="0" width="1440" height="860" />
+    <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1607057138399" />
+    <state x="92" y="92" width="1182" height="554" key="DiffContextDialog" timestamp="1606970073288">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="259" y="17" key="CommitChangelistDialog2/0.0.1440.860@0.0.1440.860" timestamp="1606266651857" />
-    <state x="100" y="100" width="1240" height="660" key="DiffContextDialog" timestamp="1606241761711">
-      <screen x="0" y="0" width="1440" height="860" />
+    <state x="92" y="92" width="1182" height="554" key="DiffContextDialog/0.0.1366.738@0.0.1366.738" timestamp="1606970073288" />
+    <state x="129" y="55" key="MergeDialog" timestamp="1606967907364">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="100" y="100" width="1240" height="660" key="DiffContextDialog/0.0.1440.860@0.0.1440.860" timestamp="1606241761711" />
+    <state x="129" y="55" key="MergeDialog/0.0.1366.738@0.0.1366.738" timestamp="1606967907364" />
     <state x="517" y="292" key="NewPhpFileDialog" timestamp="1603762848620">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="517" y="292" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1603762848620" />
-    <state x="184" y="13" key="SettingsEditor" timestamp="1606186343128">
+    <state x="184" y="13" key="SettingsEditor" timestamp="1607040182480">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="184" y="13" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1606186343128" />
-    <state x="290" y="118" key="Vcs.Push.Dialog.v2" timestamp="1606266657948">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1603765462060" />
-    <state x="290" y="118" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1606266657948" />
-    <state x="500" y="282" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606186591610">
+    <state x="184" y="13" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1607040182480" />
+    <state x="275" y="101" key="Vcs.Push.Dialog.v2" timestamp="1606195573581">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="500" y="282" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1606186591610" />
+    <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1606195573581" />
+    <state x="500" y="282" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606970026383">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="500" y="282" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1606970026383" />
     <state x="339" y="165" key="run.anything.popup" timestamp="1606191903218">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1606191903218" />
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1606192997297">
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1607057070685">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1606192997297" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1607057070685" />
   </component>
 </project>
