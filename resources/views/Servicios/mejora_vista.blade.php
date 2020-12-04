@@ -131,8 +131,134 @@
         font-weight: 700;
     }
 
+    .register{
+    background: -webkit-linear-gradient(left, #696969, #9acd32);
+    margin-top: 1%;
+    padding: 2%;
+}
+    .register-left{
+    text-align: center;
+    color: #fff;
+    margin-top: 4%;
+
+}
+    #btn-cancelar {
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    width: 60%;
+    background: #f8f9fa;
+    font-weight: bold;
+    color: #383d41;
+    margin-top: 30%;
+    margin-bottom: 3%;
+    cursor: pointer;
+}
+    .register-right{
+    background: #f8f9fa;
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
+}
+.register-left img{
+    margin-top: 30%;
+    margin-bottom: 40%;
+    width: 40%;
+
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+}
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+.register-left p{
+    font-weight: lighter;
+    padding: 12%;
+    margin-top: -9%;
+}
+.register .register-form{
+    padding: 10%;
+    margin-top: 10%;
+}
+    #btnRegister{
+        float: right;
+        margin-top: 10%;
+        border: none;
+        border-radius: 1.5rem;
+        padding: 2%;
+        background: #228b22;
+        color: #fff;
+        font-weight: 600;
+        width: 50%;
+        cursor: pointer;
+    }
+
+    .register .nav-tabs{
+        margin-top: 3%;
+        border: none;
+        background: #228b22;
+        border-radius: 1.5rem;
+        width: 28%;
+        float: right;
+
+    }
+
+.register .nav-tabs .nav-link{
+    padding: 2%;
+    height: 34px;
+    font-weight: 600;
+    color: #fff;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+.register .nav-tabs .nav-link:hover{
+    border: none;
+
+}
+.register .nav-tabs .nav-link.active{
+    width: 100px;
+    color: #228b22;
+    border: 2px solid #228b22;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+
+}
+.register-heading{
+    text-align: center;
+    margin-top: 8%;
+    margin-bottom: -15%;
+    color: #495057;
+
+}
+    #form_pro{
+        width: 650px;
+        height: 500px;
+    }
+    #detalle_form{
+        height: 910px;
+    }
+    #form_proveedores{
+        width: 650px;
+        height: 500px;
+    }
+    #detalle_form_prov{
+        height: 700px;
+    }
+
+
 </style>
 
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+</head>
 
+<body>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+</body>
 </html>

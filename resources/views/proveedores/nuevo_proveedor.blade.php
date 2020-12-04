@@ -1,11 +1,6 @@
 @extends("layouts.main")
+@extends("servicios.mejora_vista")
 @section("content")
-    <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">Nuevo Proveedor</h3>
-        </div>
-        <div class="card-body">
-
 
             <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
             @if(session("exito"))
@@ -25,7 +20,24 @@
 
                 </div>
             @endif
-            <form enctype="multipart/form-data" action="{{route("proveedor.store")}}"
+
+
+            <div class="container register" id="detalle_form_prov">
+                <div class="row" id="detalle_form_prov">
+                    <div class="col-md-3 register-left">
+                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                        <h1>SMARTEC</h1>
+                        <p>Registra nuevos proveedores!</p>
+                        <a id="btn-cancelar" class="btn btn-primary btn-round" href="{{route("proveedores.index")}}">Cancelar</a>
+                    </div>
+                    <div class="col-md-9 register-right">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h1 class="register-heading">Agregar Nuevo Proveedor</h1>
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+
+            <form  id="form_proveedores" enctype="multipart/form-data" action="{{route("proveedor.store")}}"
             method="post">
                 @csrf
                 <div class="form-group">
@@ -97,7 +109,7 @@
                     @enderror
                 </div>
                 <hr>
-                <button type="submit" class="btn btn-success">Guardar</button>
+                <button id="btnRegister" type="submit" class="btn btn-success">Guardar</button>
             </form>
         </div>
     </div>

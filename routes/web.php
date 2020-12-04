@@ -120,5 +120,13 @@ Route::group(["middleware"=>"auth"],function () {
     Route::get("/compras/{id}/editar",[\App\Http\Controllers\CompraController::class,"edit"])->name("compras.editar");//Llama el formulario editar una categoria
     Route::put("/compras/{id}/update",[\App\Http\Controllers\CompraController::class,"update"])->name("compras.update");//Actualiza la categoria en el formulario editar
     Route::get('/compras/{id}/destroy',[\App\Http\Controllers\CompraController::class,"destroy"])->name("compras.destroy");//Borrar la categoria desde la tabla
+
+
+});
+
+//________________Graficas__________________________//
+//Route::get("/graficas.graficarClientes",[\App\Http\Controllers\GraficasController::class,"graficarClientes"])->name("clientes.graficar");
+Route::get('/grafica', function () {
+    return view('graficas.graficarClientes');
 });
 
