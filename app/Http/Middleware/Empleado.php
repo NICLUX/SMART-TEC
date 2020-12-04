@@ -5,7 +5,8 @@ use Closure;
 use Illuminate\Http\Request;
 use Session;
 use Illuminate\Contracts\Auth\Guard;
-class AdminMiddleware
+
+class Empleado
 {
     /**
      * Handle an incoming request.
@@ -17,19 +18,18 @@ class AdminMiddleware
     protected $auth;
     public function __construct(Guard $auth)
     {
-      $this->auth = $auth;
+        $this->auth = $auth;
     }
-
     public function handle(Request $request, Closure $next)
     {
         switch ($this-> auth->user()->is_admin){
             case '1':
                 #AdminMiddleware
-                //return redirect()->to('dashboard');
+                return redirect()->to('dashboard');
                 break;
             case '2':
                 #Empleado
-                return redirect()->to('hola');
+                //return redirect()->to('hola');
                 break;
             case '3':
                 #Cajero
@@ -39,6 +39,5 @@ class AdminMiddleware
                 return redirect()->to('login');
         }
         return $next($request);
-
     }
 }

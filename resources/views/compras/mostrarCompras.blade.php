@@ -13,41 +13,35 @@
              </div>
         @endif
 
-        @if($compras->count()>0)
+        @if($detalle_compras->count()>0)
             <table class="table table-striped table-dark">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Id usuario</th>
                     <th scope="col">Id proveedores</th>
-                    <th scope="col">Total compra</th>
+                    <th scope="col">Total compras</th>
                     <th scope="col">Acciones</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($compras as $item => $compra)
+                @foreach($detalle_compras as $detalle_compra)
                     <tr>
-                        <td>{{$compra->id}}</td>
-                        <td>{{$compra->id_usuario}}</td>
-                        <td>{{$compra->id_proveedores}}</td>
-                        <td>{{$compra->total_compra}}</td>
-                        <td>
-                            <a class="btn btn-success btn-sm"
-                               href="{{route("compras.editar",['id'=>$compra->id])}}"
-                               title="Editar">Editar<i class="fa fa-pencil"></i></a>
-
+                        <th scope="row">{{$detalle_compra->id}}</th>
+                        <td>{{$detalle_compra->id}}</td>
+                        <td>{{$detalle_compra->id_proveedor}}</td>
+                        <td>{{$detalle_compra->cantidad * $detalle_compra->costo_compra}}</td>
+                        <td><a class="btn btn-sm btn-success"
+                               href="{{route("DetalleCompra.editar",["id"=>$detalle_compra->id])}}">
+                                <i class="fa fa-pencil"></i></a>
                             <a class="btn btn-danger btn-sm"
-                               href="{{route("compras.destroy",["id"=>$compra->id])}}"
-                               title="Eliminar">
-                                <i class="fa fa-trash">Eliminar</i></a>
+                               href="{{route("DetalleCompra.destroy",["id"=>$detalle_compra->id])}}">
+                                <i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
-            <div class="pagination pagination-sm justify-content-center">
-                {{$compras->links("pagination::bootstrap-4")}}
-            </div>
         @else
             <div class="alert alert-info">
                 <h5><i class="fa fa-exclamation-triangle"></i> No hay compras registradas aun.</h5>
@@ -55,4 +49,11 @@
             @endif
                 </tbody>
             </table>
+
+            <script>
+                @foreach($detalle_compras as $detalle_compra)
+                <p>{{$detalle_compra->cantidad * $detalle_compra->costo_compra}}</p>
+                @endforeach
+            </script>
+
 @endsection

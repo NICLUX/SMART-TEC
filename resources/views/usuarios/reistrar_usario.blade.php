@@ -23,8 +23,9 @@
 
                 </div>
             @endif
-            <form action="{{route("usuarios.store")}}" method="post" enctype="multipart/form-data">
+            <form action="{{route("usuarios.store")}}" method="post">
                 @csrf
+
                 <div class="form-group">
                     <label for="name">Ingrese el nombre:</label>
                     <input class="form-control @error('name') is-invalid @enderror" name="name" id="name"
@@ -48,14 +49,21 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="descripcion">Ingrese tipo de usuario:</label>
-                    <input type="number" class="form-control @error('is_admin') is-invalid @enderror" name="is_admin"
-                              id="is_admin"
-                              placeholder="Ingrese el tipo de usuario"  required>
+                    <label for="id_proveedor">Seleccione el tipo de usuario</label>
+                    <div class="input-group">
+                        <select id="is_admin"
+                                name="is_admin"
+                                class="form-control @error('is_admin') is-invalid @enderror" required>
+                            <option value="" selected disabled>Seleccione una opcion</option>
+                            @foreach($tipos as $tipo)
+                                <option value="{{$tipo->id}}">{{$tipo->tipo_users}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     @error('is_admin')
                     <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                        </span>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                     @enderror
                 </div>
                 <div class="form-group">
@@ -100,22 +108,6 @@
                                     </span>
                     @enderror
                 </div>
-                <div class="form-group">
-                    <label for="costo_compra">Comfirme la Contraseña :</label>
-                    <input class="form-control @error('password_confirme') is-invalid @enderror" name="password_confirme"
-                           id="password_confirme"
-                           type="password"
-                           min="8"
-                           required
-                           placeholder="Comfirme la Contraseña">
-                    @error('password_confirme')
-                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                    @enderror
-                </div>
-
-
                 <div class="flex items-center justify-end mt-4">
                     <a class="underline text-sm text-gray-600 hover:text-gray-900 " href="{{ route('login') }}">
                         {{ __('¿Ya registrado?') }}

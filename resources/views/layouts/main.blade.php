@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js" lang="en" >
+<html class="no-js" lang="es">
 <!--<![endif]-->
 <head>
     <meta charset="utf-8" name="csrf-token" content="{{ csrf_token() }}">
@@ -26,10 +26,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
+    @livewireStyles
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.js" defer></script>
     <link rel="stylesheet" href="/assets/css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-    @livewireStyles
 </head>
 <body>
 <!-- Left Panel -->
@@ -105,6 +106,7 @@
 </aside><!-- /#left-panel -->
 
 
+
 <!-- Left Panel -->
 
 <!-- Right Panel -->
@@ -124,20 +126,19 @@
 
         @livewire('navigation-dropdown')
 
-    </header><!-- /header -->
-    <!-- Header-->
+
+    </header>
     <div class="content mt-3">
         <div class="min-h-screen bg-gray-100">
             <!-- Page Heading -->
             </header>
             @yield('content')
             @stack('modals')
-            @stack("scripts")
 
             @livewireScripts
         </div> <!-- .content -->
-    </div><!-- /#right-panel -->
-    <!-- Right Panel -->
+    </div>
+    <!-- /header --> <!-- Right Panel -->
     <script src="/vendors/jquery/dist/jquery.min.js"></script>
     <script src="/vendors/popper.js/dist/umd/popper.min.js"></script>
     <script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>

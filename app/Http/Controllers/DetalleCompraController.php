@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Detalle_compra;
 use App\Models\Proveedor;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DetalleCompraController extends Controller
@@ -14,17 +15,29 @@ class DetalleCompraController extends Controller
     }
     public function mostrarCompras()
     {
+        $users= User::all();
         $detalle_compras= Detalle_compra::all();
         return view("compras.mostrarCompras")
+            ->with("users", $users)
             ->with("detalle_compras", $detalle_compras);
     }
-
-    public function nuevo(){
+    public function calculo(){
         $proveedores = Proveedor::all();
+        $users = User::all();
         $detalle_compra = Detalle_compra::all();
         return view("d_compras.crear_dCompra")
             ->with("detalle_compra",$detalle_compra)
-            ->with("proveedores", $proveedores);
+            ->with("proveedores", $proveedores)
+            ->with("users", $users);
+    }
+    public function nuevo(){
+        $proveedores = Proveedor::all();
+        $users = User::all();
+        $detalle_compra = Detalle_compra::all();
+        return view("d_compras.crear_dCompra")
+            ->with("detalle_compra",$detalle_compra)
+            ->with("proveedores", $proveedores)
+            ->with("users", $users);
     }
     public function store(Request $request){
         $this->validate($request, [
@@ -43,6 +56,7 @@ class DetalleCompraController extends Controller
         ]);
         $nuevaCompra=new Detalle_compra();
         $nuevaCompra->nombre = $request->input("nombre");
+        $nuevaCompra->id_usuarios = $request->input("id_usuarios");
         $nuevaCompra->id_proveedor= $request->input("id_proveedor");
         $nuevaCompra->costo_compra = $request->input("costo_compra");
         $nuevaCompra->cantidad = $request->input("cantidad");

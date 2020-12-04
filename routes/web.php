@@ -21,18 +21,21 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-Route::get('/yu', function () {
+Route::get('/hola', function () {
     return view('hola');
+});
+Route::get('/mostrar', function () {
+    return view('mostrarCompras');
 });
 
 Route::group(["middleware"=>"auth"],function () {
+    Route::get('/dashboard', function () {
+        return view('principal');
+    })->name('dashboard');
     Route::get("/usuarios/{id}/editar",[UserController::class,"edit"])->name("usuarios.editar");
     Route::put("/usuarios/{id}/editar",[UserController::class,"update"])->name("usuarios.update");
 
     Route::group(['middleware' => 'admin'], function () {
-        Route::get('/dashboard', function () {
-            return view('principal');
-        })->name('dashboard');
 
         //----------------------------------------------perfil-----------------------------------------------------------------//
         Route::get("/usuarios",[UserController::class,"index"])->name("usuarios.index");

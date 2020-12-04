@@ -19,6 +19,7 @@ class CreateDetalleComprasTable extends Migration
             $table->double("costo_compra");
             $table->double("cantidad");
             $table->string("descripcion")->nullable();
+            $table->foreignId("id_usuarios")->references("id")->on("users");
             $table->foreignId("id_proveedor")->references("id")->on("proveedores");
             $table->timestamps();
         });

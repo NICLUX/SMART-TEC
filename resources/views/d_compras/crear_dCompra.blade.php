@@ -99,12 +99,32 @@
                                     </span>
                     @enderror
                 </div>
-
+                <div class="form-group">
+                    <label for="id_usuario">Seleccione id usuario</label>
+                    <div class="input-group">
+                        <select id="id_usuarios"
+                                name="id_usuarios"
+                                class="form-control @error('id_usuarios') is-invalid @enderror" required>
+                            <option value="" selected disabled>Seleccione una opcion</option>
+                            @foreach($users as $user)
+                                <option value="{{$user->id}}">{{$user->name}}</option>
+                            @endforeach
+                        </select>
+                        <div class="input-group-append">
+                            <a class="btn btn-outline-success" href="{{route("usuarios.index")}}" type="button"><i
+                                    class="fa fa-plus"></i></a>
+                        </div>
+                    </div>
+                    @error('id_usuarios')
+                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                    @enderror
+                </div>
                 <button type="submit" class="btn btn-success">Guardar</button>
                 <!-- -->
             </form>
 
         </div>
     </div>
-
 @endsection

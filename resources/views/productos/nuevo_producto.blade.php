@@ -5,8 +5,6 @@
             <h3 class="card-title">Nuevo Producto</h3>
         </div>
         <div class="card-body">
-
-
             <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
             @if(session("exito"))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">

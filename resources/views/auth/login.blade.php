@@ -23,10 +23,12 @@
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
     <!--Custom styles-->
-    <link rel="stylesheet" type="text/css" href="/assets/css/stilosLogin.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/login.css">
 
 </head>
+
     <body>
+
     <div class="container h-100">
         <div class="d-flex justify-content-center h-100">
                 <div class="user_card">

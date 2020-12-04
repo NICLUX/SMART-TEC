@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Tipo_user;
 use App\Models\User;
 use Dotenv\Parser\Value;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
 use Illuminate\Support\Facades\Hash;
+
 
 class userController extends Controller
 {
@@ -18,8 +19,11 @@ class userController extends Controller
      */
     public function index()
     {
+        $tipos = Tipo_user::all();
         $users = User::paginate(6);
-        return view('usuarios.users')->with('users',$users);
+        return view('usuarios.users')
+            ->with('tipos',$tipos)
+            ->with('users',$users);
 
     }
 
@@ -30,7 +34,11 @@ class userController extends Controller
      */
     public function create()
     {
-        return view('usuarios.reistrar_usario');
+        $tipos = Tipo_user::all();
+        $users = User::all();
+        return view('usuarios.reistrar_usario')
+            ->with("users", $users)
+            ->with("tipos", $tipos);
     }
 
     /**
@@ -68,7 +76,7 @@ class userController extends Controller
         $user->is_admin= $request->input("is_admin");
         $user->usuario= $request->input("usuario");
         $user->telefono=$request->input("telefono");
-        $user->password = $request->input("password");
+        $user->password = bcrypt($request->input("password"));
          $user->save();
         return redirect()->route("usuarios.index")
             ->with("exito","Se creó exitosamente el usuario");

@@ -9,4 +9,12 @@ class Detalle_compra extends Model
 {
     use HasFactory;
     protected $fillable=["nombre", "costo_compra","id_proveedor", "cantidad","total_compra", "id_usuario","descripcion"];
+    public function setTotalAttribute()
+    {
+        $this->total = $this->costo_compra * $this->cantidad;
+    }
+    public function getTotalAttribute($value)
+    {
+        return $value;
+    }
 }

@@ -19,9 +19,7 @@
             <br><br>
             <div class="card-group ">
                 @foreach($users as $item => $user)
-
                     <div class="card- col-sm-5 ">
-
                         <div class="card-body">
                             <h4 >Usuario: {{$user->id}}</h4>
                             <button class="flex text-sm
@@ -33,11 +31,8 @@
                                      width="150px" height="150px" style="object-fit: contain"
                                      onerror="this.src='/images/no_user.png'"></td>
                             </button>
-
                             <h6 class="container">Nombre: {{$user->name}}</h6>
                             <h6 class="container">Correo: {{$user->email}}</h6>
-
-
                             <div >
                                 <a class="btn btn-sm btn-success"
                                    href="{{route("usuarios.editar",["id"=>$user->id])}}">
@@ -50,7 +45,6 @@
                         </div>
                     </div>
                 @endforeach
-
             </div>
             <div class="card-footer1 ">
                 <div class="pagination pagination-sm justify-content-center">
@@ -58,7 +52,6 @@
                 </div>
             </div>
             <style>
-
                 .card-{
                     margin: 10px;
                     margin-right: 10px;
