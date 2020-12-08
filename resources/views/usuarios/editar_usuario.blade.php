@@ -32,7 +32,7 @@
             @endif
             <div class="card card-body">
                 <div class="container-fluid">
-                    <form method="post" action="{{route("usuarios.update",['id'=>$user->id])}}"
+                    <form method="post" action="{{route("usuarios.updatee",['id'=>$user->id])}}"
                           enctype="multipart/form-data">
                         @method("PUT")
                         @csrf

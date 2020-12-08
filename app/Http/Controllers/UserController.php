@@ -84,12 +84,71 @@ class userController extends Controller
     }
 
     public function edit($id){
+        $tipos=Tipo_user::all();
+        $user=User::findOrFail($id);
+            return view("usuarios.editar_usuario_para_admin")
+            ->with("user",$user)
+                ->with("tipos",$tipos);
+    }
+    public function editar($id){
+
         $user=User::findOrFail($id);
         return view("usuarios.editar_usuario")
             ->with("user",$user);
     }
 
     public function update(Request $request,$id){
+        $this->validate($request,[
+            "name"=>"required|max:100",
+            "usuario"=>"required|max:100|unique:users,name,".$id,
+            "telefono"=>"required|max:11|min:8|unique:users,telefono,".$id,
+            "email"=>"required|unique:users,email,".$id
+
+        ],[
+            "name.required"=>"Se debe ingresar el nombre del usuario.",
+            "name.max"=>"El nombre del usuario debe ser menor a 100 caracteres",
+            "usuario.required"=>"Se debe ingresar el nombre de usuario.",
+            "usuario.max"=>"El nombre de usuario debe ser menor a 100 caracteres",
+            "telefono.required"=>"Se debe ingresar el numero telefonico del de usuario.",
+            "telefono.max"=>"El numero de telefono del usuario debe tener 8 caracteres",
+            "telefono.unique"=>"El numero de telefono debe ser unico",
+            "email.required"=>"Se debe ingresar el email de usuario.",
+            "email.unique"=>"El email debe ser unico",
+        ]);
+
+        $editarUsuario = User::findOrfail($request->id);
+        $editarUsuario->name= $request->input("name");
+        $editarUsuario->usuario= $request->input("usuario");
+        $editarUsuario->is_admin= $request->input("is_admin");
+        $editarUsuario->telefono= $request->input("telefono");
+        $editarUsuario->email= $request->input("email");
+        $path = public_path() . '\images\categorias';//Carpeta publica de las imagenes
+        if($request->imagen_url){
+            /***Si la imagen es enviada por el usuario se debe eliminar la anterior **/
+            $img_anterior=public_path()."/images/categorias/".$editarUsuario->photo;
+            if (File::exists($img_anterior)){
+                File::delete($img_anterior);
+            }
+            $photo = $_FILES["imagen_url"]["name"];
+            $ruta = $_FILES["imagen_url"]["tmp_name"];
+            //-------------VALIDAR SI LA CARPETA EXISTE---------------------
+            if (!file_exists($path)) {
+                mkdir($path, 0777, true);
+
+            }
+            //-------------------------------------------------------------
+            $destino = "images/categorias/" . $photo;
+            copy($ruta, $destino);
+            $editarUsuario->photo=$photo;
+        }
+
+        $editarUsuario->save();
+
+        return redirect()->route("usuarios.index")
+            ->with("exito","Se edito correctamente la categoria");
+    }
+
+    public function updat(Request $request,$id){
         $this->validate($request,[
             "name"=>"required|max:100",
             "usuario"=>"required|max:100|unique:users,name,".$id,

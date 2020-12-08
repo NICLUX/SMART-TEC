@@ -19,21 +19,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="Creacion del componente crear una venta y el listado de la venta">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_11_2020_11_57_a__m__[Default_Changelist]1/shelved.patch" beforeDir="false" />
+    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="modificacion de la vista de perfil de usuario">
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_11_2020_11_57_a__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_11_2020_11_57_a__m___Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_11_2020_11_57_a__m___Default_Changelist_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VentaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VentaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/CrearVenta.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/CrearVenta.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Ventas.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Ventas.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/DetalleVenta.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/DetalleVenta.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Venta.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Venta.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/aperturas/apertura-caja.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/aperturas/apertura-caja.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/ventas/crear-venta.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/ventas/crear-venta.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/ventas/ventas.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/ventas/ventas.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/UserTableseeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/UserTableseeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/CrearCompra.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/mostrarCompras.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario_para_admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario_para_admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -177,6 +172,10 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1jOwyGafamMNoJnAFFkh1zH3mAM" />
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -244,6 +243,7 @@
       <workItem from="1606967633225" duration="1560000" />
       <workItem from="1606969593679" duration="13606000" />
       <workItem from="1607022282164" duration="8247000" />
+      <workItem from="1607112523319" duration="9414000" />
     </task>
     <task id="LOCAL-00001" summary="Creacion de cintrolador, modelo, migracion de categoria, productos, inventario">
       <created>1602800135286</created>

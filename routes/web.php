@@ -32,14 +32,16 @@ Route::group(["middleware"=>"auth"],function () {
     Route::get('/dashboard', function () {
         return view('principal');
     })->name('dashboard');
-    Route::get("/usuarios/{id}/editar",[UserController::class,"edit"])->name("usuarios.editar");
-    Route::put("/usuarios/{id}/editar",[UserController::class,"update"])->name("usuarios.update");
+    Route::get("/usuarios/{id}/edit",[UserController::class,"editar"])->name("usuarios.edit");
+    Route::put("/usuarios/{id}/edit",[UserController::class,"updat"])->name("usuarios.updatee");
 
     Route::group(['middleware' => 'admin'], function () {
 
         //----------------------------------------------perfil-----------------------------------------------------------------//
         Route::get("/usuarios",[UserController::class,"index"])->name("usuarios.index");
         Route::get("/usuarios/crear",[UserController::class,"create"])->name("usuarios.create");
+        Route::get("/usuarios/{id}/editar",[UserController::class,"edit"])->name("usuarios.editar");
+        Route::put("/usuarios/{id}/editar",[UserController::class,"update"])->name("usuarios.update");
         Route::post("/usuarios/store",[UserController::class,"store"])->name("usuarios.store");
         Route::get("/usuarios/{id}/eliminar",[UserController::class,"destroy"])->name("usuarios.destroy");// Eliminar el suario de la tabla
 
@@ -56,7 +58,7 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/clientes",[\App\Http\Controllers\ClienteController::class,"index"])->name("clientes.index");//Muestra todos los clientes en una tabla
         Route::get("/cliente/nuevo",[\App\Http\Controllers\ClienteController::class,"nuevo"])->name("cliente.nuevo");//Muestra el formulario de crear un nuevo cliente
         Route::post("/cliente/store",[\App\Http\Controllers\ClienteController::class,"store"])->name("cliente.store");//Guarda el cliente del formulario
-        Route::get("/cliente/{id}/editar",[\App\Http\Controllers\ClienteController::class,"editar"])->name("cliente.editar");//Muestra un formulario de editar un cliente
+        Route::get("/cliente/{id}/editars",[\App\Http\Controllers\ClienteController::class,"editar"])->name("cliente.editar");//Muestra un formulario de editar un cliente
         Route::put("/cliente/{id}/update",[\App\Http\Controllers\ClienteController::class,"update"])->name("cliente.update");//Actualiza los datos del formulario de editar cliente
         Route::get("/cliente/{id}/destroy",[\App\Http\Controllers\ClienteController::class,"destroy"])->name("cliente.destroy");//Elimina el cliente de la tabla
 

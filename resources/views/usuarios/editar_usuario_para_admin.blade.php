@@ -84,8 +84,27 @@
                                    @endif
                                    name="telefono"
                                    class="form-control  @error('telefono') is-invalid @enderror">
-                            <small class="text-muted">Maxima longitud 100 caracteres</small>
+                            <small class="text-muted">Maxima longitud 8 caracteres</small>
                             @error('telefono')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label for="id_proveedor">Seleccione el tipo de usuario</label>
+                            <div class="input-group">
+                                <select id="is_admin"
+                                        name="is_admin"
+                                        class="form-control @error('is_admin') is-invalid @enderror" required>
+                                    <option value="" selected disabled>Seleccione una opcion</option>
+                                    @foreach($tipos as $tipo)
+                                        <option value="{{$tipo->id}}">{{$tipo->tipo_users}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            @error('is_admin')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
