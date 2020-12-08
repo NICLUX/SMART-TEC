@@ -9,7 +9,7 @@
                      onerror="this.src='/images/no_user.png'"></b></b>
                 <h4>Usuario: {{$user->name}}</h4>
                 <h6>Direccion  De Correo: {{$user->email}}</h6>
-                <a href="{{route("usuarios.editar",["id"=>$user->id])}}" class="container btn alert-primary">
+                <a href="{{route("usuarios.edit",["id"=>$user->id])}}" class="container btn alert-primary">
                     Editar Perfil
                 </a>
             </div>

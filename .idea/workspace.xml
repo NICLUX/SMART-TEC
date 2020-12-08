@@ -19,9 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="">
+    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="asibnacion de ruats corespodientes para las visats editar_usuario.blade.php y editar_usuario_para_admin.blade.php ya que solo el admin puede cambiar el tipo de usuario.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/profile/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -236,7 +235,7 @@
       <workItem from="1606967633225" duration="1560000" />
       <workItem from="1606969593679" duration="13606000" />
       <workItem from="1607022282164" duration="8247000" />
-      <workItem from="1607112523319" duration="10999000" />
+      <workItem from="1607112523319" duration="11623000" />
     </task>
     <task id="LOCAL-00001" summary="Creacion de cintrolador, modelo, migracion de categoria, productos, inventario">
       <created>1602800135286</created>
@@ -287,7 +286,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607398669295</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="asibnacion de ruats corespodientes para las visats editar_usuario.blade.php y editar_usuario_para_admin.blade.php ya que solo el admin puede cambiar el tipo de usuario.">
+      <created>1607400232947</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1607400232947</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,10 +331,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1607057138399" />
-    <state x="241" y="17" key="CommitChangelistDialog2" timestamp="1607398666535">
+    <state x="0" y="17" key="CommitChangelistDialog2" timestamp="1607400248376">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="241" y="17" key="CommitChangelistDialog2/0.0.1440.860@0.0.1440.860" timestamp="1607398666535" />
+    <state x="0" y="17" key="CommitChangelistDialog2/0.0.1440.860@0.0.1440.860" timestamp="1607400248376" />
     <state x="92" y="92" width="1182" height="554" key="DiffContextDialog" timestamp="1606970073288">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -345,11 +351,11 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="13" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1607040182480" />
-    <state x="290" y="118" key="Vcs.Push.Dialog.v2" timestamp="1607398738247">
+    <state x="290" y="118" key="Vcs.Push.Dialog.v2" timestamp="1607400239616">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1606195573581" />
-    <state x="290" y="118" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1607398738247" />
+    <state x="290" y="118" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1607400239616" />
     <state x="500" y="282" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606970026383">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
