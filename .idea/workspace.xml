@@ -19,17 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="modificacion de la vista de perfil de usuario">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_11_2020_11_57_a__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_11_2020_11_57_a__m___Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/UserTableseeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/UserTableseeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/CrearCompra.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/mostrarCompras.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/profile/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario_para_admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario_para_admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,7 +236,7 @@
       <workItem from="1606967633225" duration="1560000" />
       <workItem from="1606969593679" duration="13606000" />
       <workItem from="1607022282164" duration="8247000" />
-      <workItem from="1607112523319" duration="9414000" />
+      <workItem from="1607112523319" duration="10999000" />
     </task>
     <task id="LOCAL-00001" summary="Creacion de cintrolador, modelo, migracion de categoria, productos, inventario">
       <created>1602800135286</created>
@@ -287,7 +280,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606195569274</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="asibnacion de ruats corespodientes para las visats editar_usuario.blade.php y editar_usuario_para_admin.blade.php ya que solo el admin puede cambiar el tipo de usuario.">
+      <created>1607398669295</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1607398669295</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,7 +313,8 @@
     <MESSAGE value="Permitir eliminar un cliente en clientes_index.blade.php" />
     <MESSAGE value="Correción de direccion en crear_cliente por input en vez de TextArea" />
     <MESSAGE value="Creacion del componente crear una venta y el listado de la venta" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creacion del componente crear una venta y el listado de la venta" />
+    <MESSAGE value="asibnacion de ruats corespodientes para las visats editar_usuario.blade.php y editar_usuario_para_admin.blade.php ya que solo el admin puede cambiar el tipo de usuario." />
+    <option name="LAST_COMMIT_MESSAGE" value="asibnacion de ruats corespodientes para las visats editar_usuario.blade.php y editar_usuario_para_admin.blade.php ya que solo el admin puede cambiar el tipo de usuario." />
   </component>
   <component name="WindowStateProjectService">
     <state x="363" y="104" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1603690098741">
@@ -324,6 +325,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1607057138399" />
+    <state x="241" y="17" key="CommitChangelistDialog2" timestamp="1607398666535">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="241" y="17" key="CommitChangelistDialog2/0.0.1440.860@0.0.1440.860" timestamp="1607398666535" />
     <state x="92" y="92" width="1182" height="554" key="DiffContextDialog" timestamp="1606970073288">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -340,10 +345,11 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="13" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1607040182480" />
-    <state x="275" y="101" key="Vcs.Push.Dialog.v2" timestamp="1606195573581">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state x="290" y="118" key="Vcs.Push.Dialog.v2" timestamp="1607398738247">
+      <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1606195573581" />
+    <state x="290" y="118" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1607398738247" />
     <state x="500" y="282" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606970026383">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
