@@ -104,6 +104,9 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/ventas",\App\Http\Livewire\Ventas::class)->name("ventas.index");//Trae todos las aperturas realizadas
         Route::get("/venta/crear",\App\Http\Livewire\CrearVenta::class)->name("venta.nuevo");
 
+        //----------Ventas diarias-----------//
+        Route::get("/ventas/diarias",\App\Http\Livewire\VentasDiarias::class)->name("ventas_diarias.index");//Muestra la ventas diarias
+
 
     });
 
