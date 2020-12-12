@@ -5,6 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Compra;
 use App\Models\Detalle_compra;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Input;
+use Http\Request\ComprasFromRequest;
+use DB;
+use Carbon\Carbon;
+use Response;
+use Illuminate\Support\Collection;
 
 class CompraController extends Controller
 {

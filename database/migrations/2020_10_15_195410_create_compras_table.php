@@ -15,10 +15,10 @@ class CreateComprasTable extends Migration
     {
         Schema::create('compras', function (Blueprint $table) {
             $table->id();
-            $table->string('id_usuario');
-            $table->string('id_proveedores');
-            $table->integer('total_compra');
-          //  $table->foreignId('id_usuario')->references('id')->on('productos');
+            $table->foreignId("id_proveedores")->references("id")->on("proveedors");
+            $table->foreignId("id_usuario")->references("id")->on("users");
+            $table->date("fecha_compra")->nullable();
+            $table->double("total_compra");
             $table->timestamps();
         });
     }
