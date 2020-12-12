@@ -1,6 +1,5 @@
 @extends('layouts.main')
 @section("content")
-
     <div>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -25,6 +24,4 @@
                 <th scope="col">Detalle</th>
             </tr>
             </thead>
-
-
 @endsection

@@ -21,6 +21,9 @@ class CreateDetalleComprasTable extends Migration
             $table->string("descripcion")->nullable();
             $table->foreignId("id_usuarios")->references("id")->on("users");
             $table->foreignId("id_proveedor")->references("id")->on("proveedores");
+            $table->foreignId("id_producto")->references("id")->on("productos");
+            $table->foreignId("id_compra")->references("id")->on("compras");
+            $table->double("descuento")->nullable();
             $table->timestamps();
         });
     }
