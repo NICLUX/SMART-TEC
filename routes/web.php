@@ -4,6 +4,7 @@ use App\Http\Controllers\AperturaCajaController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\DetalleCompraController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\ServiciooController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -93,12 +94,14 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/proveedor/{id}/destroy",[\App\Http\Controllers\ProveedorController::class,"destroy"])->name("proveedor.destroy");//Borra un proveedor desde la lista
 
         //-----------Servicios------------------//
-        Route::get("/servicios",[\App\Http\Controllers\ServicioController::class,"index"])->name("servicios.index");//muestra todos los servicios
-        Route::get("/servicios/crear",[\App\Http\Controllers\ServicioController::class,"create"])->name("servicios.crear");//formulario de crear servicio
-        Route::post('/servicios/crear', [\App\Http\Controllers\ServicioController::class,"store"])->name('servicios.store');//crea el nuevo servicio
-        Route::get("/servicios/{id}/editar",[\App\Http\Controllers\ServicioController::class,"edit"])->name("servicios.editar");//Llama el formulario editar un servicio
-        Route::put("/servicios/{id}/update",[\App\Http\Controllers\ServicioController::class,"update"])->name("servicios.update");//Actualiza el servicio en el formulario editar
-        Route::get('/servicios/{id}/destroy',[\App\Http\Controllers\ServicioController::class,"destroy"])->name("servicios.destroy");//Borrar el servicio desde la tabla
+        Route::get("/servicios",[ServiciooController::class,"index"])->name("servicios.index");//muestra todos los servicios
+        Route::get("/servicios/crear",[ServiciooController::class,"create"])->name("servicios.crear");//formulario de crear servicio
+        Route::post('/servicios/crear', [ServiciooController::class,"store"])->name('servicios.store');//crea el nuevo servicio
+        Route::get("/servicios/{id}/editar",[ServiciooController::class,"edit"])->name("servicios.editar");//Llama el formulario editar un servicio
+        Route::put("/servicios/{id}/update",[ServiciooController::class,"update"])->name("servicios.update");//Actualiza el servicio en el formulario editar
+        Route::get('/servicios/{id}/destroy',[ServiciooController::class,"destroy"])->name("servicios.destroy");//Borrar el servicio desde la tabla
+        Route::get("/servicio/busqueda",[ServiciooController::class,"buscarServicio"])->name("servicios.buscar");//Buscar Producto
+        Route::get("/servicio/vistaTabla",[ServiciooController::class,"nuevaVista"])->name("servicios.nuevaVista");//Buscar Producto
 
         //-----------Ventas------------------//
         Route::get("/ventas",\App\Http\Livewire\Ventas::class)->name("ventas.index");//Trae todos las aperturas realizadas

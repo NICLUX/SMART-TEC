@@ -61,27 +61,27 @@
         </thead>
         <tbody>
 
-        @foreach($servicios as $item=> $servicio)
+        @foreach($servicios as $item=> $servicioo)
 
             <tr id="resultados">
-                <th scope="row">{{$servicio->id}}</th>
-                <td>{{$servicio->nombre}}</td>
-                @if($servicio->descripcion)
-                    <td>{{$servicio->descripcion}}</td>
+                <th scope="row">{{$servicioo->id}}</th>
+                <td>{{$servicioo->nombre}}</td>
+                @if($servicioo->descripcion)
+                    <td>{{$servicioo->descripcion}}</td>
                 @else
                     <td>n/a</td>
                 @endif
-                <td>{{$servicio->costo_venta}}</td>
-                <td>{{$servicio ->id_categoria}}</td>
+                <td>{{$servicioo->costo_venta}}</td>
+                <td>{{$servicioo ->id_categoria}}</td>
                 <td>
                     <a class="btn btn-sm btn-success"
-                       href="{{route("servicios.editar",["id"=>$servicio->id])}}">
+                       href="{{route("servicios.editar",["id"=>$servicioo->id])}}">
                         <i class="fa fa-pencil"></i></a>
 
                 </td>
                 <td>
                     <a class="btn btn-sm btn-danger"
-                       href="{{route("servicios.destroy",["id"=>$servicio->id])}}">
+                       href="{{route("servicios.destroy",["id"=>$servicioo->id])}}">
                         <i class="fa fa-trash"></i></a>
                 </td>
             </tr>

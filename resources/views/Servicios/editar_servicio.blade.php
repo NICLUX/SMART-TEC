@@ -27,7 +27,7 @@
                 </div>
             @endif
 
-            <form action="{{route("servicios.update",["id"=>$servicio->id])}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route("servicios.update",["id"=>$servicioo->id])}}" method="POST" enctype="multipart/form-data">
                 @method("PUT")
                 @csrf
                 <div class="form-group">
@@ -37,7 +37,7 @@
                            @if(old("nombre"))
                            value="{{old("nombre")}}"
                            @else
-                           value="{{$servicio->nombre}}"
+                           value="{{$servicioo->nombre}}"
                            @endif
                            required
                            placeholder="Ingrese el nombre" maxlength="80">
@@ -57,7 +57,7 @@
                          @if(old("descripcion"))
                             {{old("descripcion")}}
                         @else
-                            {{$servicio->descripcion}}
+                            {{$servicioo->descripcion}}
                         @endif
                     </textarea>
                     @error('descripcion')
@@ -73,7 +73,7 @@
                            @if(old("costo_venta"))
                            value="{{old("costo_venta")}}"
                            @else
-                           value="{{$servicio->costo_venta}}"
+                           value="{{$servicioo->costo_venta}}"
                            @endif
                            type="number"
                            min="0"
@@ -95,8 +95,8 @@
                             <option value="" selected disabled>Seleccione una opcion</option>
                             @foreach($categorias as $categoria)
                                 <option value="{{$categoria->id}}"
-                                @if($servicio->id_categoria)
-                                    {{$servicio->id_categoria == $categoria->id ? 'selected="selected"':''}}
+                                @if($servicioo->id_categoria)
+                                    {{$servicioo->id_categoria == $categoria->id ? 'selected="selected"':''}}
                                     @endif
                                 >{{$categoria->nombre}}</option>
                             @endforeach

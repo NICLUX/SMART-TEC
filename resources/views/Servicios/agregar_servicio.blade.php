@@ -114,16 +114,10 @@
                                     <a class="btn btn-success " href="{{route("servicios.index")}}"> Cancelar</a>
 
                                 </div>
-            </div>
-        </div>
+                            </div>
+                        </div>
 
                     </form>
-
-
-
-
-
-
             </div>
         </div>
 

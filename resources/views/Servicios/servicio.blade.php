@@ -1,5 +1,6 @@
 @extends("layouts.main")
 @section("content")
+
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">Servicios</h3>
