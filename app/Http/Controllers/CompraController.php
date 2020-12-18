@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Compra;
 use App\Models\Detalle_compra;
+use App\Models\Proveedor;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
@@ -54,8 +56,13 @@ class CompraController extends Controller
     }*/
 
     public function crear(){
+        $users=User::all();
+        $proveedores=Proveedor::all();
         $compras= Compra::all();
-        return view("compras.crearCompra")->with("compras",$compras);
+        return view("compras.crearCompra")
+            ->with("compras",$compras)
+            ->with("proveedores",$proveedores)
+            ->with("users",$users);
     }
    public function store(Request $request){
         $this->validate($request,[

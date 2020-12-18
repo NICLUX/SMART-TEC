@@ -27,10 +27,12 @@
         @csrf
         <div>
             <x-jet-label for="id_usuario" value="{{ __('id_usuario') }}" />
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select class="form-control" id="exampleFormControlSelect1"
+                        name="id_usuario">
                 <div class="form-group">
                     <option>Seleccione El Id de Usuario</option>
-                    @foreach($users as $item => $user) <option>{{$user->id_usuario}}</option>
+                    @foreach($users as $item => $user)
+                        <option value="{{$user->id}}">{{$user->name}}</option>
                     @endforeach
                 </div>
                 </select>
@@ -38,11 +40,13 @@
 
         <div>
             <x-jet-label for="id_proveedores" value="{{ __('id_proveedores') }}" />
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select class="form-control" id="exampleFormControlSelect1"
+                    name="id_proveedores">
                 <div class="form-group">
                     <option>Seleccione El Id de Proveedores</option>
-                    @foreach($compras as $item => $compra) <option>{{$compra->id_proveedores}}</option>
-                @endforeach
+                    @foreach($proveedores as $item => $proveedor)
+                        <option value="{{$proveedor->id}}">{{$proveedor->nombre}}</option>
+                    @endforeach
                 </div>
             </select>
         </div>

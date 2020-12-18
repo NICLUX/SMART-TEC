@@ -23,7 +23,7 @@
                                     </span>
                  @enderror
              </div>
-       </br>
+       </div>
         </br>
         <div>
             <a class="btn btn-primary" type="submit" href="{{route("compras.store")}}">
