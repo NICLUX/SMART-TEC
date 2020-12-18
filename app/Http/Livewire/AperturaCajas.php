@@ -32,7 +32,6 @@ class AperturaCajas extends Component
     public function predelete($id){
         $this->idApertura= $id;
     }
-
     public function destroy(){
         $apertura = AperturaCaja::findOrfail($this->idApertura);
         $apertura->delete();

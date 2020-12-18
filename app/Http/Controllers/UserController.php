@@ -19,10 +19,9 @@ class userController extends Controller
      */
     public function index()
     {
-        $tipos = Tipo_user::all();
+
         $users = User::paginate(6);
         return view('usuarios.users')
-            ->with('tipos',$tipos)
             ->with('users',$users);
 
     }

@@ -13,29 +13,31 @@
              </div>
         @endif
 
-        @if($detalle_compras->count()>0)
+        @if($compras->count()>0)
             <table class="table table-striped table-dark">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Id usuario</th>
                     <th scope="col">Id proveedores</th>
+                    <th scope="col">Impuesto</th>
                     <th scope="col">Total compras</th>
                     <th scope="col">Acciones</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($detalle_compras as $detalle_compra)
+                @foreach($compras as $compra)
                     <tr>
-                        <th scope="row">{{$detalle_compra->id}}</th>
-                        <td>{{$detalle_compra->id}}</td>
-                        <td>{{$detalle_compra->id_proveedor}}</td>
-                        <td>{{$detalle_compra->cantidad * $detalle_compra->costo_compra}}</td>
+                        <th scope="row">{{$compra->id}}</th>
+                        <td>{{$compra->name}}</td>
+                        <td>{{$compra->nombre}}</td>
+                        <td>{{$compra->impuesto}}</td>
+                        <td>{{$compra->total_compra}}</td>
                         <td><a class="btn btn-sm btn-success"
-                               href="{{route("DetalleCompra.editar",["id"=>$detalle_compra->id])}}">
+                               href="{{route("compras.editar",["id"=>$compra->id])}}">
                                 <i class="fa fa-pencil"></i></a>
                             <a class="btn btn-danger btn-sm"
-                               href="{{route("DetalleCompra.destroy",["id"=>$detalle_compra->id])}}">
+                               href="{{route("compras.destroy",["id"=>$compra->id])}}">
                                 <i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
@@ -49,11 +51,4 @@
             @endif
                 </tbody>
             </table>
-
-            <script>
-                @foreach($detalle_compras as $detalle_compra)
-                <p>{{$detalle_compra->cantidad * $detalle_compra->costo_compra}}</p>
-                @endforeach
-            </script>
-
 @endsection

@@ -4,14 +4,30 @@
     <form method="POST" action="{{ route('compras.crear') }}">
         @csrf
          <div>
-                <x-jet-label for="total_compra" value="{{ __('total_compra') }}" />
-                <x-jet-input id="total_compra"  class="form-control" type="text" name="total_compra" :value="old('total_compra')" required autofocus autocomplete="total_compra" />
-            </div>
-        </div>
-        <br>
+             <div class="form-group">
+                 <label for="total_compra">Ingrese el costo de la compra:</label>
+                 <input class="form-control @error('total_compra') is-invalid @enderror" name="total_compra"
+                        id="total_compra"
+                        type="total_compra"
+                        min="0"
+                        @if(old("total_compra"))
+                        value="{{old("total_compra")}}"
+                        @else
+                        value="{{$compras->total_compra}}"
+                        @endif
+                        required
+                        placeholder="Ingrese el costo compra" maxlength="80">
+                 @error('total_compra')
+                 <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                 @enderror
+             </div>
+       </br>
+        </br>
         <div>
-            <button class="btn btn-success btn-sm float-right" type="submit" href="{{route("compras.store")}}">
-              Guardar</button>
+            <a class="btn btn-primary" type="submit" href="{{route("compras.store")}}">
+              Guardar</a>
         </div>
     </form>
 @endsection

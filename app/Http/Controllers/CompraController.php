@@ -8,17 +8,50 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use Http\Request\ComprasFromRequest;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Response;
 use Illuminate\Support\Collection;
 
+
 class CompraController extends Controller
 {
-    public function index(){
-        $compras= Compra::paginate(10);
-        return view("compras.mostrarCompras")->with("compras",$compras);
+
+ public function __construct()
+ {
+
+ }
+    public function index(Request $request){
+        $compras = DB::table('compras')
+            ->join('users', 'compras.id_usuario', '=', 'users.id')
+            ->join('proveedors', 'compras.id_proveedores', '=', 'proveedors.id')
+            ->join('productos', 'compras.id_producto', '=', 'productos.id')
+            ->select('compras.*','proveedors.nombre','users.name')
+            ->get();
+        return view("compras.mostrarCompras")
+            ->with("compras",$compras);
     }
+  /*  public function index(Request $request){
+        $compras = DB::table('compras')
+            ->join('users', 'compras.id_usuario', '=', 'users.id')
+            ->join('proveedors', 'compras.id_proveedores', '=', 'proveedors.id')
+            ->join('productos', 'compras.id_producto', '=', 'productos.id')
+            ->select('compras.id')
+            ->groupBy('id')
+            ->get();
+        return view("compras.mostrarCompras")
+            ->with("compras",$compras);
+    }*/
+    /*public function index(Request $request){
+        $compras= Compra::all();
+        $detalle_compras=Detalle_compra::all();
+        return view("compras.mostrarCompras")->with("compras",$compras)
+            ->with("detalle_compras",$detalle_compras);
+
+    ->select(
+                DB::raw('sum(costo_compra * cantidad) as total'))
+            ->get();
+    }*/
 
     public function crear(){
         $compras= Compra::all();

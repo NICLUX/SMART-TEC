@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+
 
 class Compra extends Model
 {
@@ -11,15 +13,16 @@ class Compra extends Model
     protected $table="compras";
     protected $primaryKey ="id";
     public $timestamps = false;
+
     protected $fillable =[
           'id_proveedor',
-          'tipo_comprobante',
-          'serie_comprobante',
           'numero_comprobante',
           'impuesto',
+          'id_usuario',
           'feche_hora',
           'estado',
     ];
-    protected $guarded=[];
 
+    protected $guarded=[];
+    use HasFactory;
 }
