@@ -33,28 +33,6 @@ class CompraController extends Controller
         return view("compras.mostrarCompras")
             ->with("compras",$compras);
     }
-  /*  public function index(Request $request){
-        $compras = DB::table('compras')
-            ->join('users', 'compras.id_usuario', '=', 'users.id')
-            ->join('proveedors', 'compras.id_proveedores', '=', 'proveedors.id')
-            ->join('productos', 'compras.id_producto', '=', 'productos.id')
-            ->select('compras.id')
-            ->groupBy('id')
-            ->get();
-        return view("compras.mostrarCompras")
-            ->with("compras",$compras);
-    }*/
-    /*public function index(Request $request){
-        $compras= Compra::all();
-        $detalle_compras=Detalle_compra::all();
-        return view("compras.mostrarCompras")->with("compras",$compras)
-            ->with("detalle_compras",$detalle_compras);
-
-    ->select(
-                DB::raw('sum(costo_compra * cantidad) as total'))
-            ->get();
-    }*/
-
     public function crear(){
         $users=User::all();
         $proveedores=Proveedor::all();

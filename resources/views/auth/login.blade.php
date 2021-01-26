@@ -54,8 +54,8 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                                             </div>
-                                            <input id="email" class="form-control input_user" type="email" placeholder="Nombre de Usuario"
-                                                   name="email" :value="old('email')" required autofocus></div>
+                                            <input id="usuario" class="form-control input_user" type="text" placeholder="Nombre de Usuario"
+                                                   name="usuario" :value="old('usuario')" required autofocus></div>
 
                                         <div class="input-group form-group">
                                             <div class="input-group-prepend">
