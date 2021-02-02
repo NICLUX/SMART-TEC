@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Compra;
 use App\Models\Detalle_compra;
 use App\Models\Proveedor;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DetalleCompraController extends Controller
 {
@@ -13,23 +15,7 @@ class DetalleCompraController extends Controller
         $detalle_compras = Detalle_compra::paginate(10);
         return view("d_compras.d_Compras")->with("detalle_compras",$detalle_compras);
     }
-    public function mostrarCompras()
-    {
-        $users= User::all();
-        $detalle_compras= Detalle_compra::all();
-        return view("compras.mostrarCompras")
-            ->with("users", $users)
-            ->with("detalle_compras", $detalle_compras);
-    }
-    public function calculo(){
-        $proveedores = Proveedor::all();
-        $users = User::all();
-        $detalle_compra = Detalle_compra::all();
-        return view("d_compras.crear_dCompra")
-            ->with("detalle_compra",$detalle_compra)
-            ->with("proveedores", $proveedores)
-            ->with("users", $users);
-    }
+
     public function nuevo(){
         $proveedores = Proveedor::all();
         $users = User::all();
@@ -38,6 +24,17 @@ class DetalleCompraController extends Controller
             ->with("detalle_compra",$detalle_compra)
             ->with("proveedores", $proveedores)
             ->with("users", $users);
+    }
+    public function calcularTotalPagar()
+    {
+        if ($this->id_compras) {
+            $this->total_compras = DB::table("detalle_compras")
+                ->select(DB::raw("sum(costo_compra * cantidad) as compra"))
+                ->where("id_compra", "=", $this->id_compra)
+                ->value("compra");
+        } else {
+            $this->total_venta = 0.00;
+        }
     }
     public function store(Request $request){
         $this->validate($request, [
@@ -62,6 +59,7 @@ class DetalleCompraController extends Controller
         $nuevaCompra->cantidad = $request->input("cantidad");
         $nuevaCompra->descripcion = $request->input("descripcion");
         $nuevaCompra->save();
+        $this->calcularTotalPagar();
         return redirect()->route("DetalleCompras.index")->with("exito","Se registró exitosamente");
     }
     public function editar($id)

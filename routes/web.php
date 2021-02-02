@@ -48,7 +48,7 @@ Route::group(["middleware"=>"auth"],function () {
 
         //-------------------------------------detalle compras-------------------------------------------------------------------//
         Route::get("/detalleCompras",[DetalleCompraController::class,"index"])->name("DetalleCompras.index");//Muestra todos los productos en una tabla
-        Route::get("/detalleCompras/total",[DetalleCompraController::class,"mostrarCompras"])->name("DetalleCompras.mostrarCompras");//Muestra todos los productos en una tabla
+        //Route::get("/detalleCompras/total",[DetalleCompraController::class,"mostrarCompras"])->name("DetalleCompras.mostrarCompras");//Muestra todos los productos en una tabla
         Route::get("/detalleCompras/nuevo",[DetalleCompraController::class,"nuevo"])->name("DetalleCompras.nuevo");//Muestra el formulario de crear un nuevo producto.
         Route::post("/detalleCompras/store",[DetalleCompraController::class,"store"])->name("DetalleCompras.store");//Guarda el producto del formulario de productos
         Route::get("/detalleCompras/{id}/editar",[DetalleCompraController::class,"editar"])->name("DetalleCompra.editar");//Muestra el formulario de editar un producto

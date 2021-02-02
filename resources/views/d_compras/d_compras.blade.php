@@ -54,7 +54,7 @@
                                 <td>{{$detalle_compra->id_proveedor}}</td>
                                 <td>{{$detalle_compra->costo_compra}}</td>
                                 <td>{{$detalle_compra->cantidad}}</td>
-                                <td>{{$detalle_compra->total}}</td>
+                                <td>{{$detalle_compra->costo_compra*$detalle_compra->cantidad}}</td>
                                 <td><a class="btn btn-sm btn-success"
                                        href="{{route("DetalleCompra.editar",["id"=>$detalle_compra->id])}}">
                                         <i class="fa fa-pencil"></i></a>

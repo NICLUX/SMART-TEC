@@ -16,7 +16,7 @@ class UserTableseeder extends Seeder
     {
         $user = new User();
         $user->name = "Administrador";
-        $user->usuario="Valdivia";
+        $user->usuario="Administrador";
         $user->telefono="981224122";
         $user->email = "smart-tec@gmail.com";
         $user->photo = "src=/images/logo/admin.jpg";

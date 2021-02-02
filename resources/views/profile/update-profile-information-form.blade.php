@@ -1,5 +1,6 @@
 <x-jet-form-section submit="updateProfileInformation" xmlns:wire="http://www.w3.org/1999/xhtml"
                     xmlns:x-on="http://www.w3.org/1999/xhtml" xmlns:x-bind="http://www.w3.org/1999/xhtml">
+
     <x-slot name="title">
         {{ __('Información del perfil') }}
     </x-slot>
@@ -28,6 +29,7 @@
                 <x-jet-label for="photo" value="{{ __('Foto') }}" />
 
                 <!-- Current Profile Photo -->
+
                 <div class="mt-2" x-show="! photoPreview">
                     <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover">
                 </div>
