@@ -132,7 +132,7 @@
     }
 
     .register{
-    background: -webkit-linear-gradient(left, #696969, #9acd32);
+    background: -webkit-linear-gradient(left, #F62441, #9acd32);
     margin-top: 1%;
     padding: 2%;
 }

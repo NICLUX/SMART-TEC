@@ -9,7 +9,8 @@
                 Agregar</a>
             <br>
             <hr>
-
+            <br>
+            <br>
             <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
             @if(session("exito"))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">

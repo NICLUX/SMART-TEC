@@ -27,6 +27,7 @@
 
             <br>
             <hr>
+            <br>
 
             <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
             @if(session("exito"))
