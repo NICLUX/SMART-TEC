@@ -12,7 +12,7 @@
         <div class="container">
             <div class="col-sm-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading">  <h4 >User Profile</h4></div><br>
+                    <div class="panel-heading">  <h4 >Perfil De Usuario</h4></div><br>
                     <div class="panel-body">
                         <div class="profile-userpic col-md-6 col-xs-12 col-sm-6 col-lg-4">
                             <img alt="User Pic" src="/images/categorias/{{$user->photo}}" id="profile-image1" class="img-circle img-responsive">

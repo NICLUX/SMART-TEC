@@ -4,7 +4,7 @@
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Asegúrese de que su cuenta esté usando una contraseña larga y aleatoria para mantenerse segura.') }}
+        {{ __('Asegúrese de que su contraseña incluya caracteres para una mayor seguridad.') }}
     </x-slot>
 
     <x-slot name="form">
