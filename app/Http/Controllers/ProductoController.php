@@ -16,6 +16,12 @@ class ProductoController extends Controller
         return view("productos.productos_index")->with("productos", $productos);
     }
 
+    public function mostrar()
+    {
+        $productos = Producto::paginate(10);
+        return view("productos.TablaProductos")->with("productos", $productos);
+    }
+
     public function buscarProducto(Request $request){
         $busqueda = $request->input("busqueda");
         $productos = Producto::where("nombre",

@@ -5,29 +5,32 @@
             <h3 class="card-title">Productos</h3>
         </div>
 
-        <div class="card-body">
-            <a class="btn btn-success btn-sm float-right" href="{{route("producto.nuevo")}}"><i class="fa fa-plus"></i>
-                Agregar</a>
-            <br>
-            <br>
-            <form method="get" action="{{route("producto.buscar")}}">
-                @csrf
-                <div class="form-inline my-2 my-lg-0 float-right">
-                    <input class="form-control"
-                           name="busqueda"
-                           @if(isset($busqueda))
-                           value="{{$busqueda}}"
-                           @endif
-                           type="search" placeholder="Buscar">
-                    <div class="input-group-append">
-                        <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
-                    </div>
-                </div>
-            </form>
 
+        <div class="card-body">
+            <br>
+            <br>
+            <div class="btn-group float-right float-left" role="group" aria-label="Basic example" id="botones_ser">
+                <a class="btn btn-secondary float-right" href="{{route("productos.mostrar")}}">Nueva Vista</a>
+                <a class="btn btn-secondary float-right" href="{{route("producto.nuevo")}}"> Agregar Producto</a>
+                <form method="get" action="{{route("producto.buscar")}}">
+                    @csrf
+                    <div class="form-inline my-2 my-lg-0 float-right">
+                        <input class="form-control"
+                               name="busqueda"
+                               @if(isset($busqueda))
+                               value="{{$busqueda}}"
+                               @endif
+                               type="search" placeholder="Buscar">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
             <br>
             <hr>
             <br>
+
 
             <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
             @if(session("exito"))
