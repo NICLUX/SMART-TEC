@@ -37,9 +37,9 @@ Route::group(["middleware"=>"auth"],function () {
     Route::put("/usuarios/{id}/edit",[UserController::class,"updat"])->name("usuarios.updatee");
 
     Route::group(['middleware' => 'admin'], function () {
-
         //----------------------------------------------perfil-----------------------------------------------------------------//
         Route::get("/usuarios",[UserController::class,"index"])->name("usuarios.index");
+        Route::get("/usuariost",[UserController::class,"mostrar"])->name("usuarios.mostrar");
         Route::get("/usuarios/crear",[UserController::class,"create"])->name("usuarios.create");
         Route::get("/usuarios/{id}/editar",[UserController::class,"edit"])->name("usuarios.editar");
         Route::put("/usuarios/{id}/editar",[UserController::class,"update"])->name("usuarios.update");
