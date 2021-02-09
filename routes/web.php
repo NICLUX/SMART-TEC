@@ -6,6 +6,7 @@ use App\Http\Controllers\DetalleCompraController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ServiciooController;
 use App\Http\Controllers\UserController;
+use App\Http\Livewire\AperturaCajas;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -64,7 +65,7 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/cliente/{id}/destroy",[\App\Http\Controllers\ClienteController::class,"destroy"])->name("cliente.destroy");//Elimina el cliente de la tabla
 
         //-----------Apertura de Caja ------------------//
-        Route::get("/apertura_caja",\App\Http\Livewire\AperturaCajas::class)->name("apertura.index");//Trae todos las aperturas realizadas
+        Route::get("/apertura_caja",AperturaCajas::class)->name("apertura.index");//Trae todos las aperturas realizadas
         Route::post("/apertura/crear",[AperturaCajaController::class,"store"])->name("apertura.crear");//Crea una nueva apertura de caja
 
         //---------------Categorias-----------------//
@@ -94,7 +95,7 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/proveedor/{id}/destroy",[\App\Http\Controllers\ProveedorController::class,"destroy"])->name("proveedor.destroy");//Borra un proveedor desde la lista
 
         //-----------Servicios------------------//
-        Route::get("/servicios",[ServiciooController::class,"index"])->name("servicios.index");//muestra todos los servicios
+        Route::get("/servicios",[ServiciosController::class,"index"])->name("servicios.index");//muestra todos los servicios
         Route::get("/servicios/crear",[ServiciooController::class,"create"])->name("servicios.crear");//formulario de crear servicio
         Route::post('/servicios/crear', [ServiciooController::class,"store"])->name('servicios.store');//crea el nuevo servicio
         Route::get("/servicios/{id}/editar",[ServiciooController::class,"edit"])->name("servicios.editar");//Llama el formulario editar un servicio
