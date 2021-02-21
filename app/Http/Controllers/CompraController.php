@@ -15,7 +15,6 @@ use Carbon\Carbon;
 use Response;
 use Illuminate\Support\Collection;
 
-
 class CompraController extends Controller
 {
 
@@ -24,45 +23,89 @@ class CompraController extends Controller
 
  }
     public function index(Request $request){
-        $compras = DB::table('compras')
-            ->join('users', 'compras.id_usuario', '=', 'users.id')
-            ->join('proveedors', 'compras.id_proveedores', '=', 'proveedors.id')
-            ->join('productos', 'compras.id_producto', '=', 'productos.id')
-            ->select('compras.*','proveedors.nombre','users.name')
+        $compras = DB::table('compras as c')
+            ->join('users as s', 'c.id_usuario', '=', 's.id')
+            ->join('proveedors as p', 'c.id_proveedore', '=', 'p.id')
+            ->join('detalle_compras as d', 'c.id', '=', 'd.id_compra')
+            ->select('c.id','c.feche_hora','c.numero_comprobante','p.nombre',
+                DB::raw('SUM(costo_compra*cantidad) as total'))
+           // ->where('c.numero_comprobante', 'LIKE', '%'..'%')
+               ->orderBy('c.id','desc')
+               ->groupBy('c.id','c.feche_hora','c.numero_comprobante','p.nombre')
             ->get();
         return view("compras.mostrarCompras")
             ->with("compras",$compras);
     }
+
+
     public function crear(){
         $users=User::all();
         $proveedores=Proveedor::all();
         $compras= Compra::all();
+        $detalles=Detalle_compra::all();
         return view("compras.crearCompra")
             ->with("compras",$compras)
             ->with("proveedores",$proveedores)
-            ->with("users",$users);
+            ->with("users",$users)
+            ->with("detalles",$detalles);
     }
+
    public function store(Request $request){
-        $this->validate($request,[
-            "total_compra" =>"required|numeric"
-            ],[
-            "total_compra.required" => "Se requiere el costo de venta.",
-            "total_compra.numeric" => "Se requiere que el costo de venta sea un numero",
-            ]);
-        $nuevaCompra=new Compra();
-        $nuevaCompra->id_usuario= $request->input("id_usuario");
-        $nuevaCompra->id_proveedores= $request->input("id_proveedores");
-        $nuevaCompra->total_compra= $request->input("total_compra");
-        $nuevaCompra->save();
+
+       try {
+           DB::beginTransaction();
+           $nuevaCompra=new Compra();
+           $nuevaCompra->id_usuario= $request->input("id_usuario");
+           $nuevaCompra->id_proveedore= $request->input("id_proveedore");
+           $nuevaCompra->impuesto= $request->input("impuesto");
+           $nuevaCompra->numero_comprobante= $request->input("numero_comprobante");
+           $mytime=Carbon::now('America/tegucigalpa');
+           $nuevaCompra->feche_hora = $mytime->toDateTimeLocalString();
+           $nuevaCompra->save();
+
+           $id_producto = $request->input("id_producto");
+           $costo_compra = $request->input("costo_compra");
+           $costo_venta = $request->input("costo_venta");
+           $cantidad = $request->input("cantidad");
+
+           $cont = 0;
+           while($cont < count($id_producto))
+           {
+               $detalle = new Detalle_compra();
+               $detalle->id_compra=$nuevaCompra->id_compra;
+               $detalle->id_producto = $id_producto[$cont];
+               $detalle->costo_venta=$costo_venta[$cont];
+               $detalle->costo_compra=$costo_compra[$cont];
+               $detalle->cantidad=$cantidad->cantidad[$cont];
+               $detalle->save();
+               $cont = $cont=1;
+           }
+           DB::commit();
+       }catch(\Exception $exception){
+           DB::rollBack();
+       }
         return redirect()->route("compras.index")->with("exito","Se registró exitosamente");
     }
 
-    public function edit($id)
+    public function show($id)
     {
-        $compras = Compra::findOrFail($id);
-        return view('compras.editCompras')->with('compras', $compras);
+        $compra = DB::table('compras as c')
+            ->join('users as s', 'c.id_usuario', '=', 's.id')
+            ->join('proveedors as p', 'c.id_proveedore', '=', 'p.id')
+            ->join('detalle_compras as d', 'c.id', '=', 'd.id_compra')
+            ->select('c.id','c.feche_hora','c.numero_comprobante','p.nombre',
+                DB::raw('SUM(costo_compra*cantidad) as total'))
+            ->where('c.id','=',$id)
+            ->first();
+        $detalles = DB::table('detalle_compras as d')
+            ->join('productos as pr','d.id_producto','=','p.id')
+            ->select()
+            ->where()
+            ->get();
+        return view("compras.mostrarCompras")
+            ->with("compra",$compra)
+            ->with("detalle",$detalles);
     }
-
 
     public function destroy($id){
         $compra = Compra::findOrfail($id);

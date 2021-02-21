@@ -15,12 +15,11 @@ class CreateComprasTable extends Migration
     {
         Schema::create('compras', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("id_proveedores")->references("id")->on("proveedors");
+            $table->foreignId("id_proveedore")->references("id")->on("proveedors");
             $table->foreignId("id_usuario")->references("id")->on("users");
-            $table->foreignId("id_producto")->references("id")->on("productos");
-            $table->date("fecha_compra")->nullable();
             $table->double("impuesto");
-            $table->double("total_compra");
+            $table->double("numero_comprobante");
+            $table->date("feche_hora")->nullable();
             $table->timestamps();
         });
     }

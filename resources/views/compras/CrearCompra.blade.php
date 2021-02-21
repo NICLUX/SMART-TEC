@@ -39,11 +39,11 @@
                 </div>
 
         <div>
-            <x-jet-label for="id_proveedores" value="{{ __('id_proveedores') }}" />
+            <x-jet-label for="id_proveedore" value="{{ __('id_proveedore') }}" />
             <select class="form-control" id="exampleFormControlSelect1"
-                    name="id_proveedores">
+                    name="id_proveedore">
                 <div class="form-group">
-                    <option>Seleccione El Id de Proveedores</option>
+                    <option>Seleccione El Proveedor</option>
                     @foreach($proveedores as $item => $proveedor)
                         <option value="{{$proveedor->id}}">{{$proveedor->nombre}}</option>
                     @endforeach
@@ -51,15 +51,25 @@
             </select>
         </div>
         <div>
+            <div placeholder="">
+                <x-jet-label for="numero_comprobante" value="{{ __('numero_comprobante') }}" />
+                <x-jet-input placeholder="ingrese numero de comprobante" id="numero_comprobante"  class="form-control"
+                type="text" name="numero_comprobante" :value="old('numero_comprobante')"
+                 required autofocus autocomplete="numero_comprobante"/>
+            </div>
             <div>
-                <x-jet-label for="total_compra" value="{{ __('total_compra') }}" />
-                <x-jet-input id="total_compra"  class="form-control" type="text" name="total_compra" :value="old('total_compra')" required autofocus autocomplete="total_compra" />
+                <x-jet-label  for="impuesto" value="{{ __('impuesto') }}" />
+                <x-jet-input placeholder="ingrese el impuesto" id="impuesto"  class="form-control" type="text"
+                             name="impuesto" :value="old('impuesto')"
+                             required autofocus autocomplete="impuesto" />
             </div>
         </div>
         <br>
         <div>
             <button class="btn btn-success btn-sm float-right" type="submit" href="{{route("compras.store")}}">
                 Guardar</button>
+            <button class="btn btn-success btn-sm float-right" type="reset" >
+                canselar</button>
         </div>
     </form>
             </div>
