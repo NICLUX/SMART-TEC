@@ -22,21 +22,32 @@ class CompraController extends Controller
  {
 
  }
-    public function index(Request $request){
+    /*public function index(Request $request){
+        $compras = DB::table('compras')
+            ->join('users', 'compras.id_usuario', '=', 'users.id')
+            ->join('proveedors', 'compras.id_proveedore', '=', 'proveedors.id')
+            ->join('detalle_compras as d', 'compras.id', '=', 'd.id_compra')
+            ->select('compras.*','proveedors.nombre','users.name')
+            ->get();
+        return view("compras.mostrarCompras")
+            ->with("compras",$compras);
+    }*/
+
+   public function index(Request $request){
+     $query = trim($request->get('searchText'));
         $compras = DB::table('compras as c')
             ->join('users as s', 'c.id_usuario', '=', 's.id')
             ->join('proveedors as p', 'c.id_proveedore', '=', 'p.id')
             ->join('detalle_compras as d', 'c.id', '=', 'd.id_compra')
-            ->select('c.id','c.feche_hora','c.numero_comprobante','p.nombre',
+            ->select('c.*','p.nombre','s.name',
                 DB::raw('SUM(costo_compra*cantidad) as total'))
            // ->where('c.numero_comprobante', 'LIKE', '%'..'%')
                ->orderBy('c.id','desc')
-               ->groupBy('c.id','c.feche_hora','c.numero_comprobante','p.nombre')
+               ->groupBy('c.id','c.feche_hora','c.numero_comprobante','p.nombre','s.name','c.impuesto')
             ->get();
-        return view("compras.mostrarCompras")
-            ->with("compras",$compras);
-    }
+        return view("compras.mostrarCompras",["compras"=>$compras,"searchText"=>$query]);
 
+    }
 
     public function crear(){
         $users=User::all();

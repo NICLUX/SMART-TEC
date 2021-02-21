@@ -2,9 +2,8 @@
 @section("content")
     <div>
         <nav aria-label="breadcrumb">
-            <h5 class="breadcrumb">Ingrese la compra</h5>
+            <h4 class="breadcrumb">Realizar una compra</h4>
         </nav>
-
         @if(session("exito"))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{session("exito")}}

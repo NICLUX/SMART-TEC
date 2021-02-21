@@ -12,8 +12,9 @@ use Illuminate\Support\Facades\DB;
 class DetalleCompraController extends Controller
 {
     public function index(){
-        $detalle_compras = Detalle_compra::paginate(10);
-        return view("d_compras.d_Compras")->with("detalle_compras",$detalle_compras);
+        $compras = Compra::paginate(10);
+
+        return view("compras.mostrarCompras")->with("compras",$compras);
     }
 
     public function nuevo(){
