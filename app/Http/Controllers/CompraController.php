@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Compra;
 use App\Models\Detalle_compra;
+use App\Models\Producto;
 use App\Models\Proveedor;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -34,7 +35,6 @@ class CompraController extends Controller
     }*/
 
    public function index(Request $request){
-     $query = trim($request->get('searchText'));
         $compras = DB::table('compras as c')
             ->join('users as s', 'c.id_usuario', '=', 's.id')
             ->join('proveedors as p', 'c.id_proveedore', '=', 'p.id')
@@ -45,12 +45,13 @@ class CompraController extends Controller
                ->orderBy('c.id','desc')
                ->groupBy('c.id','c.feche_hora','c.numero_comprobante','p.nombre','s.name','c.impuesto')
             ->get();
-        return view("compras.mostrarCompras",["compras"=>$compras,"searchText"=>$query]);
-
+       return view("compras.mostrarCompras")
+           ->with("compras",$compras);
     }
 
     public function crear(){
         $users=User::all();
+        $productos = Producto::all();
         $proveedores=Proveedor::all();
         $compras= Compra::all();
         $detalles=Detalle_compra::all();
@@ -58,6 +59,7 @@ class CompraController extends Controller
             ->with("compras",$compras)
             ->with("proveedores",$proveedores)
             ->with("users",$users)
+            ->with("productos",$productos)
             ->with("detalles",$detalles);
     }
 

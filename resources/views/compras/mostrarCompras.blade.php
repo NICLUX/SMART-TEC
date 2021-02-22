@@ -53,7 +53,7 @@
                                href="{{route("compras.editar",["id"=>$compra->id])}}">
                                 <i class="fa fa-pencil"></i></a>
                             <a class="btn btn-warning btn-sm"
-                               href="{{route("compras.destroy",["id"=>$compra->id])}}">
+                               href="">
                                 <i class="fa-window-restore"></i></a>
                             <a class="btn btn-danger btn-sm"
                                href="{{route("compras.destroy",["id"=>$compra->id])}}">
