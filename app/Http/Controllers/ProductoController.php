@@ -15,6 +15,10 @@ class ProductoController extends Controller
         $productos = Producto::paginate(10);
         return view("productos.productos_index")->with("productos", $productos);
     }
+    public function nuevaVista (){
+        $productos = Producto::paginate(10);
+        return view("servicios.vista_tabla_servicios")->with("productos", $productos);
+    }
 
     public function buscarProducto(Request $request){
         $busqueda = $request->input("busqueda");
@@ -34,6 +38,7 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'file' => 'required|image|max:2048',
             "nombre" => "required|max:80",
             "costo_compra" => "required|numeric",
             "costo_venta" => "required|numeric",

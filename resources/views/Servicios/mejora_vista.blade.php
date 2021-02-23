@@ -249,6 +249,17 @@
         height: 700px;
     }
 
+    img{
+        height:150px;
+        width:100%;
+    }
+
+    div [class^="col-"] {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+
 
 </style>
 

@@ -1,17 +1,16 @@
 @extends("layouts.main")
+@extends("Estilos.estilos")
 @section("content")
 
-    <div class="card">
+    <div class="container mt-2">
         <div class="card-header">
-            <h3 class="card-title">Servicios</h3>
+            <h3 class="card-title">Servicios.</h3>
         </div>
-
 
         <div class="btn-group" role="group" aria-label="Basic example">
             <div class="card-body">
                 <a class="btn btn-success btn-sm float-right"  href="{{route("servicios.crear")}}"><i class="fa fa-plus"></i>
                     Agregar</a>
-
             </div>
 
             <div class="card-body">
@@ -39,6 +38,9 @@
         <hr>
 
 
+        <!------------------------------------------------------------------------------------------------------>
+
+        <section>
             <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
             @if(session("exito"))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -61,7 +63,7 @@
                 <div class="card-columns">
                     @foreach($servicios as $servicio)
 
-                        <div class="card" style="width: 18rem;">
+                        <div class="card estilo-a">
 
                             <div class="card-body" style="width: 18rem;">
                                 <h5 class="card-title">{{$servicio->nombre}}</h5>
@@ -88,8 +90,11 @@
                 <div class="alert alert-info">
                     No hay Servicios registrados aun
                 </div>
-            @endif
-        </div>
+        @endif
     </div>
+        </section>
+
+    </div>
+
 
 @endsection
