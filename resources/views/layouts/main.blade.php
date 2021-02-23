@@ -98,7 +98,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-info-circle"></i>Acerca de </a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-coffee"></i><a href="page-login.html">NiCLUX</a></li>
+                        <li><i class="menu-icon fa fa-coffee"></i><a href="{{route("acerca_de")}}">NiCLUX</a></li>
                     </ul>
                 </li>
             </ul>
