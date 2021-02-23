@@ -1,11 +1,13 @@
 @extends('layouts.main')
-
 @section("content")
+    <div class="btn-group float-right float-left" role="group" aria-label="Basic example" id="botones_ser">
+        <a class="btn btn-secondary float-right" href="{{route("usuarios.mostrar")}}">Vista Tabla</a>
+        <a class="btn btn-secondary float-right" href="{{route("usuarios.create")}}"> Agregar Usuario</a>
+    </div>
     <div>
         <div class="card-header">
             <h3 class="card-title">Mostrar Usuarios</h3>
         </div>
-        <a class="btn btn-success btn-sm float-right" href="{{route("usuarios.create")}}"><i class="fa fa-plus"></i> Agregar</a>
         <div class="card-body">
             <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
             @if(session("exito"))

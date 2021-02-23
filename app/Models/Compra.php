@@ -15,12 +15,11 @@ class Compra extends Model
     public $timestamps = false;
 
     protected $fillable =[
-          'id_proveedor',
-          'numero_comprobante',
-          'impuesto',
-          'id_usuario',
-          'feche_hora',
-          'estado',
+        'id_proveedor',
+        'id_usuario',
+        'numero_comprobante',
+        'impuesto',
+        'feche_hora',
     ];
 
     protected $guarded=[];

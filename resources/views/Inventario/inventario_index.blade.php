@@ -36,52 +36,52 @@
                     </div>
                 </div>
                 <div class="panel-body table-responsive">                <br>
-                    <hr>
-                    @if($inventarios->count()>0)
-                        <div class="table-responsive">
-                            <table class="table table-hover
+                <hr>
+                @if($inventarios->count()>0)
+                    <div class="table-responsive">
+                        <table class="table table-hover
                         table-sm">
-                                <thead class="table table-hover">
-                                <tr id="tabla">
-                                    <th>#</th>
-                                    <th>Producto</th>
-                                    <th>Cantidad (Stock)</th>
-                                    <th>Opciones</th>
+                            <thead class="table table-hover">
+                            <tr id="tabla">
+                                <th>#</th>
+                                <th>Producto</th>
+                                <th>Cantidad (Stock)</th>
+                                <th>Opciones</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            @foreach($inventarios as $item=> $inventario)
+                                <tr id="resultados">
+                                    <td>
+                                        {{$item+$inventarios->firstItem()}}
+                                    </td>
+                                    <td>{{$inventario->producto->nombre}}</td>
+                                    <td>{{$inventario->cantidad}}</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-success"
+                                           href="{{route("inventario.editar",["id"=>$inventario->id])}}"
+                                        title="Editar"><i class="fa fa-pencil"></i></a>
+                                        <a class="btn btn-sm btn-danger"
+                                        href="{{route("inventario.destroy",["id"=>$inventario->id])}}">
+                                            <i class="fa fa-trash"></i></a>
+                                    </td>
                                 </tr>
-                                </thead>
-                                <tbody>
-
-                                @foreach($inventarios as $item=> $inventario)
-                                    <tr id="resultados">
-                                        <td>
-                                            {{$item+$inventarios->firstItem()}}
-                                        </td>
-                                        <td>{{$inventario->producto->nombre}}</td>
-                                        <td>{{$inventario->cantidad}}</td>
-                                        <td>
-                                            <a class="btn btn-sm btn-success"
-                                               href="{{route("inventario.editar",["id"=>$inventario->id])}}"
-                                               title="Editar"><i class="fa fa-pencil"></i></a>
-                                            <a class="btn btn-sm btn-danger"
-                                               href="{{route("inventario.destroy",["id"=>$inventario->id])}}">
-                                                <i class="fa fa-trash"></i></a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                            <div class="pagination pagination-sm">
-                                {{$inventarios->links()}}
-                            </div>
+                            @endforeach
+                            </tbody>
+                        </table>
+                        <div class="pagination pagination-sm">
+                            {{$inventarios->links()}}
                         </div>
+                    </div>
                     @else
-                        <div class="alert alert-info">
-                            No se ha creado el inventario aun
-                        </div>
-                    @endif
-                </div>
+                    <div class="alert alert-info">
+                        No se ha creado el inventario aun
+                    </div>
+                @endif
             </div>
-
-
         </div>
+
+
+    </div>
 @endsection

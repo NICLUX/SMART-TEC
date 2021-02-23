@@ -21,156 +21,266 @@
         </div>
     @endif
 
-
     <div class="container register" id="detalle_form_prov">
         <div class="row" id="detalle_form_prov">
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
                 <h1>SMARTEC</h1>
-                <p>Registra nuevo producto!</p>
-                <a id="btn-cancelar" class="btn btn-primary btn-round" href="{{route("productos.index")}}">Cancelar</a>
+                <p>Editar Usuario!</p>
+                <a id="btn-cancelar" class="btn btn-primary btn-round" href="{{route("usuarios.index")}}">Cancelar</a>
             </div>
             <div class="col-md-9 register-right">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <h1 class="register-heading">Agregar Nuevo Producto</h1>
+                        <h1 class="register-heading">Editar Datos Usuario</h1>
                         <div class="row register-form">
                             <div class="col-md-6">
 
-                                <form action="{{route("producto.update",["id"=>$producto->id])}}" method="POST" enctype="multipart/form-data">
+                                <form  id="form_proveedores" enctype="multipart/form-data" action="{{route("usuarios.updatee",['id'=>$user->id])}}"
+                                       method="post" enctype="multipart/form-data">
                                     @method("PUT")
                                     @csrf
                                     <div class="form-group">
-                                        <label for="nombre">Ingrese el nombre:</label>
-                                        <input class="form-control @error('nombre') is-invalid @enderror" name="nombre"
-                                               id="nombre"
-                                               @if(old("nombre"))
-                                               value="{{old("nombre")}}"
-                                               @else
-                                               value="{{$producto->nombre}}"
-                                               @endif
+                                        <label>Ingrese el nombre:</label>
+                                        <input type="text" maxlength="80"
                                                required
-                                               placeholder="Ingrese el nombre" maxlength="80">
-                                        @error('nombre')
+                                               @if(old("name"))
+                                               value="{{old("name")}}"
+                                               @else
+                                               value="{{$user->name}}"
+                                               @endif
+                                               name="name"
+                                               class="form-control  @error('name') is-invalid @enderror">
+                                        <small class="text-muted">Maxima longitud 100 caracteres</small>
+                                        @error('name')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="descripcion">Ingrese la descripcion:</label>
-                                        <textarea class="form-control @error('descripcion') is-invalid @enderror" name="descripcion"
-                                                  id="nombre"
-                                                  required
-                                                  placeholder="Ingrese la descripcion" maxlength="80">
-                         @if(old("descripcion"))
-                                                {{old("descripcion")}}
-                                            @else
-                                                {{$producto->descripcion}}
-                                            @endif
-                    </textarea>
-                                        @error('descripcion')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="costo_compra">Ingrese el costo de la compra:</label>
-                                        <input class="form-control @error('costo_compra') is-invalid @enderror" name="costo_compra"
-                                               id="costo_compra"
-                                               type="number"
-                                               min="0"
-                                               @if(old("costo_compra"))
-                                               value="{{old("costo_compra")}}"
-                                               @else
-                                               value="{{$producto->costo_compra}}"
-                                               @endif
+                                        <label>Ingrese el nombre de usuario:</label>
+                                        <input type="text" maxlength="80"
                                                required
-                                               placeholder="Ingrese el costo compra" maxlength="80">
-                                        @error('costo_compra')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="costo_venta">Ingrese el costo de la venta:</label>
-                                        <input class="form-control @error('costo_venta') is-invalid @enderror" name="costo_venta"
-                                               id="costo_venta"
-                                               @if(old("costo_venta"))
-                                               value="{{old("costo_venta")}}"
+                                               @if(old("usuario"))
+                                               value="{{old("usuario")}}"
                                                @else
-                                               value="{{$producto->costo_venta}}"
+                                               value="{{$user->usuario}}"
                                                @endif
-                                               type="number"
-                                               min="0"
-                                               required
-                                               placeholder="Ingrese el costo venta" maxlength="80">
-                                        @error('costo_venta')
+                                               name="usuario"
+                                               class="form-control  @error('usuario') is-invalid @enderror">
+                                        <small class="text-muted">Maxima longitud 100 caracteres</small>
+                                        @error('usuario')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                         @enderror
                                     </div>
 
-
                                     <div class="form-group">
-                                        <label for="id_categoria">Seleccione una categoria</label>
-                                        <div class="input-group">
-                                            <select id="id_categoria"
-                                                    name="id_categoria"
-                                                    class="form-control @error('id_categoria') is-invalid @enderror" required>
-                                                <option value="" selected disabled>Seleccione una opcion</option>
-                                                @foreach($categorias as $categoria)
-                                                    <option value="{{$categoria->id}}"
-                                                    @if($producto->id_categoria)
-                                                        {{$producto->id_categoria == $categoria->id ? 'selected="selected"':''}}
-                                                        @endif
-                                                    >{{$categoria->nombre}}</option>
-                                                @endforeach
-                                            </select>
-                                            <div class="input-group-append">
-                                                <a class="btn btn-outline-success" href="{{route("categoria.nueva")}}"
-                                                   type="button"><i
-                                                        class="fa fa-plus"></i></a>
-                                            </div>
-                                        </div>
-                                        @error('id_categoria')
+                                        <label>Ingrese el numero de Telefono:</label>
+                                        <input type="number" maxlength="80"
+                                               required
+                                               @if(old("telefono"))
+                                               value="{{old("telefono")}}"
+                                               @else
+                                               value="{{$user->telefono}}"
+                                               @endif
+                                               name="telefono"
+                                               class="form-control  @error('telefono') is-invalid @enderror">
+                                        <small class="text-muted">Maxima longitud 100 caracteres</small>
+                                        @error('telefono')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                         @enderror
                                     </div>
-                                    <!-- Para ingresar una imagen -->
-                                    <div class="row">
-                                        <div class="col-2">
-                                            <img id="imagen_previa" src="/images/productos/{{$producto->imagen_url}}"
-                                                 onerror="this.src='/images/no_image.jpg'">
-                                        </div>
-                                        <div class="col-9">
-                                            <div class="form-group">
-                                                <label>Seleccione una imagen (opcional):</label>
-                                                <input class="form-control  @error('imagen') is-invalid @enderror"
-                                                       accept="image/*"
-                                                       name="imagen_url"
-                                                       onchange="verImagen(event)"
-                                                       id="imagen_url"
-                                                       type="file" placeholder="Ingrese una imagen"
-                                                >
-                                                <small class="text-muted">Solo formatos en imagen (.png,.jpg,.jpeg)</small>
-                                                @error('imagen')
-                                                <span class="invalid-feedback" role="alert">
+
+                                    <div class="form-group">
+                                        <label>Ingrese el numero de Email:</label>
+                                        <input type="email" maxlength="80"
+                                               required
+                                               @if(old("email"))
+                                               value="{{old("email")}}"
+                                               @else
+                                               value="{{$user-> email}}"
+                                               @endif
+                                               name="email"
+                                               class="form-control  @error('email') is-invalid @enderror">
+                                        <small class="text-muted">Maxima longitud 80 caracteres</small>
+                                        @error('email')
+                                        <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                                @enderror
+                                        <div class="form-group">
+                                            <label for="id_proveedor">Seleccione el tipo de usuario</label>
+                                            <div class="input-group">
+                                                <select id="is_admin"
+                                                        name="is_admin"
+                                                        class="form-control @error('is_admin') is-invalid @enderror" required>
+                                                    <option value="" selected disabled>Seleccione una opcion</option>
+                                                    @foreach($tipos as $tipo)
+                                                        <option value="{{$tipo->id}}">{{$tipo->tipo_users}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
+                                            @error('is_admin')
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                            @enderror
                                         </div>
+
+                                        <button id="btnRegister" type="submit" class="btn btn-success">Guardar</button>
+
                                     </div>
-                                    <hr>
-                                    <button type="submit" class="btn btn-success">Guardar</button>
                                     <!-- -->
                                 </form>
+                            </div>
                         </div>
-                    </div>
+@endsection
+
+                    @extends("layouts.main")
+                    @extends("servicios.mejora_vista")
+                    @section("content")
+
+                        <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
+                            @if(session("exito"))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    {{session("exito")}}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @endif
+                            @if(session("error"))
+                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                    <span class="fa fa-save"></span> {{session("error")}}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+
+                                </div>
+                            @endif
+
+                            <div class="container register" id="detalle_form_prov">
+                                <div class="row" id="detalle_form_prov">
+                                    <div class="col-md-3 register-left">
+                                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                                        <h1>SMARTEC</h1>
+                                        <p>Editar Usuario!</p>
+                                        <a id="btn-cancelar" class="btn btn-primary btn-round" href="{{route("usuarios.index")}}">Cancelar</a>
+                                    </div>
+                                    <div class="col-md-9 register-right">
+                                        <div class="tab-content" id="myTabContent">
+                                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                                <h1 class="register-heading">Editar Datos Usuario</h1>
+                                                <div class="row register-form">
+                                                    <div class="col-md-6">
+
+                                                        <form method="post" action="{{route("usuarios.update",['id'=>$user->id])}}"
+                                                              enctype="multipart/form-data">
+                                                            @method("PUT")
+                                                            @csrf
+                                                            <div class="form-group">
+                                                                <label>Ingrese el nombre:</label>
+                                                                <input type="text" maxlength="80"
+                                                                       required
+                                                                       @if(old("name"))
+                                                                       value="{{old("name")}}"
+                                                                       @else
+                                                                       value="{{$user->name}}"
+                                                                       @endif
+                                                                       name="name"
+                                                                       class="form-control  @error('name') is-invalid @enderror">
+                                                                <small class="text-muted">Maxima longitud 100 caracteres</small>
+                                                                @error('name')
+                                                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>Ingrese el nombre de usuario:</label>
+                                                                <input type="text" maxlength="80"
+                                                                       required
+                                                                       @if(old("usuario"))
+                                                                       value="{{old("usuario")}}"
+                                                                       @else
+                                                                       value="{{$user->usuario}}"
+                                                                       @endif
+                                                                       name="usuario"
+                                                                       class="form-control  @error('usuario') is-invalid @enderror">
+                                                                <small class="text-muted">Maxima longitud 100 caracteres</small>
+                                                                @error('usuario')
+                                                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                                @enderror
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label>Ingrese el numero de Telefono:</label>
+                                                                <input type="number" maxlength="80"
+                                                                       required
+                                                                       @if(old("telefono"))
+                                                                       value="{{old("telefono")}}"
+                                                                       @else
+                                                                       value="{{$user->telefono}}"
+                                                                       @endif
+                                                                       name="telefono"
+                                                                       class="form-control  @error('telefono') is-invalid @enderror">
+                                                                <small class="text-muted">Maxima longitud 8 caracteres</small>
+                                                                @error('telefono')
+                                                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                                @enderror
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="id_proveedor">Seleccione el tipo de usuario</label>
+                                                                <div class="input-group">
+                                                                    <select id="is_admin"
+                                                                            name="is_admin"
+                                                                            class="form-control @error('is_admin') is-invalid @enderror" required>
+                                                                        <option value="" selected disabled>Seleccione una opcion</option>
+                                                                        @foreach($tipos as $tipo)
+                                                                            <option value="{{$tipo->id}}">{{$tipo->tipo_users}}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                                @error('is_admin')
+                                                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                                @enderror
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label>Ingrese el numero de Email:</label>
+                                                                <input type="email" maxlength="80"
+                                                                       required
+                                                                       @if(old("email"))
+                                                                       value="{{old("email")}}"
+                                                                       @else
+                                                                       value="{{$user-> email}}"
+                                                                       @endif
+                                                                       name="email"
+                                                                       class="form-control  @error('email') is-invalid @enderror">
+                                                                <small class="text-muted">Maxima longitud 80 caracteres</small>
+                                                                @error('email')
+                                                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                                @enderror
+                                                            </div>
+
+                                                            <hr>
+                                                            <button type="submit" class="btn btn-success">Guardar</button>
+                                                            <!-- -->
+                                                        </form>
+                                                    </div>
+                                                </div>
+
 @endsection

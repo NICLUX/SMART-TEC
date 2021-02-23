@@ -14,8 +14,8 @@ class Detalle_compra extends Model
     protected $fillable =[
         'id_compra',
         'id_producto',
-        'precio_compra',
-        'precio_venta',
+        'costo_compra',
+        'costo_venta',
         'cantidad',
     ];
     protected $guarded=[];

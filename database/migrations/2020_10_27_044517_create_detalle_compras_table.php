@@ -15,13 +15,11 @@ class CreateDetalleComprasTable extends Migration
     {
         Schema::create('detalle_compras', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("id_usuarios")->references("id")->on("users");
-            $table->foreignId("id_proveedor")->references("id")->on("proveedor");
+            $table->foreignId("id_producto")->references("id")->on("productos");
+            $table->foreignId("id_compra")->references("id")->on("compras");
             $table->double("costo_compra");
-            $table->string("descripcion");
+            $table->double("costo_venta");
             $table->double("cantidad");
-            $table->string("nombre");
-            $table->double("descuento")->nullable();
             $table->timestamps();
         });
     }
