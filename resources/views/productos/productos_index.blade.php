@@ -2,7 +2,7 @@
 @section("content")
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Productos</h3>
+            <h3 class="card-title">PRODUCTOS</h3>
         </div>
 
         <div class="card-body">
@@ -63,7 +63,7 @@
                                 @if($producto->descripcion)
                                     <p class="card-text"><strong>Descripcion:</strong> {{$producto->descripcion}}</p>
                                 @endif
-                                <small class="text-muted"><i class="fa fa-dollar"></i> <strong>Costo compra:
+                                <small class="text-muted"><i class="fa fa-dollar"></i> <strong>Costo Compra:
                                         Lps.</strong> {{$producto->costo_compra}}</small>
                                 <br>
                                 <small class="text-muted"><i class="fa fa-money"></i> <strong>Costo venta:

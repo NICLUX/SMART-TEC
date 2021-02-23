@@ -6,7 +6,7 @@
 
     <div class="btn-group float-right float-left" role="group" aria-label="Basic example" id="botones_ser">
         <a class="btn btn-secondary float-right" href="{{route("productos.index")}}">Nueva Vista</a>
-        <a class="btn btn-secondary float-right" href="{{route("producto.nuevo")}}"> Agregar Producto</a>
+        <a class="btn btn-secondary float-right" href="{{route("producto.nuevo")}}">Nuevo Producto</a>
     </div>
     <br>
 

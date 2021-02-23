@@ -4,7 +4,7 @@
 
     <div class="container mt-2">
         <div class="card-header">
-            <h3 class="card-title">Servicios.</h3>
+            <h3 class="card-title">SERVICIOS</h3>
         </div>
 
         <div class="btn-group" role="group" aria-label="Basic example">
