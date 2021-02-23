@@ -9,7 +9,7 @@
     <x-slot name="content">
         <div class="max-w-xl text-sm text-gray-600">
             {{ __('Si es necesario, puede cerrar sesión en todas las demás sesiones de su navegador en todos sus
- dispositivos. Si cree que su cuenta se ha visto comprometida, también debe actualizar su contraseña.') }}
+ dispositivos.') }}
         </div>
 
         @if (count($this->sessions) > 0)

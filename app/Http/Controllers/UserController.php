@@ -25,6 +25,14 @@ class userController extends Controller
             ->with('users',$users);
 
     }
+    public function mostrar()
+    {
+
+        $users = User::paginate(6);
+        return view('usuarios.tablaUsuario')
+            ->with('users',$users);
+
+    }
 
     /**
      * Show the form for creating a new resource.

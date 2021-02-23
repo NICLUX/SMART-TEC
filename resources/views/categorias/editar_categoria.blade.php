@@ -1,37 +1,38 @@
 @extends("layouts.main")
+@extends("Servicios.mejora_vista")
 @section("content")
-    <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">Editar Categoria</h3>
+    <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
+    @if(session("exito"))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{session("exito")}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
-        <div class="card-body">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route("categorias.index")}}">Categorias</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Editar Categoria</li>
-                </ol>
-            </nav>
+    @endif
+    @if(session("error"))
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <span class="fa fa-save"></span> {{session("error")}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
 
-            <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
-            @if(session("exito"))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{session("exito")}}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            @endif
-            @if(session("error"))
-                <div class="alert alert-danger alert-dismissible" role="alert">
-                    <span class="fa fa-save"></span> {{session("error")}}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+        </div>
+    @endif
 
-                </div>
-            @endif
-            <div class="card card-body">
-                <div class="container-fluid">
+
+    <div class="container register " id="detalle_form_prov">
+        <div class="row" id="detalle_form_prov">
+            <div class="col-md-3 register-left">
+                <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                <h1>SMARTEC</h1>
+                <p style="color: #fff3cd;">Edita la categoria!</p>
+                <a id="btn-cancelar" class="btn btn-primary btn-round"
+                   href="{{route("categorias.index")}}">Cancelar</a>
+            </div>
+            <div class="col-md-9 register-right">
+
+                <div class="row register-form">
                     <form method="post" action="{{route("categoria.update",['id'=>$categoria->id])}}"
                           enctype="multipart/form-data">
                         @method("PUT")
@@ -59,7 +60,7 @@
                             <div class="col-2">
                                 <img
                                         id="imagen_previa" src="/images/categorias/{{$categoria->imagen}}"
-                                     onerror="this.src='/images/no_image.jpg'">
+                                        onerror="this.src='/images/no_image.jpg'">
                             </div>
                             <div class="col-9">
                                 <div class="form-group">
@@ -81,18 +82,19 @@
                         </div>
 
                         <hr>
-                        <button type="submit" class="btn btn-success">Guardar</button>
+                        <button id="btnRegister" type="submit" class="btn btn-success"><i class="fa fa-save"></i>
+                            Guardar
+                        </button>
                         <!-- -->
                     </form>
                 </div>
             </div>
-
-
         </div>
     </div>
+
     <script>
         //Permite mostrar la imagen seleccionada
-        var verImagen = function(event) {
+        var verImagen = function (event) {
             var image = document.getElementById('imagen_previa');
             image.src = URL.createObjectURL(event.target.files[0]);
         };

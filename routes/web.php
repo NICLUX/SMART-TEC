@@ -6,6 +6,7 @@ use App\Http\Controllers\DetalleCompraController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ServiciooController;
 use App\Http\Controllers\UserController;
+use App\Http\Livewire\AperturaCajas;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,9 +38,9 @@ Route::group(["middleware"=>"auth"],function () {
     Route::put("/usuarios/{id}/edit",[UserController::class,"updat"])->name("usuarios.updatee");
 
     Route::group(['middleware' => 'admin'], function () {
-
         //----------------------------------------------perfil-----------------------------------------------------------------//
         Route::get("/usuarios",[UserController::class,"index"])->name("usuarios.index");
+        Route::get("/usuariost",[UserController::class,"mostrar"])->name("usuarios.mostrar");
         Route::get("/usuarios/crear",[UserController::class,"create"])->name("usuarios.create");
         Route::get("/usuarios/{id}/editar",[UserController::class,"edit"])->name("usuarios.editar");
         Route::put("/usuarios/{id}/editar",[UserController::class,"update"])->name("usuarios.update");
@@ -64,7 +65,7 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/cliente/{id}/destroy",[\App\Http\Controllers\ClienteController::class,"destroy"])->name("cliente.destroy");//Elimina el cliente de la tabla
 
         //-----------Apertura de Caja ------------------//
-        Route::get("/apertura_caja",\App\Http\Livewire\AperturaCajas::class)->name("apertura.index");//Trae todos las aperturas realizadas
+        Route::get("/apertura_caja",AperturaCajas::class)->name("apertura.index");//Trae todos las aperturas realizadas
         Route::post("/apertura/crear",[AperturaCajaController::class,"store"])->name("apertura.crear");//Crea una nueva apertura de caja
 
         //---------------Categorias-----------------//
@@ -78,11 +79,12 @@ Route::group(["middleware"=>"auth"],function () {
 
         //-------------------Productos--------------------//
         Route::get("/productos",[ProductoController::class,"index"])->name("productos.index");//Muestra todos los productos en una tabla
+        Route::get("/productost",[ProductoController::class,"mostrar"])->name("productos.mostrar");
         Route::get("/producto/busqueda",[ProductoController::class,"buscarProducto"])->name("producto.buscar");//Buscar Producto
         Route::get("/producto/nuevo",[ProductoController::class,"nuevo"])->name("producto.nuevo");//Muestra el formulario de crear un nuevo producto.
         Route::post("/producto/store",[ProductoController::class,"store"])->name("producto.store");//Guarda el producto del formulario de productos
         Route::get("/producto/{id}/editar",[ProductoController::class,"editar"])->name("producto.editar");//Muestra el formulario de editar un producto
-        Route::put("/producto/{id}/update",[ProductoController::class,"update"])->name("producto.update");//Guarda los datos del formulario editar
+        Route::put("/producto/{id}/editar",[ProductoController::class,"update"])->name("producto.update");//Guarda los datos del formulario editar
         Route::get("/producto/{id}/eliminar",[ProductoController::class,"destroy"])->name("producto.destroy");// Eliminar el producto de la tabla
         Route::get("/producto/vistaTabla",[ServiciooController::class,"nuevaVista"])->name("producto.nuevaVista");//Buscar Producto
 
@@ -95,7 +97,7 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/proveedor/{id}/destroy",[\App\Http\Controllers\ProveedorController::class,"destroy"])->name("proveedor.destroy");//Borra un proveedor desde la lista
 
         //-----------Servicios------------------//
-        Route::get("/servicios",[ServiciooController::class,"index"])->name("servicios.index");//muestra todos los servicios
+        Route::get("/servicios",[ServiciosController::class,"index"])->name("servicios.index");//muestra todos los servicios
         Route::get("/servicios/crear",[ServiciooController::class,"create"])->name("servicios.crear");//formulario de crear servicio
         Route::post('/servicios/crear', [ServiciooController::class,"store"])->name('servicios.store');//crea el nuevo servicio
         Route::get("/servicios/{id}/editar",[ServiciooController::class,"edit"])->name("servicios.editar");//Llama el formulario editar un servicio
