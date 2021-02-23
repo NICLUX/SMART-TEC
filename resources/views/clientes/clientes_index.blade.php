@@ -1,39 +1,48 @@
-@extends("layouts.main")
+@extends('layouts.main')
+@extends('servicios.mejora_vista')
 @section("content")
-    <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">Clientes</h3>
+    <div class="btn-group float-right float-left" role="group" aria-label="Basic example" id="botones_ser">
+        <a class="btn btn-secondary float-right" href="{{route("usuarios.index")}}">Vista Tarjetas</a>
+        <a class="btn btn-secondary float-right" href="{{route("usuarios.create")}}">Agregar</a>
+    </div>
+    <br>
+    <hr>
+    <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
+    @if(session("exito"))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{session("exito")}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
-        <div class="card-body">
-            <a class="btn btn-success btn-sm float-right" href="{{route("cliente.nuevo")}}"><i class="fa fa-plus"></i>
-                Agregar</a>
-            <br>
-            <hr>
+    @endif
+    @if(session("error"))
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <span class="fa fa-save"></span> {{session("error")}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
 
-            <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
-            @if(session("exito"))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{session("exito")}}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            @endif
-            @if(session("error"))
-                <div class="alert alert-danger alert-dismissible" role="alert">
-                    <span class="fa fa-save"></span> {{session("error")}}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+        </div>
+    @endif
 
+    <div class="container-fluid" >
+        <div class="panel panel-success" id="encabezado">
+            <div class="panel-heading">
+                <div class="row" id="color_panel">
+                    <div class="col-xs-12 col-sm-12 col-md-3" >
+                        <h2 class="text-center pull-left" style="padding-left: 30px;">
+                            <span class="glyphicon glyphicon-list-alt"> </span>Clientes</h2>
+                    </div>
                 </div>
-            @endif
+
+        <div class="panel-body table-responsive">
             <div class="card card-body">
                 <div class="container-fluid">
                     @if($clientes->count())
-                    <table class="table">
-                        <thead class="thead-dark">
-                        <tr>
+                        <table class="table">
+                            <thead class="table table-hover">
+                            <tr id="tabla">
                             <th scope="col">#</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Télefono</th>
@@ -43,7 +52,7 @@
                         </thead>
                         <tbody>
                         @foreach($clientes as $item=>$cliente)
-                            <tr>
+                            <tr id="resultados">
                                 <th>{{$item+$clientes->firstItem()}}</th>
                                 <td>{{$cliente->nombre}}</td>
                                 <td>{{$cliente->telefono}}</td>

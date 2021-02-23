@@ -34,11 +34,11 @@
                         <h2 class="text-center pull-left" style="padding-left: 30px;"> <span class="glyphicon glyphicon-list-alt"> </span>Usuarios</h2>
                     </div>
                 </div>
-
+<br>
                 <div class="panel-body table-responsive">
 
                     @if($users->count()>0)
-                        <table class="table">
+                        <table class="table table-hover table-sm">
                             <thead class="table table-hover">
 
                             <tr id="tabla">
