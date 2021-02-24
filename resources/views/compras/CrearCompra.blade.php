@@ -78,18 +78,16 @@
                                 <div class="form-group">
                                     <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
                                         <x-jet-label for="numero_comprobante" value="{{ __('Ingrese el producto:') }}" />
-                                        <select class="form-control " id="pid_producto"
-                                                name="pid_producto">
-                                            <div class="form-group ">
-                                                <option>Seleccione el producto</option>
-                                                @foreach($productos as $item => $producto)
+                                        <select class="form-control " required>
+                                            <div id="pid_producto" name="pid_producto" class="form-group ">
+                                                    @foreach($productos as $item => $producto)
                                                     <option value="{{$producto->id}}">{{$producto->nombre}}</option>
-                                                @endforeach
+                                                    @endforeach
                                             </div>
                                         </select>
                                     </div>
                                     <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
-                                        <x-jet-label for="numero_comprobante" value="{{ __('Precio de compra:') }}" />
+                                        <x-jet-label for="pcosto_compra" value="{{ __('Precio de compra:') }}" />
                                         <input type="number" class="form-control " id="pcosto_compra"
                                                name="pcosto_compra" placeholder="Precio de compra" required>
                                     </div>
@@ -129,11 +127,7 @@
                                            </tbody>
                                            <tfoot>
                                                <tr>
-                                                   <th>Total</th>
-                                                   <th></th>
-                                                   <th></th>
-                                                   <th></th>
-                                                   <th></th>
+                                                   <th colspan="5">Total</th>
                                                    <th><h4 id="total">L/. 0.00</h4></th>
                                                </tr>
                                            </tfoot>
@@ -170,28 +164,20 @@
                     function agregar(){
                         id_producto=$("#pid_producto").val();
                         producto=$("#pid_producto option:selected").text();
-                        cantidad=$("#pcoso_compra").val();
-                        costo_compra=$("#pcoso_venta").val();
-                        costo_venta=$("#pcantida").val();
+                        cantidad=$("#pcantiadad").val();
+                        costo_compra=$("#pcosto_compra").val();
+                        costo_venta=$("#costo_venta").val();
 
                         if(id_producto != "" && costo_compra != "" && costo_venta!="" && cantidad>0){
                             sub_total[cont]=(cantidad*costo_compra);
                             total=total+ sub_total[cont];
                             var fila = '<tr class="selected" id="fila'+cont+'">' +
                                 '<td><button class="btn btn-danger btn-sm " type="botton" onclick="eliminar('+cont+');" >X</button></td>' +
-                                '<td>' +
-                                '<input type="hidden" name="id_producto[]" value="'+id_producto+'">'+producto+'</td>'+
-                                '<td>' +
-                                '<input type="hidden" name="costo_compra[]" value="'+costo_compra+'">'+costo_compra+'</td>'+
-                                '</td>'+
-                                '<td>' +
-                                '<input type="hidden" name="costo_venta[]" value="'+costo_venta+'">'+costo_venta+'</td>'+
-                                '</td>'+
-                                '<input type="hidden" name="cantidad[]" value="'+cantidad+'">'+cantidad+'</td>'+
-                                '</td>'+
-                                '<input>'+sub_total[cont]+'</td>'+
-                                '</td>'+
-                                '</tr>'
+                                '<td><input type="hidden" name="id_producto[]" value="'+id_producto+'">'+producto+'</td>'+
+                                '<td><input type="hidden" name="costo_compra[]" value="'+costo_compra+'">'+costo_compra+'</td>'+
+                                '</td><td><input type="hidden" name="costo_venta[]" value="'+costo_venta+'">'+costo_venta+'</td>'+
+                                '</td><input type="hidden" name="cantidad[]" value="'+cantidad+'">'+cantidad+'</td>'+
+                                '</td><input>'+sub_total[cont]+'</td></td></tr>'
                             cont++;
                             limpiar();
                             $("#total").html("L/."+total);

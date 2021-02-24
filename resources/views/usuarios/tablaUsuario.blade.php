@@ -36,11 +36,9 @@
                 </div>
 <br>
                 <div class="panel-body table-responsive">
-
                     @if($users->count()>0)
                         <table class="table table-hover table-sm">
                             <thead class="table table-hover">
-
                             <tr id="tabla">
                                 <th scope="col" class="text-center">#</th>
                                 <th scope="col" class="text-center">Nombre</th>
@@ -101,6 +99,4 @@
                 </div>
 
             </div>
-
-
 @endsection

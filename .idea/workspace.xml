@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -19,9 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="asibnacion de ruats corespodientes para las visats editar_usuario.blade.php y editar_usuario_para_admin.blade.php ya que solo el admin puede cambiar el tipo de usuario.">
+    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="modificacion de tablas clientes, proveedores,cliente para mejor vistosidad y que todo lleve un tono uniforme.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/compras/CrearCompra.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/compras/CrearCompra.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/hola.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/hola.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/tablaUsuario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/tablaUsuario.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +180,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../wamp64/www/SMART-TEC" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -189,15 +194,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\SMART-TEC\public\images" />
-      <recent name="C:\wamp64\www\SMART-TEC\public\images\logo" />
-      <recent name="C:\wamp64\www\SMART-TEC\public" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\SMART-TEC\public\assets\css" />
+      <recent name="C:\wamp64\www\SMART-TEC\public\assets\js" />
       <recent name="C:\wamp64\www\SMART-TEC\resources\views\livewire\ventas" />
       <recent name="C:\wamp64\www\SMART-TEC\resources\views" />
       <recent name="C:\wamp64\www\SMART-TEC\resources\views\categorias" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\SMART-TEC\public\assets\js" />
+      <recent name="C:\wamp64\www\SMART-TEC\public\js" />
+      <recent name="C:\wamp64\www\SMART-TEC\public\images" />
+      <recent name="C:\wamp64\www\SMART-TEC\public\images\logo" />
+      <recent name="C:\wamp64\www\SMART-TEC\public" />
     </key>
   </component>
   <component name="RunManager">
@@ -236,6 +245,21 @@
       <workItem from="1606969593679" duration="13606000" />
       <workItem from="1607022282164" duration="8247000" />
       <workItem from="1607112523319" duration="11623000" />
+      <workItem from="1612755657991" duration="4691000" />
+      <workItem from="1612761565711" duration="8087000" />
+      <workItem from="1612809821855" duration="7204000" />
+      <workItem from="1612833286375" duration="9113000" />
+      <workItem from="1613194719610" duration="2000" />
+      <workItem from="1613501833931" duration="260000" />
+      <workItem from="1613502694734" duration="4591000" />
+      <workItem from="1613857316950" duration="18942000" />
+      <workItem from="1613940150027" duration="36050000" />
+      <workItem from="1614046635078" duration="593000" />
+      <workItem from="1614049578230" duration="3919000" />
+      <workItem from="1614088449887" duration="4515000" />
+      <workItem from="1614110567946" duration="1915000" />
+      <workItem from="1614122780489" duration="329000" />
+      <workItem from="1614127904708" duration="746000" />
     </task>
     <task id="LOCAL-00001" summary="Creacion de cintrolador, modelo, migracion de categoria, productos, inventario">
       <created>1602800135286</created>
@@ -293,7 +317,63 @@
       <option name="project" value="LOCAL" />
       <updated>1607400232947</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="modificacion de vista de creado de cliente para una mejor, uniformidad con los demas formulareios y mejor vistocidad, tambiem se coreccion de los middelware en cuanto al redireccionamiento.">
+      <created>1612764154529</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1612764154529</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Modificacion de vista de creado de usuario para una mejor, uniformidad con los demas formulareios y mejor vistocidad.">
+      <created>1612769013868</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1612769013970</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Modificacion de vista de editar usuarios y la vista editar usuarios del lado del administrador para una mejor, uniformidad con los demas formulareios y mejor vistocidad.">
+      <created>1612820965283</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1612820965283</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Modificacion de vista de editar usuarios y la vista editar usuarios del lado del administrador para una mejor, uniformidad con los demas formulareios y mejor vistocidad.">
+      <created>1612852618564</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1612852618564</updated>
+    </task>
+    <task id="LOCAL-00013" summary="trabajando en el controlador de compras donde se crearan las compras y detalles de compras para el creado y mostrado de dicha compra y en la vista compras de forma parcial.">
+      <created>1613875883441</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1613875883441</updated>
+    </task>
+    <task id="LOCAL-00014" summary="trabajando en la vista de mostrado para la visualisacion de las compras realisadas">
+      <created>1613948929706</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1613948929706</updated>
+    </task>
+    <task id="LOCAL-00015" summary="trabajando en la vista de creado de compras donde se culculara el sub total y total de la compra utilisando javascript.">
+      <created>1613980607699</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1613980607699</updated>
+    </task>
+    <task id="LOCAL-00016" summary="modificacion de tablas clientes, proveedores,cliente para mejor vistosidad y que todo lleve un tono uniforme.">
+      <created>1614090907796</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1614090907796</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,13 +400,16 @@
     <MESSAGE value="Correción de direccion en crear_cliente por input en vez de TextArea" />
     <MESSAGE value="Creacion del componente crear una venta y el listado de la venta" />
     <MESSAGE value="asibnacion de ruats corespodientes para las visats editar_usuario.blade.php y editar_usuario_para_admin.blade.php ya que solo el admin puede cambiar el tipo de usuario." />
-    <option name="LAST_COMMIT_MESSAGE" value="asibnacion de ruats corespodientes para las visats editar_usuario.blade.php y editar_usuario_para_admin.blade.php ya que solo el admin puede cambiar el tipo de usuario." />
+    <MESSAGE value="modificacion de vista de creado de cliente para una mejor, uniformidad con los demas formulareios y mejor vistocidad, tambiem se coreccion de los middelware en cuanto al redireccionamiento." />
+    <MESSAGE value="Modificacion de vista de creado de usuario para una mejor, uniformidad con los demas formulareios y mejor vistocidad." />
+    <MESSAGE value="Modificacion de vista de editar usuarios y la vista editar usuarios del lado del administrador para una mejor, uniformidad con los demas formulareios y mejor vistocidad." />
+    <MESSAGE value="trabajando en el controlador de compras donde se crearan las compras y detalles de compras para el creado y mostrado de dicha compra y en la vista compras de forma parcial." />
+    <MESSAGE value="trabajando en la vista de mostrado para la visualisacion de las compras realisadas" />
+    <MESSAGE value="trabajando en la vista de creado de compras donde se culculara el sub total y total de la compra utilisando javascript." />
+    <MESSAGE value="modificacion de tablas clientes, proveedores,cliente para mejor vistosidad y que todo lleve un tono uniforme." />
+    <option name="LAST_COMMIT_MESSAGE" value="modificacion de tablas clientes, proveedores,cliente para mejor vistosidad y que todo lleve un tono uniforme." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="363" y="104" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1603690098741">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="363" y="104" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.738@0.0.1366.738" timestamp="1603690098741" />
     <state x="413" y="123" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607057138399">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -339,34 +422,44 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="92" y="92" width="1182" height="554" key="DiffContextDialog/0.0.1366.738@0.0.1366.738" timestamp="1606970073288" />
+    <state x="500" y="185" key="FileChooserDialogImpl" timestamp="1614123129532">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="500" y="185" key="FileChooserDialogImpl/0.0.1440.860@0.0.1440.860" timestamp="1614123129532" />
     <state x="129" y="55" key="MergeDialog" timestamp="1606967907364">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="129" y="55" key="MergeDialog/0.0.1366.738@0.0.1366.738" timestamp="1606967907364" />
-    <state x="517" y="292" key="NewPhpFileDialog" timestamp="1603762848620">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state x="358" y="191" key="MultipleFileMergeDialog" timestamp="1612852907198">
+      <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="517" y="292" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1603762848620" />
+    <state x="358" y="191" key="MultipleFileMergeDialog/0.0.1440.860@0.0.1440.860" timestamp="1612852907198" />
+    <state x="554" y="353" key="NewPhpFileDialog" timestamp="1612839621577">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="554" y="353" key="NewPhpFileDialog/0.0.1440.860@0.0.1440.860" timestamp="1612839621577" />
     <state x="184" y="13" key="SettingsEditor" timestamp="1607040182480">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="13" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1607040182480" />
-    <state x="290" y="118" key="Vcs.Push.Dialog.v2" timestamp="1607400239616">
+    <state x="290" y="118" key="Vcs.Push.Dialog.v2" timestamp="1613980621690">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1606195573581" />
-    <state x="290" y="118" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1607400239616" />
+    <state x="290" y="118" key="Vcs.Push.Dialog.v2/0.0.1440.860@0.0.1440.860" timestamp="1613980621690" />
     <state x="500" y="282" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606970026383">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="500" y="282" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1606970026383" />
-    <state x="339" y="165" key="run.anything.popup" timestamp="1606191903218">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state x="357" y="192" key="run.anything.popup" timestamp="1613971955995">
+      <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1606191903218" />
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1607057070685">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state x="357" y="192" key="run.anything.popup/0.0.1440.860@0.0.1440.860" timestamp="1613971955995" />
+    <state x="365" y="69" width="709" height="791" key="search.everywhere.popup" timestamp="1613966354475">
+      <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1607057070685" />
+    <state x="365" y="69" width="709" height="791" key="search.everywhere.popup/0.0.1440.860@0.0.1440.860" timestamp="1613966354475" />
   </component>
 </project>
