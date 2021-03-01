@@ -127,7 +127,7 @@ Route::group(["middleware"=>"auth"],function () {
 
     //________________comprass__________________________//
     Route::get("/compras",[\App\Http\Controllers\CompraController::class,"index"])->name("compras.index");//muestra todas las compras
-    Route::get("/compras/crear",[\App\Http\Controllers\CompraController::class,"crear"])->name("compras.crear");//lleva al formulario de creado
+    Route::get("/compras/crear",[\App\Http\Controllers\CompraController::class,"crear"])->name("compras.nuevo");//lleva al formulario de creado
     Route::post("/compras/crear",[\App\Http\Controllers\CompraController::class,"store"])->name("compras.store");//crea la nueva compra
     Route::get("/compras/{id}/editar",[\App\Http\Controllers\CompraController::class,"edit"])->name("compras.editar");//Llama el formulario editar una categoria
     Route::put("/compras/{id}/update",[\App\Http\Controllers\CompraController::class,"update"])->name("compras.update");//Actualiza la categoria en el formulario editar

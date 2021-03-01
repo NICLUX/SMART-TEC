@@ -41,7 +41,7 @@ class CompraController extends Controller
             ->join('detalle_compras as d', 'c.id', '=', 'd.id_compra')
             ->select('c.*','p.nombre','s.name',
                 DB::raw('SUM(costo_compra*cantidad) as total'))
-           // ->where('c.numero_comprobante', 'LIKE', '%'..'%')
+           //->where('c.numero_comprobante', 'LIKE', '%'.$require.'%')
                ->orderBy('c.id','desc')
                ->groupBy('c.id','c.feche_hora','c.numero_comprobante','p.nombre','s.name','c.impuesto')
             ->get();
@@ -85,14 +85,16 @@ class CompraController extends Controller
            while($cont < count($id_producto))
            {
                $detalle = new Detalle_compra();
-               $detalle->id_compra=$nuevaCompra->id_compra;
+               $detalle->id_compra=$nuevaCompra->id;
                $detalle->id_producto = $id_producto[$cont];
                $detalle->costo_venta=$costo_venta[$cont];
                $detalle->costo_compra=$costo_compra[$cont];
-               $detalle->cantidad=$cantidad->cantidad[$cont];
+               $detalle->cantidad=$cantidad[$cont];
                $detalle->save();
-               $cont = $cont=1;
+               $cont = $cont+1;
            }
+           DB::commit();
+
            DB::commit();
        }catch(\Exception $exception){
            DB::rollBack();

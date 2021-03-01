@@ -7,7 +7,7 @@
             </ol>
         </nav>
         <hr>
-        <a class="btn btn-success btn-sm float-right" href="{{route("compras.crear")}}"><i class="fa fa-plus"></i> Agregar Compra</a>
+        <a class="btn btn-success btn-sm float-right" href="{{route("DetalleCompras.nuevo")}}"><i class="fa fa-plus"></i> Agregar Compra</a>
         <br><br>
         @if(session("exito"))
             <div class="alert alert-success ">
@@ -74,4 +74,13 @@
         </div>
                 </tbody>
             </table>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
 @endsection
