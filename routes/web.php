@@ -126,11 +126,11 @@ Route::group(["middleware"=>"auth"],function () {
     Route::get("/inventario/{id}/producto/eliminar",[\App\Http\Controllers\InventarioController::class,"destroy"])->name("inventario.destroy");
 
     //________________comprass__________________________//
+
     Route::get("/compras",[\App\Http\Controllers\CompraController::class,"index"])->name("compras.index");//muestra todas las compras
+    Route::get("/compras/detalle",[\App\Http\Controllers\CompraController::class,"show"])->name("compras.show");//lleva al formulario de creado
     Route::get("/compras/crear",[\App\Http\Controllers\CompraController::class,"crear"])->name("compras.nuevo");//lleva al formulario de creado
     Route::post("/compras/crear",[\App\Http\Controllers\CompraController::class,"store"])->name("compras.store");//crea la nueva compra
-    Route::get("/compras/{id}/editar",[\App\Http\Controllers\CompraController::class,"edit"])->name("compras.editar");//Llama el formulario editar una categoria
-    Route::put("/compras/{id}/update",[\App\Http\Controllers\CompraController::class,"update"])->name("compras.update");//Actualiza la categoria en el formulario editar
     Route::get('/compras/{id}/destroy',[\App\Http\Controllers\CompraController::class,"destroy"])->name("compras.destroy");//Borrar la categoria desde la tabla
 
 

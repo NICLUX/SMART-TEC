@@ -1,26 +1,6 @@
 @extends("layouts.main")
 @extends("servicios.mejora_vista")
 @section("content")
-    <div>
-        @if(session("exito"))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{session("exito")}}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        @endif
-        @if(session("error"))
-            <div class="alert alert-danger alert-dismissible" role="alert">
-                <span class="fa fa-save"></span> {{session("error")}}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        @endif
-
-
-
             @yield('contenido')
             @push('scripts')
                 <script>
@@ -32,18 +12,7 @@
                     var cont =0;
                     total=0;
                     sub_total=[];
-                    function limpiar(){
-                        $("#pcosto_compra").val("");
-                        $("#pcosto_venta").val("");
-                        $("#pcantidad").val("");
-                    }
-                    function evaluar(){
-                        if(total>0){
-                            $("#guardar").show();
-                        }else{
-                            $("#guardar").hide();
-                        }
-                    }
+
                     $("#guardar").hide();
                     function agregar(){
                         id_producto=$("#pid_producto").val();
@@ -72,7 +41,19 @@
                             alert("error al ingresas detalles compra favor revise los datos compra");
                         }
                     }
-                    function eliminar(){
+                    function evaluar(){
+                        if(total>0){
+                            $("#guardar").show();
+                        }else{
+                            $("#guardar").hide();
+                        }
+                    }
+                    function limpiar(){
+                        $("#pcosto_compra").val("");
+                        $("#pcosto_venta").val("");
+                        $("#pcantidad").val("");
+                    }
+                    function eliminar(index){
                         total=total-sub_total[index];
                         $("#total").html("L/."+total);
                         $("#fila"+index).remove();
