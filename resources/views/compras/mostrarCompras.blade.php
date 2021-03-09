@@ -1,18 +1,19 @@
 @extends('layouts.main')
 @extends('servicios.mejora_vista')
 @section("content")
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page" >Listado Compras</li>
-            </ol>
-        </nav>
-        <hr>
-        <a class="btn btn-success btn-sm float-right" href="{{route("DetalleCompras.nuevo")}}"><i class="fa fa-plus"></i> Agregar Compra</a>
-        <br><br>
+        <div class="alert alert-secondary">
+            <div style="margin-bottom: 4px">
+                <a class="btn alert-success btn-sm float-right" href="{{route("compras.nuevo")}}">
+                    <i class="fa fa-plus"></i> Agregar Compra</a>
+            </div>
+            <h1 class="breadcrumb-item active" aria-current="page" >Listado Compras</h1>
+        </div>
+
         @if(session("exito"))
             <div class="alert alert-success ">
              </div>
         @endif
+
         <div class="container-fluid" >
             <div class="panel panel-success" id="encabezado">
                 <div class="panel-heading">
@@ -22,10 +23,9 @@
                                 </span>Compras</h2>
                         </div>
                     </div>
-
                     <div class="panel-body table-responsive">
         @if($compras->count()>0)
-            <table class="table">
+            <table style="margin-top: 10px" class="table">
                 <thead class="table table-hover">
                 <tr id="tabla">
                     <th scope="col">#</th>
@@ -49,17 +49,40 @@
                         <td>{{$compra->impuesto}}</td>
                         <td>{{$compra->total}}</td>
 
-                        <td><a class="btn btn-sm btn-success"
-                               href="{{route("compras.editar",["id"=>$compra->id])}}">
-                                <i class="fa fa-pencil"></i></a>
+                        <td>
+                            <button class="btn btn-sm btn-danger"
+                                    data-id="{{$compra->id}}"
+                                    data-toggle="modal" data-target="#modalBorrarApertura">
+                                <i class="fa fa-trash"></i> Borrar
+                            </button>
                             <a class="btn btn-warning btn-sm"
-                               href="">
-                                <i class="fa-window-restore"></i></a>
-                            <a class="btn btn-danger btn-sm"
-                               href="{{route("compras.destroy",["id"=>$compra->id])}}">
-                                <i class="fa fa-trash"></i></a>
+                               href="{{route("compras.show",["id"=>$compra->id])}}">
+                                <i class="fa-window-restore"></i>Mostrar</a>
+
                         </td>
                     </tr>
+                    <div class="modal fade" id="modalBorrarApertura" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Eliminar la compra</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Esta seguro que deseas borrar la compra?</p>
+                                </div>
+                                <form>
+                                    <div class="modal-footer">
+                                        <input id="idApertura" name="id">
+                                        <a class="btn btn-danger"
+                                           href="{{route("compras.destroy",["id"=>$compra->id])}}"> Eliminar</a>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                 @endforeach
                 </tbody>
             </table>
@@ -74,13 +97,10 @@
         </div>
                 </tbody>
             </table>
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-            </ul>
-        </nav>
+
+        <div class="pagination pagination-sm justify-content-center">
+            {{$compras->links("pagination::bootstrap-4")}}
+        </div>
+
+        </div>
 @endsection

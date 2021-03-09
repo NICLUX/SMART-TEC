@@ -47,15 +47,6 @@ Route::group(["middleware"=>"auth"],function () {
         Route::post("/usuarios/store",[UserController::class,"store"])->name("usuarios.store");
         Route::get("/usuarios/{id}/eliminar",[UserController::class,"destroy"])->name("usuarios.destroy");// Eliminar el suario de la tabla
 
-        //-------------------------------------detalle compras-------------------------------------------------------------------//
-        Route::get("/detalleCompras",[DetalleCompraController::class,"index"])->name("DetalleCompras.index");//Muestra todos los productos en una tabla
-        //Route::get("/detalleCompras/total",[DetalleCompraController::class,"mostrarCompras"])->name("DetalleCompras.mostrarCompras");//Muestra todos los productos en una tabla
-        Route::get("/detalleCompras/nuevo",[DetalleCompraController::class,"nuevo"])->name("DetalleCompras.nuevo");//Muestra el formulario de crear un nuevo producto.
-        Route::post("/detalleCompras/store",[DetalleCompraController::class,"store"])->name("DetalleCompras.store");//Guarda el producto del formulario de productos
-        Route::get("/detalleCompras/{id}/editar",[DetalleCompraController::class,"editar"])->name("DetalleCompra.editar");//Muestra el formulario de editar un producto
-        Route::put("/detalleCompras/{id}/update",[DetalleCompraController::class,"update"])->name("DetalleCompra.update");//Guarda los datos del formulario editar
-        Route::get("/detalleCompras/{id}/eliminar",[DetalleCompraController::class,"destroy"])->name("DetalleCompra.destroy");// Eliminar el producto de la tabla
-
         //--------------------Clientes-----------------------//
         Route::get("/clientes",[\App\Http\Controllers\ClienteController::class,"index"])->name("clientes.index");//Muestra todos los clientes en una tabla
         Route::get("/cliente/nuevo",[\App\Http\Controllers\ClienteController::class,"nuevo"])->name("cliente.nuevo");//Muestra el formulario de crear un nuevo cliente
@@ -128,7 +119,7 @@ Route::group(["middleware"=>"auth"],function () {
     //________________comprass__________________________//
 
     Route::get("/compras",[\App\Http\Controllers\CompraController::class,"index"])->name("compras.index");//muestra todas las compras
-    Route::get("/compras/detalle",[\App\Http\Controllers\CompraController::class,"show"])->name("compras.show");//lleva al formulario de creado
+    Route::get("/compras/{id}/detalle",[\App\Http\Controllers\CompraController::class,"show"])->name("compras.show");//lleva al formulario de creado
     Route::get("/compras/crear",[\App\Http\Controllers\CompraController::class,"crear"])->name("compras.nuevo");//lleva al formulario de creado
     Route::post("/compras/crear",[\App\Http\Controllers\CompraController::class,"store"])->name("compras.store");//crea la nueva compra
     Route::get('/compras/{id}/destroy',[\App\Http\Controllers\CompraController::class,"destroy"])->name("compras.destroy");//Borrar la categoria desde la tabla

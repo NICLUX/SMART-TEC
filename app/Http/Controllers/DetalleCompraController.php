@@ -32,7 +32,8 @@ class DetalleCompraController extends Controller
             ->with("detalles",$detalles);
     }
 
-    public function store(Request $request){
+
+   /* public function store(Request $request){
 
         try {
             DB::beginTransaction();
@@ -116,7 +117,7 @@ class DetalleCompraController extends Controller
         $actualizarcompra->save();
         return redirect()->route("DetalleCompras.index")
             ->with("exito", "Se actualizo exitosamente la compra.");
-    }
+    }*/
     public function destroy($id)
     {
         $detalle_compra= Detalle_compra::findOrFail($id);

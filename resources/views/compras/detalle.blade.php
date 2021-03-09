@@ -139,9 +139,9 @@
                                             </div>
                                         </div>
 
-                                        <div style="margin-top: 10px" class="col-lg-12 col-sm-12 col-md-12 col-xs-12" id="guardar">
+                                        <div style="margin-top: 10px" class="col-lg-12 col-sm-12 col-md-12 col-xs-12" >
                                             <input name="_token" value="{{csrf_token()}}" type="hidden">
-                                            <button class="btn-outline-primary btn-sm alert alert-primary
+                                            <button id="guardar" class="btn-outline-primary btn-sm alert alert-primary
                                              float-right col-lg-2 col-sm-2 col-md-2 col-xs-12"
                                                     type="submit" href="{{route("compras.store")}}" role="alert">
                                                 Guardar</button>

@@ -1,14 +1,6 @@
 @extends('layouts.main')
 @section("content")
-    <div class="btn-group float-right float-left" role="group" aria-label="Basic example" id="botones_ser">
-        <a class="btn btn-secondary float-right" href="{{route("usuarios.mostrar")}}">Vista Tabla</a>
-        <a class="btn btn-secondary float-right" href="{{route("usuarios.create")}}"> Agregar Usuario</a>
-    </div>
-    <div>
-        <div class="card-header">
-            <h3 class="card-title">Mostrar Usuarios</h3>
-        </div>
-        <div class="card-body">
+        <div class="card-body"class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
             <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
             @if(session("exito"))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -18,37 +10,67 @@
                     </button>
                 </div>
             @endif
-            <hr>
-            <br><br>
-            <div class="card-group ">
-                @foreach($users as $item => $user)
-                    <div class="card- col-sm-5 ">
-                        <div class="card-body">
-                            <h4 >Usuario: {{$user->id}}</h4>
-                            <button class="flex text-sm
-                        "  width="50%"
-                                    style=" margin-left: 5%; opacity: 0.8"   style="margin-left: 5%; opacity: 0.8"
-                                    height="20%">
-                                <img src="/images/categorias/{{$user->photo}}"
-                                     onclick="$('#callModalVistaPrevia{{$user->id}}').click()"
-                                     width="150px" height="150px" style="object-fit: contain"
-                                     onerror="this.src='/images/no_user.png'"></td>
-                            </button>
-                            <h6 class="container">Nombre: {{$user->name}}</h6>
-                            <h6 class="container">Correo: {{$user->email}}</h6>
-                            <div >
-                                <a class="btn btn-sm btn-success"
-                                   href="{{route("usuarios.editar",["id"=>$user->id])}}">
-                                    <i class="fa fa-pencil"></i>Editar</a>
-                                <a class="btn btn-danger btn-sm float-right"
-                                   href="{{route("usuarios.destroy",["id"=>$user->id])}}"
-                                   title="Eliminar">
-                                    <i class="fa fa-trash"></i>Eliminar</a>
-                            </div>
-                        </div>
+
+            <div>
                     </div>
-                @endforeach
-            </div>
+                        <div class="col">
+                            <ul class="list-group" >
+                                <li class="list-group-item active">Listado de usuarios:
+                                    <div class="btn-group float-right float-left" role="group" aria-label="Basic example" id="botones_ser">
+                                        <a class="btn-sm alert-primary float-right" href="{{route("usuarios.mostrar")}}">Vista Tabla</a>
+                                        <a class="btn-sm alert-primary float-right" href="{{route("usuarios.create")}}"> Agregar Usuario</a>
+                                    </div></li>
+                                @foreach($users as $item => $user)
+                                    <li class="list-group-item">
+                                        <img  class="float-left mr-2"
+                                             width="350px"
+                                             height="300px"
+                                             src="/images/categorias/{{$user->photo}}"
+                                             onerror="this.src='/images/no_image.jpg'">
+                                        <div>
+                                        <strong> Nombre: {{$user->name}} </strong>
+                                            <hr>
+                                        N#: {{$user->id}}
+                                        <br>Nombre-usuario: {{$user->usuario}}
+                                        <br>Tipo-usuario: {{$user->tipo_users}}
+                                        <br> Correo:  {{$user->email}}
+                                        <br> Telefono:  {{$user->telefono}}<hr/><br>
+
+                                        <a class="btn btn-sm btn-success"
+                                           href="{{route("usuarios.editar",["id"=>$user->id])}}">
+                                            <i class="fa fa-pencil"></i> Editar</a>
+                                            <button class="btn btn-sm btn-danger"
+                                                    data-id="{{$user->id}}"
+                                                    data-toggle="modal" data-target="#modalBorrarApertura">
+                                                <i class="fa fa-trash"></i> Borrar
+                                            </button>
+                                        </div></li>
+                                    <div class="modal fade" id="modalBorrarApertura" tabindex="-1" role="dialog">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Eliminar la compra</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Esta seguro que deseas borrar la compra?</p>
+                                                    </div>
+                                                    <form>
+                                                        <div class="modal-footer">
+                                                            <input id="idApertura" name="id">
+                                                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                        </div>
+                                                    </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </ul></div></div>
+
+
             <div class="card-footer1 ">
                 <div class="pagination pagination-sm justify-content-center">
                     {{$users->links("pagination::bootstrap-4")}}

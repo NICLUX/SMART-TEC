@@ -1,10 +1,12 @@
 @extends('layouts.main')
 @extends('servicios.mejora_vista')
 @section("content")
-    <div class="btn-group float-right float-left" role="group" aria-label="Basic example" id="botones_ser">
-        <a class="btn btn-secondary float-right" href="{{route("usuarios.index")}}">Vista Tarjetas</a>
-        <a class="btn btn-secondary float-right" href="{{route("usuarios.create")}}">Agregar Usuario</a>
-    </div>
+    <ul class="list-group" >
+        <li class="list-group-item sm">Listado de Usuarios
+            <div class="btn-group float-right float-left" role="group" aria-label="Basic example" id="botones_ser">
+                <a style="margin-right:5px" class="btn-sm alert-primary float-right" href="{{route("usuarios.index")}}">Vista lista</a>
+                <a class="btn-sm alert-primary float-right" href="{{route("usuarios.create")}}"> Agregar Usuario</a>
+            </div></li></ul>
     <br>
     <hr>
     <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->

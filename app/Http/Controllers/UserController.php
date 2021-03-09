@@ -5,6 +5,7 @@ use App\Models\Tipo_user;
 use App\Models\User;
 use Dotenv\Parser\Value;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 use Illuminate\Support\Facades\Hash;
@@ -19,8 +20,10 @@ class userController extends Controller
      */
     public function index()
     {
-
-        $users = User::paginate(6);
+        $users = DB::table('users as u')
+            ->join('tipo_users as t','u.is_admin','=','t.id')
+            ->select('u.*','t.tipo_users')
+            ->paginate(5);
         return view('usuarios.users')
             ->with('users',$users);
 

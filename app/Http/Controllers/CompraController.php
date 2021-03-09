@@ -23,7 +23,6 @@ class CompraController extends Controller
  {
 
  }
-
    public function index(Request $request){
      if ($request){
          $query=trim($request->get('searchText'));
@@ -34,7 +33,6 @@ class CompraController extends Controller
             ->select('c.*','p.nombre','s.name',
                 DB::raw('SUM(costo_compra*cantidad) as total'))
            ->where('c.numero_comprobante', 'LIKE', '%'.$query.'%')
-               ->orderBy('c.id','desc')
                ->groupBy('c.id','c.feche_hora','c.numero_comprobante','p.nombre','s.name','c.impuesto')
             ->paginate(8);
             return view("compras.mostrarCompras")
@@ -47,7 +45,7 @@ class CompraController extends Controller
         $proveedores=Proveedor::all();
         $compras= Compra::all();
         $detalles=Detalle_compra::all();
-        return view("compras.crearCompra")
+        return view("compras.detalle")
             ->with("compras",$compras)
             ->with("proveedores",$proveedores)
             ->with("users",$users)
@@ -105,14 +103,23 @@ class CompraController extends Controller
             ->join('users as s', 'c.id_usuario', '=', 's.id')
             ->join('proveedors as p', 'c.id_proveedore', '=', 'p.id')
             ->join('detalle_compras as d', 'c.id', '=', 'd.id_compra')
-            ->select('c.*','c.feche_hora','c.numero_comprobante','p.nombre',
-                DB::raw('SUM(costo_compra*cantidad) as total'))
+            ->select('c.*','p.nombre','s.name','d.costo_compra',
+                DB::raw('SUM(d.costo_compra*d.cantidad) as total'))
             ->where('c.id','=',$id)
-            ->paginate();
+            ->groupBy('c.id','c.feche_hora','c.numero_comprobante','p.nombre','s.name','c.impuesto','d.costo_compra')
+            ->first();
 
-        return view("d_compras.d_compras")
-            ->with("compra",$compra);
+        $detalles=DB::table('detalle_compras as d')
+            ->join('productos as pr', 'd.id_producto', '=', 'pr.id')
+            ->join('compras as c', 'd.id_compra', '=', 'c.id')
+            ->select('d.costo_compra','d.costo_venta','d.cantidad','pr.nombre','pr.imagen_url'
+            ,DB::raw('(d.costo_compra*d.cantidad) as total'))
+            ->where('c.id','=',$id)
+            ->groupBy('d.costo_compra','d.costo_venta','d.cantidad','pr.nombre','pr.imagen_url')
+           ->get();
+        return view("d_compras.d_compras")->with("compra",$compra)->with("detalles",$detalles);
     }
+
 
     public function destroy($id){
         $compra = Compra::findOrfail($id);
