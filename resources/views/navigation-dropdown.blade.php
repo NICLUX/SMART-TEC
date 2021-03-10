@@ -30,7 +30,7 @@
                             <x-jet-dropdown-link href="{{ route('logout') }}"
                                                  onclick="event.preventDefault();
                                                             this.closest('form').submit();">
-                                {{ __('Logout') }}
+                                {{ __('Cerrar sesión') }}
                             </x-jet-dropdown-link>
                         </form>
                     </x-slot>

@@ -2,8 +2,8 @@
 @extends('servicios.mejora_vista')
 @section("content")
     <div class="btn-group float-right float-left" role="group" aria-label="Basic example" id="botones_ser">
-        <a class="btn btn-secondary float-right" href="{{route("usuarios.index")}}">Vista Tarjetas</a>
-        <a class="btn btn-secondary float-right" href="{{route("usuarios.create")}}">Agregar Usuario</a>
+        <a class="btn btn-secondary float-right" href="{{route("inventario.index")}}">Vista Tarjetas</a>
+        <a class="btn btn-secondary float-right" href="{{route("inventario.nuevo")}}">Agregar Usuario</a>
     </div>
     <br>
     <hr>
@@ -36,52 +36,52 @@
                     </div>
                 </div>
                 <div class="panel-body table-responsive">                <br>
-                <hr>
-                @if($inventarios->count()>0)
-                    <div class="table-responsive">
-                        <table class="table table-hover
+                    <hr>
+                    @if($inventarios->count()>0)
+                        <div class="table-responsive">
+                            <table class="table table-hover
                         table-sm">
-                            <thead class="table table-hover">
-                            <tr id="tabla">
-                                <th>#</th>
-                                <th>Producto</th>
-                                <th>Cantidad (Stock)</th>
-                                <th>Opciones</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-
-                            @foreach($inventarios as $item=> $inventario)
-                                <tr id="resultados">
-                                    <td>
-                                        {{$item+$inventarios->firstItem()}}
-                                    </td>
-                                    <td>{{$inventario->producto->nombre}}</td>
-                                    <td>{{$inventario->cantidad}}</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-success"
-                                           href="{{route("inventario.editar",["id"=>$inventario->id])}}"
-                                        title="Editar"><i class="fa fa-pencil"></i></a>
-                                        <a class="btn btn-sm btn-danger"
-                                        href="{{route("inventario.destroy",["id"=>$inventario->id])}}">
-                                            <i class="fa fa-trash"></i></a>
-                                    </td>
+                                <thead class="table table-hover">
+                                <tr id="tabla">
+                                    <th>#</th>
+                                    <th>Producto</th>
+                                    <th>Cantidad (Stock)</th>
+                                    <th>Opciones</th>
                                 </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                        <div class="pagination pagination-sm">
-                            {{$inventarios->links()}}
+                                </thead>
+                                <tbody>
+
+                                @foreach($inventarios as $item=> $inventario)
+                                    <tr id="resultados">
+                                        <td>
+                                            {{$item+$inventarios->firstItem()}}
+                                        </td>
+                                        <td>{{$inventario->producto->nombre}}</td>
+                                        <td>{{$inventario->cantidad}}</td>
+                                        <td>
+                                            <a class="btn btn-sm btn-success"
+                                               href="{{route("inventario.editar",["id"=>$inventario->id])}}"
+                                               title="Editar"><i class="fa fa-pencil"></i></a>
+                                            <a class="btn btn-sm btn-danger"
+                                               href="{{route("inventario.destroy",["id"=>$inventario->id])}}">
+                                                <i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                            <div class="pagination pagination-sm">
+                                {{$inventarios->links()}}
+                            </div>
                         </div>
-                    </div>
                     @else
-                    <div class="alert alert-info">
-                        No se ha creado el inventario aun
-                    </div>
-                @endif
+                        <div class="alert alert-info">
+                            No se ha creado el inventario aun
+                        </div>
+                    @endif
+                </div>
             </div>
+
+
         </div>
-
-
-    </div>
 @endsection

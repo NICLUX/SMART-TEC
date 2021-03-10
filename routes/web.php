@@ -46,7 +46,7 @@ Route::group(["middleware"=>"auth"],function () {
         Route::put("/usuarios/{id}/editar",[UserController::class,"update"])->name("usuarios.update");
         Route::post("/usuarios/store",[UserController::class,"store"])->name("usuarios.store");
         Route::get("/usuarios/{id}/eliminar",[UserController::class,"destroy"])->name("usuarios.destroy");// Eliminar el suario de la tabla
-
+        Route::get("/usuarios/{id}/borrar",[UserController::class,"borrar"])->name("usuarios.borrar");
         //--------------------Clientes-----------------------//
         Route::get("/clientes",[\App\Http\Controllers\ClienteController::class,"index"])->name("clientes.index");//Muestra todos los clientes en una tabla
         Route::get("/cliente/nuevo",[\App\Http\Controllers\ClienteController::class,"nuevo"])->name("cliente.nuevo");//Muestra el formulario de crear un nuevo cliente

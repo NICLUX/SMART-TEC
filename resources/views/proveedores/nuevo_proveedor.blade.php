@@ -57,9 +57,8 @@
                     <label>Ingrese la descripción (opcional):</label>
                     <textarea class="form-control @error('descripcion') is-invalid @enderror"
                               placeholder="Direccion exacta"
-                              maxlength="80" name="descripcion">
-                        {{old("descripcion")}}
-                    </textarea>
+                              maxlength="80" name="descripcion">{{old("descripcion")}}</textarea>
+
                     @error('descripcion')
                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -71,9 +70,7 @@
                     <textarea class="form-control @error('direccion') is-invalid @enderror"
                            placeholder="Direccion exacta"
                               required
-                           maxlength="80" name="direccion">
-                        {{old("direccion")}}
-                    </textarea>
+                           maxlength="80" name="direccion">{{old("direccion")}}</textarea>
                     @error('direccion')
                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -100,7 +97,7 @@
                            placeholder="Correo Electronico"
                            type="email"
                            value="{{old("email")}}"
-                           maxlength="8"
+                           maxlength="100"
                            name="email">
                     @error('email')
                     <span class="invalid-feedback" role="alert">

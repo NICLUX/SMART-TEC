@@ -18,7 +18,7 @@ class ProveedorController extends Controller
     public function store(Request  $request){
         $this->validate($request,[
             "nombre"=>"required|max:80",
-            "email"=>"unique:proveedors,email",
+            "email"=>"unique:proveedors,email|max:100",
             "descripcion"=>"max:80",
             "direccion"=>"required|max:80",
             "telefono"=>"required|unique:proveedors,telefono|max:99999999",

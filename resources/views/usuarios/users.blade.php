@@ -39,34 +39,12 @@
                                         <a class="btn btn-sm btn-success"
                                            href="{{route("usuarios.editar",["id"=>$user->id])}}">
                                             <i class="fa fa-pencil"></i> Editar</a>
+
                                             <button class="btn btn-sm btn-danger"
-                                                    data-id="{{$user->id}}"
-                                                    data-toggle="modal" data-target="#modalBorrarApertura">
+                                                             data-id="{{$user->id}}"
+                                                             data-toggle="modal" data-target="#modalBorrarApertura">
                                                 <i class="fa fa-trash"></i> Borrar
                                             </button>
-                                        </div></li>
-                                    <div class="modal fade" id="modalBorrarApertura" tabindex="-1" role="dialog">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">Eliminar la compra</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p>Esta seguro que deseas borrar la compra?</p>
-                                                    </div>
-                                                    <form>
-                                                        <div class="modal-footer">
-                                                            <input id="idApertura" name="id">
-                                                            <button type="submit" class="btn btn-danger">Eliminar</button>
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                        </div>
-                                                    </form>
-                                            </div>
-                                        </div>
-                                    </div>
                                 @endforeach
                             </ul></div></div>
 
@@ -76,6 +54,31 @@
                     {{$users->links("pagination::bootstrap-4")}}
                 </div>
             </div>
+
+        <div class="modal fade" id="modalBorrarApertura" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Eliminar usuario</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>¿Esta seguro que deseas borrar el usuario?</p>
+                    </div>
+                    <form>
+                        <div class="modal-footer">
+                            <input id="idApertura" name="id">
+                            <a class="btn btn-danger"
+                               href="{{route("usuarios.destroy",["id"=>$user->id])}}"> Eliminar</a>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div></li>
             <style>
                 .card-{
                     margin: 10px;

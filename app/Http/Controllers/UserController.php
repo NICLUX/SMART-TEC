@@ -221,4 +221,12 @@ class userController extends Controller
         return redirect()->route("usuarios.index")
             ->with("exito", "Usuario eliminado exitosamente.");
     }
+
+    public function borrar($id)
+    {
+        $user= User::findOrFail($id);
+        $user->delete();
+        return redirect()->route("usuarios.mostrar")
+            ->with("exito", "Usuario eliminado exitosamente.");
+    }
 }
