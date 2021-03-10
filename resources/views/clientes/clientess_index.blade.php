@@ -1,12 +1,12 @@
 @extends('layouts.main')
 @extends('servicios.mejora_vista')
 @section("content")
+
     <div class="btn-group float-right float-left" role="group" aria-label="Basic example" id="botones_ser">
-        <a class="btn btn-secondary float-right" href="{{route("usuarios.index")}}">Vista Tarjetas</a>
-        <a class="btn btn-secondary float-right" href="{{route("usuarios.create")}}">Agregar</a>
+        <a class="btn btn-secondary float-right" href="{{route("cliente.nuevo")}}">Agregar</a>
     </div>
     <br>
-    <hr>
+
     <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
     @if(session("exito"))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -34,7 +34,7 @@
                         <h2 class="text-center pull-left" style="padding-left: 30px;">
                             <span class="glyphicon glyphicon-list-alt"> </span>Clientes</h2>
                     </div>
-                </div>
+                </div> <br>
 
                 <div class="panel-body table-responsive">
                     <div class="card card-body">
@@ -60,10 +60,14 @@
                                             <td>
                                                 <a class="btn btn-sm btn-success"
                                                    href="{{route("cliente.editar",["id"=>$cliente->id])}}"
-                                                   title="Editar"><i class="fa fa-pencil"></i></a>
-                                                <a class="btn btn-sm btn-danger"
-                                                   href="{{route("cliente.destroy",["id"=>$cliente->id])}}"
-                                                   title="Eliminar"><i class="fa fa-trash"></i></a>
+                                                   title="Editar"><i class="fa fa-pencil"> Editar</i></a>
+
+                                                <batton class="btn btn-sm btn-danger"
+                                                        data-id="{{$cliente->id}}"
+                                                        data-toggle="modal" data-target="#modalBorrarApertura">
+                                                    <i class="fa fa-trash"></i> Borrar
+                                                </batton>
+
                                             </td>
                                         </tr>
                                     @endforeach
@@ -81,4 +85,31 @@
                     </div>
                 </div>
             </div>
+
+            <div class="modal fade" id="modalBorrarApertura" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Eliminar cliente</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>¿Esta seguro que deseas borrar el cliente?</p>
+                        </div>
+                        <form>
+                            <div class="modal-footer">
+                                <input id="idApertura" name="id">
+                                <a class="btn btn-danger"
+                                   href="{{route("cliente.destroy",["id"=>$cliente->id])}}"> Eliminar</a>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection

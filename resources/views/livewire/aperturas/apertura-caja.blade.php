@@ -1,5 +1,6 @@
 <div xmlns:wire="http://www.w3.org/1999/xhtml">
 
+
     <div>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -7,9 +8,8 @@
             </ol>
         </nav>
 
-        <hr>
 
-        <button class="btn btn-sm btn-success "
+        <button class="btn btn-success float-right "
                 data-toggle="modal" data-target="#modalCrearApertura">Agregar
         </button>
 
@@ -56,6 +56,7 @@
                                     data-toggle="modal" data-target="#modalBorrarApertura">
                                 <i class="fa fa-trash"></i> Borrar
                             </button>
+
                         </td>
                     </tr>
                 @endforeach
@@ -101,7 +102,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" wire:click.prevent="update()" class="btn btn-primary">Guardar</button>
+                        <button type="button" wire:click.prevent="update()" class="btn btn-primary" data-dismiss="modal">Guardar</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
@@ -126,7 +127,7 @@
                             <form wire:submit.prevent="destroy()">
                                 <button type="submit"
                                         wire:click.prevent="destroy()"
-                                        class="btn btn-danger">Eliminar
+                                        class="btn btn-danger" data-dismiss="modal">Eliminar
                                 </button>
                             </form>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

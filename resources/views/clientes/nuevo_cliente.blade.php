@@ -27,12 +27,12 @@
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
                 <h1>SMARTEC</h1>
                 <p>Registra nuevos cliente!</p>
-                <a id="btn-cancelar" class="btn btn-primary btn-round" href="{{route("cliente.nuevo")}}">Cancelar</a>
+                <a id="btn-cancelar" class="btn btn-primary btn-round" href="{{route("clientes.index")}}">Cancelar</a>
             </div>
             <div class="col-md-9 register-right">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                       <h1 class="register-heading">Agregar Nuevo Cliente</h1><br>
+                        <h1 class="register-heading">Agregar Nuevo Cliente</h1><br>
                         <div class="row register-form">
                             <div class="col-md-6">
 
@@ -75,6 +75,7 @@
                                                required
                                                value="{{old("telefono")}}"
                                                maxlength="8"
+                                               type="number"
                                                name="telefono">
                                         @error('telefono')
                                         <span class="invalid-feedback" role="alert">
@@ -86,8 +87,12 @@
                                     <br>
                                     <button id="btnRegister" type="submit" class="btn btn-success">Guardar</button>
 
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
 @endsection

@@ -1,5 +1,6 @@
 @extends("layouts.main")
 @section("content")
+
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">PRODUCTOS</h3>
@@ -26,7 +27,7 @@
             </form>
 
             <br>
-            <hr>
+
             <br>
 
             <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
@@ -82,11 +83,13 @@
                                 <br>
                                 <a class="btn btn-sm btn-success"
                                    href="{{route("producto.editar",["id"=>$producto->id])}}">
-                                    <i class="fa fa-pencil"></i></a>
+                                    <i class="fa fa-pencil"></i> Editar</a>
 
-                                <a class="btn btn-danger btn-sm"
-                                   href="{{route("producto.destroy",["id"=>$producto->id])}}">
-                                    <i class="fa fa-trash"></i></a>
+                                <batton class="btn btn-sm btn-danger"
+                                        data-id="{{$producto->id}}"
+                                        data-toggle="modal" data-target="#modalBorrarApertura">
+                                    <i class="fa fa-trash"></i> Borrar
+                                </batton>
                             </div>
                         </div>
                     @endforeach
@@ -96,6 +99,30 @@
                     No hay productos ingresados aun
                 </div>
             @endif
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalBorrarApertura" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Eliminar producto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Esta seguro que deseas borrar el producto?</p>
+                </div>
+                <form>
+                    <div class="modal-footer">
+                        <input id="idApertura" name="id">
+                        <a class="btn btn-danger"
+                           href="{{route("producto.destroy",["id"=>$producto->id])}}"> Eliminar</a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
