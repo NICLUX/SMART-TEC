@@ -30,7 +30,7 @@ class Cajero
                 break;
             case '2':
                 #Empleado
-                return redirect()->to('hola');
+                return redirect()->to('dashboard');
                 break;
             case '3':
                 #Cajero

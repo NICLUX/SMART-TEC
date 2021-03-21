@@ -17,9 +17,6 @@
 
         </div>
     @endif
-
-
-    <div class="panel panel-primary row" >
                     <div data-class="card card-body col-lg-12 col-sm-12 col-md-12 col-xs-12" >
                         <h1 class="alert alert-dark" role="alert"
                                        class="card card-body col-lg-12 col-sm-12 col-md-12 col-xs-12">Detalle compra</h1>
@@ -28,17 +25,11 @@
                                 <div  class="container-fluid">
                                     <form method="POST" action="{{ route('compras.nuevo') }}">
                                         @csrf
-                                      <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-                                        <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
-                                            <x-jet-label for="id_usuario" value="{{ __('Usuario') }}" />
                                             <div class="input-group">
-                                                <select id="id_usuario"
+                                                <select id="id_usuario" style="visibility: hidden"
                                                         name="id_usuario"
                                                         class="form-control @error('id_usuario') is-invalid @enderror" required>
-                                                    <option value="" selected disabled>Seleccione una opcion</option>
-                                                    @foreach($users as $user)
-                                                        <option value="{{$user->id}}">{{$user->usuario}}</option>
-                                                    @endforeach
+                                                        <option value="{{Auth::user()->id}}">{{Auth::user()->usuario}}</option>
                                                 </select>
                                             </div>
                                             @error('id_usuario')
@@ -46,10 +37,9 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                             @enderror
-                                        </div>
-
+                                        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
                                         <div>
-                                            <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
+                                            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                                 <x-jet-label for="id_proveedore" value="{{ __('Proveedore') }}" />
                                                 <select class="form-control" id="exampleFormControlSelect1"
                                                         name="id_proveedore"    class="form-control @error('id_proveedore') is-invalid @enderror" required>
@@ -129,7 +119,7 @@
                                                         <tbody id="detalles">
                                                         </tbody>
                                                         <tfoot>
-                                                        <tr>
+                                                        <tr id="resultados">
                                                             <th colspan="5">Total</th>
                                                             <th><h4 id="total">L/. 0.00</h4></th>
                                                         </tr>

@@ -25,7 +25,7 @@
                     </div>
                     <div class="panel-body table-responsive">
         @if($compras->count()>0)
-            <table style="margin-top: 10px" class="table">
+            <table style="margin-top: 10px" class="table table-sm">
                 <thead class="table table-hover">
                 <tr id="tabla">
                     <th scope="col">#</th>
@@ -35,10 +35,10 @@
                     <th scope="col">numero comptobante</th>
                     <th scope="col">Impuesto</th>
                     <th scope="col">Total compra</th>
-                    <th scope="col">Acciones</th>
+                    <th class="text-center">Acciones</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody class="table table-hover">
                 @foreach($compras as $compra)
                     <tr id="resultados">
                         <th scope="row">{{$compra->id}}</th>
@@ -48,8 +48,7 @@
                         <td>{{$compra->numero_comprobante}}</td>
                         <td>{{$compra->impuesto}}</td>
                         <td>{{$compra->total}}</td>
-
-                        <td>
+                        <td class="text-center">
                             <button class="btn btn-sm btn-danger"
                                     data-id="{{$compra->id}}"
                                     data-toggle="modal" data-target="#modalBorrarApertura">

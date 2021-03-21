@@ -104,6 +104,9 @@ Route::group(["middleware"=>"auth"],function () {
 
         //----------Ventas diarias-----------//
         Route::get("/ventas/diarias",\App\Http\Livewire\VentasDiarias::class)->name("ventas_diarias.index");//Muestra la ventas diarias
+        Route::get("/total",[\App\Http\Controllers\VentasTotalUserController::class,"total"])->name("vesta_total");//muestra todos los servicios
+        Route::get("/total/detalle",[\App\Http\Controllers\VentasTotalUserController::class,"show"])->name("vesta.show");//muestra todos los servicios
+        Route::get("/total/busqueda",[\App\Http\Controllers\VentasTotalUserController::class,"buscar"])->name("ventas.buscar");//Busca entre las categorias en nombre
 
 
     });
