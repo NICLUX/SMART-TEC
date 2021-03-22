@@ -33,7 +33,7 @@ class CrearVenta extends Component
     public function mount()
     {
         $this->clientes = Cliente::orderBy("nombre", "ASC")->get();
-        $this->fecha_venta = date("yy-m-d");
+        $this->fecha_venta = date("Y-m-d");
         $this->productos = Producto::orderBy("nombre", "ASC")->get();
         $this->calcularTotalPagar();
         $this->cargarProductoEnCola();

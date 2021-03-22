@@ -6,36 +6,46 @@ use App\Models\DetalleVenta;
 use App\Models\Venta;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class VentasDiarias extends Component
 {
     use WithPagination;
     public $fecha;
     public $busqueda;
+    public $ventasDiarias;
+    public $total_ingreso_del_dia;
+    public $total_costo_del_dia;
+    public $total_ganacia_del_dia;
+    public $cantidad_vendidos;
+
+    public function mount(){
+        $this->fecha = Carbon::now()->format("Y-m-d");
+        $this->total_ingreso_del_dia = 0;
+        $this->total_costo_del_dia = 0;
+        $this->total_ganacia_del_dia = 0;
+        $this->cantidad_vendidos = 0;
+    }
 
     public function render()
     {
-        $ventasDiarias = Venta::where("created_at",
-            "like", "%" . $this->fecha . "%")
-            ->paginate(10);
+        $this->total_ingreso_del_dia = 0;
+        $this->total_costo_del_dia = 0;
+        $this->total_ganacia_del_dia = 0;
+        $this->cantidad_vendidos = 0;
+        $this->ventasDiarias = DB::select("call ventas_diarias(?)",[$this->fecha]);
+        
+        foreach($this->ventasDiarias as $value){
+            $this->total_ingreso_del_dia+=$value->total;
+            $this->total_costo_del_dia+=$value->costos;
+        }
+        
+        $this->total_ganacia_del_dia = $this->total_ingreso_del_dia -  $this->total_costo_del_dia;
 
         return view('livewire.ventas.ventas-diarias')
             ->extends("layouts.main")
             ->section("content")
-            ->with("ventas", $ventasDiarias);
-    }
-    public function mount(){
-        $this->fecha = now()->format("yy-m-d");
-    }
-    public function eliminarVenta($id){
-        $venta = Venta::findOrFail($id);
-        $detalleVentas=DetalleVenta::where("id_venta","=",$id)->get();
-
-        foreach ($detalleVentas as $detalleVenta) {
-            $detalleVenta->delete();
-        }
-
-        $venta->delete();
-        session()->flash("exito","Se eliminó la venta y su detalle de venta respectivo.");
+            ->with("ventas", $this->ventasDiarias);
     }
 }

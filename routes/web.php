@@ -53,7 +53,7 @@ Route::group(["middleware"=>"auth"],function () {
         Route::post("/cliente/store",[\App\Http\Controllers\ClienteController::class,"store"])->name("cliente.store");//Guarda el cliente del formulario
         Route::get("/cliente/{id}/editars",[\App\Http\Controllers\ClienteController::class,"editar"])->name("cliente.editar");//Muestra un formulario de editar un cliente
         Route::put("/cliente/{id}/update",[\App\Http\Controllers\ClienteController::class,"update"])->name("cliente.update");//Actualiza los datos del formulario de editar cliente
-        Route::get("/cliente/{id}/destroy",[\App\Http\Controllers\ClienteController::class,"destroy"])->name("cliente.destroy");//Elimina el cliente de la tabla
+        Route::delete("/cliente/{id}/destroy",[\App\Http\Controllers\ClienteController::class,"destroy"])->name("cliente.destroy");//Elimina el cliente de la tabla
 
         //-----------Apertura de Caja ------------------//
         Route::get("/apertura_caja",AperturaCajas::class)->name("apertura.index");//Trae todos las aperturas realizadas
@@ -76,7 +76,7 @@ Route::group(["middleware"=>"auth"],function () {
         Route::post("/producto/store",[ProductoController::class,"store"])->name("producto.store");//Guarda el producto del formulario de productos
         Route::get("/producto/{id}/editar",[ProductoController::class,"editar"])->name("producto.editar");//Muestra el formulario de editar un producto
         Route::put("/producto/{id}/editar",[ProductoController::class,"update"])->name("producto.update");//Guarda los datos del formulario editar
-        Route::get("/producto/{id}/eliminar",[ProductoController::class,"destroy"])->name("producto.destroy");// Eliminar el producto de la tabla
+        Route::delete("/producto/{id}/eliminar",[ProductoController::class,"destroy"])->name("producto.destroy");// Eliminar el producto de la tabla
         Route::get("/producto/vistaTabla",[ServiciooController::class,"nuevaVista"])->name("producto.nuevaVista");//Buscar Producto
 
         //------------------Proveedores-----------------------//

@@ -14,7 +14,7 @@ class Producto extends Model
 
 
     public function getNombreCategoriaAttribute(){
-        $nombreCategoria = Categoria::findOrFail($this->id_categoria)->value("nombre");
+        $nombreCategoria = Categoria::where("id",$this->id_categoria)->value("nombre");
         return $nombreCategoria;
     }
     public  function getEnStockAttribute(){
