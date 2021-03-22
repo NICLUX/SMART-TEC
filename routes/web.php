@@ -108,6 +108,9 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/total/detalle",[\App\Http\Controllers\VentasTotalUserController::class,"show"])->name("vesta.show");//muestra todos los servicios
         Route::get("/total/busqueda",[\App\Http\Controllers\VentasTotalUserController::class,"buscar"])->name("ventas.buscar");//Busca entre las categorias en nombre
 
+          //----------Ventas Mensuales-----------//
+        Route::get("/ventas/mensuales",\App\Http\Livewire\VentasMensuales::class)->name("ventas_mensuales.index");//Muestra la ventas mensuales
+       
 
     });
 

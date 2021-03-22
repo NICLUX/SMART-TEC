@@ -1,8 +1,115 @@
 <div>
     <div xmlns:wire="http://www.w3.org/1999/xhtml">
+    <div class="card">
+            <div class="card-header">
+                <h1>Ingresos de {{$fecha_mes}}</h1>
+            </div>
+            <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <h3 wire:model="total_ingreso_del_dia">Ingresos: <span class="badge badge-warning" >L. {{$total_ingreso_del_dia}}</span></h3>
+                        </div>
+                        <div class="col-sm">
+                            <h3>Costo de venta: <span class="badge badge-danger" >L. {{$total_costo_del_dia}}</span></h3> 
+                        </div>
+                        <div class="col-sm">
+                            <h3>Total Margen de ganancia: <span class="badge {{ (isset($total_ganacia_del_dia)?$total_ganacia_del_dia:-1<0)?'badge-success':'badge-danger'}}">L. {{$total_ganacia_del_dia}}</span></h3> 
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                    <div class="col-sm">
+                            <div class="alert alert-info">
+                                            Productos mas vendidos en <strong>{{$fecha_mes}}</strong>
+                                        </div>
+                                <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                                @if(count($productos_mas_vendidos_mes)>0)
+                                     
+                                    <div class="table-responsive-sm -mr-2">
+                                        
+                                        <table class="table table-borderless table-hover table-sm">
+                                            <thead class="thead-dark">
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Producto</th>
+                                                <th scope="col">Cantidad </th>
+                                                <th scope="col">Total ingresos</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @for($i = 1; $i<= count($productos_mas_vendidos_mes);$i++)
+                                                <tr>
+                                                    <th>{{$i}}</th>
+                                                    <td>{{$productos_mas_vendidos_mes[$i-1]->nombre}}</td>
+                                                    <td>{{$productos_mas_vendidos_mes[$i-1]->total_cantidad}}</td>
+                                                    @if($productos_mas_vendidos_mes[$i-1]->total)
+                                                        <td>Lps. {{$productos_mas_vendidos_mes[$i-1]->total}}</td>
+                                                    @else
+                                                        <td>Lps. 0.00</td>
+                                                    @endif
+                                                </tr>
+                                            @endfor
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                @else
+                                    <div class="alert alert-info">
+                                        No se han registrado ventas en el mes de <strong>{{$fecha_mes}}</strong>
+                                    </div>
+                                @endif
+                                </div>
+                            
+                        </div>
+                        <div class="col-sm">
+                            <div class="alert alert-info">
+                                           Cliente que generan mas ingresos <strong>{{$fecha_mes}}</strong>
+                                        </div>
+                                <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                                @if(count($clientes_mas_consumidores)>0)
+                                     
+                                    <div class="table-responsive-sm -mr-2">
+                                        
+                                        <table class="table table-borderless table-hover table-sm">
+                                            <thead class="thead-dark">
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Cliente</th>
+                                                <th scope="col">Total ingreos por cliente</th>
+                                                
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @for($i = 1; $i<= count($clientes_mas_consumidores);$i++)
+                                                <tr>
+                                                    <th>{{$i}}</th>
+                                                    <td>{{$clientes_mas_consumidores[$i-1]->nombre}}</td>
+                                                    @if($clientes_mas_consumidores[$i-1]->total)
+                                                        <td>Lps. {{$clientes_mas_consumidores[$i-1]->total}}</td>
+                                                    @else
+                                                        <td>Lps. 0.00</td>
+                                                    @endif
+                                                </tr>
+                                            @endfor
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                @else
+                                    <div class="alert alert-info">
+                                        No se han registrado ventas en el mes de <strong>{{$fecha_mes}}</strong>
+                                    </div>
+                                @endif
+                                </div>
+                            
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+    </div>
         <div class="card">
             <div class="card-header">
-                <h1>Ventas mensuales de la fecha {{$fecha}}</h1>
+                <h1>Ventas de {{$fecha_mes}}</h1>
             </div>
 
             @if(session("exito"))
@@ -29,14 +136,11 @@
                 </div>
             @endif
             <div class="card-body">
-                <a class="btn btn-success btn-sm float-right" href="{{route("venta.nuevo")}}"><i class="fa fa-plus"></i>
-                    Crear</a>
-                <br>
-                <br>
+                
                 <div class="form-group float-right" style="width: 400px">
                     <div class="input-group-prepend" >
-                        <input placeholder="Buscar..."
-                               type="date"
+                        <input placeholder="Buscar Mes..."
+                                type="date"
                                wire:model="fecha"
                                required
                                class="form-control">
@@ -50,53 +154,40 @@
                 <br>
                 <br>
 
-                @if($ventas->count()>0)
-                    <div class="table-responsive-sm">
+                @if(count($ventas)>0)
+                    <div class="table-responsive-sm -mr-2">
+                        
                         <table class="table table-borderless table-hover table-sm">
                             <thead class="thead-dark">
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Cliente</th>
-                                <th scope="col">Fecha</th>
-                                <th scope="col">Usuario</th>
+                                <th scope="col">Codigo </th>
+                                <th scope="col">Cliente </th>
                                 <th scope="col">Total de Venta</th>
-                                <th scope="col">Opciones</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($ventas as $item=> $venta)
+                            @for($i = 1; $i<= count($ventas);$i++)
                                 <tr>
-                                    <th>{{$item+$ventas->firstItem()}}</th>
-                                    <td>{{$venta->cliente->nombre}}</td>
-                                    <td>{{$venta->fecha_venta}}</td>
-                                    <td>{{$venta->usuario->usuario}}</td>
-                                    @if($venta->total_venta)
-                                        <td>Lps. {{$venta->total_venta}}</td>
+                                    <th>{{$i}}</th>
+                                    <td>{{$ventas[$i-1]->id}}</td>
+                                    <td>{{$ventas[$i-1]->nombre}}</td>
+                                    @if($ventas[$i-1]->total)
+                                        <td>Lps. {{$ventas[$i-1]->total}}</td>
                                     @else
                                         <td>Lps. 0.00</td>
                                     @endif
-                                    <td>
-                                        <button class="btn btn-danger btn-sm"
-                                                wire:click.prevent="eliminarVenta({{$venta->id}})">
-                                            <i class="fa fa-trash-o"></i>
-                                        </button>
-                                    </td>
                                 </tr>
-                            @endforeach
+                            @endfor
                             </tbody>
                         </table>
-                        <div class="pagination pagination-sm">
-                            {{$ventas->links("paginate-links")}}
-                        </div>
-                    </div>
+                       </div>
                 @else
                     <div class="alert alert-info">
-                        No se han registrado ventas aún con esta fecha <strong>{{$fecha}}</strong>
+                        No se han registrado ventas en el mes de <strong>{{$fecha_mes}}</strong>
                     </div>
                 @endif
             </div>
         </div>
     </div>
-
-
 </div>
