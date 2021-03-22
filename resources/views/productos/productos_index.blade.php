@@ -7,11 +7,11 @@
         </div>
 
         <div class="card-body">
-            <a class="btn btn-success btn-sm float-right" href="{{route("producto.nuevo")}}"><i class="fa fa-plus"></i>
+            <a class="btn btn-success btn-sm float-right" href="{{route('producto.nuevo')}}"><i class="fa fa-plus"></i>
                 Agregar</a>
             <br>
             <br>
-            <form method="get" action="{{route("producto.buscar")}}">
+            <form method="get" action="{{route('producto.buscar')}}">
                 @csrf
                 <div class="form-inline my-2 my-lg-0 float-right">
                     <input class="form-control"
@@ -60,7 +60,7 @@
 
                             <div class="card-body">
                                 <h5 class="card-title">{{$producto->nombre}}</h5>
-                                <p class="card-text"><i class="fa fa-codepen"></i> {{$producto->nombre_categoria}}</p>
+                                <p class="card-text"><i class="fa fa-codepen"></i> {{$producto->getNombreCategoriaAttribute()}}</p>
                                 @if($producto->descripcion)
                                     <p class="card-text"><strong>Descripcion:</strong> {{$producto->descripcion}}</p>
                                 @endif
@@ -82,14 +82,15 @@
                                 @endif
                                 <br>
                                 <a class="btn btn-sm btn-success"
-                                   href="{{route("producto.editar",["id"=>$producto->id])}}">
+                                   href="{{route('producto.editar',['id'=>$producto->id])}}">
                                     <i class="fa fa-pencil"></i> Editar</a>
 
-                                <batton class="btn btn-sm btn-danger"
+                                <button class="btn btn-sm btn-danger"
                                         data-id="{{$producto->id}}"
-                                        data-toggle="modal" data-target="#modalBorrarApertura">
+                                        data-toggle="modal" data-target="#modalBorrarApertura" 
+                                        onclick= "recibir('{{$producto->id}}')" >
                                     <i class="fa fa-trash"></i> Borrar
-                                </batton>
+                                </button>
                             </div>
                         </div>
                     @endforeach
@@ -114,11 +115,12 @@
                 <div class="modal-body">
                     <p>¿Esta seguro que deseas borrar el producto?</p>
                 </div>
-                <form>
+                <form name="formulario_eliminar" action="procesar.asp" method="POST" >
                     <div class="modal-footer">
+                        @csrf
+                        @method('DELETE')
                         <input id="idApertura" name="id">
-                        <a class="btn btn-danger"
-                           href="{{route("producto.destroy",["id"=>$producto->id])}}"> Eliminar</a>
+                        <input type="submit" class="btn btn-danger" value="Eliminar"> </input>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                     </div>
                 </form>
@@ -126,4 +128,12 @@
         </div>
     </div>
 
+    <script>
+        function recibir(numero){
+            alert(numero);
+            var id =  numero;           
+            document.formulario_eliminar.action="/producto/"+id+"/eliminar";        
+            alert(document.formulario_eliminar.action);
+        } 
+    </script>
 @endsection

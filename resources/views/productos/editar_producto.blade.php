@@ -28,7 +28,7 @@
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
                 <h1>SMARTEC</h1>
                 <p>Registra nuevo producto!</p>
-                <a id="btn-cancelar" class="btn btn-primary btn-round" href="{{route("productos.index")}}">Cancelar</a>
+                <a id="btn-cancelar" class="btn btn-primary btn-round" href="{{route('productos.index')}}">Cancelar</a>
             </div>
             <div class="col-md-9 register-right">
                 <div class="tab-content" id="myTabContent">

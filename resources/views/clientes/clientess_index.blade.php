@@ -59,12 +59,13 @@
                                             <td>{{$cliente->direccion}}</td>
                                             <td>
                                                 <a class="btn btn-sm btn-success"
-                                                   href="{{route("cliente.editar",["id"=>$cliente->id])}}"
+                                                   href="{{route('cliente.editar',['id'=>$cliente->id])}}"
                                                    title="Editar"><i class="fa fa-pencil"> Editar</i></a>
 
                                                 <batton class="btn btn-sm btn-danger"
                                                         data-id="{{$cliente->id}}"
-                                                        data-toggle="modal" data-target="#modalBorrarApertura">
+                                                        data-toggle="modal" data-target="#modalBorrarApertura"
+                                                        onclick= "recibir('{{$cliente->id}}')" >
                                                     <i class="fa fa-trash"></i> Borrar
                                                 </batton>
 
@@ -98,11 +99,12 @@
                         <div class="modal-body">
                             <p>¿Esta seguro que deseas borrar el cliente?</p>
                         </div>
-                        <form>
+                        <form name="formulario_eliminar" action="procesar.asp" method="POST" >
                             <div class="modal-footer">
+                                @csrf
+                                @method('DELETE')
                                 <input id="idApertura" name="id">
-                                <a class="btn btn-danger"
-                                   href="{{route("cliente.destroy",["id"=>$cliente->id])}}"> Eliminar</a>
+                                <input type="submit" class="btn btn-danger" value="Eliminar"> </input>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                             </div>
                         </form>
@@ -111,5 +113,15 @@
             </div>
         </div>
     </div>
+
+    
+    <script>
+        function recibir(numero){
+            alert(numero);
+            var id =  numero;         
+            document.formulario_eliminar.action="/cliente/"+id+"/destroy";        
+            alert(document.formulario_eliminar.action);
+        } 
+    </script>
 
 @endsection

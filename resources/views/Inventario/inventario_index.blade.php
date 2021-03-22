@@ -1,12 +1,11 @@
 @extends('layouts.main')
 @extends('servicios.mejora_vista')
 @section("content")
-    <div class="btn-group float-right float-left" role="group" aria-label="Basic example" id="botones_ser">
-        <a class="btn btn-secondary float-right" href="{{route("inventario.index")}}">Vista Tarjetas</a>
-        <a class="btn btn-secondary float-right" href="{{route("inventario.nuevo")}}">Agregar Usuario</a>
-    </div>
+   
     <br>
     <hr>
+    <a class="btn btn-success btn-sm float-right" href="{{route('inventario.nuevo')}}"><i class="fa fa-plus"></i> Agregar Inventario</a>
+    
     <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
     @if(session("exito"))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -25,9 +24,11 @@
 
         </div>
     @endif
-
+    
     <div class="container-fluid" >
+    
         <div class="panel panel-success" id="encabezado">
+       
             <div class="panel-heading">
                 <div class="row" id="color_panel">
                     <div class="col-xs-12 col-sm-12 col-md-3" >
@@ -60,10 +61,10 @@
                                         <td>{{$inventario->cantidad}}</td>
                                         <td>
                                             <a class="btn btn-sm btn-success"
-                                               href="{{route("inventario.editar",["id"=>$inventario->id])}}"
+                                               href="{{route('inventario.editar',['id'=>$inventario->id])}}"
                                                title="Editar"><i class="fa fa-pencil"></i></a>
                                             <a class="btn btn-sm btn-danger"
-                                               href="{{route("inventario.destroy",["id"=>$inventario->id])}}">
+                                               href="{{route('inventario.destroy',['id'=>$inventario->id])}}">
                                                 <i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
