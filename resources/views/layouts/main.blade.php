@@ -36,7 +36,7 @@
 <body>
 <!-- Left Panel -->
 <aside id="left-panel" class="left-panel">
-    <nav class="navbar navbar-expand-sm navbar-default">
+    <nav id="nav-menu" class="navbar navbar-expand-sm navbar-default">
         <div class="navbar-header">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu"
                     aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,7 +50,6 @@
                 <li class="active">
                     <a href="/dashboard"> <i class="menu-icon fa fa-home"></i>Inicio</a>
                 </li>
-                <h3 class="menu-title">Administracion</h3><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Administrador</a>
                     <ul class="sub-menu children dropdown-menu">
@@ -62,7 +61,6 @@
                     </ul>
                 </li>
 
-                <h3 class="menu-title">Productos</h3><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Catalogo</a>
@@ -72,7 +70,6 @@
                     </ul>
                 </li>
 
-                <h3 class="menu-title">Inventarios</h3><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>General</a>
@@ -80,8 +77,6 @@
                         <li><i class="fa fa-product-hunt"></i><a href="{{route("inventario.index")}}">Inventario</a></li>
                     </ul>
                 </li>
-
-                <h3 class="menu-title">Informes</h3><!-- /.menu-title -->
 
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
@@ -93,7 +88,19 @@
                         <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Ventas Anuales</a></li>
                     </ul>
                 </li>
-                <h3 class="menu-title">Informacion</h3><!-- /.menu-title -->
+
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-pencil-square-o"></i>Enlaces Directos</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://www.ip.gob.hn/">Instituto de la Propiedad</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://www.sar.gob.hn/">SAR</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://www.sar.gob.hn/consulta-rtn/">Consulta RTN SAR</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://www.sar.gob.hn/">Consulta RTN IP</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://www.sar.gob.hn/">Tasa Vehicular</a></li>
+                    </ul>
+                </li>
+
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-info-circle"></i>Acerca de </a>
@@ -171,7 +178,7 @@
             "use strict";
             jQuery('#vmap').vectorMap({
                 map: 'world_en',
-                backgroundColor: null,
+                backgroundColor: 'null',
                 color: '#ffffff',
                 hoverOpacity: 0.7,
                 selectedColor: '#1de9b6',
@@ -186,3 +193,4 @@
 </div>
 </body>
 </html>
+
