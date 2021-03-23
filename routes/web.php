@@ -110,7 +110,7 @@ Route::group(["middleware"=>"auth"],function () {
 
           //----------Ventas Mensuales-----------//
         Route::get("/ventas/mensuales",\App\Http\Livewire\VentasMensuales::class)->name("ventas_mensuales.index");//Muestra la ventas mensuales
-       
+
 
     });
 
@@ -130,6 +130,11 @@ Route::group(["middleware"=>"auth"],function () {
     Route::post("/compras/crear",[\App\Http\Controllers\CompraController::class,"store"])->name("compras.store");//crea la nueva compra
     Route::get('/compras/{id}/destroy',[\App\Http\Controllers\CompraController::class,"destroy"])->name("compras.destroy");//Borrar la categoria desde la tabla
 
+    //________________Cuentas__________________________//
+
+    Route::get("/cuentas",[\App\Http\Controllers\CobroController::class,"index"])->name("cuenta.index");//muestras las cuentas
+    Route::get("/cuentas/crear",[\App\Http\Controllers\CobroController::class,"create"])->name("cuenta.nueva");//formulario cuentas
+    Route::post('/cuentas/crear', [\App\Http\Controllers\CobroController::class,"store"])->name('cuenta.store');//crea una nueva cuenta
 
 
 
