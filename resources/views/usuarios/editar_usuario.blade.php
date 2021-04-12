@@ -1,39 +1,42 @@
 @extends('layouts.main')
+@extends('Servicios.mejora_vista')
 @section("content")
-    <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">Editar Usuario</h3>
+    <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
+    @if(session("exito"))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{session("exito")}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
-        <div class="card-body">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route("usuarios.index")}}">Usuarios</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Editar Usuario</li>
-                </ol>
-            </nav>
+    @endif
+    @if(session("error"))
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <span class="fa fa-save"></span> {{session("error")}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
 
-            <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
-            @if(session("exito"))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{session("exito")}}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            @endif
-            @if(session("error"))
-                <div class="alert alert-danger alert-dismissible" role="alert">
-                    <span class="fa fa-save"></span> {{session("error")}}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+        </div>
+    @endif
 
-                </div>
-            @endif
-            <div class="card card-body">
-                <div class="container-fluid">
 
-                    <form method="post" action="{{route("usuarios.updatee",['id'=>$user->id])}}"
+    <div class="container register" id="detalle_form_prov">
+        <div class="row" id="detalle_form_prov">
+            <div class="col-md-3 register-left">
+                <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                <h1>SMARTEC</h1>
+                <p>Registra nuevos cliente!</p>
+                <a id="btn-cancelar" class="btn btn-primary btn-round" href="{{route("clientes.index")}}">Cancelar</a>
+            </div>
+            <div class="col-md-9 register-right">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="row register-form">
+                <div class="col-md-6">
+
+                    <form  id="form_proveedores"
+                           method="post" action="{{route("usuarios.updatee",['id'=>$user->id])}}"
                           enctype="multipart/form-data">
                         @method("PUT")
                         @csrf
@@ -111,42 +114,16 @@
                                     </span>
                             @enderror
                         </div>
-                        <!-- Para ingresar una imagen -->
-                        <div class="row">
-                            <div class="col-2">
-                                <img
-                                    id="imagen_previa" src="/images/categorias/{{$user->photo}}"
-                                    onerror="this.src='/images/no_image.jpg'">
-                            </div>
-                            <div class="col-9">
-                                <div class="form-group">
-                                    <label>Seleccione una imagen (opcional):</label>
-                                    <input class="form-control  @error('imagen') is-invalid @enderror"
-                                           accept="image/*"
-                                           name="imagen_url"
-                                           onchange="verImagen(event)"
-                                           type="file" placeholder="Ingrese una imagen"
-                                    >
-                                    <small class="text-muted">Solo formatos en imagen (.png,.jpg,.jpeg)</small>
-                                    @error('imagen')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
+                        <hr>
+                        <br>
+                        <div align="right">
+                            <button type="submit" class="alert btn-primary sm">Guardar</button>
+                            <a href="{{ route('profile.show') }}" type="button" class="alert btn-secondary sm" >
+                                Cerrar</a>
                         </div>
 
-                        <hr>
-                        <button type="submit" class="btn btn-success">Guardar</button>
-                        <!-- -->
+
                     </form>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
     <script>
         //Permite mostrar la imagen seleccionada
         var verImagen = function(event) {

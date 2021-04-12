@@ -36,6 +36,8 @@ Route::group(["middleware"=>"auth"],function () {
     })->name('dashboard');
     Route::get("/usuarios/{id}/edit",[UserController::class,"editar"])->name("usuarios.edit");
     Route::put("/usuarios/{id}/edit",[UserController::class,"updat"])->name("usuarios.updatee");
+    Route::get("/usuarios/{id}/editfoto",[UserController::class,"editarFoto"])->name("foto.edit");
+    Route::put("/usuarios/{id}/editfoto",[UserController::class,"updateFoto"])->name("foto.actualizar");
 
     Route::group(['middleware' => 'admin'], function () {
         //----------------------------------------------perfil-----------------------------------------------------------------//

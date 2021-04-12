@@ -93,6 +93,12 @@ class userController extends Controller
 
     }
 
+    public function editarFoto($id){
+
+        $user=User::findOrFail($id);
+        return view("usuarios.editar_foto")
+            ->with("user",$user);
+    }
     public function edit($id){
         $tipos=Tipo_user::all();
         $user=User::findOrFail($id);
@@ -105,6 +111,34 @@ class userController extends Controller
         $user=User::findOrFail($id);
         return view("usuarios.editar_usuario")
             ->with("user",$user);
+    }
+
+    public function updateFoto(Request $request,$id){
+        $editarUsuario = User::findOrfail($request->id);
+        $path = public_path() . '\images\categorias';//Carpeta publica de las imagenes
+        if($request->imagen_url){
+            /***Si la imagen es enviada por el usuario se debe eliminar la anterior **/
+            $img_anterior=public_path()."/images/categorias/".$editarUsuario->photo;
+            if (File::exists($img_anterior)){
+                File::delete($img_anterior);
+            }
+            $photo = $_FILES["imagen_url"]["name"];
+            $ruta = $_FILES["imagen_url"]["tmp_name"];
+            //-------------VALIDAR SI LA CARPETA EXISTE---------------------
+            if (!file_exists($path)) {
+                mkdir($path, 0777, true);
+
+            }
+            //-------------------------------------------------------------
+            $destino = "images/categorias/" . $photo;
+            copy($ruta, $destino);
+            $editarUsuario->photo=$photo;
+        }
+
+        $editarUsuario->save();
+
+        return redirect()->route("profile.show")
+            ->with("exito","Se edito correctamente la categoria");
     }
 
     public function update(Request $request,$id){
@@ -132,26 +166,6 @@ class userController extends Controller
         $editarUsuario->is_admin= $request->input("is_admin");
         $editarUsuario->telefono= $request->input("telefono");
         $editarUsuario->email= $request->input("email");
-        $path = public_path() . '\images\categorias';//Carpeta publica de las imagenes
-        if($request->imagen_url){
-            /***Si la imagen es enviada por el usuario se debe eliminar la anterior **/
-            $img_anterior=public_path()."/images/categorias/".$editarUsuario->photo;
-            if (File::exists($img_anterior)){
-                File::delete($img_anterior);
-            }
-            $photo = $_FILES["imagen_url"]["name"];
-            $ruta = $_FILES["imagen_url"]["tmp_name"];
-            //-------------VALIDAR SI LA CARPETA EXISTE---------------------
-            if (!file_exists($path)) {
-                mkdir($path, 0777, true);
-
-            }
-            //-------------------------------------------------------------
-            $destino = "images/categorias/" . $photo;
-            copy($ruta, $destino);
-            $editarUsuario->photo=$photo;
-        }
-
         $editarUsuario->save();
 
         return redirect()->route("usuarios.index")
@@ -182,29 +196,10 @@ class userController extends Controller
         $editarUsuario->usuario= $request->input("usuario");
         $editarUsuario->telefono= $request->input("telefono");
         $editarUsuario->email= $request->input("email");
-        $path = public_path() . '\images\categorias';//Carpeta publica de las imagenes
-        if($request->imagen_url){
-            /***Si la imagen es enviada por el usuario se debe eliminar la anterior **/
-            $img_anterior=public_path()."/images/categorias/".$editarUsuario->photo;
-            if (File::exists($img_anterior)){
-                File::delete($img_anterior);
-            }
-            $photo = $_FILES["imagen_url"]["name"];
-            $ruta = $_FILES["imagen_url"]["tmp_name"];
-            //-------------VALIDAR SI LA CARPETA EXISTE---------------------
-            if (!file_exists($path)) {
-                mkdir($path, 0777, true);
-
-            }
-            //-------------------------------------------------------------
-            $destino = "images/categorias/" . $photo;
-            copy($ruta, $destino);
-            $editarUsuario->photo=$photo;
-        }
 
         $editarUsuario->save();
 
-        return redirect()->route("usuarios.index")
+        return redirect()->route("profile.show")
             ->with("exito","Se edito correctamente la categoria");
     }
 
