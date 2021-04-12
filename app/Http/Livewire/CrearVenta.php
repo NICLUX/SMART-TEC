@@ -1,19 +1,22 @@
 <?php
 
 namespace App\Http\Livewire;
-
 use App\Models\Cliente;
 use App\Models\DetalleVenta;
 use App\Models\Producto;
+use App\Models\User;
 use App\Models\Venta;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
+use phpDocumentor\Reflection\DocBlock\Tags\Author;
 use function Symfony\Component\String\s;
 
 class CrearVenta extends Component
 {
     public $clientes;
+    public $users;
     public $id_cliente;
+    public $id_usuario;
     public $fecha_venta;
     public $total_venta;
     public $id_productos;
@@ -22,33 +25,29 @@ class CrearVenta extends Component
     public $id_venta;
     public $cantidad;
     public $productos_en_cola;
-
     public function render()
     {
         return view('livewire.ventas.crear-venta')
             ->extends("layouts.main")
             ->section("content");
     }
-
     public function mount()
     {
         $this->clientes = Cliente::orderBy("nombre", "ASC")->get();
+        $this->users = User::orderBy("id", "ASC")->get();
         $this->fecha_venta = date("Y-m-d");
         $this->productos = Producto::orderBy("nombre", "ASC")->get();
         $this->calcularTotalPagar();
         $this->cargarProductoEnCola();
     }
-
     public function cargarProductoEnCola()
     {
         if ($this->id_venta){
             $this->productos_en_cola=DetalleVenta::where("id_venta","=",$this->id_venta)->get();
         }
     }
-
     public function agregarProducto()
     {
-
         $this->validate([
             "id_cliente" => "required",
             "cantidad"=>"required",
@@ -58,12 +57,10 @@ class CrearVenta extends Component
             "cantidad.required"=>"Se requiere ingresar la cantidad",
             "id_producto.required"=>"Se requiere seleccionar el producto"
         ]);
-
         if ($this->id_venta) {
             $detalleVenta = new DetalleVenta();
             $detalleVenta->id_producto = $this->id_producto;
             $detalleVenta->id_venta = $this->id_venta;
-
             $producto = Producto::findOrFail($this->id_producto);
             if ($producto->en_stock>= $this->cantidad) {
                 $detalleVenta->costo_compra = $producto->costo_compra;
@@ -74,8 +71,6 @@ class CrearVenta extends Component
                 $this->cargarProductoEnCola();
                 $this->limpiar();
                 session()->flash("exito", "Se agregó el producto a la venta");
-
-
             }else{
                 $this->addError("cantidad",
                     "No se puede agregar el producto porque no hay suficientes unidades en Stock. Solo puede vender ".$producto->en_stock." unidades.");
@@ -83,7 +78,6 @@ class CrearVenta extends Component
             }
         } else {
             //Si no se ha creado el primer registro se debe crear la venta padre primero
-
             $nuevaVenta = new Venta();
             $nuevaVenta->id_cliente = $this->id_cliente;
             $nuevaVenta->fecha_venta = $this->fecha_venta;
@@ -114,7 +108,6 @@ class CrearVenta extends Component
             }
         }
     }
-
     public function calcularTotalPagar()
     {
         if ($this->id_venta) {
@@ -126,13 +119,11 @@ class CrearVenta extends Component
             $this->total_venta = 0.00;
         }
     }
-
     public function limpiar()
     {
         $this->cantidad = "";
         $this->id_producto = "";
     }
-
     public function eliminarProductoCola($id){
         $detalle = DetalleVenta::findOrFail($id);
         $detalle->delete();
@@ -142,7 +133,6 @@ class CrearVenta extends Component
     }
     public function guardarVenta()
     {
-
         return redirect()->route("ventas.index");
     }
 }

@@ -31,12 +31,25 @@
         <div class="card-body">
             <form>
                 <div class="row">
+                    <div class="form-group" style="display: none">
+                        <label>Seleccione el usuario:</label>
+                        <select wire:model="id_usuario"
+                                required
+                                class="form-control  @error("id_usuario") is-invalid @endError"
+                                id="selectCliente">
+                            <option value="{{Auth::user()->id}}">{{Auth::user()->usuario}}</option>
+                        </select>
+                        @error("id_usuario")
+                        <span class="alert-error">{{$message}}</span>
+                        @enderror
+                    </div>
                     <div class="col" wire:ignore>
                         <div class="form-group">
                             <label>Seleccione el cliente:</label>
                             <select wire:model="id_cliente"
                                     required
-                                    class="form-control  @error("id_cliente") is-invalid @endError" id="selectCliente"
+                                    class="form-control  @error("id_cliente") is-invalid @endError"
+                                    id="selectCliente"
                             >
                                 <option selected value="">Seleccione un cliente</option>
                                 @foreach($clientes as $cliente)
