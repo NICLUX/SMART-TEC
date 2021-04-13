@@ -78,13 +78,13 @@
 
 
             <div class="clearfix"></div>
-            <!-- Orders -->
+            <!-- TABLAS -->
             <div class="orders">
                 <div class="row">
                     <div class="col-xl-8">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="box-title">Desarrolladores </h4>
+                                <h4 class="box-title">DESARROLLADORES</h4>
                             </div>
                             <div class="card-body--">
                                 <div class="table-stats order-table ov-h">
@@ -92,7 +92,7 @@
                                         <thead>
                                         <tr>
                                             <th class="serial">#</th>
-                                            <th class="avatar">Avatar</th>
+                                            <th class="avatar">Usuario</th>
                                             <th>Nombre</th>
                                             <th>Apellidos</th>
                                             <th>Telefono</th>

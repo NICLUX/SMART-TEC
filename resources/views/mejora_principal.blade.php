@@ -17,9 +17,4 @@
             <link rel="shortcut icon" href="https://i.imgur.com/QRAUqs9.png">
         </head>
 
-
-
-
-
-
 </html>

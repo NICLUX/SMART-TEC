@@ -75,6 +75,7 @@
                        aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Catalogo</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-product-hunt"></i><a href="{{route("productos.index")}}">Productos</a></li>
+                        <li><i class="fa fa-product-hunt"></i><a href="{{route("servicios.index")}}">Servicios</a></li>
                         <li><i class="fa fa-cc-jcb"></i><a href="{{route("categorias.index")}}">Categorias</a></li>
                     </ul>
                 </li>
