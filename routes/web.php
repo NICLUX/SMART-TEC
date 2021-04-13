@@ -147,9 +147,16 @@ Route::group(["middleware"=>"auth"],function () {
 
 });
 
+    //________________Vista Prueba Tablas__________________________//
+    Route::get('/prueba', function () {
+        return view('pruebas.vista_prueba');
+    });
+
+
+
 //________________Graficas__________________________//
-//Route::get("/graficas.graficarClientes",[\App\Http\Controllers\GraficasController::class,"graficarClientes"])->name("clientes.graficar");
+Route::get("graficas.graficarClientes",[\App\Http\Controllers\GraficasController::class,"graficarClientes"])->name("clientes.graficar");
 Route::get('/grafica', function () {
-    return view('graficas.graficarClientes');
+  return view('graficas.graficarClientes');
 });
 

@@ -50,6 +50,15 @@
                 <li class="active">
                     <a href="/dashboard"> <i class="menu-icon fa fa-home"></i>Inicio</a>
                 </li>
+
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-pencil-square-o"></i>Cuentas</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("cuenta.index")}}">Lista de pagos pendientes</a></li>
+                         </ul>
+                </li>
+
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Administrador</a>
                     <ul class="sub-menu children dropdown-menu">
@@ -190,6 +199,8 @@
             });
         })(jQuery);
     </script>
+
+
 </div>
 </body>
 </html>
