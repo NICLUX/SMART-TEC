@@ -112,6 +112,10 @@ Route::group(["middleware"=>"auth"],function () {
 
           //----------Ventas Mensuales-----------//
         Route::get("/ventas/mensuales",\App\Http\Livewire\VentasMensuales::class)->name("ventas_mensuales.index");//Muestra la ventas mensuales
+        
+        //----------Ventas Mensuales-----------//
+        Route::get("/ventas/anuales",\App\Http\Livewire\VentasAnuales::class)->name("ventas_anuales.index");//Muestra la ventas mensuales
+        
 
 
     });

@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     @livewireStyles
     <!-- Scripts -->
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.js" defer></script>
     <link rel="stylesheet" href="/assets/css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
@@ -95,7 +96,7 @@
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("ventas.index")}}">Ventas</a></li>
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("ventas_diarias.index")}}">Ventas diarias</a></li>
                         <li><i class="menu-icon fa fa-paper-plane"></i><a href="{{route("ventas_mensuales.index")}}">Ventas mensuales</a></li>
-                        <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Ventas Anuales</a></li>
+                        <li><i class="menu-icon fa fa-paper-plane"></i><a href="{{route("ventas_anuales.index")}}">Ventas Anuales</a></li>
                     </ul>
                 </li>
 

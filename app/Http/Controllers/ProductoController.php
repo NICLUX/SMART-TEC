@@ -44,7 +44,6 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'file' => 'required|image|max:2048',
             "nombre" => "required|max:80",
             "costo_compra" => "required|numeric",
             "costo_venta" => "required|numeric",
