@@ -5,7 +5,7 @@
     <br>
     <hr>
     <a class="btn btn-success btn-sm float-right" href="{{route('inventario.nuevo')}}"><i class="fa fa-plus"></i> Agregar Inventario</a>
-    
+    <a class="btn btn-warning btn-sm float-right" href="{{route('inventario.imprimir')}}"><i class="fa fa-book" aria-hidden="true"></i> Reporte</a>
     <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
     @if(session("exito"))
         <div class="alert alert-success alert-dismissible fade show" role="alert">

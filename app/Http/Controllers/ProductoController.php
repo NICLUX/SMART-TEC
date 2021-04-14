@@ -8,6 +8,8 @@ use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
+use Dompdf\Dompdf;
+
 class ProductoController extends Controller
 {
     public function index()
@@ -170,6 +172,19 @@ class ProductoController extends Controller
 
         return redirect()->route("productos.index")
             ->with("exito", "Se elimino exitosamente el producto.");
+    }
+
+
+    public function imprimir_productos()
+    {
+        $producto= Producto::all();
+
+        $vista = view('imprimir_productos')->with('productos',$producto);
+                $dompdf = new Dompdf();
+                $dompdf->loadHtml($vista);
+                $dompdf->setPaper('A4', 'landscape');
+                $dompdf->render();
+                $dompdf->stream("Reporte Productos -N#".now().".pdf"); 
     }
 
 }

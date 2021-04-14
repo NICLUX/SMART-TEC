@@ -80,7 +80,10 @@ Route::group(["middleware"=>"auth"],function () {
         Route::put("/producto/{id}/editar",[ProductoController::class,"update"])->name("producto.update");//Guarda los datos del formulario editar
         Route::delete("/producto/{id}/eliminar",[ProductoController::class,"destroy"])->name("producto.destroy");// Eliminar el producto de la tabla
         Route::get("/producto/vistaTabla",[ServiciooController::class,"nuevaVista"])->name("producto.nuevaVista");//Buscar Producto
+       
+        Route::get("/producto/reporte",[\App\Http\Controllers\ProductoController::class,"imprimir_productos"])->name("productos.imprimir");
 
+    
         //------------------Proveedores-----------------------//
         Route::get("/proveedores",[\App\Http\Controllers\ProveedorController::class,"index"])->name("proveedores.index");//Muestra todos los proveedores registrados
         Route::get("/proveedor/crear",[\App\Http\Controllers\ProveedorController::class,"nuevo"])->name("proveedor.nuevo");//Muestra el formulario para crear un nuevo proveedor
@@ -104,6 +107,10 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/venta/crear",\App\Http\Livewire\CrearVenta::class)->name("venta.nuevo");
         Route::get("/venta/{id}/detalle",\App\Http\Livewire\DetalleVenta::class)->name("venta.detalle");
 
+        //Factura imprimir
+        Route::get("/ventas/{id}/factura",\App\Http\Controllers\VentaController::class,"imprimir_factura")->name("venta.imprimir_factura");
+
+        
         //----------Ventas diarias-----------//
         Route::get("/ventas/diarias",\App\Http\Livewire\VentasDiarias::class)->name("ventas_diarias.index");//Muestra la ventas diarias
         Route::get("/total",[\App\Http\Controllers\VentasTotalUserController::class,"total"])->name("vesta_total");//muestra todos los servicios
@@ -127,6 +134,11 @@ Route::group(["middleware"=>"auth"],function () {
     Route::get("/inventario/{id}/producto/editar",[\App\Http\Controllers\InventarioController::class,"editar"])->name("inventario.editar");
     Route::put("/inventario/{id}/update",[\App\Http\Controllers\InventarioController::class,"update"])->name("inventario.update");
     Route::get("/inventario/{id}/producto/eliminar",[\App\Http\Controllers\InventarioController::class,"destroy"])->name("inventario.destroy");
+
+    //Reporte
+    Route::get("/inventario/producto/reporte",\App\Http\Controllers\InventarioController::class,"imprimir_factura")->name("inventario.imprimir");
+
+    
 
     //________________comprass__________________________//
 

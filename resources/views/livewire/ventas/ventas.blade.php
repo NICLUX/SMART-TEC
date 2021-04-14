@@ -66,7 +66,13 @@
                                     <button class="btn btn-danger btn-sm"
                                     wire:click.prevent="eliminarVenta({{$venta->id}})">
                                         <i class="fa fa-trash-o"></i>
-                                    </button></td>
+                                    </button>
+
+                                    <a href='{{route("venta.imprimir_factura",["id"=>$venta->id])}}' class="btn btn-sm btn-warning">
+                                            <i class="fa fa-book" aria-hidden="true"></i>
+                                    </a>
+                                   
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>

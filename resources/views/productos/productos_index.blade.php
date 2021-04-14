@@ -9,6 +9,10 @@
         <div class="card-body">
             <a class="btn btn-success btn-sm float-right" href="{{route('producto.nuevo')}}"><i class="fa fa-plus"></i>
                 Agregar</a>
+            <a class="btn btn-warning btn-sm float-right" href="{{route('productos.imprimir')}}"><i class="fa fa-book" aria-hidden="true"></i>
+                Imprimir</a>
+
+                
             <br>
             <br>
             <form method="get" action="{{route('producto.buscar')}}">

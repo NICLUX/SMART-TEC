@@ -6,6 +6,8 @@ use App\Models\Inventario;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 
+use Dompdf\Dompdf;
+
 class InventarioController extends Controller
 {
     public function index()
@@ -83,6 +85,20 @@ class InventarioController extends Controller
 
         return redirect()->route("inventario.index")->with("exito", "Se elimino el producto en stock con exito");
     }
+
+    public function __invoke(){
+        $inventario = Inventario::all();
+        
+        $vista = view('imprimir_productos_inventario')->with('inventarios',$inventario);
+    
+            $dompdf = new Dompdf();
+            $dompdf->loadHtml($vista);
+            $dompdf->setPaper('A4', 'landscape');
+            $dompdf->render();
+            $dompdf->stream("Reporte Invetario -N#".now().".pdf"); 
+    }
+
+    
 
 
 }
