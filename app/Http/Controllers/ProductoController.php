@@ -40,7 +40,7 @@ class ProductoController extends Controller
     public function nuevo()
     {
         $categorias = Categoria::all();
-        return view("productos.nuevo_producto")->with("categorias", $categorias);
+        return view("productos.categoriaProducto")->with("categorias", $categorias);
     }
 
     public function store(Request $request)
@@ -184,7 +184,7 @@ class ProductoController extends Controller
                 $dompdf->loadHtml($vista);
                 $dompdf->setPaper('A4', 'landscape');
                 $dompdf->render();
-                $dompdf->stream("Reporte Productos -N#".now().".pdf"); 
+                $dompdf->stream("Reporte Productos -N#".now().".pdf");
     }
 
 }

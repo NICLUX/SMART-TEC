@@ -5,7 +5,8 @@
         <li class="list-group-item sm">Listado de Usuarios
             <div class="btn-group float-right float-left" role="group" aria-label="Basic example" id="botones_ser">
                 <a style="margin-right:5px" class="btn-sm alert-primary float-right" href="{{route("usuarios.index")}}">Vista lista</a>
-                <a class="btn-sm alert-primary float-right" href="{{route("usuarios.create")}}"> Agregar Usuario</a>
+                <a class="btn-sm alert-primary float-right" href="{{route("usuarios.create")}}">
+                    <i class="fa fa-plus"></i> Agregar Usuario</a>
             </div></li></ul>
     <br>
     <hr>

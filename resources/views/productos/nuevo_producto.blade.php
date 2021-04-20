@@ -21,7 +21,6 @@
         </div>
     @endif
 
-
     <div class="container register" id="detalle_form_prov">
         <div class="row" id="detalle_form_prov">
             <div class="col-md-3 register-left">
@@ -52,6 +51,26 @@
                                     </span>
                                         @enderror
                                     </div>
+
+                                    <div class="form-group">
+                                        <label for="id_categoria">Seleccione una categoria</label>
+                                        <div class="input-group">
+                                            <select id="id_categoria"
+                                                    name="id_categoria"
+                                                    class="form-control @error('id_categoria') is-invalid @enderror" required>
+                                                <option value="" selected disabled>Seleccione una opcion</option>
+                                                @foreach($categorias as $categoria)
+                                                    <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+                                                @endforeach
+                                            </select>@yield('nuevo')
+                                        </div>
+                                        @error('id_categoria')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
+                                    </div>
+
                                     <div class="form-group">
                                         <label for="descripcion">Ingrese la descripcion:</label>
                                         <textarea class="form-control @error('descripcion') is-invalid @enderror" name="descripcion"
@@ -92,29 +111,6 @@
                                     </span>
                                         @enderror
                                     </div>
-
-                                    <div class="form-group">
-                                        <label for="id_categoria">Seleccione una categoria</label>
-                                        <div class="input-group">
-                                            <select id="id_categoria"
-                                                    name="id_categoria"
-                                                    class="form-control @error('id_categoria') is-invalid @enderror" required>
-                                                <option value="" selected disabled>Seleccione una opcion</option>
-                                                @foreach($categorias as $categoria)
-                                                    <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
-                                                @endforeach
-                                            </select>
-                                            <div class="input-group-append">
-                                                <a class="btn btn-outline-success" href="{{route('categoria.nueva')}}" type="button"><i
-                                                        class="fa fa-plus"></i></a>
-                                            </div>
-                                        </div>
-                                        @error('id_categoria')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                        @enderror
-                                    </div>
                                     <!-- Para ingresar una imagen -->
                                     <div class="form-group">
                                         <label>Seleccione una imagen (opcional):</label>
@@ -131,8 +127,14 @@
                                         @enderror
                                     </div>
                                     <!-- -->
-                                    <button id="btnRegister" type="submit" class="btn btn-success">Guardar</button>                                    </div>
-                            </form>
+                                    <button id="btnRegister" type="submit" class="btn btn-success">Guardar</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@yield('modal')
 @endsection

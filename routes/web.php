@@ -26,6 +26,7 @@ Route::get('/', function () {
 Route::get('/hola', function () {
     return view('hola');
 });
+
 Route::get('/mostrar', function () {
     return view('mostrarCompras');
 });
@@ -66,6 +67,7 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/categorias/busqueda",[CategoriaController::class,"buscarCategoria"])->name("categoria.buscar");//Busca entre las categorias en nombre
         Route::get("/categoria/nueva",[CategoriaController::class,"nuevo"])->name("categoria.nueva");//Muestra el formulario para crear una nueva categoria
         Route::post("/categorias/store",[CategoriaController::class,"store"])->name("categoria.store");//Crea una nueva categoria del formulario
+        Route::post("/categorias/stor",[CategoriaController::class,"stor"])->name("categoria.stor");//Crea una nueva categoria del formulario
         Route::get("/categoria/{id}/editar",[CategoriaController::class,"editar"])->name("categoria.editar");//Llama el formulario editar una categoria
         Route::put("/categoria/{id}/update",[CategoriaController::class,"update"])->name("categoria.update");//Actualiza la categoria en el formulario editar
         Route::get('/categoria/{id}/destroy',[CategoriaController::class,"destroy"])->name("categoria.destroy");//Borrar la categoria desde la tabla
@@ -80,10 +82,10 @@ Route::group(["middleware"=>"auth"],function () {
         Route::put("/producto/{id}/editar",[ProductoController::class,"update"])->name("producto.update");//Guarda los datos del formulario editar
         Route::delete("/producto/{id}/eliminar",[ProductoController::class,"destroy"])->name("producto.destroy");// Eliminar el producto de la tabla
         Route::get("/producto/vistaTabla",[ServiciooController::class,"nuevaVista"])->name("producto.nuevaVista");//Buscar Producto
-       
+
         Route::get("/producto/reporte",[\App\Http\Controllers\ProductoController::class,"imprimir_productos"])->name("productos.imprimir");
 
-    
+
         //------------------Proveedores-----------------------//
         Route::get("/proveedores",[\App\Http\Controllers\ProveedorController::class,"index"])->name("proveedores.index");//Muestra todos los proveedores registrados
         Route::get("/proveedor/crear",[\App\Http\Controllers\ProveedorController::class,"nuevo"])->name("proveedor.nuevo");//Muestra el formulario para crear un nuevo proveedor
@@ -110,7 +112,7 @@ Route::group(["middleware"=>"auth"],function () {
         //Factura imprimir
         Route::get("/ventas/{id}/factura",\App\Http\Controllers\VentaController::class,"imprimir_factura")->name("venta.imprimir_factura");
 
-        
+
         //----------Ventas diarias-----------//
         Route::get("/ventas/diarias",\App\Http\Livewire\VentasDiarias::class)->name("ventas_diarias.index");//Muestra la ventas diarias
         Route::get("/total",[\App\Http\Controllers\VentasTotalUserController::class,"total"])->name("vesta_total");//muestra todos los servicios
@@ -119,10 +121,10 @@ Route::group(["middleware"=>"auth"],function () {
 
           //----------Ventas Mensuales-----------//
         Route::get("/ventas/mensuales",\App\Http\Livewire\VentasMensuales::class)->name("ventas_mensuales.index");//Muestra la ventas mensuales
-        
+
         //----------Ventas Mensuales-----------//
         Route::get("/ventas/anuales",\App\Http\Livewire\VentasAnuales::class)->name("ventas_anuales.index");//Muestra la ventas mensuales
-        
+
 
 
     });
@@ -138,7 +140,7 @@ Route::group(["middleware"=>"auth"],function () {
     //Reporte
     Route::get("/inventario/producto/reporte",\App\Http\Controllers\InventarioController::class,"imprimir_factura")->name("inventario.imprimir");
 
-    
+
 
     //________________comprass__________________________//
 

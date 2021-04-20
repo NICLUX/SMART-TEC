@@ -1,12 +1,9 @@
 @extends('layouts.main')
 @extends('servicios.mejora_vista')
 @section("content")
-
     <div class="btn-group float-right float-left" role="group" aria-label="Basic example" id="botones_ser">
-        <a class="btn btn-secondary float-right" href="{{route("cliente.nuevo")}}">Agregar</a>
-    </div>
-    <br>
-
+        <a class="btn btn-outline-success float-right" href="{{route("cliente.nuevo")}}"><i class="fa fa-plus"></i>Agregar</a>
+    </div><br>
     <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
     @if(session("exito"))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -114,14 +111,14 @@
         </div>
     </div>
 
-    
+
     <script>
         function recibir(numero){
             alert(numero);
-            var id =  numero;         
-            document.formulario_eliminar.action="/cliente/"+id+"/destroy";        
+            var id =  numero;
+            document.formulario_eliminar.action="/cliente/"+id+"/destroy";
             alert(document.formulario_eliminar.action);
-        } 
+        }
     </script>
 
 @endsection

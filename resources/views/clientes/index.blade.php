@@ -3,7 +3,7 @@
 @section("content")
     <div class="btn-group float-right float-left" role="group" aria-label="Basic example" id="botones_ser">
         <a class="btn btn-secondary float-right" href="{{route("usuarios.index")}}">Vista Tarjetas</a>
-        <a class="btn btn-secondary float-right" href="{{route("usuarios.create")}}">Agregar</a>
+        <i class="fa fa-plus"></i><a class="btn btn-secondary float-right" href="{{route("usuarios.create")}}">Agregar</a>
     </div>
     <br>
     <hr>

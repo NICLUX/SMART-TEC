@@ -186,11 +186,23 @@
 }
     #btnRegister{
         float: right;
-        margin-top: 10%;
+        margin-top: 4%;
         border: none;
         border-radius: 1.5rem;
         padding: 2%;
         background: #228b22;
+        color: #fff;
+        font-weight: 600;
+        width: 50%;
+        cursor: pointer;
+    }
+
+    #btnCancel{
+        margin-top: 4%;
+        border: none;
+        border-radius: 1.5rem;
+        padding: 2%;
+        background: #8b2258;
         color: #fff;
         font-weight: 600;
         width: 50%;
@@ -246,7 +258,7 @@
         height: 500px;
     }
     #detalle_form_prov{
-        height: 700px;
+        height: auto;
     }
 
     img{
@@ -258,14 +270,14 @@
         padding-left: 5px;
         padding-right: 5px;
     }
-
-
+    p {
+        color: #fff;
+    }
 
 </style>
 
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
 </head>
 
 <body>

@@ -1,4 +1,4 @@
-@extends("categorias.categorias")
+@extends("productos.nuevo_producto")
 @extends("servicios.mejora_vista")
 @section("nuevo")
     <button class="btn btn-sm btn-outline-success float-right"
@@ -7,6 +7,10 @@
         <i class="fa fa-plus"></i>Agregar</a>
     </button>
 
+
+@endsection
+
+@section('modal')
     <div class="modal fade" id="modalCrear" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -16,10 +20,8 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-
                 <div class="modal-body">
                     <div>
-
                         @if(session("exito"))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 {{session("exito")}}
@@ -34,11 +36,8 @@
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-
                             </div>
-
                         @endif
-
                         <div class="container register col-md-auto sm-12 " id="detalle_form_prov">
                             <div class="row" id="detalle_form_prov">
                                 <div class="col-md-3 register-left">
@@ -49,7 +48,7 @@
 
                                 <div class="col-md-9 register-right">
                                     <div class="row register-form">
-                                        <form method="post" action="{{route("categoria.store")}}"
+                                        <form method="post" action="{{route("categoria.stor")}}"
                                               enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-group">
@@ -85,7 +84,7 @@
                                                 Guardar
                                             </button>
                                             <a id="btnCancel" class="btn btn-primary btn-round"
-                                               href="{{route("categorias.index")}}">Cancelar</a>
+                                               data-dismiss="modal">Cancelar</a>
                                             <!-- -->
                                         </form>
                                     </div>
@@ -94,7 +93,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

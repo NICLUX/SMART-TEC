@@ -14,21 +14,18 @@ class CategoriaController extends Controller
     //Metodo para mostrar todas las categorias
     public function index (){
         $categorias = Categoria::paginate(5);
-        return view("categorias.categorias")->with("categorias",$categorias);
-
-
+        return view("categorias.nueva_categoria")->with("categorias",$categorias);
     }
     //Metodo para mostrar un formulario para crear una nueva categoria
     public function nuevo(){
-        return view("categorias.nueva_categoria");
+        $categorias = Categoria::paginate(5);
+        return view("categorias.nueva_categoria")->with("categorias",$categorias);
     }
     public function buscarCategoria(Request $request){
         $busqueda = $request->input("busqueda");
         $categorias = Categoria::where("nombre","like","%".$request->input("busqueda")."%")->paginate(5);
         return view("categorias.categorias")
             ->with("busqueda",$busqueda)->with("categorias",$categorias);
-
-
     }
     public function store(Request $request){
         $this->validate($request,[
@@ -63,6 +60,41 @@ class CategoriaController extends Controller
         return redirect()->route("categorias.index")
             ->with("exito","Se creo exitosamente la categoria");
     }
+
+    public function stor(Request $request){
+        $this->validate($request,[
+            "nombre"=>"required|max:80|unique:categorias,nombre",
+
+        ],[
+            "nombre.required"=>"Se debe ingresar el nombre de la categoria.",
+            "nombre.unique"=>"El nombre de la categoria debe ser unico.",
+            "nombre.max"=>"El nombre de la categoria debe ser menor a 80 caracteres"
+        ]);
+
+        $nuevaCategoria = new Categoria();
+        $nuevaCategoria->nombre = $request->input("nombre");
+        $path = public_path() . '\images\categorias';//Carpeta publica de las imagenes
+        if($request->imagen_url){
+
+            $imagen = $_FILES["imagen_url"]["name"];
+            $ruta = $_FILES["imagen_url"]["tmp_name"];
+            //-------------VALIDAR SI LA CARPETA EXISTE---------------------
+            if (!file_exists($path)) {
+                mkdir($path, 0777, true);
+
+            }
+            //-------------------------------------------------------------
+            $destino = "images/categorias/" . $imagen;
+            copy($ruta, $destino);
+            $nuevaCategoria->imagen=$imagen;
+        }
+
+        $nuevaCategoria->save();
+
+        return redirect()->route("producto.nuevo")
+            ->with("exito","Se creo exitosamente la categoria");
+    }
+
     public function editar($id){
         return view("categorias.editar_categoria")
             ->with("categoria",Categoria::findOrFail($id));

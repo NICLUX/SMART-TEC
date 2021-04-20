@@ -2,8 +2,7 @@
 @extends('servicios.mejora_vista')
 @section("content")
     <div class="btn-group float-right float-left" role="group" aria-label="Basic example" id="botones_ser">
-
-        <a class="btn btn-secondary float-right" href="{{route("proveedor.nuevo")}}">Agregar</a>
+        <a class="btn btn-outline-success float-right" href="{{route("proveedor.nuevo")}}"><i class="fa fa-plus"></i>Agregar</a>
     </div>
     <br>
     <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
@@ -34,12 +33,11 @@
                     </div>
                 </div>
                 <br>
-                <div class="card card-body">
-                    <div class="container-fluid">
+                <div class="panel-body table-responsive">
                         @if($proveedores->count()>0)
-                            <table class="table">
-                                <thead class="table table-hover">
-                                <tr id="tabla">
+                        <table class="table table-hover table-sm">
+                            <thead class="table table-hover">
+                            <tr id="tabla">
                                     <th scope="col">#</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Dirección</th>
@@ -81,6 +79,29 @@
                                     </tr>
                                 @endforeach
                                 </tbody>
+                                <div class="modal fade" id="modalBorrarApertura" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Eliminar proveedor</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>¿Esta seguro que deseas borrar el proveedor?</p>
+                                            </div>
+                                            <form>
+                                                <div class="modal-footer">
+                                                    <input id="idApertura" name="id">
+                                                    <a class="btn btn-danger"
+                                                       href="{{route("proveedor.destroy",["id"=>$proveedor->id])}}"> Eliminar</a>
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             </table>
                             <div class="pagination pagination-sm justify-content-center">
                                 {{$proveedores->links()}}
@@ -95,27 +116,6 @@
             </div>
         </div>
 
-        <div class="modal fade" id="modalBorrarApertura" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Eliminar proveedor</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>¿Esta seguro que deseas borrar el proveedor?</p>
-                    </div>
-                    <form>
-                        <div class="modal-footer">
-                            <input id="idApertura" name="id">
-                            <a class="btn btn-danger"
-                               href="{{route("proveedor.destroy",["id"=>$proveedor->id])}}"> Eliminar</a>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+
 
 @endsection

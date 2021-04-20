@@ -11,8 +11,6 @@
                 Agregar</a>
             <a class="btn btn-warning btn-sm float-right" href="{{route('productos.imprimir')}}"><i class="fa fa-book" aria-hidden="true"></i>
                 Imprimir</a>
-
-                
             <br>
             <br>
             <form method="get" action="{{route('producto.buscar')}}">
@@ -60,8 +58,6 @@
                                  class="card-img-top"
                                  onclick="$('#callModalVistaPrevia{{$producto->id}}').click()"
                                  onerror="this.src='/images/no_image.jpg'">
-
-
                             <div class="card-body">
                                 <h5 class="card-title">{{$producto->nombre}}</h5>
                                 <p class="card-text"><i class="fa fa-codepen"></i> {{$producto->getNombreCategoriaAttribute()}}</p>
@@ -73,7 +69,6 @@
                                 <br>
                                 <small class="text-muted"><i class="fa fa-money"></i> <strong>Costo venta:
                                         Lps.</strong> {{$producto->costo_venta}}</small>
-
                                 <br>
                                 @if($producto->en_stock)
                                     <small class="text-muted"><i class="fa fa-star"></i> <strong>En Stock:
@@ -82,7 +77,6 @@
                                     <div class="alert alert-warning">
                                         <small>Este producto no hay en stock</small>
                                     </div>
-
                                 @endif
                                 <br>
                                 <a class="btn btn-sm btn-success"
@@ -91,7 +85,7 @@
 
                                 <button class="btn btn-sm btn-danger"
                                         data-id="{{$producto->id}}"
-                                        data-toggle="modal" data-target="#modalBorrarApertura" 
+                                        data-toggle="modal" data-target="#modalBorrarApertura"
                                         onclick= "recibir('{{$producto->id}}')" >
                                     <i class="fa fa-trash"></i> Borrar
                                 </button>
@@ -135,9 +129,9 @@
     <script>
         function recibir(numero){
             alert(numero);
-            var id =  numero;           
-            document.formulario_eliminar.action="/producto/"+id+"/eliminar";        
+            var id =  numero;
+            document.formulario_eliminar.action="/producto/"+id+"/eliminar";
             alert(document.formulario_eliminar.action);
-        } 
+        }
     </script>
 @endsection
