@@ -33,7 +33,6 @@
                     <th scope="col">proveedor</th>
                     <th scope="col">Fecha Hora</th>
                     <th scope="col">numero comptobante</th>
-                    <th scope="col">Impuesto</th>
                     <th scope="col">Total compra</th>
                     <th class="text-center">Acciones</th>
                 </tr>
@@ -46,7 +45,6 @@
                         <td>{{$compra->nombre}}</td>
                         <td>{{$compra->feche_hora}}</td>
                         <td>{{$compra->numero_comprobante}}</td>
-                        <td>{{$compra->impuesto}}</td>
                         <td>{{$compra->total}}</td>
                         <td class="text-center">
                             <button class="btn btn-sm btn-danger"

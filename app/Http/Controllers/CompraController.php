@@ -33,12 +33,14 @@ class CompraController extends Controller
                 ->select('c.*','p.nombre','s.name',
                     DB::raw('SUM(costo_compra*cantidad) as total'))
                 ->where('c.numero_comprobante', 'LIKE', '%'.$query.'%')
-                ->groupBy('c.id','c.feche_hora','c.numero_comprobante','p.nombre','s.name','c.impuesto')
+                ->groupBy('c.id','c.feche_hora','c.numero_comprobante','p.nombre','s.name')
                 ->paginate(8);
             return view("compras.mostrarCompras")
                 ->with("compras",$compras);
         }
     }
+
+
     public function crear(){
         $users=User::all();
         $productos = Producto::all();
@@ -57,20 +59,17 @@ class CompraController extends Controller
         $this->validate($request, [
             'id_usuario' => "required",
             "id_proveedore" => "required",
-            "impuesto"=>"required|numeric",
             "numero_comprobante"=>"required",
 
         ], [
             "id_usuario.required" => "Se requiere ingresar el nombre de usuario",
             "id_proveedore.required" => "Se requiere ingresar el nombre del proveedor",
-            "impusto.required"=>"se requiere ingrese el impuesto",
             "numero_comprobante"=>"se requiere imngrese el numero de comprovante"
         ]);
         DB::beginTransaction();
         $nuevaCompra=new Compra();
         $nuevaCompra->id_usuario= $request->input("id_usuario");
         $nuevaCompra->id_proveedore= $request->input("id_proveedore");
-        $nuevaCompra->impuesto= $request->input("impuesto");
         $nuevaCompra->numero_comprobante= $request->input("numero_comprobante");
         $mytime=Carbon::now('America/tegucigalpa');
         $nuevaCompra->feche_hora = $mytime->toDateTimeLocalString();
@@ -121,7 +120,7 @@ class CompraController extends Controller
             ->select('c.*','p.nombre','s.name','d.costo_compra',
                 DB::raw('SUM(d.costo_compra*d.cantidad) as total'))
             ->where('c.id','=',$id)
-            ->groupBy('c.id','c.feche_hora','c.numero_comprobante','p.nombre','s.name','c.impuesto','d.costo_compra')
+            ->groupBy('c.id','c.feche_hora','c.numero_comprobante','p.nombre','s.name','d.costo_compra')
             ->first();
         $detalles=DB::table('detalle_compras as d')
             ->join('productos as pr', 'd.id_producto', '=', 'pr.id')

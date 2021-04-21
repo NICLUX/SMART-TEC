@@ -26,7 +26,7 @@
                                     <form method="POST" action="{{ route('compras.nuevo') }}">
                                         @csrf
                                             <div class="input-group">
-                                                <select id="id_usuario" style="visibility: hidden"
+                                                <select id="id_usuario" style="display: none"
                                                         name="id_usuario"
                                                         class="form-control @error('id_usuario') is-invalid @enderror" required>
                                                         <option value="{{Auth::user()->id}}">{{Auth::user()->usuario}}</option>
@@ -37,8 +37,8 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                             @enderror
-                                        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
                                         <div>
+                                        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
                                             <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                                 <x-jet-label for="id_proveedore" value="{{ __('Proveedore') }}" />
                                                 <select class="form-control" id="exampleFormControlSelect1"
@@ -54,54 +54,50 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                             @enderror
-                                        </div>
 
-                                            <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
+                                            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                                 <x-jet-label for="numero_comprobante" value="{{ __('Numero comprobante:') }}" />
                                                 <input placeholder="ingrese numero de comprobante" id="numero_comprobante"
                                                              class="form-control"
                                                              type="number" name="numero_comprobante" :value="old('numero_comprobante')"
                                                              required autofocus autocomplete="numero_comprobante"/>
                                             </div>
-                                            <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
-                                                <x-jet-label  for="impuesto" value="{{ __('Impuesto:') }}" />
-                                                <input type="number" placeholder="ingrese el impuesto" id="impuesto"
-                                                             class="form-control" type="text"
-                                                             name="impuesto" :value="old('impuesto')"
-                                                             required autofocus autocomplete="impuesto" />
+                                        </div>
+
+                                        <div style="margin-left: 4% " class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+                                            <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+                                                <x-jet-label for="pid_producto" value="{{ __('Ingrese el producto:') }}" />
+                                                <select class="form-control"  name="pid_producto" id="pid_producto" >
+                                                    <div class="form-group">
+                                                        @foreach($productos as $item => $producto)
+                                                            <option value="{{$producto->id}}">{{$producto->nombre}}</option>
+                                                        @endforeach
+                                                    </div>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
+                                                <x-jet-label for="pcosto_compra" value="{{ __('Precio de compra:') }}" />
+                                                <input type="number" class="form-control " id="pcosto_compra"
+                                                       name="pcosto_compra" placeholder="Precio de compra">
+                                            </div>
+                                            <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
+                                                <x-jet-label for="pcosto_venta" value="{{ __('Precio de venta:') }}" />
+                                                <input type="number" class="form-control " id="pcosto_venta"
+                                                       name="pcosto_venta" placeholder="Precio de venta">
+                                            </div>
+                                            <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
+                                                <x-jet-label for="pcantidad" value="{{ __('Cantidad:') }}" />
+                                                <input type="number" class="form-control" id="pcantidad"
+                                                       name="pcantidad" placeholder="Cantidad">
+                                            </div>
+                                            <div style="margin-top:10px"   class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
+                                                <br>
+                                                <botton type="botton"
+                                                        class="col-sm-12 col-xs-12 btn-outline-info alert alert-info" role="alert"
+                                                        id="bt_add" >Agregar</botton>
                                             </div>
                                         </div>
-                                    <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-                                        <x-jet-label for="pid_producto" value="{{ __('Ingrese el producto:') }}" />
-                                        <select class="form-control"  name="pid_producto" id="pid_producto" >
-                                            <div class="form-group">
-                                            @foreach($productos as $item => $producto)
-                                                    <option value="{{$producto->id}}">{{$producto->nombre}}</option>
-                                                @endforeach
-                                            </div>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
-                                        <x-jet-label for="pcosto_compra" value="{{ __('Precio de compra:') }}" />
-                                        <input type="number" class="form-control " id="pcosto_compra"
-                                               name="pcosto_compra" placeholder="Precio de compra">
-                                    </div>
-                                    <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
-                                        <x-jet-label for="pcosto_venta" value="{{ __('Precio de venta:') }}" />
-                                        <input type="number" class="form-control " id="pcosto_venta"
-                                               name="pcosto_venta" placeholder="Precio de venta">
-                                    </div>
-                                    <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
-                                        <x-jet-label for="pcantidad" value="{{ __('Cantidad:') }}" />
-                                        <input type="number" class="form-control" id="pcantidad"
-                                               name="pcantidad" placeholder="Cantidad">
-                                    </div>
-                                    <div style="margin-top:10px"   class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
-                                        <br>
-                                        <botton type="botton"
-                                                class="col-sm-12 col-xs-12 btn-outline-info alert alert-info" role="alert"
-                                                id="bt_add" >Agregar</botton>
-                                    </div>
+                                        </div>
                                         <div class="panel panel-success" id="encabezado">
                                             <div class="panel-heading">
                                                 <div class="panel-body table-responsive">
@@ -140,10 +136,5 @@
                                                 Cancelar</button>
                                         </div>
                                     </form>
-                            </div>
 
-                    </div>
-                </div>
-        </div>
-    </div>
 @endsection

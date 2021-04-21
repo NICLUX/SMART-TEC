@@ -95,10 +95,13 @@
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("ventas.index")}}">Ventas</a></li>
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("ventas_diarias.index")}}">Ventas diarias</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("vesta_total")}}">Total ventas diarias por empleado</a></li>
                         <li><i class="menu-icon fa fa-paper-plane"></i><a href="{{route("ventas_mensuales.index")}}">Ventas mensuales</a></li>
                         <li><i class="menu-icon fa fa-paper-plane"></i><a href="{{route("ventas_anuales.index")}}">Ventas Anuales</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("compras.index")}}">Compras</a></li>
                     </ul>
                 </li>
+
 
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
