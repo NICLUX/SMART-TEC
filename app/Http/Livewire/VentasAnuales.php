@@ -97,7 +97,7 @@ class VentasAnuales extends Component
         $this->octubre= DB::select("call ingreso_por_mes(?)",[$this->anio.'-10-01'])[0]->total;
         $this->noviembre= DB::select("call ingreso_por_mes(?)",[$this->anio.'-11-01'])[0]->total;
         $this->diciembre= DB::select("call ingreso_por_mes(?)",[$this->anio.'-12-01'])[0]->total;
-
+   
         $this->total_ganacia_del_anio = $this->total_ingreso_del_anio -  $this->total_costo_del_anio;
          return view('livewire.ventas.ventas-anuales')
          ->extends("layouts.main")

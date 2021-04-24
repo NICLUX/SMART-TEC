@@ -67,7 +67,7 @@
                         <li><i class="fa fa-user-md"></i><a href="{{route("proveedores.index")}}">Proveedores</a></li>
                         <li><i class="fa fa-user-plus"></i><a href="{{route("clientes.index")}}">Clientes</a></li>
                         <li><i class="fa fa-dollar"></i><a href="{{route("apertura.index")}}">Apertura</a></li>
-                        <li><i class="fa fa-money "></i><a href="ui-buttons.html">Punto de venta</a></li>
+                        <li><i class="fa fa-money "></i><a href="{{route("venta.nuevo")}}">Punto de venta</a></li>
                     </ul>
                 </li>
 
@@ -93,7 +93,6 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-pencil-square-o"></i>Detalles</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("ventas.index")}}">Ventas</a></li>
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("ventas_diarias.index")}}">Ventas diarias</a></li>
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("vesta_total")}}">Total ventas diarias por empleado</a></li>
                         <li><i class="menu-icon fa fa-paper-plane"></i><a href="{{route("ventas_mensuales.index")}}">Ventas mensuales</a></li>

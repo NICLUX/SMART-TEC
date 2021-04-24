@@ -3,10 +3,12 @@
 namespace App\Http\Livewire;
 use App\Models\Cliente;
 use App\Models\DetalleVenta;
+use App\Models\Inventario;
 use App\Models\Producto;
 use App\Models\User;
 use App\Models\Venta;
 use Illuminate\Support\Facades\DB;
+use IntlChar;
 use Livewire\Component;
 use phpDocumentor\Reflection\DocBlock\Tags\Author;
 use function Symfony\Component\String\s;
@@ -27,6 +29,7 @@ class CrearVenta extends Component
     public $productos_en_cola;
     public function render()
     {
+        $this->productos = Producto::orderBy("nombre", "ASC")->get();
         return view('livewire.ventas.crear-venta')
             ->extends("layouts.main")
             ->section("content");
@@ -62,14 +65,19 @@ class CrearVenta extends Component
             $detalleVenta->id_producto = $this->id_producto;
             $detalleVenta->id_venta = $this->id_venta;
             $producto = Producto::findOrFail($this->id_producto);
+            $inventario = Inventario::firstWhere('id_producto',$this->id_producto);
             if ($producto->en_stock>= $this->cantidad) {
                 $detalleVenta->costo_compra = $producto->costo_compra;
                 $detalleVenta->costo_venta = $producto->costo_venta;
                 $detalleVenta->cantidad = $this->cantidad;
+                $inventario->cantidad = (int)$inventario->cantidad - (int)$this->cantidad;
+                $inventario->save();
+        
                 $detalleVenta->save();
                 $this->calcularTotalPagar();
                 $this->cargarProductoEnCola();
                 $this->limpiar();
+                $this->productos = Producto::orderBy("nombre", "ASC")->get();
                 session()->flash("exito", "Se agregó el producto a la venta");
             }else{
                 $this->addError("cantidad",
@@ -91,16 +99,19 @@ class CrearVenta extends Component
             $detalleVenta->id_venta = $this->id_venta;
 
             $producto = Producto::findOrFail($this->id_producto);
-
+            $inventario = Inventario::firstWhere('id_producto',$this->id_producto);
             if ($producto->en_stock>=$this->cantidad){
                 $detalleVenta->costo_compra = $producto->costo_compra;
                 $detalleVenta->costo_venta = $producto->costo_venta;
                 $detalleVenta->cantidad = $this->cantidad;
                 $detalleVenta->save();
-
+                $inventario->cantidad = (int)$inventario->cantidad - (int)$this->cantidad;
+                $inventario->save();
+        
                 $this->calcularTotalPagar();
                 $this->limpiar();
                 $this->cargarProductoEnCola();
+                $this->productos = Producto::orderBy("nombre", "ASC")->get();
                 session()->flash("exito", "Se agregó el producto a la venta");
             }else{
                 $this->addError("cantidad",
@@ -115,9 +126,11 @@ class CrearVenta extends Component
                 ->select(DB::raw("sum(costo_venta * cantidad) as venta"))
                 ->where("id_venta", "=", $this->id_venta)
                 ->value("venta");
+                
         } else {
             $this->total_venta = 0.00;
         }
+        $this->productos = Producto::orderBy("nombre", "ASC")->get();
     }
     public function limpiar()
     {
@@ -126,6 +139,10 @@ class CrearVenta extends Component
     }
     public function eliminarProductoCola($id){
         $detalle = DetalleVenta::findOrFail($id);
+        $inventario = Inventario::firstWhere('id_producto',$detalle->id_producto);
+        $inventario->cantidad = (int)$inventario->cantidad + (int)$detalle->cantidad;
+        $inventario->save();
+
         $detalle->delete();
         session()->flash("exito","Se eliminó correctamente el producto de la venta.");
         $this->cargarProductoEnCola();
@@ -133,6 +150,7 @@ class CrearVenta extends Component
     }
     public function guardarVenta()
     {
-        return redirect()->route("ventas.index");
+       
+        return redirect()->route("venta.nuevo");
     }
 }
