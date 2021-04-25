@@ -47,7 +47,7 @@
             <a class="navbar-brand hidden" href="./"><img src="/images/logo/logo.png" alt="Logo"></a>
         </div>
         <div id="main-menu" class="main-menu collapse navbar-collapse">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav" id="lista">
                 <li class="active">
                     <a href="/dashboard"> <i class="menu-icon fa fa-home"></i>Inicio</a>
                 </li>
@@ -55,14 +55,14 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-pencil-square-o"></i>Cuentas</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("cuenta.index")}}">Lista de pagos pendientes</a></li>
+                    <ul class="sub-menu children dropdown-menu" id="lista">
+                        <li><i class="menu-icon fa fa-sign-in"></i><a  href="{{route("cuenta.index")}}">Lista de pagos pendientes</a></li>
                          </ul>
                 </li>
 
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Administrador</a>
-                    <ul class="sub-menu children dropdown-menu">
+                    <ul class="sub-menu children dropdown-menu" id="lista">
                         <li><i class="fa fa-users"></i><a href="{{route("usuarios.index")}}">Usuarios</a></li>
                         <li><i class="fa fa-user-md"></i><a href="{{route("proveedores.index")}}">Proveedores</a></li>
                         <li><i class="fa fa-user-plus"></i><a href="{{route("clientes.index")}}">Clientes</a></li>
@@ -74,7 +74,7 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Catalogo</a>
-                    <ul class="sub-menu children dropdown-menu">
+                    <ul class="sub-menu children dropdown-menu" id="lista">
                         <li><i class="fa fa-product-hunt"></i><a href="{{route("productos.index")}}">Productos</a></li>
                         <li><i class="fa fa-product-hunt"></i><a href="{{route("servicios.index")}}">Servicios</a></li>
                         <li><i class="fa fa-cc-jcb"></i><a href="{{route("categorias.index")}}">Categorias</a></li>
@@ -84,7 +84,7 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-pencil-square-o"></i>Detalles</a>
-                    <ul class="sub-menu children dropdown-menu">
+                    <ul class="sub-menu children dropdown-menu" id="lista">
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("ventas_diarias.index")}}">Ventas diarias</a></li>
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("vesta_total")}}">Total ventas diarias por empleado</a></li>
                         <li><i class="menu-icon fa fa-paper-plane"></i><a href="{{route("ventas_mensuales.index")}}">Ventas mensuales</a></li>
@@ -97,8 +97,8 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-pencil-square-o"></i>Enlaces Directos</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://www.ip.gob.hn/">Instituto de la Propiedad</a></li>
+                    <ul class="sub-menu children dropdown-menu" id="lista">
+                        <li id="letras" ><i class="menu-icon fa fa-sign-in"></i><a href="https://www.ip.gob.hn/">Instituto de la Propiedad</a></li>
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="https://www.sar.gob.hn/">SAR</a></li>
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="https://www.sar.gob.hn/consulta-rtn/">Consulta RTN SAR</a></li>
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="https://www.sar.gob.hn/">Consulta RTN IP</a></li>
@@ -109,7 +109,7 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-info-circle"></i>Acerca de </a>
-                    <ul class="sub-menu children dropdown-menu">
+                    <ul class="sub-menu children dropdown-menu" id="lista">
                         <li><i class="menu-icon fa fa-coffee"></i><a href="{{route("acerca_de")}}">NiCLUX</a></li>
                     </ul>
                 </li>
@@ -199,5 +199,20 @@
 
 </div>
 </body>
+        <style>
+            #nav-menu{
+                background: #C21234;
+            }
+            #left-panel{
+                background: #C21234;
+            }
+            #lista{
+                background: #C21234;
+            }
+            #left-panel{
+                color: black;
+            }
+
+        </style>
 </html>
 

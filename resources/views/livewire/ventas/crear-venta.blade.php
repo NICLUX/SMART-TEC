@@ -121,57 +121,81 @@
             </form>
         </div>
         <br>
+        <br>
 
         <hr>
-        @if($productos_en_cola)
-        <div class="ml-2 mb-2">
-            <div class="card-columns">
-                @foreach($productos_en_cola as $detalle)
-                <div class="card" style="height: 150px">
-                    <img src="/images/productos/{{$detalle->producto->imagen_url}}" class="card-img-top"
-                        onclick="$('#callModalVistaPrevia{{$detalle->producto->id}}').click()"
-                        onerror="this.src='/images/no_image.jpg'">
 
+        <div class="card">
+            <div class="card-header">
+                <div class="container">
 
-                    <div class="card-body">
-                        <h5 class="card-title">{{$detalle->producto->nombre}}</h5>
-                        <p class="card-text"><i class="fa fa-codepen"></i> {{$detalle->producto->nombre_categoria}}</p>
-                        @if($detalle->producto->descripcion)
-                        <p class="card-text"><strong>Descripcion:</strong> {{$detalle->descripcion}}</p>
-                        @endif
-                        <small class="text-muted"><i class="fa fa-dollar"></i> <strong>Cantidad:
-                                # </strong> {{$detalle->cantidad}}</small>
-                        <br>
-                        <small class="text-muted"><i class="fa fa-money"></i> <strong>Costo venta:
-                                Lps.</strong> {{$detalle->producto->costo_venta}}</small>
+                    <div class="panel-body table-responsive" id="nuevo_table">
 
-                        <br>
-                        @if($producto->en_stock)
-                        <small class="text-muted"><i class="fa fa-star"></i> <strong>En Stock:
-                                #</strong> {{$detalle->producto->en_stock}}</small>
+                        @if($productos_en_cola)
+
+                            <table class="table">
+                                <thead class="table table-hover">
+
+                                <tr id="tabla">
+                                    <th scope="col" class="text-center">Nombre</th>
+                                    <th scope="col" class="text-center">Categoria</th>
+                                    <th scope="col" class="text-center">Descripcion</th>
+                                    <th scope="col" class="text-center">Cantidad</th>
+                                    <th scope="col" class="text-center">Costo</th>
+                                    <th scope="col" class="text-center">En Stock</th>
+                                    <th scope="col" class="text-center">Eliminar</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                @foreach($productos_en_cola as $item=> $detalle)
+                                    <tr id="resultados">
+                                        <th scope="row">{{$detalle->producto->nombre}}</th>
+                                        <td>{{$detalle->producto->nombre_categoria}}</td>
+                                        @if($detalle->producto->descripcion)
+                                            <td>{{$detalle->descripcion}}</td>
+                                        @else
+                                            <td>n/a</td>
+                                        @endif
+                                        <td>{{$detalle->cantidad}}</td>
+                                        <td>{{$detalle->producto->costo_venta}}</td>
+                                        <td>{{$detalle->producto->costo_venta}}</td>
+                                        @if($producto->en_stock)
+                                            <td>
+                                                #</strong> {{$detalle->producto->en_stock}}</small>
+                                            </td>
+                                        @else
+                                            <td>
+                                                <div class="alert alert-warning">
+                                                    <small>Este producto no hay en stock</small>
+                                                </div>
+                                            </td>
+
+                                        @endif
+                                        <td>
+                                            <button class="btn btn-danger btn-sm"
+                                                    wire:click.prevent="eliminarProductoCola({{$detalle->id}})">
+                                                <i class="fa fa-trash"></i></button>
+
+                                        </td>
+                                @endforeach
+                                </tbody>
+                            </table>
                         @else
-                        <div class="alert alert-warning">
-                            <small>Este producto no hay en stock</small>
-                        </div>
+                            <div class="alert alert-info">Aún no se han agregado productos.</div>
+
+                            </tbody>
+                            </table>
 
                         @endif
-                        <br>
-                        <button class="btn btn-danger btn-sm"
-                            wire:click.prevent="eliminarProductoCola({{$detalle->id}})">
-                            <i class="fa fa-trash"></i></button>
+                    </div>
+
                     </div>
                 </div>
-
-                @endforeach
             </div>
-        </div>
-        @else
-        <div class="alert alert-info">Aún no se han agregado productos.</div>
 
-        @endif
-    </div>
 
-</div>
+
 @push("scripts")
 <script>
     function closedWin() {
@@ -185,3 +209,7 @@
     window.onclose = closedWin;
 </script>
 @endpush
+
+
+
+
