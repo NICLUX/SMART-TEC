@@ -9,6 +9,8 @@ use App\Models\Proveedor;
 use App\Models\User;
 use App\Models\Inventario;
 use Illuminate\Http\Request;
+
+use App\Models\Categoria;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use Http\Request\ComprasFromRequest;
@@ -42,17 +44,19 @@ class CompraController extends Controller
 
 
     public function crear(){
+        $categorias = Categoria::all();
         $users=User::all();
         $productos = Producto::all();
         $proveedores=Proveedor::all();
         $compras= Compra::all();
         $detalles=Detalle_compra::all();
-        return view("compras.detalle")
+        return view("compras.ProductosCompras")
             ->with("compras",$compras)
             ->with("proveedores",$proveedores)
             ->with("users",$users)
             ->with("productos",$productos)
-            ->with("detalles",$detalles);
+            ->with("detalles",$detalles)
+            ->with("categorias", $categorias);;
     }
 
     public function store(Request $request){

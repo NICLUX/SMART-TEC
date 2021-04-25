@@ -77,7 +77,8 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/productost",[ProductoController::class,"mostrar"])->name("productos.mostrar");
         Route::get("/producto/busqueda",[ProductoController::class,"buscarProducto"])->name("producto.buscar");//Buscar Producto
         Route::get("/producto/nuevo",[ProductoController::class,"nuevo"])->name("producto.nuevo");//Muestra el formulario de crear un nuevo producto.
-        Route::post("/producto/store",[ProductoController::class,"store"])->name("producto.store");//Guarda el producto del formulario de productos
+        Route::post("/producto/store",[ProductoController::class,"store"])->name("producto.store");
+        Route::post("/producto/stor",[ProductoController::class,"stor"])->name("producto.stor");//Guarda el producto del formulario de productos
         Route::get("/producto/{id}/editar",[ProductoController::class,"editar"])->name("producto.editar");//Muestra el formulario de editar un producto
         Route::put("/producto/{id}/editar",[ProductoController::class,"update"])->name("producto.update");//Guarda los datos del formulario editar
         Route::delete("/producto/{id}/eliminar",[ProductoController::class,"destroy"])->name("producto.destroy");// Eliminar el producto de la tabla
@@ -128,18 +129,6 @@ Route::group(["middleware"=>"auth"],function () {
 
 
     });
-
-    //------------------Inventario--------------//
-    Route::get("/inventarios",[\App\Http\Controllers\InventarioController::class,"index"])->name("inventario.index");
-    Route::get("/inventario/nuevo",[\App\Http\Controllers\InventarioController::class,"nuevo"])->name("inventario.nuevo");
-    Route::post("/inventario/store",[\App\Http\Controllers\InventarioController::class,"store"])->name("inventario.store");//Permite registrar un nuevo producto al inventario
-    Route::get("/inventario/{id}/producto/editar",[\App\Http\Controllers\InventarioController::class,"editar"])->name("inventario.editar");
-    Route::put("/inventario/{id}/update",[\App\Http\Controllers\InventarioController::class,"update"])->name("inventario.update");
-    Route::get("/inventario/{id}/producto/eliminar",[\App\Http\Controllers\InventarioController::class,"destroy"])->name("inventario.destroy");
-
-    //Reporte
-    Route::get("/inventario/producto/reporte",\App\Http\Controllers\InventarioController::class,"imprimir_factura")->name("inventario.imprimir");
-
 
 
     //________________comprass__________________________//

@@ -43,6 +43,55 @@ class ProductoController extends Controller
         return view("productos.categoriaProducto")->with("categorias", $categorias);
     }
 
+    public function stor(Request $request)
+    {
+        $this->validate($request, [
+            "nombre" => "required|max:80",
+            "costo_compra" => "required|numeric",
+            "costo_venta" => "required|numeric",
+            "descripcion" => "max:80"
+
+        ], [
+            "nombre.required" => "Se requiere ingresar el nombre",
+            "nombre.max" => "El nombre debe ser menor o igual que 80 caracteres",
+            "costo_compra.required" => "Se requiere que ingrese el costo de compra",
+            "costo_compra.numeric" => "El costo de compra debe ser un numero",
+            "costo_venta.required" => "Se requiere el costo de venta.",
+            "costo_venta.numeric" => "Se requiere que el costo de venta sea un numero",
+            "descripcion.max" => "La descripcion debe ser menor o igual que 80 caracteres"
+        ]);
+
+        $producto = new Producto();
+        $producto->nombre = $request->input("nombre");
+        $producto->costo_compra = $request->input("costo_compra");
+        $producto->id_categoria = $request->input("id_categoria");
+        $producto->costo_venta = $request->input("costo_venta");
+        $producto->descripcion = $request->input("descripcion");
+
+        $path = public_path() . '\images\productos';//Carpeta publica de las imagenes de los productos
+
+        if ($request->imagen_url) {
+            $imagen = $_FILES["imagen_url"]["name"];
+            $ruta = $_FILES["imagen_url"]["tmp_name"];
+            //-------------VALIDAR SI LA CARPETA EXISTE---------------------
+            if (!file_exists($path)) {
+                mkdir($path, 0777, true);
+
+            }
+            //-------------------------------------------------------------
+            $destino = "images/productos/" . $imagen;
+            copy($ruta, $destino);
+            $producto->imagen_url = $imagen;
+        }
+
+        $producto->save();
+
+        return redirect()->route("compras.nuevo")
+            ->with("exito", "Se creo exitosamente el producto.");
+
+    }
+
+
     public function store(Request $request)
     {
         $this->validate($request, [

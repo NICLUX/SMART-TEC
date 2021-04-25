@@ -13,12 +13,7 @@ class CreateInventariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('inventarios', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId("id_producto")->references("id")->on("productos");
-            $table->integer("cantidad");
-            $table->timestamps();
-        });
+        
     }
 
     /**
@@ -28,6 +23,6 @@ class CreateInventariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inventarios');
+        
     }
 }
