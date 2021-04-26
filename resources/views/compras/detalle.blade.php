@@ -38,23 +38,27 @@
                     @enderror
                     <div>
                         <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-                            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                            <div class="form-group col-lg-8 col-sm-8 col-md-8 col-xs-12">
                                 <x-jet-label for="id_proveedore" value="{{ __('Proveedore') }}" />
-                                <select class="form-control" id="exampleFormControlSelect1" name="id_proveedore"
-                                    class="form-control @error('id_proveedore') is-invalid @enderror" required>
-                                    <option value="" selected disabled>Seleccione una opcion</option>
-                                    @foreach($proveedores as $pro)
-                                    <option value="{{$pro->id}}">{{$pro->nombre}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            @error('id_proveedore')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                                <div class="input-group">
+                                    <select id="id_proveedore"
+                                            name="id_proveedore"
+                                            class="form-control @error('id_proveedore') is-invalid @enderror" required>
+                                        <option value="" selected disabled>Seleccione una opcion</option>
+                                        @foreach($proveedores as $pro)
+                                            <option value="{{$pro->id}}">{{$pro->nombre}}</option>
+                                        @endforeach
+                                    </select>@yield('nuevo')
 
-                            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                </div>
+                                @error('id_proveedore')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
                                 <x-jet-label for="numero_comprobante" value="{{ __('Numero comprobante:') }}" />
                                 <input placeholder="ingrese numero de comprobante" id="numero_comprobante"
                                     class="form-control" type="number" name="numero_comprobante"
@@ -63,24 +67,26 @@
                             </div>
                         </div>
 
-                        <div style="margin-left: 4% " class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-                            <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-                                <div class="row">
-                                    <div class="col-10">
-                                        <x-jet-label for="pid_producto" value="{{ __('Ingrese el producto:') }}" />
-                                        <select class="form-control" name="pid_producto" id="pid_producto">
-                                            <div class="form-group">
-                                                @foreach($productos as $item => $producto)
-                                                <option value="{{$producto->id}}">{{$producto->nombre}}</option>
-                                                @endforeach
-                                            </div>
-                                        </select>
-                                    </div>
-                                    <div class="col-1" style="margin-top: 33px;">
+                        <div style="margin-left: 3% " class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+                            <div class="form-group col-lg-4 col-sm-4 col-md-4 col-xs-12">
+                                <x-jet-label for="pid_producto" value="{{ __('Ingrese el producto:') }}" />
+                                <div class="input-group">
+                                    <select name="pid_producto" id="pid_producto"
+                                            class="form-control @error('pid_producto') is-invalid @enderror" required>
+                                        <option value="" selected disabled>Seleccione una opcion</option>
+                                        @foreach($productos as $item => $producto)
+                                            <option value="{{$producto->id}}">{{$producto->nombre}}</option>
+                                        @endforeach
+                                    </select>
                                         @yield('nuevo_prod')
-                                    </div>
                                 </div>
+                                @error('pid_producto')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
+
                             <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
                                 <x-jet-label for="pcosto_compra" value="{{ __('Precio de compra:') }}" />
                                 <input type="number" class="form-control " id="pcosto_compra" name="pcosto_compra"
@@ -131,7 +137,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div style="margin-top: 10px" class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
                         <input name="_token" value="{{csrf_token()}}" type="hidden">
                         <button id="guardar" class="btn-outline-primary btn-sm alert alert-primary
@@ -145,5 +150,6 @@
                     </div>
                 </form>
                 @yield('modal')
+@yield('modals')
 
-                @endsection
+@endsection

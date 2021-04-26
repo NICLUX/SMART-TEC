@@ -91,6 +91,7 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/proveedores",[\App\Http\Controllers\ProveedorController::class,"index"])->name("proveedores.index");//Muestra todos los proveedores registrados
         Route::get("/proveedor/crear",[\App\Http\Controllers\ProveedorController::class,"nuevo"])->name("proveedor.nuevo");//Muestra el formulario para crear un nuevo proveedor
         Route::post("/proveedor/store",[\App\Http\Controllers\ProveedorController::class,"store"])->name("proveedor.store");//Guardar el proveedor del formulario agregar
+        Route::post("/proveedor/stor",[\App\Http\Controllers\ProveedorController::class,"stor"])->name("proveedor.stor");//Guardar el proveedor del formulario agregar
         Route::get("/proveedor/{id}/editar",[\App\Http\Controllers\ProveedorController::class,"editar"])->name("proveedor.editar");//Muestra el formulario de editar proveedor
         Route::put("/proveedor/{id}/update",[\App\Http\Controllers\ProveedorController::class,"update"])->name("proveedor.update");//Guarda los datos de actualizar proveedor
         Route::get("/proveedor/{id}/destroy",[\App\Http\Controllers\ProveedorController::class,"destroy"])->name("proveedor.destroy");//Borra un proveedor desde la lista
