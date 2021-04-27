@@ -56,7 +56,7 @@ class CompraController extends Controller
             ->with("users",$users)
             ->with("productos",$productos)
             ->with("detalles",$detalles)
-            ->with("categorias", $categorias);;
+            ->with("categorias", $categorias);
     }
 
     public function store(Request $request){

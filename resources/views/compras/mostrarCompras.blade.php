@@ -1,6 +1,16 @@
 @extends('layouts.main')
 @extends('servicios.mejora_vista')
 @section("content")
+
+        <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
+        @if(session("exito"))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{session("exito")}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
         <div class="alert alert-secondary">
             <div style="margin-bottom: 4px">
                 <a class="btn alert-success btn-sm float-right" href="{{route("compras.nuevo")}}">
@@ -9,10 +19,6 @@
             <h1 class="breadcrumb-item active" aria-current="page" >Listado Compras</h1>
         </div>
 
-        @if(session("exito"))
-            <div class="alert alert-success ">
-             </div>
-        @endif
 
         <div class="container-fluid" >
             <div class="panel panel-success" id="encabezado">

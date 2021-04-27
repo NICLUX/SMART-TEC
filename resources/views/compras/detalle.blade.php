@@ -49,7 +49,6 @@
                                             <option value="{{$pro->id}}">{{$pro->nombre}}</option>
                                         @endforeach
                                     </select>@yield('nuevo')
-
                                 </div>
                                 @error('id_proveedore')
                                 <span class="invalid-feedback" role="alert">
