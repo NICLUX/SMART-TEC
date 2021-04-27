@@ -9,7 +9,7 @@
     <title>Smart Tec</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="/images/logo/logo.jpg">
+    <link rel="icon" href="/images/logo/logo3.png">
     <link rel="apple-touch-icon" href="apple-icon.png">
     <link rel="shortcut icon" href="favicon.ico">
     <!--Made with love by Mutiullah Samim -->
@@ -41,9 +41,15 @@
                         <div class="d-flex justify-content-center h-100">
                             <div class="card">
                                 <div class="card-header">
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
                                     <div class="brand_logo_container">
-                                        <img src="/images/logo/logo.png">
+                                        <img src="/images/logo/logo3.png">
                                     </div>
+                                    <br>
+                                    <br>
                                         <x-jet-validation-errors class="mb-4" />
                                     </div>
                                         <div class="card-body">

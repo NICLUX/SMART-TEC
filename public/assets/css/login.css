@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
 html,body{
-    background-image:  url('https://image.freepik.com/vector-gratis/concepto-seguridad-cibernetica-elemento-hud-sobre-fondo-tono-azul_99087-130.jpg');
+    background-image:  url('https://www.10wallpaper.com/wallpaper/1366x768/1711/Office_Desk_Keyboard_Art_Cup_Photo_HD_Wallpaper_1366x768.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
@@ -48,7 +48,7 @@ html,body{
 
 .input-group-prepend span{
     width: 50px;
-    background-color: #FFC312;
+    background-color:#CD212C;
     color: black;
     border:0 !important;
 }
@@ -66,7 +66,7 @@ html,body{
 
 .login_btn{
     color: black;
-    background-color: #FFC312;
+    background-color:#CD212C;
     width: 100px;
 }
 

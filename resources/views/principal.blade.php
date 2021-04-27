@@ -13,7 +13,7 @@
                                     </div>
                                     <div class="media-body text-right">
                                         <h3 class="success">Consulta RTN IP</h3>
-                                        <span> <a href="https://www.facebook.com/cruzgerman"><i class="fa fa-facebook pr-1"></i></a></span>
+                                        <span><a href="https://placas.ip.gob.hn/enlace/consulta"></a>Detalle</span>
                                     </div>
                                 </div>
                             </div>
