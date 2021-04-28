@@ -36,7 +36,7 @@
                         <div class="row register-form">
                             <div class="col-md-6">
 
-                                <form  id="form_proveedores" enctype="multipart/form-data" action="{{route("usuarios.updatee",['id'=>$user->id])}}"
+                                <form  id="form_proveedores" enctype="multipart/form-data" action="{{route("usuarios.update",['id'=>$user->id])}}"
                                        method="post" enctype="multipart/form-data">
                                     @method("PUT")
                                     @csrf

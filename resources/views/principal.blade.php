@@ -1,7 +1,14 @@
 @extends("layouts.main")
 @extends("mejora_principal")
+@extends("Servicios.mejora_vista")
 @section("content")
-
+@section("content")
+    <style>
+        img{
+            height: 60%;
+            width: 60%
+        }
+    </style>
             <div class="row">
                 <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card">
@@ -88,7 +95,7 @@
                             </div>
                             <div class="card-body--">
                                 <div class="table-stats order-table ov-h">
-                                    <table class="table ">
+                                    <table class="table table-sm">
                                         <thead>
                                         <tr>
                                             <th class="serial">#</th>
@@ -171,6 +178,6 @@
                             </div>
                         </div>
                     </div>
+@endsection
 
-    </body>
 @endsection
