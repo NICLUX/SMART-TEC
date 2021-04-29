@@ -3,7 +3,7 @@
 @section('nuevo')
     <button class="btn btn-sm btn-outline-success float-right"
             data-id=""
-            data-toggle="modal" data-target="#modalCrearg">
+            data-toggle="modal" data-target="#modalCrear">
         <i class="fa fa-plus"></i>Agregar</a>
     </button>
 @endsection
@@ -17,10 +17,8 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-
                 <div class="modal-body">
                     <div>
-
                         @if(session("exito"))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 {{session("exito")}}
@@ -50,7 +48,7 @@
 
                                 <div class="col-md-9 register-right">
                                     <div class="row register-form">
-                                        <form method="post" action="{{route("categoria.store")}}"
+                                        <form method="post" action="{{route("categoria.stor")}}"
                                               enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-group">
