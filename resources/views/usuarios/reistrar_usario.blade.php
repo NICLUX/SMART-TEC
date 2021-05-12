@@ -110,21 +110,46 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="costo_compra">Ingrese la Contraseña :</label>
+                                    </div>
+                                    <div class="input-group">
                                         <input class="form-control @error('password') is-invalid @enderror" name="password"
                                                id="password"
                                                type="password"
                                                min="8"
                                                required
-                                               placeholder="Ingrese la Contraseña">
+                                               placeholder="Ingrese la Contraseña"
+                                        value="password" ><div class="input-group-append">
+                                            <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+                                        </div>
                                         @error('password')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                         @enderror
                                     </div>
-                                    <div class="flex items-center justify-end mt-4">
-                                        <button id="btnRegister" type="submit" class="btn btn-success">Guardar</button>                                    </div>
+                                    <div class="items-center justify-end mt-4">
+                                        <button id="btnRegister" type="submit" class="btn btn-success">Guardar</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                        <script type="text/javascript">
+                            function mostrarPassword(){
+                                var cambio = document.getElementById("password");
+                                if(cambio.type == "password"){
+                                    cambio.type = "text";
+                                    $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+                                }else{
+                                    cambio.type = "password";
+                                    $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+                                }
+                            }
+
+                        </script>
 @endsection

@@ -7,10 +7,11 @@
         border-radius: 50% !important;
     }
 </style>
-
-<x-app-layout>
+<x-guest-layout>
+    @extends('layouts.main')
     @section("content")
-        <div class="container">
+    @section("content")
+        <div class="container" >
             <div class="col-sm-6">
                 <div class="panel panel-default">
                     <br>
@@ -114,6 +115,5 @@
                                 </form>
                         </div>
                     </div>
-
     @endsection
-</x-app-layout>
+</x-guest-layout>

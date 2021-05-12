@@ -12,8 +12,8 @@
                     @endif
         <x-slot name="logo">
         </x-slot>
-                        <head>
-                            <title>Smart Tec</title>
+                <head>
+                   <title>Smart Tec</title>
                             <meta name="description" content="Sufee Admin - HTML5 Admin Template">
                             <meta name="viewport" content="width=device-width, initial-scale=1">
                             <link rel="icon" href="/images/logo/logo3.png">
@@ -32,9 +32,9 @@
                             <!--Custom styles-->
                             <link rel="stylesheet" type="text/css" href="/assets/css/login.css">
 
-                        </head>
+                 </head>
 
-                        <body>
+                 <body>
                         <div class="container h-100">
                             <div class="d-flex justify-content-center h-100">
                                 <div class="user_card">
@@ -47,15 +47,9 @@
                                         <div class="d-flex justify-content-center h-100">
                                             <div class="card">
                                                 <div class="card-header">
-                                                    <br>
-                                                    <br>
-                                                    <br>
-                                                    <br>
                                                     <div class="brand_logo_container">
-                                                        <img src="/images/logo/logo3.png">
+                                                        <img src="/images/logo/logo.png">
                                                     </div>
-                                                    <br>
-                                                    <br>
                                                     <x-jet-validation-errors class="mb-4" />
                                                 </div>
                                                 <div class="card-body">
@@ -96,5 +90,8 @@
                                 </div>
                             </div>
                         </div>
-                        </body></div></div></div>
+                    </body>
+                </div>
+            </div>
+        </div>
 </x-guest-layout>

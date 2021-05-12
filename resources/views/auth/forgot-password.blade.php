@@ -1,34 +1,94 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
-
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<div class="container h-100">
+    <div class="d-flex justify-content-center h-100">
+        <div class="user_card">
+            @if (session('status'))
+                <div class="mb-4 font-medium text-sm text-green-600">
+                    {{ session('status') }}
+                </div>
+            @endif
+            <head>
+                <title>Smart Tec</title>
+                <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <link rel="icon" href="/images/logo/logo3.png">
+                <link rel="apple-touch-icon" href="apple-icon.png">
+                <link rel="shortcut icon" href="favicon.ico">
+                <!--Made with love by Mutiullah Samim -->
+                <!--Bootsrap 4 CDN-->
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+                      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+                <!--Fontawesome CDN-->
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+                      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+                <!--Custom styles-->
+                <link rel="stylesheet" type="text/css" href="/assets/css/login.css">
+                <link rel="stylesheet" type="text/css" href="/assets/css/rest.css">
+                <style>
+                    h4{
+                        margin-left: -23px;
+                        font-weight: normal;
+                        font-size: 60px;
+                        font-family: Gabriola;
+                        text-transform: uppercase;
+                    }
+                    h5{
+                        margin-left: 55px;
+                        margin-top: 15px;
+                        font-weight: normal;
+                        font-size: 32px;
+                        font-family: Bradley Hand ITC;
+                        text-transform: uppercase;
+                    }
+                    h3{
+                        font-family: Book Antiqua;
+                    }
+                </style>
+            </head>
+            <body>
+            <!-- Main Content -->
+            <div class="container-fluid">
+                <div class="row main-content bg-success text-center">
+                    <div class="col-md-4 text-center company__info">
+                        <span class="company__logo"><h2><span class="fa fa-android"></span></h2></span>
+                        <h4 class="company_title">
+                            SMART-TEC
+                        </h4>
+                    </div>
+                    <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <h5>
+                                        {{ __('¿Olvidaste tu contraseña?') }}
+                                </h5>
+                                <h6 class="mb-4 text-sm text-gray-600">
+                                    {{ __('Introduce tu dirección de correo electrónico para recuperar tu cuenta.') }}<hr>
+                                </h6>
+                            </div>
+                            <form method="POST" action="{{ route('password.email') }}">
+                                @csrf
+                                <div class="row">
+                                    <input type="email" name="email" id="email" class="form__input" placeholder="Ingrese su correo">
+                                </div>
+                                <div class="row">
+                                    <h6>
+                                        @if (session('status'))
+                                            <div class="mb-4 font-medium text-sm text-green-600">
+                                                {{ session('status') }}
+                                            </div>
+                                        @endif<x-jet-validation-errors class="mb-4"/></h6>
+                                </div>
+                                <div class="row">
+                                    <input type="submit" value="Enviar" class="btn" >
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                  </div>
+               </div>
+            </body>
         </div>
-
-        @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
-        @endif
-
-        <x-jet-validation-errors class="mb-4" />
-
-        <form method="POST" action="{{ route('password.email') }}">
-            @csrf
-
-            <div class="block">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <x-jet-button>
-                    {{ __('Email Password Reset Link') }}
-                </x-jet-button>
-            </div>
-        </form>
-    </x-jet-authentication-card>
-</x-guest-layout>
+    </div>
+</div>
