@@ -50,7 +50,12 @@
                                                     <div class="brand_logo_container">
                                                         <img src="/images/logo/logo.png">
                                                     </div>
-                                                    <x-jet-validation-errors class="mb-4" />
+                                                    @if ($errors->any())
+                                                                @foreach ($errors->all() as $error)
+                                                                    <li>{{ $error }}
+                                                                @endforeach
+
+                                                    @endif
                                                 </div>
                                                 <div class="card-body">
                                                     <form method="POST" action="{{ route('login') }}">

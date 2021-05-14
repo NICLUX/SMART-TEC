@@ -1,12 +1,18 @@
 .main-content{
-    width: auto;
+    width: 80%;
     border-radius: 30px;
     background-color: rgba(123,733,8,0.1) !important;
     margin: 13em auto;
 }
+.content{
+    width: 80%;
+    border-radius: 30px;
+    background-color: rgba(123,733,8,0.1) !important;
+    margin: 8em auto;
+}
 
 .company__info{
-    background-color: rgba(0,0,0,0.5) !important;
+    background-color: rgba(0,0,0,0.4) !important;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     flex-direction: column;
@@ -17,7 +23,7 @@
     font-size:3em;
 }
 @media screen and (max-width: 640px) {
-    .main-content{width: auto;}
+    .main-content{width: 70%;}
     .company__info{
 
     }
@@ -66,7 +72,7 @@ form{
 }
 .btn{
     transition: all .5s ease;
-    margin-left: 90%;
+    margin-left: 75%;
     border-radius: 30px;
     color:#008080;
     font-weight: 600;
