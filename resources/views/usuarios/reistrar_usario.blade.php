@@ -39,12 +39,11 @@
                                 <form  id="form_proveedores" enctype="multipart/form-data" action="{{route("usuarios.store")}}"
                                        method="post">
                                     @csrf
-
                                     <div class="form-group">
                                         <label for="name">Ingrese el nombre:</label>
                                         <input class="form-control @error('name') is-invalid @enderror" name="name" id="name"
                                                required
-                                               placeholder="Ingrese el nombre" maxlength="80">
+                                               placeholder="Ingrese el nombre completo" maxlength="80">
                                         @error('name')
                                         <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -53,12 +52,12 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="name">Ingrese el nombre de usuario:</label>
-                                        <input id="usuario"  class="form-control @error('name') is-invalid @enderror" name="usuario"
+                                        <input id="usuario"  class="form-control @error('usuario') is-invalid @enderror" name="usuario"
                                                required
                                                placeholder="Ingrese el nombre de usuario" maxlength="80">
-                                        @error('name')
+                                        @error('usuario')
                                         <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
+                                    <strong>{{ $message}}</strong>
                                     </span>
                                         @enderror
                                     </div>
@@ -119,7 +118,7 @@
                                                required
                                                placeholder="Ingrese la Contraseña"
                                         value="password" ><div class="input-group-append">
-                                            <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+                                            <button id="show_password" class="btn btn-outline-success" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
                                         </div>
                                         @error('password')
                                         <span class="invalid-feedback" role="alert">

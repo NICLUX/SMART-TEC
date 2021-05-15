@@ -1,7 +1,7 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<html lang="en">
+<html lang="es">
 <header>
     <title>Smart Tec</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
@@ -45,11 +45,6 @@
 <div class="container h-100">
     <div class="d-flex justify-content-center h-100">
         <div class="user_card">
-            @if (session('status'))
-                <div class="mb-4 font-medium text-sm text-green-600">
-                    {{ session('status') }}
-                </div>
-        @endif
         <!-- Main Content -->
             <div class="container-fluid">
                 <div class="row content bg-success text-center">
@@ -63,7 +58,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <h5>
-                                    {{ __('¿Olvidaste tu contraseña?') }}
+                                    {{ __('Restaurar Contraseña') }}
                                 </h5>
                                 <h6 class="mb-4 text-sm text-gray-600">
                                     {{ __('Introduce tu dirección de correo electrónico para recuperar tu cuenta.') }}<hr>
@@ -86,17 +81,11 @@
                                 </div>
                                 <div class="row">
                                     <h6>
-                                        @if (session('status'))
-                                            <div class="mb-4 font-medium text-sm text-green-600">
-                                                {{ session('status') }}
-                                            </div>
+                                        @if ($errors->any())
+                                            @foreach ($errors->all() as $error)
+                                                {{ $error }}
+                                            @endforeach
                                         @endif
-                                            @if ($errors->any())
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}
-                                                @endforeach
-
-                                            @endif
                                     </h6>
                                 </div>
 

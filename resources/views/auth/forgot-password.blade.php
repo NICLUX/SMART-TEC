@@ -1,7 +1,7 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<html lang="en">
+<html lang="es">
  <header>
      <title>Smart Tec</title>
      <meta name="description" content="Sufee Admin - HTML5 Admin Template">
@@ -44,12 +44,6 @@
     <body>
         <div class="container h-100">
             <div class="d-flex justify-content-center h-100">
-                <div class="user_card">
-                    @if (session('status'))
-                        <div class="mb-4 font-medium text-sm text-green-600">
-                            {{ session('status') }}
-                        </div>
-                @endif
                 <!-- Main Content -->
                     <div class="container-fluid">
                         <div class="row main-content bg-success text-center">
@@ -85,12 +79,9 @@
                                                     @foreach ($errors->all() as $error)
                                                         <li>{{ $error }}
                                                     @endforeach
-
-                                            @endif
+                                                @endif
                                         </div>
-
                                             <input type="submit"  value="Enviar Correo" class="btn" >
-
                                     </form>
                                 </div>
                             </div>

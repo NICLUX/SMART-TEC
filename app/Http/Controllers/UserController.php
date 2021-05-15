@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 use App\Models\Tipo_user;
 use App\Models\User;
@@ -26,17 +25,13 @@ class userController extends Controller
             ->paginate(5);
         return view('usuarios.users')
             ->with('users',$users);
-
     }
     public function mostrar()
     {
-
-        $users = User::paginate(6);
+        $users = User::paginate(12);
         return view('usuarios.tablaUsuario')
             ->with('users',$users);
-
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -50,7 +45,6 @@ class userController extends Controller
             ->with("users", $users)
             ->with("tipos", $tipos);
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -60,26 +54,25 @@ class userController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            "name"=>"required|max:80",
+            "name"=>"required|max:100",
             "email"=>"unique:users,email",
             "is_admin"=>"required|numeric",
             "usuario"=>"required|max:80|unique:users,name,",
-            "telefono"=>"required|unique:proveedors,telefono|max:99999999",
+            "telefono"=>"required|unique:users,telefono|unique:proveedors,telefono|unique:clientes,telefono|max:99999999",
             "password"=>"required|min:8",
         ],[
             "nombre.required"=>"Se requiere ingresar el nombre del usuario",
             "usuario.unique"=>"El usuario ya ha sido tomado.",
             "name.max"=>"El nombre del usuario debe ser menor a 100 caracteres",
             "usuario.required"=>"Se debe ingresar el nombre de usuario.",
-            "usuario.max"=>"El nombre de usuario debe ser menor a 100 caracteres",
+            "usuario.max"=>"El nombre de usuario debe ser menor a 80 caracteres",
             "telefono.required"=>"Se debe ingresar el numero telefonico del de usuario.",
             "telefono.max"=>"El numero de telefono del usuario debe tener 8 caracteres",
             "telefono.unique"=>"El numero de telefono debe ser unico",
             "email.required"=>"Se debe ingresar el email de usuario.",
             "email.unique"=>"El email debe ser unico",
+            "password"=>"La contraseña debe ser mayor o = 8 caracteres"
         ]);
-
-
         $user = new User();
         $user->name= $request->input("name");
         $user->email= $request->input("email");
@@ -87,14 +80,11 @@ class userController extends Controller
         $user->usuario= $request->input("usuario");
         $user->telefono=$request->input("telefono");
         $user->password = bcrypt($request->input("password"));
-         $user->save();
+        $user->save();
         return redirect()->route("usuarios.index")
             ->with("exito","Se creó exitosamente el usuario");
-
     }
-
     public function editarFoto($id){
-
         $user=User::findOrFail($id);
         return view("usuarios.editar_foto")
             ->with("user",$user);
@@ -107,12 +97,10 @@ class userController extends Controller
                 ->with("tipos",$tipos);
     }
     public function editar($id){
-
         $user=User::findOrFail($id);
         return view("usuarios.editar_usuario")
             ->with("user",$user);
     }
-
     public function updateFoto(Request $request,$id){
         $editarUsuario = User::findOrfail($request->id);
         $path = public_path() . '\images\categorias';//Carpeta publica de las imagenes
@@ -127,27 +115,22 @@ class userController extends Controller
             //-------------VALIDAR SI LA CARPETA EXISTE---------------------
             if (!file_exists($path)) {
                 mkdir($path, 0777, true);
-
             }
             //-------------------------------------------------------------
             $destino = "images/categorias/" . $photo;
             copy($ruta, $destino);
             $editarUsuario->photo=$photo;
         }
-
         $editarUsuario->save();
-
         return redirect()->route("profile.show")
             ->with("exito","Se edito correctamente la categoria");
     }
-
     public function update(Request $request,$id){
         $this->validate($request,[
             "name"=>"required|max:100",
             "usuario"=>"required|max:100|unique:users,name,".$id,
             "telefono"=>"required|max:11|min:8|unique:users,telefono,".$id,
             "email"=>"required|unique:users,email,".$id
-
         ],[
             "name.required"=>"Se debe ingresar el nombre del usuario.",
             "name.max"=>"El nombre del usuario debe ser menor a 100 caracteres",
@@ -159,7 +142,6 @@ class userController extends Controller
             "email.required"=>"Se debe ingresar el email de usuario.",
             "email.unique"=>"El email debe ser unico",
         ]);
-
         $editarUsuario = User::findOrfail($request->id);
         $editarUsuario->name= $request->input("name");
         $editarUsuario->usuario= $request->input("usuario");
@@ -167,18 +149,15 @@ class userController extends Controller
         $editarUsuario->telefono= $request->input("telefono");
         $editarUsuario->email= $request->input("email");
         $editarUsuario->save();
-
         return redirect()->route("usuarios.index")
             ->with("exito","Se edito correctamente la categoria");
     }
-
     public function updat(Request $request,$id){
         $this->validate($request,[
             "name"=>"required|max:100",
             "usuario"=>"required|max:100|unique:users,name,".$id,
             "telefono"=>"required|max:11|min:8|unique:users,telefono,".$id,
             "email"=>"required|unique:users,email,".$id
-
         ],[
             "name.required"=>"Se debe ingresar el nombre del usuario.",
             "name.max"=>"El nombre del usuario debe ser menor a 100 caracteres",
@@ -190,19 +169,15 @@ class userController extends Controller
             "email.required"=>"Se debe ingresar el email de usuario.",
             "email.unique"=>"El email debe ser unico",
         ]);
-
         $editarUsuario = User::findOrfail($request->id);
         $editarUsuario->name= $request->input("name");
         $editarUsuario->usuario= $request->input("usuario");
         $editarUsuario->telefono= $request->input("telefono");
         $editarUsuario->email= $request->input("email");
-
         $editarUsuario->save();
-
         return redirect()->route("profile.show")
             ->with("exito","Se edito correctamente la categoria");
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -216,7 +191,6 @@ class userController extends Controller
         return redirect()->route("usuarios.index")
             ->with("exito", "Usuario eliminado exitosamente.");
     }
-
     public function borrar($id)
     {
         $user= User::findOrFail($id);
