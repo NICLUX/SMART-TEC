@@ -6,7 +6,8 @@ use Dotenv\Parser\Value;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
-
+use App\Mail\InformacionMailable;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -73,7 +74,10 @@ class userController extends Controller
             "email.unique"=>"El email debe ser unico",
             "password"=>"La contraseña debe ser mayor o = 8 caracteres"
         ]);
+
         $user = new User();
+        $correo = new InformacionMailable($request->all());
+        Mail::to($correo->email=$request->input('email'))->send($correo);
         $user->name= $request->input("name");
         $user->email= $request->input("email");
         $user->is_admin= $request->input("is_admin");
@@ -82,7 +86,7 @@ class userController extends Controller
         $user->password = bcrypt($request->input("password"));
         $user->save();
         return redirect()->route("usuarios.index")
-            ->with("exito","Se creó exitosamente el usuario");
+            ->with("exito","Se creó exitosamente el usuario y se envio un mensage a su correo electronico");
     }
     public function editarFoto($id){
         $user=User::findOrFail($id);

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Actions\Fortify;
+use App\Models\Tipo_user;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -23,7 +24,7 @@ class CreateNewUser implements CreatesNewUsers
             'usuario' => ['required', 'string', 'max:255'],
             'telefono' => ['required', 'int'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            //'id_tipo_users' => ['required', 'string'],
+            'is_admin' => ['required', 'string'],
             'password' => $this->passwordRules(),
         ])->validate();
 
@@ -32,9 +33,8 @@ class CreateNewUser implements CreatesNewUsers
             'email' => $input['email'],
             'usuario' => $input['usuario'],
             'telefono' => $input['telefono'],
-            //'id_tipo_users' => $input['id_tipo_users'],
+            'is_admin' => $input['id_tipo_users'],
             'password' => Hash::make($input['password']),
-
         ]);
     }
 }
