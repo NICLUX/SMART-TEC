@@ -2,7 +2,7 @@
 use App\Http\Controllers\AperturaCajaController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
-use App\Http\Controllers\ServiciooController;
+use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\UserController;
 use App\Http\Livewire\AperturaCajas;
 use Illuminate\Support\Facades\Route;
@@ -91,7 +91,7 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/producto/{id}/editar",[ProductoController::class,"editar"])->name("producto.editar");//Muestra el formulario de editar un producto
         Route::put("/producto/{id}/editar",[ProductoController::class,"update"])->name("producto.update");//Guarda los datos del formulario editar
         Route::delete("/producto/{id}/eliminar",[ProductoController::class,"destroy"])->name("producto.destroy");// Eliminar el producto de la tabla
-        Route::get("/producto/vistaTabla",[ServiciooController::class,"nuevaVista"])->name("producto.nuevaVista");//Buscar Producto
+        Route::get("/producto/vistaTabla",[ServiciosController::class,"nuevaVista"])->name("producto.nuevaVista");//Buscar Producto
         Route::get("/producto/reporte",[\App\Http\Controllers\ProductoController::class,"imprimir_productos"])->name("productos.imprimir");
         //------------------Proveedores-----------------------//
         Route::get("/proveedores",[\App\Http\Controllers\ProveedorController::class,"index"])->name("proveedores.index");//Muestra todos los proveedores registrados
@@ -103,13 +103,13 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/proveedor/{id}/destroy",[\App\Http\Controllers\ProveedorController::class,"destroy"])->name("proveedor.destroy");//Borra un proveedor desde la lista
         //-----------Servicios------------------//
         Route::get("/servicios",[ServiciosController::class,"index"])->name("servicios.index");//muestra todos los servicios
-        Route::get("/servicios/crear",[ServiciooController::class,"create"])->name("servicios.crear");//formulario de crear servicio
-        Route::post('/servicios/crear', [ServiciooController::class,"store"])->name('servicios.store');//crea el nuevo servicio
-        Route::get("/servicios/{id}/editar",[ServiciooController::class,"edit"])->name("servicios.editar");//Llama el formulario editar un servicio
-        Route::put("/servicios/{id}/update",[ServiciooController::class,"update"])->name("servicios.update");//Actualiza el servicio en el formulario editar
-        Route::get('/servicios/{id}/destroy',[ServiciooController::class,"destroy"])->name("servicios.destroy");//Borrar el servicio desde la tabla
-        Route::get("/servicio/busqueda",[ServiciooController::class,"buscarServicio"])->name("servicios.buscar");//Buscar Producto
-        Route::get("/servicio/vistaTabla",[ServiciooController::class,"nuevaVista"])->name("servicios.nuevaVista");//Buscar Producto
+        Route::get("/servicios/crear",[ServiciosController::class,"create"])->name("servicios.crear");//formulario de crear servicio
+        Route::post('/servicios/crear', [ServiciosController::class,"store"])->name('servicios.store');//crea el nuevo servicio
+        Route::get("/servicios/{id}/editar",[ServiciosController::class,"edit"])->name("servicios.editar");//Llama el formulario editar un servicio
+        Route::put("/servicios/{id}/update",[ServiciosController::class,"update"])->name("servicios.update");//Actualiza el servicio en el formulario editar
+        Route::get('/servicios/{id}/destroy',[ServiciosController::class,"destroy"])->name("servicios.destroy");//Borrar el servicio desde la tabla
+        Route::get("/servicio/busqueda",[ServiciosController::class,"buscarServicio"])->name("servicios.buscar");//Buscar Producto
+        Route::get("/servicio/vistaTabla",[ServiciosController::class,"mostrar"])->name("servicios.nuevaVista");//Buscar Producto
         //----------Ventas diarias-----------//
         Route::get("/total",[\App\Http\Controllers\VentasTotalUserController::class,"total"])->name("vesta_total");//muestra todos los servicios
         Route::get("/total/detalle",[\App\Http\Controllers\VentasTotalUserController::class,"show"])->name("vesta.show");//muestra todos los servicios
