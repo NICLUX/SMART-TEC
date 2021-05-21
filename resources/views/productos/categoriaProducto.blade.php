@@ -84,7 +84,7 @@
                                                 Guardar
                                             </button>
                                             <a id="btnCancel" class="btn btn-primary btn-round"
-                                               href="{{route("categorias.index")}}">Cancelar</a>
+                                               data-dismiss="modal">Cancelar</a>
                                             <!-- -->
                                         </form>
                                     </div>
