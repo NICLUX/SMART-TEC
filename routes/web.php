@@ -78,6 +78,7 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/categoria/nueva",[CategoriaController::class,"nuevo"])->name("categoria.nueva");//Muestra el formulario para crear una nueva categoria
         Route::post("/categorias/store",[CategoriaController::class,"store"])->name("categoria.store");//Crea una nueva categoria del formulario
         Route::post("/categorias/stor",[CategoriaController::class,"stor"])->name("categoria.stor");//Crea una nueva categoria del formulario
+        Route::post("/categorias/sto",[CategoriaController::class,"sto"])->name("categoria.sto");//Crea una nueva categoria del formulario
         Route::get("/categoria/{id}/editar",[CategoriaController::class,"editar"])->name("categoria.editar");//Llama el formulario editar una categoria
         Route::put("/categoria/{id}/update",[CategoriaController::class,"update"])->name("categoria.update");//Actualiza la categoria en el formulario editar
         Route::get('/categoria/{id}/destroy',[CategoriaController::class,"destroy"])->name("categoria.destroy");//Borrar la categoria desde la tabla

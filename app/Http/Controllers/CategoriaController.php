@@ -27,7 +27,8 @@ class CategoriaController extends Controller
         return view("categorias.categorias")
             ->with("busqueda",$busqueda)->with("categorias",$categorias);
     }
-    public function store(Request $request){
+
+    public function nuevaCtegoria(Request $request){
         $this->validate($request,[
             "nombre"=>"required|max:80|unique:categorias,nombre",
 
@@ -54,44 +55,22 @@ class CategoriaController extends Controller
             copy($ruta, $destino);
             $nuevaCategoria->imagen=$imagen;
         }
-
         $nuevaCategoria->save();
-
+    }
+    public function store(Request $request){
+        $this->nuevaCtegoria($request);
         return redirect()->route("categorias.index")
             ->with("exito","Se creo exitosamente la categoria");
     }
 
     public function stor(Request $request){
-        $this->validate($request,[
-            "nombre"=>"required|max:80|unique:categorias,nombre",
-
-        ],[
-            "nombre.required"=>"Se debe ingresar el nombre de la categoria.",
-            "nombre.unique"=>"El nombre de la categoria debe ser unico.",
-            "nombre.max"=>"El nombre de la categoria debe ser menor a 80 caracteres"
-        ]);
-
-        $nuevaCategoria = new Categoria();
-        $nuevaCategoria->nombre = $request->input("nombre");
-        $path = public_path() . '\images\categorias';//Carpeta publica de las imagenes
-        if($request->imagen_url){
-
-            $imagen = $_FILES["imagen_url"]["name"];
-            $ruta = $_FILES["imagen_url"]["tmp_name"];
-            //-------------VALIDAR SI LA CARPETA EXISTE---------------------
-            if (!file_exists($path)) {
-                mkdir($path, 0777, true);
-
-            }
-            //-------------------------------------------------------------
-            $destino = "images/categorias/" . $imagen;
-            copy($ruta, $destino);
-            $nuevaCategoria->imagen=$imagen;
-        }
-
-        $nuevaCategoria->save();
-
+        $this->nuevaCtegoria($request);
         return redirect()->route("producto.nuevo")
+            ->with("exito","Se creo exitosamente la categoria");
+    }
+    public function sto(Request $request){
+        $this->nuevaCtegoria($request);
+        return redirect()->route("servicios.crear")
             ->with("exito","Se creo exitosamente la categoria");
     }
 

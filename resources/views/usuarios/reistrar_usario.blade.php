@@ -36,12 +36,13 @@
                         <div class="row register-form">
                             <div class="col-md-6">
 
-                                <form  id="form_proveedores" enctype="multipart/form-data" action="{{route("usuarios.store")}}"
+                                <form  id="form_proveedores" enctype="multipart/form-data"
+                                       action="{{route("usuarios.store")}}"
                                        method="post">
                                     @csrf
                                     <div class="form-group">
                                         <label for="name">Ingrese el nombre:</label>
-                                        <input class="form-control @error('name') is-invalid @enderror" name="name" id="name"
+                                        <input class="form-control" @error('name') is-invalid @enderror" name="name" id="name"
                                                required
                                                placeholder="Ingrese el nombre completo" maxlength="80">
                                         @error('name')
@@ -137,18 +138,16 @@
             </div>
         </div>
     </div>
-
-                        <script type="text/javascript">
-                            function mostrarPassword(){
-                                var cambio = document.getElementById("password");
-                                if(cambio.type == "password"){
-                                    cambio.type = "text";
-                                    $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
-                                }else{
-                                    cambio.type = "password";
-                                    $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
-                                }
-                            }
-
-                        </script>
+  <script type="text/javascript">
+             function mostrarPassword(){
+             var cambio = document.getElementById("password");
+       if(cambio.type == "password"){
+             cambio.type = "text";
+             $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+       }else{
+            cambio.type = "password";
+            $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+       }
+    }
+  </script>
 @endsection
