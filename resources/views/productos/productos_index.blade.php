@@ -1,34 +1,31 @@
 @extends("layouts.tabla")
 @section("contenido")
-    <ul class="list-group" >
-        <div class="card-header">
-            <form method="get" action="{{route('producto.buscar')}}">
-                PRODUCTOS
-                @csrf
-                <div class="form-inline my-2 my-lg-0 float-right">
-                    <input class="form-control"
-                           name="busqueda"
-                           @if(isset($busqueda))
-                           value="{{$busqueda}}"
-                           @endif
-                           type="search" placeholder="Buscar">
-                    <div class="input-group-append">
-                        <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
-                    </div>
-                </div>
-            </form>
+@section('buscar')
+    <form method="get" action="{{route('producto.buscar')}}">
+        PRODUCTOS
+        @csrf
+        <div class="form-inline my-2 my-lg-0 float-right">
+            <input class="form-control"
+                   name="busqueda"
+                   @if(isset($busqueda))
+                   value="{{$busqueda}}"
+                   @endif
+                   type="search" placeholder="Buscar">
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
+            </div>
         </div>
-        </li>
-    </ul><br>
-        <div>
-            <a class="btn-success btn-sm float-right" href="{{route('producto.nuevo')}}"><i class="fa fa-plus"></i>
-                Agregar</a>
-            <a class="btn-secondary btn-sm float-right" href="{{route('productos.mostrar')}}">
-                Nueva Vista</a>
-            <a class="btn-warning btn-sm float-right" href="{{route('productos.imprimir')}}">
-                <i class="fa fa-book" aria-hidden="true"></i>Imprimir</a>
-        </div>
+    </form>
+@endsection
+<div style="margin-bottom: 10px">
+    <a class="btn-success btn-sm float-right" href="{{route('producto.nuevo')}}"><i class="fa fa-plus"></i>
+        Agregar</a>
+    <a class="btn-warning btn-sm float-right" href="{{route('productos.imprimir')}}"><i class="fa fa-book" aria-hidden="true"></i>
+        Imprimir</a>
+    <a class="btn-sm btn-secondary btn-sm float-right" href="{{route("productos.mostrar")}}">Nueva Vista</a>
 
+</div>
+<div style="margin-top: 10px">
         <div class="card-body">
             @if($productos->count()>0)
                 <div class="card-columns">
@@ -81,31 +78,30 @@
         </div>
     </div>
 
-    <div class="modal fade" id="modalBorrarApertura" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Eliminar producto</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>¿Esta seguro que deseas borrar el producto?</p>
-                </div>
-                <form name="formulario_eliminar" action="procesar.asp" method="POST" >
-                    <div class="modal-footer">
-                        @csrf
-                        @method('DELETE')
-                        <input id="idApertura" name="id">
-                        <input type="submit" class="btn btn-danger" value="Eliminar"> </input>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    </div>
-                </form>
+<div class="modal fade" id="modalBorrarApertura" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Eliminar producto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            <div class="modal-body">
+                <p>¿Esta seguro que deseas borrar el producto?</p>
+            </div>
+            <form name="formulario_eliminar" action="producto.destroy" method="POST" >
+                <div class="modal-footer">
+                    @csrf
+                    @method('DELETE')
+                    <input id="idApertura" name="id">
+                    <input type="submit" class="btn btn-danger" value="Eliminar"> </input>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </form>
         </div>
     </div>
-
+</div>
     <script>
         function recibir(numero){
             alert(numero);

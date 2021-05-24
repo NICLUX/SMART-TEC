@@ -215,10 +215,6 @@ class ProductoController extends Controller
             File::delete($img_anterior);
         }
         $producto->delete();
-
-
-
-
         return redirect()->route("productos.index")
             ->with("exito", "Se elimino exitosamente el producto.");
     }

@@ -1,6 +1,12 @@
 @extends("layouts.main")
 @extends('servicios.mejora_vista')
 @section("content")
+    <ul class="list-group" >
+        <div class="card-header">
+            @yield('buscar')
+        </div>
+        </li>
+    </ul><br>
     <style>
         #encabezado
         {
@@ -32,6 +38,20 @@
             </button>
         </div>
     @endif
-
+    <div class="container-fluid" >
+        <div class="panel-body table-responsive">
+            <div class="card card-body">
+                <div class="container-fluid">
     @yield('contenido')
+    <div style="margin-top: 10px" class="panel-footer" id="pie_pagina">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="col-md-8">
+                </div>
+                <div class="col-md-4">
+                    <p class="muted pull-righ t"></p>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

@@ -1,26 +1,9 @@
 @extends('layouts.tabla')
 @section("contenido")
-    <ul class="list-group" >
-        <li class="list-group-item sm">Listado de Usuariuos
-            <div class="btn-group float-right float-left" role="group" aria-label="Basic example" id="botones_ser">
-                <a class="btn-sm btn-secondary btn-sm float-right" href="{{route("usuarios.index")}}">Nueva Vista</a>
-                <a class="btn-sm btn-success float-right" href="{{route("usuarios.create")}}"><i class="fa fa-plus"></i>Agregar</a>
-            </div>
-        </li>
-    </ul>
-    <div class="container-fluid" >
-        <div class="panel panel-success" id="encabezado">
-            <div class="panel-heading">
-                <div class="row" id="color_panel">
-                    <div class="col-xs-12 col-sm-12 col-md-3" >
-                        <h2 class="text-center pull-left" style="padding-left: 30px;">
-                            <span class="glyphicon glyphicon-list-alt"> </span>Usuarios</h2>
-                    </div>
-                </div>
-                <div class="panel-body table-responsive">
-                    <div class="card card-body">
-                        <div class="container-fluid">
-
+@section('buscar')
+    USUARIOS<a class="btn-sm btn-secondary btn-sm float-right" href="{{route("usuarios.index")}}">Nueva Vista</a>
+    <a class="btn-sm btn-success float-right" href="{{route("usuarios.create")}}"><i class="fa fa-plus"></i>Agregar</a>
+@endsection
     @if(count($users)>0)
         <div class="table-responsive-sm -mr-2">
             <table class="table table-borderless table-hover table-sm">
@@ -62,11 +45,12 @@
                 </tbody>
             </table>
         </div>
+    </div>
     @else
         <div class="alert alert-info">
             No se han registrado usuarios aún con esta fecha <strong>{{$fecha}}</strong>
         </div>
-        @endif
+    @endif
     <div>
         <div class="modal fade" id="modalBorrarApertura" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
@@ -91,18 +75,6 @@
                 </div>
             </div>
         </div>
-        <div class="panel-footer" id="pie_pagina">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="col-md-8">
-                    </div>
-                    <div class="col-md-4">
-                        <p class="muted pull-righ t"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="card-footer1 ">
         <div class="pagination pagination-sm justify-content-center">
             {{$users->links("pagination::bootstrap-4")}}
