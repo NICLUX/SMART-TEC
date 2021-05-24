@@ -28,19 +28,19 @@ class ServiciosController extends Controller
             ->with("categorias", $categorias)
             ->with("servicios", $servicios);
     }
-    public function stor(Request $request)
+    public function store(Request $request)
     {
         $this->validate($request, [
             "nombre" => "required|max:80",
-            "costo_venta" => "required|numeric",
+            "costo_de_venta" => "required|numeric",
             "descripcion" => "max:150",
             "id_categoria"=>'required'
 
         ], [
             "nombre.required" => "Se requiere ingresar el nombre",
             "nombre.max" => "El nombre debe ser menor o igual que 80 caracteres",
-            "costo_venta.required" => "Se requiere el costo de venta.",
-            "costo_venta.numeric" => "Se requiere que el costo de venta sea un numero",
+            "costo_de_venta.required" => "Se requiere el costo de venta.",
+            "costo_de_venta.numeric" => "Se requiere que el costo de venta sea un numero",
             "descripcion.max" => "La descripcion debe ser menor o igual que 150 caracteres",
             "id_categoria"=>"Se requiere ingresar la categoria."
         ]);
@@ -48,7 +48,7 @@ class ServiciosController extends Controller
         $servicio = new Servicio();
         $servicio ->nombre = $request->input("nombre");
         $servicio ->id_categoria = $request->input("id_categoria");
-        $servicio ->costo_venta = $request->input("costo_venta");
+        $servicio ->costo_de_venta = $request->input("costo_de_venta");
         $servicio ->descripcion = $request->input("descripcion");
         $path = public_path() . '\images\productos';//Carpeta publica de las imagenes de los productos
         if ($request->imagen_url) {
@@ -64,7 +64,7 @@ class ServiciosController extends Controller
             $servicio ->imagen_url = $imagen;
         }
         $servicio ->save();
-        return redirect()->route("servicios.index.nuevo")
-            ->with("exito", "Se creo exitosamente el producto.");
+        return redirect()->route("servicios.index")
+            ->with("exito", "Se creo exitosamente el servicio.");
     }
 }

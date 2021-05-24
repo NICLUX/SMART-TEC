@@ -17,7 +17,7 @@ class CreateServiciosTable extends Migration
             $table->id();
             $table->string('nombre',80);
             $table->string('descripcion');
-            $table->string('id_categoria');
+            $table->foreignId("id_categoria")->references("id")->on("categorias");
             $table->double('costo_de_venta');
             $table->timestamps();
         });

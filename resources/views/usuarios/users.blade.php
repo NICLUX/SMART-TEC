@@ -10,45 +10,44 @@
                     </button>
                 </div>
             @endif
+            <div class="col">
+                <ul class="list-group" >
+                    <li class="list-group-item" style="background-color:#1c2d3f">
+                        <h2 style="color:#ffffff;">
+                            Listado de usuarios
+                            <a class="btn-sm btn-success float-right" href="{{route("usuarios.create")}}"><i class="fa fa-plus"></i>Agregar</a>
+                            <a class="btn-sm btn-success float-right" style="margin-right:3px" href="{{route("usuarios.mostrar")}}">Vista Tabla</a>
+                        </h2>
+                    </li>
+                    @foreach($users as $item => $user)
+                        <li class="list-group-item">
+                            <img  class="float-left mr-2"
+                                  width="350px"
+                                  height="300px"
+                                  src="/images/categorias/{{$user->photo}}"
+                                  onerror="this.src='/images/no_image.jpg'">
+                            <div>
+                                <strong> Nombre: {{$user->name}} </strong>
+                                <hr>
+                                N#: {{$user->id}}
+                                <br>Nombre-usuario: {{$user->usuario}}
+                                <br>Tipo-usuario: {{$user->tipo_users}}
+                                <br> Correo:  {{$user->email}}
+                                <br> Telefono:  {{$user->telefono}}<hr/><br>
+                                <a class="btn-sm btn-success"
+                                   href="{{route("usuarios.editar",["id"=>$user->id])}}">
+                                    <i class="fa fa-pencil"></i> Editar</a>
 
-            <div>
-                    </div>
-                        <div class="col">
-                            <ul class="list-group" >
-                                <li class="list-group-item active">Listado de usuarios:
-                                    <div class="btn-group float-right float-left" role="group" aria-label="Basic example" id="botones_ser">
-                                        <a class="btn-sm alert-primary float-right" href="{{route("usuarios.mostrar")}}">Vista Tabla</a>
-                                        <a class="btn-sm alert-primary float-right" href="{{route("usuarios.create")}}"> Agregar Usuario</a>
-                                    </div></li>
-                                @foreach($users as $item => $user)
-                                    <li class="list-group-item">
-                                        <img  class="float-left mr-2"
-                                             width="350px"
-                                             height="300px"
-                                             src="/images/categorias/{{$user->photo}}"
-                                             onerror="this.src='/images/no_image.jpg'">
-                                        <div>
-                                        <strong> Nombre: {{$user->name}} </strong>
-                                            <hr>
-                                        N#: {{$user->id}}
-                                        <br>Nombre-usuario: {{$user->usuario}}
-                                        <br>Tipo-usuario: {{$user->tipo_users}}
-                                        <br> Correo:  {{$user->email}}
-                                        <br> Telefono:  {{$user->telefono}}<hr/><br>
+                                <button class="btn-sm btn-danger"
+                                        data-id="{{$user->id}}"
+                                        data-toggle="modal" data-target="#modalBorrarApertura">
+                                    <i class="fa fa-trash"></i> Borrar
+                                </button>
+                    @endforeach
+                </ul>
+            </div>
 
-                                        <a class="btn btn-sm btn-success"
-                                           href="{{route("usuarios.editar",["id"=>$user->id])}}">
-                                            <i class="fa fa-pencil"></i> Editar</a>
-
-                                            <button class="btn btn-sm btn-danger"
-                                                             data-id="{{$user->id}}"
-                                                             data-toggle="modal" data-target="#modalBorrarApertura">
-                                                <i class="fa fa-trash"></i> Borrar
-                                            </button>
-                                @endforeach
-                            </ul></div></div>
-
-
+        </div>
             <div class="card-footer1 ">
                 <div class="pagination pagination-sm justify-content-center">
                     {{$users->links("pagination::bootstrap-4")}}
@@ -78,7 +77,8 @@
                 </div>
             </div>
 
-        </div></li>
+        </div>
+</li>
             <style>
                 .card-{
                     margin: 10px;

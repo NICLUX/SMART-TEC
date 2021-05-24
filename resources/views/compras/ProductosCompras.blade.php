@@ -163,7 +163,7 @@
     <button class="btn btn-sm btn-outline-success float-right"
             data-id=""
             data-toggle="modal" data-target="#modalCreare">
-        <i class="fa fa-plus"></i>Agregar</a>
+        <i class="fa fa-plus"></i></a>
     </button>
 @endsection
 

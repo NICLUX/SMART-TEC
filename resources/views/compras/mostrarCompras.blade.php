@@ -13,13 +13,11 @@
         @endif
         <div class="alert alert-secondary">
             <div style="margin-bottom: 4px">
-                <a class="btn alert-success btn-sm float-right" href="{{route("compras.nuevo")}}">
+                <a class="btn-success btn-sm float-right" href="{{route("compras.nuevo")}}">
                     <i class="fa fa-plus"></i> Agregar Compra</a>
             </div>
             <h1 class="breadcrumb-item active" aria-current="page" >Listado Compras</h1>
         </div>
-
-
         <div class="container-fluid" >
             <div class="panel panel-success" id="encabezado">
                 <div class="panel-heading">

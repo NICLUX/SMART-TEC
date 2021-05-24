@@ -194,8 +194,6 @@
                 </div>
             </div>
 
-
-
 @push("scripts")
 <script>
     function closedWin() {

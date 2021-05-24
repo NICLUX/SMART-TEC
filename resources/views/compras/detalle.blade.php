@@ -14,15 +14,15 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
-
 </div>
 @endif
 <div data-class="card card-body col-lg-12 col-sm-12 col-md-12 col-xs-12">
     <h1 class="alert alert-dark" role="alert" class="card card-body col-lg-12 col-sm-12 col-md-12 col-xs-12">Detalle
         compra</h1>
     <div class="panel-body">
-        <div class="card card-body" class="card card-body col-lg-11 col-sm-12 col-md-11 col-xs-12">
+        <div class="card card-body" class="card card-body col-lg-12 col-sm-12 col-md-12 col-xs-12">
             <div class="container-fluid">
+
                 <form method="POST" action="{{ route('compras.nuevo') }}">
                     @csrf
                     <div class="input-group">
@@ -65,55 +65,56 @@
                                     autocomplete="numero_comprobante" />
                             </div>
                         </div>
+                    </div>
 
-                        <div style="margin-left: 3% " class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-                            <div class="form-group col-lg-4 col-sm-4 col-md-4 col-xs-12">
-                                <x-jet-label for="pid_producto" value="{{ __('Ingrese el producto:') }}" />
-                                <div class="input-group">
-                                    <select name="pid_producto" id="pid_producto"
-                                            class="form-control @error('pid_producto') is-invalid @enderror" required>
-                                        <option value="" selected disabled>Seleccione una opcion</option>
-                                        @foreach($productos as $item => $producto)
-                                            <option value="{{$producto->id}}">{{$producto->nombre}}</option>
-                                        @endforeach
-                                    </select>
-                                        @yield('nuevo_prod')
-                                </div>
-                                @error('pid_producto')
-                                <span class="invalid-feedback" role="alert">
+                    <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+                        <div class="form-group col-lg-4 col-sm-4 col-md-4 col-xs-12">
+                            <x-jet-label for="pid_producto" value="{{ __('Ingrese el producto:') }}" />
+                            <div class="input-group">
+                                <select name="pid_producto" id="pid_producto"
+                                        class="form-control @error('pid_producto') is-invalid @enderror" required>
+                                    <option value="" selected disabled>Seleccione una opcion</option>
+                                    @foreach($productos as $item => $producto)
+                                        <option value="{{$producto->id}}">{{$producto->nombre}}</option>
+                                    @endforeach
+                                </select>
+                                @yield('nuevo_prod')
+                            </div>
+                            @error('pid_producto')
+                            <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
-                            </div>
+                            @enderror
+                        </div>
 
-                            <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
-                                <x-jet-label for="pcosto_compra" value="{{ __('Precio de compra:') }}" />
-                                <input type="number" class="form-control " id="pcosto_compra" name="pcosto_compra"
-                                    placeholder="Precio de compra">
-                            </div>
-                            <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
-                                <x-jet-label for="pcosto_venta" value="{{ __('Precio de venta:') }}" />
-                                <input type="number" class="form-control " id="pcosto_venta" name="pcosto_venta"
-                                    placeholder="Precio de venta">
-                            </div>
-                            <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
-                                <x-jet-label for="pcantidad" value="{{ __('Cantidad:') }}" />
-                                <input type="number" class="form-control" id="pcantidad" name="pcantidad"
-                                    placeholder="Cantidad">
-                            </div>
-                            <div style="margin-top:10px" class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
-                                <br>
-                                <botton type="botton" class="col-sm-12 col-xs-12 btn-outline-info alert alert-info"
-                                    role="alert" id="bt_add">Agregar</botton>
-                            </div>
+                        <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
+                            <x-jet-label for="pcosto_compra" value="{{ __('Precio de compra:') }}" />
+                            <input type="number" class="form-control " id="pcosto_compra" name="pcosto_compra"
+                                   placeholder="Precio de compra">
+                        </div>
+                        <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
+                            <x-jet-label for="pcosto_venta" value="{{ __('Precio de venta:') }}" />
+                            <input type="number" class="form-control " id="pcosto_venta" name="pcosto_venta"
+                                   placeholder="Precio de venta">
+                        </div>
+                        <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
+                            <x-jet-label for="pcantidad" value="{{ __('Cantidad:') }}" />
+                            <input type="number" class="form-control" id="pcantidad" name="pcantidad"
+                                   placeholder="Cantidad">
+                        </div>
+                        <div style="margin-top:3%" class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
+                            <botton type="botton" class="col-sm-12 col-xs-12 btn btn-outline-primary"
+                                    role="alert" id="bt_add"><i
+                                    class="fa fa-arrow-right"></i>Agregar</botton>
                         </div>
                     </div>
                     <div class="panel panel-success" id="encabezado">
                         <div class="panel-heading">
                             <div class="panel-body table-responsive">
-                                <table style="margin-top: 25px" class="table table-hover table-sm">
-                                    <thead class="table table-hover">
-                                        <tr id="tabla">
+                                <div class="table-responsive-sm -mr-2">
+                                    <table class="table table-borderless table-hover table-sm">
+                                        <thead class="thead-dark">
+                                        <tr>
                                             <th>Opciones</th>
                                             <th>Producto</th>
                                             <th>Costo compra</th>
@@ -134,6 +135,7 @@
                                     </tfoot>
                                 </table>
                             </div>
+                            </div>
                         </div>
                     </div>
                     <div style="margin-top: 10px" class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
@@ -148,7 +150,10 @@
                             Cancelar</button>
                     </div>
                 </form>
-                @yield('modal')
+            </div>
+        </div>
+    </div>
+</div>
+@yield('modal')
 @yield('modals')
-
 @endsection

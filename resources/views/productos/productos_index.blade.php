@@ -1,19 +1,9 @@
-@extends("layouts.main")
-@section("content")
-
-    <div class="card">
+@extends("layouts.tabla")
+@section("contenido")
+    <ul class="list-group" >
         <div class="card-header">
-            <h3 class="card-title">PRODUCTOS</h3>
-        </div>
-
-        <div class="card-body">
-            <a class="btn btn-success btn-sm float-right" href="{{route('producto.nuevo')}}"><i class="fa fa-plus"></i>
-                Agregar</a>
-            <a class="btn btn-warning btn-sm float-right" href="{{route('productos.imprimir')}}"><i class="fa fa-book" aria-hidden="true"></i>
-                Imprimir</a>
-            <br>
-            <br>
             <form method="get" action="{{route('producto.buscar')}}">
+                PRODUCTOS
                 @csrf
                 <div class="form-inline my-2 my-lg-0 float-right">
                     <input class="form-control"
@@ -27,29 +17,19 @@
                     </div>
                 </div>
             </form>
+        </div>
+        </li>
+    </ul><br>
+        <div>
+            <a class="btn-success btn-sm float-right" href="{{route('producto.nuevo')}}"><i class="fa fa-plus"></i>
+                Agregar</a>
+            <a class="btn-secondary btn-sm float-right" href="{{route('productos.mostrar')}}">
+                Nueva Vista</a>
+            <a class="btn-warning btn-sm float-right" href="{{route('productos.imprimir')}}">
+                <i class="fa fa-book" aria-hidden="true"></i>Imprimir</a>
+        </div>
 
-            <br>
-
-            <br>
-
-            <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
-            @if(session("exito"))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{session("exito")}}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            @endif
-            @if(session("error"))
-                <div class="alert alert-danger alert-dismissible" role="alert">
-                    <span class="fa fa-save"></span> {{session("error")}}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-
-                </div>
-            @endif
+        <div class="card-body">
             @if($productos->count()>0)
                 <div class="card-columns">
                     @foreach($productos as $producto)
@@ -79,11 +59,11 @@
                                     </div>
                                 @endif
                                 <br>
-                                <a class="btn btn-sm btn-success"
+                                <a class="btn-sm btn-success"
                                    href="{{route('producto.editar',['id'=>$producto->id])}}">
                                     <i class="fa fa-pencil"></i> Editar</a>
 
-                                <button class="btn btn-sm btn-danger"
+                                <button class="btn-sm btn-danger"
                                         data-id="{{$producto->id}}"
                                         data-toggle="modal" data-target="#modalBorrarApertura"
                                         onclick= "recibir('{{$producto->id}}')" >
