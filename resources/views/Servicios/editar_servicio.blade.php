@@ -73,7 +73,7 @@
                            @if(old("costo_venta"))
                            value="{{old("costo_venta")}}"
                            @else
-                           value="{{$servicioo->costo_venta}}"
+                           value="{{$servicioo->costo_de_venta}}"
                            @endif
                            type="number"
                            min="0"
