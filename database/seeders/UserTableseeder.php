@@ -16,11 +16,11 @@ class UserTableseeder extends Seeder
     {
         $user = new User();
         $user->name = "Administrador";
-        $user->usuario="Administrador";
-        $user->telefono="981224122";
+        $user->usuario="admin";
+        $user->telefono="98122412";
         $user->email = "smart-tec@gmail.com";
         $user->photo = "src=/images/logo/admin.jpg";
-        $user->password = bcrypt("12345678");
+        $user->password = bcrypt("admin123");
         $user->is_admin = "1";
         $user->save();
     }
