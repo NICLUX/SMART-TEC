@@ -72,7 +72,7 @@
                         <div class="modal-footer">
                             <input id="idApertura" name="id">
                             <a class="btn-danger btn-sm"
-                               href="{{route("proveedor.destroy",["id"=>$proveedor->id])}}"> Eliminar</a>
+                               href="{{route('proveedor.destroy',['id'=>isset($proveedor->id)?$proveedor->id:0])}}"> Eliminar</a>
                             <button type="button" class="btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
                         </div>
                     </form>

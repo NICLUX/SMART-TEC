@@ -14,6 +14,7 @@ class ProveedorController extends Controller
     public function nuevo(){
         return view("proveedores.nuevo_proveedor");
     }
+
     public function store(Request  $request){
         $this->validate($request,[
             "nombre"=>"required|max:80",
@@ -44,6 +45,7 @@ class ProveedorController extends Controller
 
 
     }
+
     public function stor(Request  $request){
         $this->validate($request,[
             "nombre"=>"required|max:80",
@@ -104,7 +106,7 @@ class ProveedorController extends Controller
             ->with("categorias", $categorias)
             ->with("proveedores",$proveedores)
             ->with("exito", "Se creo exitosamente el proveedor.");
-    }
+    }*/
     public function editar($id){
         $proveedor = Proveedor::findOrFail($id);
         return view("proveedores.editar_proveedor")->with("proveedor",$proveedor);
@@ -136,7 +138,7 @@ class ProveedorController extends Controller
         return redirect()->route("proveedores.index")
             ->with("exito","Se editó exitosamente el proveedor");
     }
-*/
+
     public function destroy($id){
         $proveedor = Proveedor::findOrFail($id);
         $proveedor->delete();
