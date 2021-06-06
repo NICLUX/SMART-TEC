@@ -101,8 +101,8 @@
                         <li id="letras" ><i class="menu-icon fa fa-sign-in"></i><a href="https://www.ip.gob.hn/">Instituto de la Propiedad</a></li>
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="https://www.sar.gob.hn/">SAR</a></li>
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="https://www.sar.gob.hn/consulta-rtn/">Consulta RTN SAR</a></li>
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://www.sar.gob.hn/">Consulta RTN IP</a></li>
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://www.sar.gob.hn/">Tasa Vehicular</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://placas.ip.gob.hn/enlace/consulta">Consulta RTN IP</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://placas.ip.gob.hn/vehiculos">Tasa Vehicular</a></li>
                     </ul>
                 </li>
 
