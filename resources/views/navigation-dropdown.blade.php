@@ -7,6 +7,8 @@
                 <x-jet-dropdown align="right" width="48">
                     <x-slot name="trigger">
 
+
+
                         <button class="flex items-center text-sm font-medium text-dark-500 hover:text-gray-700 hover:border-gray-300-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
                             <div>{{ Auth::user()->name }}</div>
 
@@ -19,7 +21,11 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                        <div align="center">
+                            <img src="{{ Auth::user()->photo }}" class="img-circle" alt="User Image">
+
+                        </div>
+                       <x-jet-dropdown-link href="{{ route('profile.show') }}">
                             {{ __('Perfil') }}
                         </x-jet-dropdown-link>
 

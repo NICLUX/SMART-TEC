@@ -19,7 +19,7 @@ class UserTableseeder extends Seeder
         $user->usuario="admin";
         $user->telefono="98122412";
         $user->email = "smart-tec@gmail.com";
-        $user->photo = "src=/images/logo/admin.jpg";
+        $user->photo = "images/avatar/profile.png";
         $user->password = bcrypt("admin123");
         $user->is_admin = "1";
         $user->save();
