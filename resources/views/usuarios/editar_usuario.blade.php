@@ -26,7 +26,6 @@
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
                 <h1>SMARTEC</h1>
-                <p>Registra nuevos cliente!</p>
                 <a id="btn-cancelar" class="btn btn-primary btn-round" href="{{route("clientes.index")}}">Cancelar</a>
             </div>
             <div class="col-md-9 register-right">
@@ -42,13 +41,15 @@
                         @csrf
                         <div class="form-group">
                             <label>Ingrese el nombre:</label>
-                            <input type="text" maxlength="80"
-                                   required
-                                   @if(old("name"))
+                            <input
+                                type="text"
+                                pattern="[A-Za-z ]{2,20}"
+                                required
+                                @if(old("name"))
                                    value="{{old("name")}}"
-                                   @else
+                                @else
                                    value="{{$user->name}}"
-                                   @endif
+                                @endif
                                    name="name"
                                    class="form-control  @error('name') is-invalid @enderror">
                             <small class="text-muted">Maxima longitud 100 caracteres</small>
@@ -60,13 +61,15 @@
                         </div>
                         <div class="form-group">
                             <label>Ingrese el nombre de usuario:</label>
-                            <input type="text" maxlength="80"
-                                   required
-                                   @if(old("usuario"))
+                            <input
+                                type="text"
+                                pattern="[a-z]{2,20}"
+                                required
+                                @if(old("usuario"))
                                    value="{{old("usuario")}}"
-                                   @else
+                                @else
                                    value="{{$user->usuario}}"
-                                   @endif
+                                @endif
                                    name="usuario"
                                    class="form-control  @error('usuario') is-invalid @enderror">
                             <small class="text-muted">Maxima longitud 100 caracteres</small>
@@ -79,7 +82,9 @@
 
                         <div class="form-group">
                             <label>Ingrese el numero de Telefono:</label>
-                            <input type="number" maxlength="80"
+                            <input
+                                type="tel"
+                                pattern='\d{8}'
                                    required
                                    @if(old("telefono"))
                                    value="{{old("telefono")}}"

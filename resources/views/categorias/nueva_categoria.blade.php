@@ -4,14 +4,14 @@
     <button class="btn btn-sm btn-outline-success float-right"
             data-id=""
             data-toggle="modal" data-target="#modalCrear">
-        <i class="fa fa-plus"></i>Agregar</a>
+        <i class="fa fa-plus"></i> Agregar</a>
     </button>
 
     <div class="modal fade" id="modalCrear" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Crear Categoria</h5>
+                    <h5 class="modal-title">AGREGAR CATEGORIA</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -44,7 +44,6 @@
                                 <div class="col-md-3 register-left">
                                     <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
                                     <h1>SMARTEC</h1>
-                                    <p>Registra nuevas categorias!</p>
                                 </div>
 
                                 <div class="col-md-9 register-right">

@@ -2,13 +2,12 @@
 @section("contenido")
 
                 <h1>SMARTEC</h1>
-                <p>Editar Usuario!</p>
                 <a id="btn-cancelar" class="btn btn-primary btn-round" href="{{route("usuarios.index")}}">Cancelar</a>
             </div>
             <div class="col-md-9 register-right">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <h1 class="register-heading">Editar Datos Usuario</h1>
+                        <h1 class="register-heading">EDITAR USUARIO</h1>
                         <div class="row register-form">
                             <div class="col-md-6">
 
@@ -18,7 +17,8 @@
                                     @csrf
                                     <div class="form-group">
                                         <label>Ingrese el nombre:</label>
-                                        <input type="text" maxlength="80"
+                                        <input type="text"
+                                               pattern="[A-Za-z ]{2,20}"
                                                required
                                                @if(old("name"))
                                                value="{{old("name")}}"
@@ -36,7 +36,8 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Ingrese el nombre de usuario:</label>
-                                        <input type="text" maxlength="80"
+                                        <input type="text"
+                                               pattern="[a-z]{2,20}"
                                                required
                                                @if(old("usuario"))
                                                value="{{old("usuario")}}"
@@ -55,7 +56,9 @@
 
                                     <div class="form-group">
                                         <label>Ingrese el numero de Telefono:</label>
-                                        <input type="number" maxlength="80"
+                                        <input
+                                            type="tel"
+                                            pattern='\d{8}'
                                                required
                                                @if(old("telefono"))
                                                value="{{old("telefono")}}"

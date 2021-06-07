@@ -1,6 +1,7 @@
 @extends("layouts.main")
 @extends("servicios.mejora_vista")
 @section("content")
+
     <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
     @if(session("exito"))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -24,13 +25,12 @@
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
                 <h1>SMARTEC</h1>
-                <p>Registra nuevos Servicio!</p>
                 <a id="btn-cancelar" class="btn btn-primary btn-round" href="{{route("servicios.index")}}">Cancelar</a>
             </div>
             <div class="col-md-9 register-right">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <h1 class="register-heading">Agregar Nuevo Servicio</h1>
+                        <h1 class="register-heading">AGREGAR SERVICIO</h1>
                         <div class="row register-form">
                             <div class="col-md-6">
                     <form id="form_proveedores" enctype="multipart/form-data"
@@ -144,7 +144,6 @@
                                 <div class="col-md-3 register-left">
                                     <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
                                     <h1>SMARTEC</h1>
-                                    <p>Registra nuevas categorias!</p>
                                 </div>
 
                                 <div class="col-md-9 register-right">

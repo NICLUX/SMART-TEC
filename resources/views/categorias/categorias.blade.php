@@ -1,8 +1,7 @@
 @extends('layouts.tabla')
-
     @section('buscar')
-        CATEGORIAS<a class="btn-sm btn-success float-right" href="{{route("servicios.crear")}}"><i class="fa fa-plus"></i>Agregar</a>
-        <a class="btn-sm btn-secondary btn-sm float-right" href="{{route("servicios.index")}}">Nueva Vista</a>
+        CATEGORIAS
+        <a class="btn-sm btn-success float-right" href="{{route("categorias.crear")}}"><i class="fa fa-plus"></i>Agregar</a>
     @endsection
 @section("contenido")
     @if(count($categorias)>0)
@@ -10,7 +9,7 @@
             <table class="table table-borderless table-hover table-sm">
                 <thead class="thead-dark">
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">N°</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Imagen</th>
                     <th scope="col">Editar</th>

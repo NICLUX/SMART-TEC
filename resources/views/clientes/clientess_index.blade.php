@@ -1,6 +1,6 @@
 @extends('layouts.tabla')
 @section('buscar')
-   CLIENTES <a class="btn-sm btn-success float-right" href="{{route("cliente.nuevo")}}"><i class="fa fa-plus"></i>Agregar</a>
+    CLIENTES <a class="btn-sm btn-success float-right" href="{{route("cliente.nuevo")}}"><i class="fa fa-plus"></i>Agregar</a>
 @endsection
 @section("contenido")
     @if($clientes->count())
@@ -73,12 +73,10 @@
                 </div>
             </div>
         </div>
-    <script>
-        function recibir(numero){
-            alert(numero);
-            var id =  numero;
-            document.formulario_eliminar.action="/cliente/"+id+"/destroy";
-            alert(document.formulario_eliminar.action);
-        }
-    </script>
+        <script>
+            function recibir(numero){
+                var id =  numero;
+                document.formulario_eliminar.action="/cliente/"+id+"/destroy";
+            }
+        </script>
 @endsection

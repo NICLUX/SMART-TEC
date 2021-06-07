@@ -125,7 +125,7 @@
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="https://placas.ip.gob.hn/enlace/consulta"  target="_blank">Consulta RTN IP</a></li>
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="https://placas.ip.gob.hn/vehiculos"  target="_blank">Tasa Vehicular</a></li>
                     </ul>
-                </li>
+                </li>     
 
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"

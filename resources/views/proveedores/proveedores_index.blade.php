@@ -1,6 +1,7 @@
 @extends('layouts.tabla')
 @section('buscar')
-    PROVEEDORES <a class="btn-sm btn-success float-right" href="{{route("proveedor.nuevo")}}"><i class="fa fa-plus"></i>Agregar</a>
+    PROVEEDORES
+    <a class="btn-sm btn-success float-right" href="{{route("proveedor.nuevo")}}"><i class="fa fa-plus"></i>Agregar</a>
 @endsection
 @section("contenido")
 @if(count($proveedores)>0)
@@ -10,13 +11,10 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Correo</th>
-                <th scope="col">Descripción</th>
-                <th scope="col">Télefono</th>
                 <th scope="col">Dirección</th>
-                
-                
-                
+                <th scope="col">Télefono</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Correo</th>
                 <th scope="col">Opciones</th>
             </tr>
             </thead>
@@ -25,30 +23,27 @@
                 <tr id="resultados">
                     <th scope="col">{{$item+$proveedores->firstItem()}}</th>
                     <td>{{$proveedor->nombre}}</td>
-                    @if($proveedor->email)
-                        <td>{{$proveedor->email}}</td>
-                    @else
-                        <td>n/a</td>
-                    @endif
+                    <td>{{$proveedor->direccion}}</td>
+                    <td>{{$proveedor->telefono}}</td>
                     @if($proveedor->descripcion)
                         <td>{{$proveedor->descripcion}}</td>
                     @else
                         <td>n/a</td>
                     @endif
-                    
-                    <td>{{$proveedor->telefono}}</td>
-                    <td>{{$proveedor->direccion}}</td>
-                    
-                    
+                    @if($proveedor->descripcion)
+                        <td>{{$proveedor->email}}</td>
+                    @else
+                        <td>n/a</td>
+                    @endif
                     <td>
                         <a class="btn-sm btn-success"
                            href="{{route("proveedor.editar",["id"=>$proveedor->id])}}"
-                           title="Editar"><i class="fa fa-pencil"></i>
-                           </a>
+                           title="Editar"><i class="fa fa-pencil"></i> Editar</a>
+
                         <button class="btn-sm btn-danger"
                                 data-id="{{$proveedor->id}}"
                                 data-toggle="modal" data-target="#modalBorrarApertura">
-                            <i class="fa fa-trash"></i>
+                            <i class="fa fa-trash"></i> Borrar
                         </button>
                     </td>
                 </tr>
@@ -73,9 +68,9 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>¿Esta seguro que deseas borrar el proveedor?</p>
+                        <p>¿Está seguro que deseas borrar el proveedor?</p>
                     </div>
-                    <form>
+                    <form name="formulario_eliminar" action="procesar.asp" method="POST" >
                         <div class="modal-footer">
                             <input id="idApertura" name="id">
                             <a class="btn-danger btn-sm"

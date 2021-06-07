@@ -1,18 +1,19 @@
 @extends('layouts.tabla')
 @section("contenido")
 @section('buscar')
-    USUARIOS<a class="btn-sm btn-secondary btn-sm float-right" href="{{route("usuarios.index")}}">Nueva Vista</a>
-    <a class="btn-sm btn-success float-right" href="{{route("usuarios.create")}}"><i class="fa fa-plus"></i>Agregar</a>
+    Tabla de usuarios
+    <a class="btn-sm btn-success float-right" href="{{route("usuarios.create")}}"><i class="fa fa-plus"></i> Agregar</a>
+    <a class="btn-sm btn-secondary btn-sm float-right" href="{{route("usuarios.index")}}"><i class="fa fas fa-clone"></i> Lista </a>
 @endsection
     @if(count($users)>0)
         <div class="table-responsive-sm -mr-2">
             <table class="table table-borderless table-hover table-sm">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col" class="text-center">#</th>
+                        <th scope="col" class="text-center">N°</th>
                         <th scope="col" class="text-center">Nombre</th>
-                        <th scope="col" class="text-center">Nombre Usuario</th>
-                        <th scope="col" class="text-center">Tipo usuario</th>
+                        <th scope="col" class="text-center">Usuario</th>
+                        <th scope="col" class="text-center">Tipo</th>
                         <th scope="col" class="text-center">Correo</th>
                         <th scope="col" class="text-center">Telefono</th>
                         <th scope="col" class="text-center">Editar</th>

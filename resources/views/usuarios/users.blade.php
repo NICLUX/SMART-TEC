@@ -14,9 +14,9 @@
                 <ul class="list-group" >
                     <li class="list-group-item" style="background-color:#1c2d3f">
                         <h2 style="color:#ffffff;">
-                            Listado de usuarios
-                            <a class="btn-sm btn-success float-right" href="{{route("usuarios.create")}}"><i class="fa fa-plus"></i>Agregar</a>
-                            <a class="btn-sm btn-success float-right" style="margin-right:3px" href="{{route("usuarios.mostrar")}}">Vista Tabla</a>
+                            Lista de usuarios
+                            <a class="btn-sm btn-success float-right" href="{{route("usuarios.create")}}"><i class="fa fa-plus"></i> Agregar</a>
+                            <a class="btn-sm btn-success float-right" style="margin-right:3px" href="{{route("usuarios.mostrar")}}"><i class="fa fas fa-clone"></i>  Tabla </a>
                         </h2>
                     </li>
                     @foreach($users as $item => $user)
@@ -27,13 +27,16 @@
                                   src="/images/categorias/{{$user->photo}}"
                                   onerror="this.src='/images/no_image.jpg'">
                             <div>
-                                <strong> Nombre: {{$user->name}} </strong>
-                                <hr>
-                                N#: {{$user->id}}
-                                <br>Nombre-usuario: {{$user->usuario}}
-                                <br>Tipo-usuario: {{$user->tipo_users}}
+                                <strong>{{$user->name}} </strong>
+                                <br> <hr>
+                                <br> N°: {{$user->id}}
+                                <br> Usuario: {{$user->usuario}}
+                                <br> Tipo: {{$user->tipo_users}}
                                 <br> Correo:  {{$user->email}}
-                                <br> Telefono:  {{$user->telefono}}<hr/><br>
+                                <br> Telefono:  {{$user->telefono}}
+                                <br> <br> <hr/> <br>
+
+
                                 <a class="btn-sm btn-success"
                                    href="{{route("usuarios.editar",["id"=>$user->id])}}">
                                     <i class="fa fa-pencil"></i> Editar</a>

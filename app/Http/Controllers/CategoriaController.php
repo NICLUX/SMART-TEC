@@ -14,13 +14,14 @@ class CategoriaController extends Controller
     //Metodo para mostrar todas las categorias
     public function index (){
         $categorias = Categoria::paginate(5);
-        return view("categorias.nueva_categoria")->with("categorias",$categorias);
+        return view("categorias.categorias")->with("categorias",$categorias);
     }
-    //Metodo para mostrar un formulario para crear una nueva categoria
-    public function nuevo(){
+
+    public function crear(){
         $categorias = Categoria::paginate(5);
         return view("categorias.nueva_categoria")->with("categorias",$categorias);
     }
+
     public function buscarCategoria(Request $request){
         $busqueda = $request->input("busqueda");
         $categorias = Categoria::where("nombre","like","%".$request->input("busqueda")."%")->paginate(5);
