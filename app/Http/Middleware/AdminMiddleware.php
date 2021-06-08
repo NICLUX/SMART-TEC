@@ -33,7 +33,7 @@ class AdminMiddleware
                 break;
             case '3':
                 #Cajero
-                return redirect()->to('mostrar');
+                return redirect()->to('dashboard');
                 break;
             default:
                 return redirect()->to('login');

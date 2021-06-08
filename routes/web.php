@@ -4,6 +4,8 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\SessionsController;
 use App\Http\Livewire\AperturaCajas;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
@@ -18,13 +20,12 @@ use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', function () {
     return view('auth/login');
 });
 Route::group(["middleware"=>"auth"],function () {
-    Route::get('/dashboard', function () {
-        return view('principal');
-    })->name('dashboard');
+    Route::get('/dashboard', function () {return view('principal');})->name('dashboard');
     //--------------------perfil----------------------------------//
     Route::get("/usuarios/{id}/edit",[UserController::class,"editar"])->name("usuarios.edit");
     Route::put("/usuarios/{id}/edit",[UserController::class,"updat"])->name("usuarios.updatee");
@@ -119,6 +120,11 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/ventas/mensuales",\App\Http\Livewire\VentasMensuales::class)->name("ventas_mensuales.index");//Muestra la ventas mensuales
         //----------Ventas Mensuales-----------//
         Route::get("/ventas/anuales",\App\Http\Livewire\VentasAnuales::class)->name("ventas_anuales.index");//Muestra la ventas mensuales
+    });
+    Route::group(['middleware' => 'cajero'], function () {
+        //-----------Apertura de Caja ------------------//
+        Route::get("/apertura_caja",AperturaCajas::class)->name("apertura.index");//Trae todos las aperturas realizadas
+        Route::post("/apertura/crear",[AperturaCajaController::class,"store"])->name("apertura.crear");//Crea una nueva apertura de caja
     });
 });
 //________________Graficas__________________________//

@@ -52,59 +52,70 @@
                     <a href="/dashboard"> <i class="menu-icon fa fa-home"></i>Inicio</a>
                 </li>
 
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-pencil-square-o"></i>Cuentas</a>
-                    <ul class="sub-menu children dropdown-menu" id="lista">
-                        <li><i class="menu-icon fa fa-sign-in"></i><a  href="{{route("cuenta.index")}}">Lista de pagos pendientes</a></li>
-                         </ul>
-                </li>
+                @if(auth()->user()->is_admin == '1')
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Administrador</a>
+                        <ul class="sub-menu children dropdown-menu" id="lista">
+                            <li><i class="fa fa-users"></i><a href="{{route("usuarios.index")}}">Usuarios</a></li>
+                            <li><i class="fa fa-user-md"></i><a href="{{route("proveedores.index")}}">Proveedores</a></li>
+                            <li><i class="fa fa-user-plus"></i><a href="{{route("clientes.index")}}">Clientes</a></li>
+                            <li><i class="fa fa-dollar"></i><a href="{{route("apertura.index")}}">Apertura</a></li>
+                            <li><i class="fa fa-money "></i><a href="{{route("venta.nuevo")}}">Punto de venta</a></li>
+                            <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("compras.index")}}">Compras</a></li>
 
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Administrador</a>
-                    <ul class="sub-menu children dropdown-menu" id="lista">
-                        <li><i class="fa fa-users"></i><a href="{{route("usuarios.index")}}">Usuarios</a></li>
-                        <li><i class="fa fa-user-md"></i><a href="{{route("proveedores.index")}}">Proveedores</a></li>
-                        <li><i class="fa fa-user-plus"></i><a href="{{route("clientes.index")}}">Clientes</a></li>
-                        <li><i class="fa fa-dollar"></i><a href="{{route("apertura.index")}}">Apertura</a></li>
-                        <li><i class="fa fa-money "></i><a href="{{route("venta.nuevo")}}">Punto de venta</a></li>
-                    </ul>
-                </li>
+                        </ul>
+                    </li>
+                @endif
+                @if(auth()->user()->is_admin == '2' || auth()->user()->is_admin == '3')
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="menu-icon fa fa-laptop"></i>Ventas</a>
+                        <ul class="sub-menu children dropdown-menu" id="lista">
+                            @if(auth()->user()->is_admin == '3')
+                                <li><i class="fa fa-money "></i><a href="{{route("apertura.index")}}">Apertura de caja</a></li>
+                            @endif
+                            <li><i class="fa fa-money "></i><a href="{{route("venta.nuevo")}}">Punto de venta</a></li>
+                            <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("ventas_diarias.index")}}">Ventas diarias</a></li>
+                        </ul>
+                    </li>
+                @endif
 
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Catalogo</a>
-                    <ul class="sub-menu children dropdown-menu" id="lista">
-                        <li><i class="fa fa-product-hunt"></i><a href="{{route("productos.index")}}">Productos</a></li>
-                        <li><i class="fa fa-product-hunt"></i><a href="{{route("servicios.index")}}">Servicios</a></li>
-                        <li><i class="fa fa-cc-jcb"></i><a href="{{route("categorias.index")}}">Categorias</a></li>
-                    </ul>
-                </li>
+                @if(auth()->user()->is_admin == '1')
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Catalogo</a>
+                        <ul class="sub-menu children dropdown-menu" id="lista">
+                            <li><i class="fa fa-product-hunt"></i><a href="{{route("productos.index")}}">Productos</a></li>
+                            <li><i class="fa fa-product-hunt"></i><a href="{{route("servicios.index")}}">Servicios</a></li>
+                            <li><i class="fa fa-cc-jcb"></i><a href="{{route("categorias.index")}}">Categorias</a></li>
+                        </ul>
+                    </li>
 
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-pencil-square-o"></i>Detalles</a>
-                    <ul class="sub-menu children dropdown-menu" id="lista">
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("ventas_diarias.index")}}">Ventas diarias</a></li>
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("vesta_total")}}">Total ventas diarias por empleado</a></li>
-                        <li><i class="menu-icon fa fa-paper-plane"></i><a href="{{route("ventas_mensuales.index")}}">Ventas mensuales</a></li>
-                        <li><i class="menu-icon fa fa-paper-plane"></i><a href="{{route("ventas_anuales.index")}}">Ventas Anuales</a></li>
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("compras.index")}}">Compras</a></li>
-                    </ul>
-                </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-pencil-square-o"></i>Detalles</a>
+                        <ul class="sub-menu children dropdown-menu" id="lista">
+                            <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("ventas_diarias.index")}}">Ventas diarias</a></li>
+                            <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("vesta_total")}}">Total ventas diarias por empleado</a></li>
+                            <li><i class="menu-icon fa fa-paper-plane"></i><a href="{{route("ventas_mensuales.index")}}">Ventas mensuales</a></li>
+                            <li><i class="menu-icon fa fa-paper-plane"></i><a href="{{route("ventas_anuales.index")}}">Ventas Anuales</a></li>
+                        </ul>
+                    </li>
+
+                @endif
 
 
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-pencil-square-o"></i>Enlaces Directos</a>
                     <ul class="sub-menu children dropdown-menu" id="lista">
-                        <li id="letras" ><i class="menu-icon fa fa-sign-in"></i><a href="https://www.ip.gob.hn/">Instituto de la Propiedad</a></li>
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://www.sar.gob.hn/">SAR</a></li>
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://www.sar.gob.hn/consulta-rtn/">Consulta RTN SAR</a></li>
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://placas.ip.gob.hn/enlace/consulta">Consulta RTN IP</a></li>
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://placas.ip.gob.hn/vehiculos">Tasa Vehicular</a></li>
+                        <li id="letras" ><i class="menu-icon fa fa-sign-in"></i><a href="https://www.ip.gob.hn/"  target="_blank">Instituto de la Propiedad</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://www.sar.gob.hn/" target="_blank">SAR</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://www.sar.gob.hn/consulta-rtn/"  target="_blank">Consulta RTN SAR</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://placas.ip.gob.hn/enlace/consulta"  target="_blank">Consulta RTN IP</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://placas.ip.gob.hn/vehiculos"  target="_blank">Tasa Vehicular</a></li>
                     </ul>
-                </li>     
+                </li>
 
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
