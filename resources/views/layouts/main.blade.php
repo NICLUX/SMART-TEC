@@ -43,8 +43,8 @@
                     aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="/"><img src="/images/logo/logo.png" alt="Logo"></a>
-            <a class="navbar-brand hidden" href="./"><img src="/images/logo/logo.png" alt="Logo"></a>
+            <a class="navbar-brand" ><img src="/images/logo/logo.png" alt="Logo"></a>
+            <a class="navbar-brand hidden" ><img src="/images/logo/logo.png" alt="Logo"></a>
         </div>
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav" id="lista">
