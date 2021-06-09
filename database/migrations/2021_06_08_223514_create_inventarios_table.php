@@ -13,7 +13,12 @@ class CreateInventariosTable extends Migration
      */
     public function up()
     {
-        
+        Schema::create('inventarios', function (Blueprint $table) {
+            $table->id();
+            $table->double('cantidad');
+            $table->foreignId('id_producto')->deferrable('id')->on('productos');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class CreateInventariosTable extends Migration
      */
     public function down()
     {
-        
+        Schema::dropIfExists('inventarios');
     }
 }
