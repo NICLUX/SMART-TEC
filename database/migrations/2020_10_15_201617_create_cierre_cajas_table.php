@@ -15,10 +15,9 @@ class CreateCierreCajasTable extends Migration
     {
         Schema::create('cierre_cajas', function (Blueprint $table) {
             $table->id();
-            $table->double('efecivo_final');
             $table->double('id_apertura');
             $table->boolean('activa');
-            $table->foreign('efecivo_final')->references('id')->on('apertura_cajas');
+            $table->foreignId("efecivo_final")->references("id")->on("apertura_cajas");
             $table->timestamps();
         });
     }

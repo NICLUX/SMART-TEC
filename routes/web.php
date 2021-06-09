@@ -48,7 +48,11 @@ Route::group(["middleware"=>"auth"],function () {
         return view("acerca_de.acerca_de");
     })->name("acerca_de");
     Route::group(['middleware' => 'admin'], function () {
+            //-----------Apertura de Caja ------------------//
+            Route::get("/apertura_caja",AperturaCajas::class)->name("apertura.index");//Trae todos las aperturas realizadas
+            Route::post("/apertura/crear",[AperturaCajaController::class,"store"])->name("apertura.crear");//Crea una nueva apertura de caja
         //----------------------------------------------perfil-----------------------------------------------------------------//
+        Route::get("/usuarios",[UserController::class,"index"])->name("usuarios.index");
         Route::get("/usuarios",[UserController::class,"index"])->name("usuarios.index");
         Route::get("/usuariost",[UserController::class,"mostrar"])->name("usuarios.mostrar");
         Route::get("/usuarios/crear",[UserController::class,"create"])->name("usuarios.create");
@@ -71,8 +75,8 @@ Route::group(["middleware"=>"auth"],function () {
         Route::put("/cliente/{id}/update",[\App\Http\Controllers\ClienteController::class,"update"])->name("cliente.update");//Actualiza los datos del formulario de editar cliente
         Route::delete("/cliente/{id}/destroy",[\App\Http\Controllers\ClienteController::class,"destroy"])->name("cliente.destroy");//Elimina el cliente de la tabla
         //-----------Apertura de Caja ------------------//
-        Route::get("/apertura_caja",AperturaCajas::class)->name("apertura.index");//Trae todos las aperturas realizadas
-        Route::post("/apertura/crear",[AperturaCajaController::class,"store"])->name("apertura.crear");//Crea una nueva apertura de caja
+       // Route::get("/apertura_caja",AperturaCajas::class)->name("apertura.index");//Trae todos las aperturas realizadas
+        //Route::post("/apertura/crear",[AperturaCajaController::class,"store"])->name("apertura.crear");//Crea una nueva apertura de caja
         //---------------Categorias-----------------//
         Route::get("/categorias",[CategoriaController::class,"index"])->name("categorias.index"); // Trae todos las categorias
         Route::get("/categorias/busqueda",[CategoriaController::class,"buscarCategoria"])->name("categoria.buscar");//Busca entre las categorias en nombre
@@ -120,15 +124,16 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/ventas/mensuales",\App\Http\Livewire\VentasMensuales::class)->name("ventas_mensuales.index");//Muestra la ventas mensuales
         //----------Ventas Mensuales-----------//
         Route::get("/ventas/anuales",\App\Http\Livewire\VentasAnuales::class)->name("ventas_anuales.index");//Muestra la ventas mensuales
-    });
-    Route::group(['middleware' => 'cajero'], function () {
-        //-----------Apertura de Caja ------------------//
-        Route::get("/apertura_caja",AperturaCajas::class)->name("apertura.index");//Trae todos las aperturas realizadas
-        Route::post("/apertura/crear",[AperturaCajaController::class,"store"])->name("apertura.crear");//Crea una nueva apertura de caja
-    });
+ });
+
 });
+
+
+    //-----------Apertura de Caja ------------------//
+
 //________________Graficas__________________________//
 Route::get("graficas.graficarClientes",[\App\Http\Controllers\GraficasController::class,"graficarClientes"])->name("clientes.graficar");
 Route::get('/grafica', function () {
   return view('graficas.graficarClientes');
 });
+

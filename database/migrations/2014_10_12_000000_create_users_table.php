@@ -19,10 +19,10 @@ class CreateUsersTable extends Migration
             $table->string('usuario')->unique();
             $table->string('telefono', 8)->unique();
             $table->string('photo')->nullable();
-            $table->boolean('is_admin')->default(false);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->foreignId("is_admin")->references("id")->on("tipo_users");
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->text('profile_photo_path')->nullable();
