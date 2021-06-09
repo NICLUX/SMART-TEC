@@ -26,10 +26,10 @@
                             total=total+ sub_total[cont];
                             var fila = '<tr class="selected" id="fila'+cont+'" >' +
                                 '<td><button class="btn btn-warning btn-sm" type="botton" onclick="eliminar('+cont+');" >X</button></td>' +
-                                '<td><input type="hidden" name="id_producto[]" value="'+id_producto+'">'+producto+'</td>'+
-                                '<td><input type="hidden" name="costo_compra[]" value="'+costo_compra+'">'+costo_compra+'</td>'+
-                                '<td><input type="hidden" name="costo_venta[]" value="'+costo_venta+'">'+costo_venta+'</td>'+
-                                '<td><input type="hidden" name="cantidad[]" value="'+cantidad+'">'+cantidad+'</td>'+
+                                '<td><input type="hidden" style="text-align: center" name="id_producto[]" value="'+id_producto+'">'+producto+'</td>'+
+                                '<td><input type="hidden" style="text-align: center" name="costo_compra[]" value="'+costo_compra+'">'+costo_compra+'</td>'+
+                                '<td><input type="hidden" style="text-align: center" name="costo_venta[]" value="'+costo_venta+'">'+costo_venta+'</td>'+
+                                '<td><input type="hidden" style="text-align: center" name="cantidad[]" value="'+cantidad+'">'+cantidad+'</td>'+
                                 '<td>'+sub_total[cont]+'</td>'+
                                 '</tr>'
                             cont++;
