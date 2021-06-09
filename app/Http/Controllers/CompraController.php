@@ -35,7 +35,7 @@ class CompraController extends Controller
                 ->select('c.*','p.nombre','s.name',
                     DB::raw('SUM(costo_compra*cantidad) as total'))
                 ->where('c.numero_comprobante', 'LIKE', '%'.$query.'%')
-                ->groupBy('c.id','c.feche_hora','c.numero_comprobante','p.nombre','s.name')
+                ->groupBy('c.id','c.feche_hora','c.numero_comprobante','p.nombre','s.name','c.id_proveedore','c.id_usuario','c.created_at','c.updated_at')
                 ->paginate(8);
             return view("compras.mostrarCompras")
                 ->with("compras",$compras);
