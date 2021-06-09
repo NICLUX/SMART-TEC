@@ -48,7 +48,12 @@
                 </tr>
             @endforeach
             </tbody>
+
         </table>
+        @else
+            <div class="alert alert-info">
+                No hay productos ingresados aun
+            </div>
         @endif
 <div class="modal fade" id="modalBorrarApertura" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">

@@ -23,7 +23,6 @@
     <a class="btn-warning btn-sm float-right" href="{{route('productos.imprimir')}}"><i class="fa fa-book" aria-hidden="true"></i>
         Imprimir</a>
     <a class="btn-sm btn-secondary btn-sm float-right" href="{{route("productos.mostrar")}}">Nueva Vista</a>
-
 </div>
 <div style="margin-top: 10px">
         <div class="card-body">
@@ -70,13 +69,13 @@
                         </div>
                     @endforeach
                 </div>
-            @else
-                <div class="alert alert-info">
-                    No hay productos ingresados aun
-                </div>
-            @endif
         </div>
-    </div>
+    @else
+        <div class="alert alert-info">
+            No hay productos ingresados aun
+        </div>
+    @endif
+
 
 <div class="modal fade" id="modalBorrarApertura" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
