@@ -10,10 +10,13 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Dirección</th>
-                <th scope="col">Télefono</th>
-                <th scope="col">Descripción</th>
                 <th scope="col">Correo</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Télefono</th>
+                <th scope="col">Dirección</th>
+                
+                
+                
                 <th scope="col">Opciones</th>
             </tr>
             </thead>
@@ -22,26 +25,30 @@
                 <tr id="resultados">
                     <th scope="col">{{$item+$proveedores->firstItem()}}</th>
                     <td>{{$proveedor->nombre}}</td>
-                    <td>{{$proveedor->direccion}}</td>
-                    <td>{{$proveedor->telefono}}</td>
+                    @if($proveedor->email)
+                        <td>{{$proveedor->email}}</td>
+                    @else
+                        <td>n/a</td>
+                    @endif
                     @if($proveedor->descripcion)
                         <td>{{$proveedor->descripcion}}</td>
                     @else
                         <td>n/a</td>
                     @endif
-                    @if($proveedor->descripcion)
-                        <td>{{$proveedor->email}}</td>
-                    @else
-                        <td>n/a</td>
-                    @endif
+                    
+                    <td>{{$proveedor->telefono}}</td>
+                    <td>{{$proveedor->direccion}}</td>
+                    
+                    
                     <td>
                         <a class="btn-sm btn-success"
                            href="{{route("proveedor.editar",["id"=>$proveedor->id])}}"
-                           title="Editar"><i class="fa fa-pencil"></i> Editar</a>
+                           title="Editar"><i class="fa fa-pencil"></i>
+                           </a>
                         <button class="btn-sm btn-danger"
                                 data-id="{{$proveedor->id}}"
                                 data-toggle="modal" data-target="#modalBorrarApertura">
-                            <i class="fa fa-trash"></i> Borrar
+                            <i class="fa fa-trash"></i>
                         </button>
                     </td>
                 </tr>
