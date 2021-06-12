@@ -76,7 +76,7 @@
                                                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                                                     </div>
                                                     <input type="password" id="password" name="password" class="form-control input_pass"
-                                                           value="" placeholder="Comtraseña"  required autocomplete="current-password"></div>
+                                                           value="" placeholder="Contraseña"  required autocomplete="current-password"></div>
 
                                                 <div class="row align-items-center remember">
                                                     <input type="checkbox">Recuérdame
