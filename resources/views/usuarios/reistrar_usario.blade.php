@@ -31,7 +31,7 @@
                                 <input id="usuario"  class="form-control @error('usuario') is-invalid @enderror" name="usuario"
                                        required
                                        placeholder="Ingrese el nombre de usuario" maxlength="80">
-                                <small class="text-muted">Maxima longitud 100 caracteres</small>
+                                <small class="text-muted">Maxima longitud 80 caracteres</small>
                                 @error('usuario')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message}}</strong>
