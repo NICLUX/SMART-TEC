@@ -22,22 +22,24 @@
             <tbody>
                 @foreach($users as $item=> $user)
                     <tr id="">
-                        <th scope="row">{{$user->id}}</th>
-                        <td>{{$user->name}}</td>
-                        <td>{{$user->usuario}}</td>
-                        <td>{{$user ->is_admin}}</td>
-                        <td>{{$user ->email}}</td>
-                        <td>{{$user ->telefono}}</td>
-                        <td>
+                        <th style="text-align: center; scope="row">{{$user->id}}</th>
+                        <td style="text-align: center;">{{$user->name}}</td>
+                        <td style="text-align: center;">{{$user->usuario}}</td>
+                        <td style="text-align: center;">{{$user ->is_admin}}</td>
+                        <td style="text-align: center;">{{$user ->email}}</td>
+                        <td style="text-align: center;">{{$user ->telefono}}</td>
+                        <td align="center">
                             <a class="btn-sm btn-success"
+
                                href="{{route("usuarios.editar",["id"=>$user->id])}}">
-                                <i class="fa fa-pencil"></i> Editar</a>
+                                <i class="fa fa-pencil"></i></a>
                         </td>
-                        <td>
+                        <td align="center">
                             <button class="btn-sm btn-danger"
+
                                     data-id="{{$user->id}}"
                                     data-toggle="modal" data-target="#modalBorrarApertura">
-                                <i class="fa fa-trash"></i> Borrar
+                                <i class="fa fa-trash"></i>
                             </button>
                         </td>
                     </tr>
