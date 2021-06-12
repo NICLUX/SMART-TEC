@@ -4,7 +4,7 @@
 
             <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
 
-            
+
             @if(session("exito"))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{session("exito")}}
@@ -39,7 +39,7 @@
                                 <div class="row register-form">
                                     <div class="col-md-6">
 
-            <form  id="form_proveedores" enctype="multipart/form-data" action="{{route("proveedor.store")}}"
+            <form  id="form_proveedores" name="form_proveedores" enctype="multipart/form-data" action="{{route("proveedor.store")}}"
             method="post">
                 @csrf
                 <div class="form-group">
@@ -48,7 +48,7 @@
                            placeholder="Nombre"
                            required
                            value="{{old("nombre")}}"
-                           maxlength="80" name="nombre">
+                           maxlength="80" name="nombre" ID="nombre">
                     @error('nombre')
                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -108,8 +108,31 @@
                     @enderror
                 </div>
                 <hr>
-                <button id="btnRegister" type="submit" class="btn btn-success">Guardar</button>
+                <button id="btnRegister" onclick="validar()" class="btn btn-success">Guardar</button>
             </form>
         </div>
     </div>
+<script>
+     function validar() {
+      let isValid = false;
+
+      var v_figura = document.getElementById('nombre').value;
+
+      const pattern = new RegExp("^[a-zA-Z]+$");
+
+
+        if(pattern.test(v_figura)) {
+
+        } else {
+            toastr.options =
+                {
+                    "closeButton" : true,
+                    "progressBar" : true
+                }
+            toastr.error("No pueden ir números en el Nombre");
+            event.preventDefault();
+        }
+
+    }
+</script>
 @endsection
