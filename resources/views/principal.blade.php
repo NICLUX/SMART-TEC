@@ -160,12 +160,12 @@
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title mb-3">Administrador</strong>
+                                <strong class="card-title mb-3">{{auth()->user()->usuario}}</strong>
                             </div>
                             <div class="card-body">
                                 <div class="mx-auto d-block">
                                     <img class="rounded-circle mx-auto d-block" src="images/m.jpg" alt="Card image cap">
-                                    <h5 class="text-sm-center mt-2 mb-1">German Alexis Cruz</h5>
+                                    <h5 class="text-sm-center mt-2 mb-1">{{auth()->user()->name}}</h5>
                                     <div class="location text-sm-center"><i class="fa fa-map-marker"></i>Danlí, El Paraíso</div>
                                 </div>
                                 <hr>
