@@ -118,7 +118,7 @@
 
       var v_figura = document.getElementById('nombre').value;
 
-      const pattern = new RegExp("^[a-zA-Z]+$");
+      const pattern = new RegExp("^[a-zA-Z ]*$");
 
 
         if(pattern.test(v_figura)) {

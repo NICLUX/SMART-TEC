@@ -20,7 +20,7 @@
                                        placeholder="Nombre"
                                        required
                                        value="{{old("nombre")}}"
-                                       maxlength="80" name="nombre">
+                                       maxlength="80" name="nombre" id="nombre">
                                 @error('nombre')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -60,11 +60,35 @@
                             </div>
 
                             <br>
-                            <button id="btnRegister" type="submit" class="btn btn-success">Guardar</button>
+                            <button id="btnRegister" onclick="validar()" class="btn btn-success">Guardar</button>
 
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+
+        <script>
+            function validar() {
+             let isValid = false;
+
+             var v_figura = document.getElementById('nombre').value;
+
+             const pattern = new RegExp("^[a-zA-Z ]*$");
+
+
+               if(pattern.test(v_figura)) {
+
+               } else {
+                   toastr.options =
+                       {
+                           "closeButton" : true,
+                           "progressBar" : true
+                       }
+                   toastr.error("No pueden ir números en el Nombre");
+                   event.preventDefault();
+               }
+
+           }
+       </script>
 @endsection
