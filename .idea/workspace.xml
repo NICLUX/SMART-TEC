@@ -22,37 +22,26 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="Mejoras generales de sistema">
+    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="Mejoras de formularios">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoriaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoriaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ServiciosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ServiciosController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/avatar/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/avatar/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/avatar/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/avatar/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/avatar/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/categorias/Screenshot (3).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/categorias/WIN_20201108_23_45_48_Pro.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/productos/Screenshot (2).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Servicios/agregar_servicio.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Servicios/agregar_servicio.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/categorias/categorias.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categorias/categorias.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/categorias/editar_categoria.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categorias/editar_categoria.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/categorias/nueva_categoria.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categorias/nueva_categoria.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/clientes/clientess_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clientes/clientess_index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClienteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClienteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProveedorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProveedorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/UserTableseeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/UserTableseeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Servicios/servicio.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Servicios/servicio.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Servicios/vista_tabla_servicios.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Servicios/vista_tabla_servicios.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/clientes/clientess_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clientes/clientes_index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/clientes/editar_cliente.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clientes/editar_cliente.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/clientes/nuevo_cliente.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clientes/nuevo_cliente.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/clientes/nuevo_cliente.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clientes/registrar_cliente.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/principal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/principal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/proveedores/editar_proveedor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proveedores/editar_proveedor.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/proveedores/nuevo_proveedor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proveedores/nuevo_proveedor.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/proveedores/nuevo_proveedor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proveedores/registrar_proveedor.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/proveedores/proveedores_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proveedores/proveedores_index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario_para_admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario_para_admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/reistrar_usario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/reistrar_usario.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/reistrar_usario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/registrar_usario.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/usuarios/tablaUsuario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/tablaUsuario.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/usuarios/users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/users.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +60,9 @@
         <option value="Waleska Molina &lt;cm817194@gmail.com&gt;" />
       </list>
     </option>
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -306,7 +297,9 @@
       <workItem from="1623011964118" duration="2774000" />
       <workItem from="1623030431752" duration="6767000" />
       <workItem from="1623604816857" duration="598000" />
-      <workItem from="1623707442860" duration="17804000" />
+      <workItem from="1623707442860" duration="18130000" />
+      <workItem from="1623730499292" duration="3303000" />
+      <workItem from="1623792642586" duration="11940000" />
     </task>
     <task id="LOCAL-00001" summary="Creacion de cintrolador, modelo, migracion de categoria, productos, inventario">
       <created>1602800135286</created>
@@ -434,7 +427,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623012923577</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Mejoras de formularios">
+      <created>1623727187758</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1623727187758</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -469,6 +469,7 @@
     <MESSAGE value="trabajando en la vista de creado de compras donde se culculara el sub total y total de la compra utilisando javascript." />
     <MESSAGE value="modificacion de tablas clientes, proveedores,cliente para mejor vistosidad y que todo lleve un tono uniforme." />
     <MESSAGE value="Mejoras generales de sistema" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mejoras generales de sistema" />
+    <MESSAGE value="Mejoras de formularios" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mejoras de formularios" />
   </component>
 </project>

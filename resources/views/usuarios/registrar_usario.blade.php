@@ -58,7 +58,7 @@
                                         <input type="text"
                                                pattern="[a-z]{2,20}"
                                                required
-                                            id="usuario"  class="form-control @error('usuario') is-invalid @enderror" name="usuario"
+                                               id="usuario"  class="form-control @error('usuario') is-invalid @enderror" name="usuario"
                                                placeholder="Ingrese el nombre de usuario">
                                         @error('usuario')
                                         <span class="invalid-feedback" role="alert">
@@ -122,7 +122,7 @@
                                                min="8"
                                                required
                                                placeholder="Ingrese la Contraseña"
-                                        value="password" ><div class="input-group-append">
+                                               value="password" ><div class="input-group-append">
                                             <button id="show_password" class="btn btn-outline-success" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
                                         </div>
                                         @error('password')
@@ -142,16 +142,32 @@
             </div>
         </div>
     </div>
-  <script type="text/javascript">
-             function mostrarPassword(){
-             var cambio = document.getElementById("password");
-       if(cambio.type == "password"){
-             cambio.type = "text";
-             $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
-       }else{
-            cambio.type = "password";
-            $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
-       }
-    }
-  </script>
+    <script type="text/javascript">
+        function mostrarPassword(){
+            var cambio = document.getElementById("password");
+            if(cambio.type == "password"){
+                cambio.type = "text";
+                $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+            }else{
+                cambio.type = "password";
+                $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+            }
+        }
+
+        function validar() {
+            let isValid = false;
+            var v_figura = document.getElementById('name').value;
+            const pattern = new RegExp("^[a-zA-Z ]*$");
+            if (pattern.test(v_figura)) {
+            } else {
+                toastr.options =
+                    {
+                        "closeButton": true,
+                        "progressBar": true
+                    }
+                toastr.error("El nombre no puede incluir números");
+                event.preventDefault();
+            }
+        }
+    </script>
 @endsection

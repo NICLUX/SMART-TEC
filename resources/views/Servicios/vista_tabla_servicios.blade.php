@@ -1,7 +1,9 @@
 @extends('layouts.tabla')
 @section('buscar')
-   Servicios <a class="btn-sm btn-secondary btn-sm float-right" href="{{route("servicios.nuevaVista")}}">Nueva Vista</a>
-    <a class="btn-sm btn-success float-right" href="{{route("servicios.crear")}}"><i class="fa fa-plus"></i>Agregar</a>
+
+    Tabla de servicios
+    <a class="btn-sm btn-success float-right" href="{{route("servicios.crear")}}"><i class="fa fa-plus"></i> Agregar</a>
+    <a class="btn-sm btn-secondary btn-sm float-right" href="{{route("servicios.nuevaVista")}}"><i class="fa fas fa-clone"></i> Lista </a>
 @endsection
 @section("contenido")
     @if(count($servicios)>0)

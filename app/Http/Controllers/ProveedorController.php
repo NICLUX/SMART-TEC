@@ -12,7 +12,7 @@ class ProveedorController extends Controller
     }
 
     public function nuevo(){
-        return view("proveedores.nuevo_proveedor");
+        return view("proveedores.registrar_proveedor");
     }
 
     public function store(Request  $request){

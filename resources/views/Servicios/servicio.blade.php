@@ -1,34 +1,22 @@
 @extends("layouts.tabla")
 @section("contenido")
-    <div class="container mt-2">
-        <div class="card-header">
-            <h3 class="card-title">SERVICIOS</h3>
-        </div>
-        <div class="btn-group" role="group" aria-label="Basic example">
-            <div class="card-body">
-                <a class="btn btn-success btn-sm float-right"  href="{{route("servicios.crear")}}"><i class="fa fa-plus"></i>
-                    Agregar</a>
-            </div>
-            <div class="card-body">
-                <a class="btn-sm btn-success  float-right"  href="{{route("servicios.index")}}">Cambiar Vista</a>
-            </div>
-        </div>
-        <form method="get" class="float-left" style="float:left" action="{{route("servicios.buscar")}}">
-            @csrf
-            <div class="form-inline my-2 my-lg-0 float-right">
-                <input class="form-control"
-                       name="busqueda"
-                       @if(isset($busqueda))
-                       value="{{$busqueda}}"
-                       @endif
-                       type="search" placeholder="Buscar">
-                <div class="input-group-append">
-                    <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
-                </div>
-            </div>
-        </form>
-        <!------------------------------------------------------------------------------------------------------>
-        <section>
+
+
+    <div class="col">
+        <ul class="list-group">
+            <li class="list-group-item" style="background-color:#1c2d3f">
+                <h2 style="color:#ffffff;">
+                    Tabla de servicios
+                    <a class="btn-sm btn-success float-right" href="{{route("servicios.crear")}}"><i
+                            class="fa fa-plus"></i> Agregar</a>
+                    <a class="btn-sm btn-success float-right" style="margin-right:3px"
+                       href="{{route("servicios.index")}}"><i class="fa fas fa-clone"></i> Lista </a>
+                </h2>
+            </li>
+        </ul>
+    </div>
+
+   <section>
             @if($servicios->count()>0)
                 <div class="card-columns">
                     @foreach($servicios as $servicio)

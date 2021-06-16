@@ -42,7 +42,7 @@ class userController extends Controller
     {
         $tipos = Tipo_user::all();
         $users = User::all();
-        return view('usuarios.reistrar_usario')
+        return view('usuarios.registrar_usario')
             ->with("users", $users)
             ->with("tipos", $tipos);
     }
@@ -127,7 +127,7 @@ class userController extends Controller
         }
         $editarUsuario->save();
         return redirect()->route("profile.show")
-            ->with("exito","Se edito correctamente la categoria");
+            ->with("exito","Se editó correctamente el usuario");
     }
     public function update(Request $request,$id){
         $this->validate($request,[
@@ -154,7 +154,7 @@ class userController extends Controller
         $editarUsuario->email= $request->input("email");
         $editarUsuario->save();
         return redirect()->route("usuarios.index")
-            ->with("exito","Se edito correctamente la categoria");
+            ->with("exito","Se editó correctamente el usuario");
     }
     public function updat(Request $request,$id){
         $this->validate($request,[

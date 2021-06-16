@@ -1,25 +1,6 @@
 @extends('layouts.main')
 @extends('Servicios.mejora_vista')
 @section("content")
-    <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
-    @if(session("exito"))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{session("exito")}}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    @endif
-    @if(session("error"))
-        <div class="alert alert-danger alert-dismissible" role="alert">
-            <span class="fa fa-save"></span> {{session("error")}}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-
-        </div>
-    @endif
-
 
     <div class="container register" id="detalle_form_prov">
         <div class="row" id="detalle_form_prov">
@@ -39,6 +20,7 @@
                           enctype="multipart/form-data">
                         @method("PUT")
                         @csrf
+
                         <div class="form-group">
                             <label>Ingrese el nombre:</label>
                             <input
@@ -59,6 +41,7 @@
                                     </span>
                             @enderror
                         </div>
+
                         <div class="form-group">
                             <label>Ingrese el nombre de usuario:</label>
                             <input
@@ -93,7 +76,7 @@
                                    @endif
                                    name="telefono"
                                    class="form-control  @error('telefono') is-invalid @enderror">
-                            <small class="text-muted">Maxima longitud 100 caracteres</small>
+                            <small class="text-muted">Maxima longitud 8 caracteres</small>
                             @error('telefono')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

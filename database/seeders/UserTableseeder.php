@@ -15,7 +15,7 @@ class UserTableseeder extends Seeder
     public function run()
     {
         $user = new User();
-        $user->name = "Administrador";
+        $user->name = "German Crúz";
         $user->usuario="admin";
         $user->telefono="98122412";
         $user->email = "smart-tec@gmail.com";

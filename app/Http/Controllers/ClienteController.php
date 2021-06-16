@@ -9,11 +9,11 @@ class ClienteController extends Controller
 {
     public function index(){
         $clientes = Cliente::paginate(10);
-        return view("clientes.clientess_index")->with("clientes",$clientes);
+        return view("clientes.clientes_index")->with("clientes",$clientes);
     }
 
     public function nuevo(){
-        return view("clientes.nuevo_cliente");
+        return view("clientes.registrar_cliente");
     }
 
     public function store(Request  $request){

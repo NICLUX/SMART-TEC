@@ -1,15 +1,15 @@
 @extends('layouts.tabla')
 @section('buscar')
-    CLIENTES <a class="btn-sm btn-success float-right" href="{{route("cliente.nuevo")}}"><i class="fa fa-plus"></i>Agregar</a>
+    CLIENTES <a class="btn-sm btn-success float-right" href="{{route("cliente.nuevo")}}"><i class="fa fa-plus"></i> Agregar</a>
 @endsection
 @section("contenido")
     @if($clientes->count())
         <div class="table-responsive-sm -mr-2">
             <table class="table table-borderless table-hover table-sm">
                 <thead class="thead-dark">
-                <th scope="col">#</th>
+                <th scope="col">N°</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Télefono</th>
+                <th scope="col">Teléfono</th>
                 <th scope="col">Dirección</th>
                 <th scope="col">Editar</th>
                 <th scope="col">Borrar</th>
@@ -32,7 +32,7 @@
                             <batton class="btn-sm btn-danger"
                                     data-id="{{$cliente->id}}"
                                     data-toggle="modal" data-target="#modalBorrarApertura"
-                                    onclick= "recibir('{{$cliente->id}}')" >
+                                    onclick="recibir('{{$cliente->id}}')">
                                 <i class="fa fa-trash"></i> Borrar
                             </batton>
                         </td>
@@ -60,7 +60,7 @@
                         <div class="modal-body">
                             <p>¿Esta seguro que deseas borrar el cliente?</p>
                         </div>
-                        <form name="formulario_eliminar" action="procesar.asp" method="POST" >
+                        <form name="formulario_eliminar" action="procesar.asp" method="POST">
                             <div class="modal-footer">
                                 @csrf
                                 @method('DELETE')
@@ -74,9 +74,9 @@
             </div>
         </div>
         <script>
-            function recibir(numero){
-                var id =  numero;
-                document.formulario_eliminar.action="/cliente/"+id+"/destroy";
+            function recibir(numero) {
+                var id = numero;
+                document.formulario_eliminar.action = "/cliente/" + id + "/destroy";
             }
         </script>
 @endsection
