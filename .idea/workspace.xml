@@ -26,22 +26,17 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClienteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClienteController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProveedorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProveedorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/UserTableseeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/UserTableseeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_15_203834_create_clientes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_15_203834_create_clientes_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Servicios/agregar_servicio.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Servicios/agregar_servicio.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Servicios/editar_servicio.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Servicios/editar_servicio.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Servicios/servicio.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Servicios/servicio.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Servicios/vista_tabla_servicios.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Servicios/vista_tabla_servicios.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/clientes/clientess_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clientes/clientes_index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/clientes/clientes_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clientes/clientes_index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/clientes/editar_cliente.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clientes/editar_cliente.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/clientes/nuevo_cliente.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clientes/registrar_cliente.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/principal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/principal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/clientes/registrar_cliente.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clientes/registrar_cliente.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/proveedores/editar_proveedor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proveedores/editar_proveedor.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/proveedores/nuevo_proveedor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proveedores/registrar_proveedor.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/proveedores/proveedores_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proveedores/proveedores_index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario_para_admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario_para_admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/reistrar_usario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/registrar_usario.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/tablaUsuario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/tablaUsuario.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/users.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/proveedores/registrar_proveedor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proveedores/registrar_proveedor.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -299,7 +294,8 @@
       <workItem from="1623604816857" duration="598000" />
       <workItem from="1623707442860" duration="18130000" />
       <workItem from="1623730499292" duration="3303000" />
-      <workItem from="1623792642586" duration="11940000" />
+      <workItem from="1623792642586" duration="13974000" />
+      <workItem from="1623815015470" duration="7399000" />
     </task>
     <task id="LOCAL-00001" summary="Creacion de cintrolador, modelo, migracion de categoria, productos, inventario">
       <created>1602800135286</created>
@@ -434,7 +430,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623727187758</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Mejoras de formularios">
+      <created>1623804890713</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1623804890713</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
