@@ -102,7 +102,7 @@
                             @endforeach
                         </select>
                         <div class="input-group-append">
-                            <a class="btn btn-outline-success" href="{{route("categoria.nueva")}}"
+                            <a class="btn btn-outline-success" href="{{route("categorias.crear")}}"
                                type="button"><i
                                     class="fa fa-plus"></i></a>
                         </div>
