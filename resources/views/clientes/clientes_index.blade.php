@@ -7,7 +7,7 @@
         <div class="table-responsive-sm -mr-2">
             <table class="table table-borderless table-hover table-sm">
                 <thead class="thead-dark">
-                <th scope="col">N°</th>
+                <th scope="col">No.</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Teléfono</th>
                 <th scope="col">Dirección</th>

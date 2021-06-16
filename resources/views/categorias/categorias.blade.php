@@ -1,7 +1,7 @@
 @extends('layouts.tabla')
     @section('buscar')
         CATEGORIAS
-        <a class="btn-sm btn-success float-right"   data-toggle="modal" data-target="#modalCrear"><i class="fa fa-plus"></i>Agregar</a>
+        <a class="btn-sm btn-success float-right"   href="{{route("categorias.crear")}}"  data-toggle="modal" data-target="#modalCrear"><i class="fa fa-plus"></i>Agregar</a>
     @endsection
 @section("contenido")
     @if(count($categorias)>0)
