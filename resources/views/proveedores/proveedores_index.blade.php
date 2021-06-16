@@ -55,7 +55,7 @@
             </div>
             @else
                 <div class="alert alert-info">
-                    <h4>No hay proveedores agregador aún, presiona el botón de agregar.</h4>
+                    <h4>No hay proveedores agregados aún, presiona el botón de agregar.</h4>
                 </div>
             @endif
             <div class="modal fade" id="modalBorrarApertura" tabindex="-1" role="dialog">

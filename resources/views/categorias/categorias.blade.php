@@ -1,7 +1,7 @@
 @extends('layouts.tabla')
     @section('buscar')
         CATEGORIAS
-        <a class="btn-sm btn-success float-right"   href="{{route("categorias.crear")}}"  data-toggle="modal" data-target="#modalCrear"><i class="fa fa-plus"></i>Agregar</a>
+        <a class="btn-sm btn-success float-right"   data-toggle="modal" data-target="#modalCrear"><i class="fa fa-plus"></i> Agregar</a>
     @endsection
 @section("contenido")
     @if(count($categorias)>0)
@@ -30,14 +30,14 @@
                             <!---Boton Editar-->
                             <a class="btn-success btn-sm"
                                href="{{route("categoria.editar",['id'=>$categoria->id])}}"
-                               title="Editar"><i class="fa fa-pencil"></i>Editar</a>
+                               title="Editar"><i class="fa fa-pencil"></i> Editar</a>
                             <!---Boton Eliminar-->
                         </td>
                         <td>
                             <a class="btn-danger btn-sm"
                             data-toggle="modal" data-target="#modalCrear_{{$categoria->id}}"
                                title="Eliminar">
-                                <i class="fa fa-trash"></i>Borar</a>
+                                <i class="fa fa-trash"></i> Borar</a>
                         </td>
                     </tr>
 
@@ -55,7 +55,7 @@
                                         <div class="row">
                                             <div class="col" align="center"> <a id="btnCancel" class="btn btn-primary btn-round" data-dismiss="modal">Cancelar</a>
                                             </div>
-                                            <div class="col" align="center"><a id="btnRegister"  href="{{route("categoria.destroy",["id"=>$categoria->id])}}" class="btn btn-success"><i class="fa fa-save"></i>
+                                            <div class="col" align="center"><a id="btnRegister"  href="{{route("categoria.destroy",["id"=>$categoria->id])}}" class="btn btn-success"><i class="fa fa-trash"></i>
                                                 Eliminar
                                             </a>
                                             </div>

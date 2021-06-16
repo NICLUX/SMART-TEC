@@ -43,7 +43,6 @@
                                     <div class="form-group">
                                         <label>Ingrese el nombre:</label>
                                         <input class="form-control  @error('nombre') is-invalid @enderror"
-                                               placeholder="Nombre"
                                                required
                                                value="{{old("nombre")}}"
                                                name="nombre"
@@ -58,7 +57,6 @@
                                     <div class="form-group">
                                         <label>Ingrese la descripción (opcional):</label>
                                         <textarea class="form-control @error('descripcion') is-invalid @enderror"
-                                                  placeholder="Descripción"
                                                   maxlength="80" name="descripcion">{{old("descripcion")}}</textarea>
                                         @error('descripcion')
                                         <span class="invalid-feedback" role="alert">
@@ -70,7 +68,6 @@
                                     <div class="form-group">
                                         <label>Ingrese la direccion:</label>
                                         <textarea class="form-control @error('direccion') is-invalid @enderror"
-                                                  placeholder="Dirección exacta"
                                                   required
                                                   maxlength="80" name="direccion">{{old("direccion")}}</textarea>
                                         @error('direccion')
@@ -82,10 +79,9 @@
 
                                     <div class="form-group">
                                         <label>Ingrese el télefono:</label>
-                                        <input class="form-control phone_mascara @error('telefono') is-invalid @enderror"
-                                              
-                                               pattern='{14}'
-                                               placeholder="+XXX XXXX-XXXX"
+                                        <input class="form-control @error('telefono') is-invalid @enderror"
+                                               type="tel"
+                                               pattern='\d{8}'
                                                required
                                                value="{{old("telefono")}}"
                                                name="telefono">
@@ -99,7 +95,6 @@
                                     <div class="form-group">
                                         <label>Ingrese el correo (opcional):</label>
                                         <input class="form-control @error('email') is-invalid @enderror"
-                                               placeholder="Correo Electronico"
                                                type="email"
                                                value="{{old("email")}}"
                                                maxlength="100"
@@ -116,7 +111,7 @@
                                 </form>
                             </div>
                         </div>
-
+                    </div>
                         <script>
                             function validar() {
                                 let isValid = false;

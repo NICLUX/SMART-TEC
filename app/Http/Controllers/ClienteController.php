@@ -20,7 +20,7 @@ class ClienteController extends Controller
         $this->validate($request,[
             "nombre"=>"required|max:80",
             "direccion"=>"required|max:80",
-            "telefono"=>"required|numeric|min:10000000|max:99999999|unique:clientes,telefono"
+            "telefono"=>"required|numeric|min:30000000|max:99999999|unique:clientes,telefono"
         ],[
             "nombre.required"=>"Se requiere ingresar el nombre del cliente.",
             "nombre.max"=>"El nombre no debe ser máximo a 80 caracteres.",
@@ -32,14 +32,11 @@ class ClienteController extends Controller
             "telefono.unique"=>"El télefono ya ha sido registrado."
         ]);
 
-        $telefono = str_replace("+504 ","", $request->telefono);
-        $telefono = str_replace("-","", $telefono);
-
         $cliente = new Cliente();
         $cliente->nombre=$request->input("nombre");
         $cliente->direccion= $request->input("direccion");
-        $cliente->telefono= $telefono;
-
+        $cliente->telefono= $request->input("telefono");
+        //$cliente->telefono= $telefono;
         $cliente->save();
 
         return redirect()->route("clientes.index")->with("exito","Se registró exitosamente el cliente");
@@ -56,7 +53,8 @@ class ClienteController extends Controller
         $this->validate($request,[
             "nombre"=>"required|max:80",
             "direccion"=>"required|max:80",
-            "telefono"=>"required|numeric|min:10000000|max:99999999|unique:clientes,telefono"
+            "telefono"=>"required",
+            //"telefono"=>"required|numeric|min:10000000|max:99999999|unique:clientes,telefono"
         ],[
             "nombre.required"=>"Se requiere ingresar el nombre del cliente.",
             "nombre.max"=>"El nombre no debe ser máximo a 80 caracteres.",
@@ -68,13 +66,14 @@ class ClienteController extends Controller
             "telefono.unique"=>"El télefono ya ha sido registrado."
         ]);
 
-        $telefono = str_replace("+504 ","", $request->telefono);
-        $telefono = str_replace("-","", $telefono);
+        //$telefono = str_replace("+504 ","", $request->telefono);
+        //$telefono = str_replace("-","", $telefono);
 
         $cliente = Cliente::findOrFail($id);
         $cliente->nombre=$request->input("nombre");
         $cliente->direccion= $request->input("direccion");
-        $cliente->telefono= $telefono;
+        $cliente->telefono= $request->input("telefono");
+        //$cliente->telefono= $telefono;
 
         $cliente->save();
 

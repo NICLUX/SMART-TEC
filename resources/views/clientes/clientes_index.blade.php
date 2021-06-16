@@ -29,12 +29,12 @@
                             </a>
                         </td>
                         <td>
-                            <batton class="btn-sm btn-danger"
+                            <button class="btn-sm btn-danger"
                                     data-id="{{$cliente->id}}"
                                     data-toggle="modal" data-target="#modalBorrarApertura"
                                     onclick="recibir('{{$cliente->id}}')">
                                 <i class="fa fa-trash"></i> Borrar
-                            </batton>
+                            </button>
                         </td>
                     </tr>
                 @endforeach

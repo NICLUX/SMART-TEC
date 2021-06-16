@@ -26,7 +26,6 @@
                                     <div class="form-group">
                                         <label>Ingrese el nombre:</label>
                                         <input class="form-control  @error('nombre') is-invalid @enderror"
-                                               placeholder="Nombre"
                                                type="text"
                                                pattern="[A-Za-z ]{2,20}"
                                                required
@@ -47,7 +46,6 @@
                                     <div class="form-group">
                                         <label>Ingrese la descripción (opcional):</label>
                                         <textarea class="form-control @error('descripcion') is-invalid @enderror"
-                                                  placeholder="Descripción"
                                                   maxlength="80"
                                                   name="descripcion">@if(old("descripcion")){{old("descripcion")}}
                                             @else{{$proveedor->descripcion}}@endif</textarea>
@@ -61,7 +59,6 @@
                                     <div class="form-group">
                                         <label>Ingrese la dirección:</label>
                                         <textarea class="form-control @error('direccion') is-invalid @enderror"
-                                                  placeholder="Dirección"
                                                   required
                                                   maxlength="80"
                                                   name="direccion">@if(old("direccion")){{old("direccion")}}
@@ -75,8 +72,7 @@
 
                                     <div class="form-group">
                                         <label>Ingrese el télefono:</label>
-                                        <input class="form-control phone_mascara @error('telefono') is-invalid @enderror"
-                                               placeholder="Télefono"
+                                        <input class="form-control @error('telefono') is-invalid @enderror"
                                                type="tel"
                                                pattern='\d{8}'
                                                required
@@ -96,7 +92,6 @@
                                     <div class="form-group">
                                         <label>Ingrese el correo (opcional):</label>
                                         <input class="form-control @error('email') is-invalid @enderror"
-                                               placeholder="Correo Electronico"
                                                type="email"
                                                @if(old("email"))
                                                value="{{old("email")}}"
