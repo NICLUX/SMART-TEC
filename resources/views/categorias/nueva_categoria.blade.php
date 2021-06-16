@@ -48,7 +48,7 @@
 
                                 <div class="col-md-9 register-right">
                                     <div class="row register-form">
-                                        <form method="post" action="{{route("categoria.store")}}"
+                                        <form method="post" action="{{route("categorias.store")}}"
                                               enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-group">
