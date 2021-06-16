@@ -82,10 +82,10 @@
 
                                     <div class="form-group">
                                         <label>Ingrese el télefono:</label>
-                                        <input class="form-control @error('telefono') is-invalid @enderror"
-                                               type="tel"
-                                               pattern='\d{8}'
-                                               placeholder="99999999"
+                                        <input class="form-control phone_mascara @error('telefono') is-invalid @enderror"
+                                              
+                                               pattern='{14}'
+                                               placeholder="+XXX XXXX-XXXX"
                                                required
                                                value="{{old("telefono")}}"
                                                name="telefono">

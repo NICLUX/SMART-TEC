@@ -65,7 +65,7 @@
                                     value="{{$cliente->telefono}}"
                                     @endif
                                     name="telefono"
-                                    class="form-control  @error('telefono') is-invalid @enderror">
+                                    class="form-control phone_mascara  @error('telefono') is-invalid @enderror">
                                 <small class="text-muted">Maxima longitud 8 caracteres</small>
                                 @error('telefono')
                                 <span class="invalid-feedback" role="alert">

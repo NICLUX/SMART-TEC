@@ -75,7 +75,7 @@
 
                                     <div class="form-group">
                                         <label>Ingrese el télefono:</label>
-                                        <input class="form-control @error('telefono') is-invalid @enderror"
+                                        <input class="form-control phone_mascara @error('telefono') is-invalid @enderror"
                                                placeholder="Télefono"
                                                type="tel"
                                                pattern='\d{8}'

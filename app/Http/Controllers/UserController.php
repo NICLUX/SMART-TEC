@@ -75,6 +75,10 @@ class userController extends Controller
             "password"=>"La contraseña debe ser mayor o = 8 caracteres"
         ]);
 
+
+        $telefono = str_replace("+504 ","", $request->telefono);
+        $telefono = str_replace("-","", $telefono);
+
         $user = new User();
         $correo = new InformacionMailable($request->all());
         Mail::to($correo->email=$request->input('email'))->send($correo);
@@ -82,7 +86,7 @@ class userController extends Controller
         $user->email= $request->input("email");
         $user->is_admin= $request->input("is_admin");
         $user->usuario= $request->input("usuario");
-        $user->telefono=$request->input("telefono");
+        $user->telefono=  $telefono;
         $user->password = bcrypt($request->input("password"));
         $user->save();
         return redirect()->route("usuarios.index")
@@ -146,11 +150,15 @@ class userController extends Controller
             "email.required"=>"Se debe ingresar el email de usuario.",
             "email.unique"=>"El email debe ser unico",
         ]);
+
+        $telefono = str_replace("+504 ","", $request->telefono);
+        $telefono = str_replace("-","", $telefono);
+
         $editarUsuario = User::findOrfail($request->id);
         $editarUsuario->name= $request->input("name");
         $editarUsuario->usuario= $request->input("usuario");
         $editarUsuario->is_admin= $request->input("is_admin");
-        $editarUsuario->telefono= $request->input("telefono");
+        $editarUsuario->telefono=  $telefono;
         $editarUsuario->email= $request->input("email");
         $editarUsuario->save();
         return redirect()->route("usuarios.index")

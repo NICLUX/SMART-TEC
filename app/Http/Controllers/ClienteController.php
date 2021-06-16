@@ -32,10 +32,13 @@ class ClienteController extends Controller
             "telefono.unique"=>"El télefono ya ha sido registrado."
         ]);
 
+        $telefono = str_replace("+504 ","", $request->telefono);
+        $telefono = str_replace("-","", $telefono);
+
         $cliente = new Cliente();
         $cliente->nombre=$request->input("nombre");
         $cliente->direccion= $request->input("direccion");
-        $cliente->telefono= $request->input("telefono");
+        $cliente->telefono= $telefono;
 
         $cliente->save();
 
@@ -65,10 +68,13 @@ class ClienteController extends Controller
             "telefono.unique"=>"El télefono ya ha sido registrado."
         ]);
 
+        $telefono = str_replace("+504 ","", $request->telefono);
+        $telefono = str_replace("-","", $telefono);
+
         $cliente = Cliente::findOrFail($id);
         $cliente->nombre=$request->input("nombre");
         $cliente->direccion= $request->input("direccion");
-        $cliente->telefono= $request->input("telefono");
+        $cliente->telefono= $telefono;
 
         $cliente->save();
 

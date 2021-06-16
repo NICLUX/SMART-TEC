@@ -16,6 +16,8 @@ class ProveedorController extends Controller
     }
 
     public function store(Request  $request){
+
+
         $this->validate($request,[
             "nombre"=>"required|max:80",
             "email"=>"unique:proveedors,email|max:100",
@@ -32,11 +34,13 @@ class ProveedorController extends Controller
             "telefono.max"=>"El telefono debe ser menor a 8 caracteres",
         ]);
 
+        $telefono = str_replace("+504 ","", $request->telefono);
+        $telefono = str_replace("-","", $telefono);
         $proveedor = new Proveedor();
         $proveedor->nombre= $request->input("nombre");
         $proveedor->descripcion= $request->input("descripcion");
         $proveedor->email= $request->input("email");
-        $proveedor->telefono=$request->input("telefono");
+        $proveedor->telefono=  $telefono;
         $proveedor->direccion = $request->input("direccion");
         $proveedor->save();
 
@@ -47,6 +51,8 @@ class ProveedorController extends Controller
     }
 
     public function stor(Request  $request){
+
+
         $this->validate($request,[
             "nombre"=>"required|max:80",
             "email"=>"unique:proveedors,email|max:100",
@@ -63,11 +69,13 @@ class ProveedorController extends Controller
             "telefono.max"=>"El telefono debe ser menor a 8 caracteres",
         ]);
 
+        $telefono = str_replace("+504 ","", $request->telefono);
+        $telefono = str_replace("-","", $telefono);
         $proveedor = new Proveedor();
         $proveedor->nombre= $request->input("nombre");
         $proveedor->descripcion= $request->input("descripcion");
         $proveedor->email= $request->input("email");
-        $proveedor->telefono=$request->input("telefono");
+        $proveedor->telefono=  $telefono;
         $proveedor->direccion = $request->input("direccion");
         $proveedor->save();
 
