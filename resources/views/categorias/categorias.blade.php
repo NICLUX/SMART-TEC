@@ -35,11 +35,36 @@
                         </td>
                         <td>
                             <a class="btn-danger btn-sm"
-                               href="{{route("categoria.destroy",["id"=>$categoria->id])}}"
+                            data-toggle="modal" data-target="#modalCrear_{{$categoria->id}}"
                                title="Eliminar">
                                 <i class="fa fa-trash"></i>Borar</a>
                         </td>
                     </tr>
+
+                    <div class="modal fade" id="modalCrear_{{$categoria->id}}" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">¿Desea eliminar esta Categoría?</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col" align="center"> <a id="btnCancel" class="btn btn-primary btn-round" data-dismiss="modal">Cancelar</a>
+                                            </div>
+                                            <div class="col" align="center"><a id="btnRegister"  href="{{route("categoria.destroy",["id"=>$categoria->id])}}" class="btn btn-success"><i class="fa fa-save"></i>
+                                                Eliminar
+                                            </a>
+                                            </div>
+                                        </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 @endforeach
                 </tbody>
             </table>
@@ -121,4 +146,9 @@
                     </div>
                 </div>
             </div>
+
+
+
+
+
 @endsection
