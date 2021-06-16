@@ -108,48 +108,6 @@ class CompraController extends Controller
 
     }
 
-    public function store(Request $request){
-        $this->validate($request, [
-            'id_usuario' => "required",
-            "id_proveedore" => "required",
-            "numero_comprobante"=>"required",
-
-        ], [
-            "id_usuario.required" => "Se requiere ingresar el nombre de usuario",
-            "id_proveedore.required" => "Se requiere ingresar el nombre del proveedor",
-            "numero_comprobante"=>"se requiere imngrese el numero de comprovante"
-        ]);
-        DB::beginTransaction();
-        $nuevaCompra=new Compra();
-        $nuevaCompra->id_usuario= $request->input("id_usuario");
-        $nuevaCompra->id_proveedore= $request->input("id_proveedore");
-        $nuevaCompra->numero_comprobante= $request->input("numero_comprobante");
-        $mytime=Carbon::now('America/tegucigalpa');
-        $nuevaCompra->feche_hora = $mytime->toDateTimeLocalString();
-        $nuevaCompra->save();
-
-        $id_producto = $request->input("id_producto");
-        $costo_compra = $request->input("costo_compra");
-        $costo_venta = $request->input("costo_venta");
-        $cantidad = $request->input("cantidad");
-
-        $cont = 0;
-        while($cont < count($id_producto))
-        {
-            $detalle = new Detalle_compra();
-            $detalle->id_compra=$nuevaCompra->id;
-            $detalle->id_producto = $id_producto[$cont];
-            $detalle->costo_venta=$costo_venta[$cont];
-            $detalle->costo_compra=$costo_compra[$cont];
-            $detalle->cantidad=$cantidad[$cont];
-            $detalle->save();
-            $cont = $cont+1;
-        }
-        $this->inventario($request);
-        DB::commit();
-        return redirect()->route("compras.index")->with("exito","Se registró exitosamente");
-    }
-
     public function inventario(Request $request){
 
         $id_producto = $request->input("id_producto");
