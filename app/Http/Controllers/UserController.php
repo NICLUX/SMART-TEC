@@ -58,8 +58,8 @@ class userController extends Controller
             "name"=>"required|max:100",
             "email"=>"unique:users,email",
             "is_admin"=>"required|numeric",
-            "usuario"=>"required|max:80|unique:users,name,",
-            "telefono"=>"required|max:8|min:8|unique:users,telefono|unique:proveedors,telefono|unique:clientes,telefono",
+            "usuario"=>"required|max:80|unique:users,name",
+            "telefono"=>"required|max:14|min:14|unique:users,telefono|unique:proveedors,telefono|unique:clientes,telefono",
             "password"=>"required|min:8",
         ],[
             "nombre.required"=>"Se requiere ingresar el nombre del usuario",

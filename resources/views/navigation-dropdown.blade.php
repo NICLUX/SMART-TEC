@@ -10,10 +10,14 @@
 
 
                         <button class="flex items-center text-sm font-medium text-dark-500 hover:text-gray-700 hover:border-gray-300-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                            <div style="padding-right= 10px">{{ Auth::user()->name }}</div>
+                            <div style="padding-right: 10px">{{ Auth::user()->name }}</div>
                             <div class="ml-1">
-                                <img src="{{ Auth::user()->photo }}" style="width: 40px; height: 40px; " alt="User Image">
 
+                                @if (Auth::user()->profile_photo_path)
+                                    <img class="h-8 w-8 rounded-full object-cover" src="/storage/{{Auth::user()->profile_photo_path }}" alt="{{ Auth::user()->name }}" />
+                                @else
+                                    <img class="h-8 w-8 rounded-full object-cover" src="{{Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                                @endif
 
                             </div>
                         </button>
@@ -57,8 +61,7 @@
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="flex items-center px-4">
                 <div class="flex-shrink-0">
-                    <img class="h-10 w-10 rounded-full"  alt="{{ Auth::user()->name }}" />
-                </div>
+                   </div>
 
                 <div class="ml-3">
                     <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>

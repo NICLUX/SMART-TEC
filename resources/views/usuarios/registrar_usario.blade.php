@@ -58,6 +58,7 @@
                                         <input type="text"
                                                pattern="[a-z]{2,20}"
                                                required
+                                               maxlength="30"
                                                id="usuario"  class="form-control @error('usuario') is-invalid @enderror" name="usuario"
                                                placeholder="Ingrese el nombre de usuario">
                                         @error('usuario')
@@ -89,9 +90,9 @@
                                         <input class="form-control phone_mascara @error('telefono') is-invalid @enderror" name="telefono"
                                                id="telefono"
                                                type="tel"
-                                               pattern='\d{8}'
+                                               maxlength="14"
                                                required
-                                               placeholder="+XXX XXXX-XXXX">
+                                               placeholder="+504 XXXX-XXXX">
                                         @error('telefono')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

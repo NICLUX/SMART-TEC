@@ -1,29 +1,5 @@
-@extends("layouts.main")
-@extends("servicios.mejora_vista")
-@section("content")
-    <!---Alerta y envia mensajes al proveedor cuando hay un error o se registran -->
-    @if(session("exito"))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{session("exito")}}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    @endif
-    @if(session("error"))
-        <div class="alert alert-danger alert-dismissible" role="alert">
-            <span class="fa fa-save"></span> {{session("error")}}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-
-        </div>
-    @endif
-
-    <div class="container register" id="detalle_form_prov">
-        <div class="row" id="detalle_form_prov">
-            <div class="col-md-3 register-left">
-                <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+@extends("layouts.formulario")
+@section("contenido")
                 <h1>SMARTEC</h1>
                 <a id="btn-cancelar" class="btn btn-primary btn-round"
                    href="{{route("proveedores.index")}}">Cancelar</a>
@@ -43,6 +19,7 @@
                                     <div class="form-group">
                                         <label>Ingrese el nombre:</label>
                                         <input class="form-control  @error('nombre') is-invalid @enderror"
+                                               placeholder="Nombre"
                                                required
                                                value="{{old("nombre")}}"
                                                name="nombre"
@@ -57,6 +34,7 @@
                                     <div class="form-group">
                                         <label>Ingrese la descripción (opcional):</label>
                                         <textarea class="form-control @error('descripcion') is-invalid @enderror"
+                                                  placeholder="Descripción"
                                                   maxlength="80" name="descripcion">{{old("descripcion")}}</textarea>
                                         @error('descripcion')
                                         <span class="invalid-feedback" role="alert">
@@ -68,6 +46,7 @@
                                     <div class="form-group">
                                         <label>Ingrese la direccion:</label>
                                         <textarea class="form-control @error('direccion') is-invalid @enderror"
+                                                  placeholder="Dirección exacta"
                                                   required
                                                   maxlength="80" name="direccion">{{old("direccion")}}</textarea>
                                         @error('direccion')
@@ -80,9 +59,9 @@
                                     <div class="form-group">
                                         <label>Ingrese el télefono:</label>
                                         <input class="form-control @error('telefono') is-invalid @enderror"
-                                               type="tel"
-                                               pattern='\d{8}'
+                                               placeholder="XXXX-XXXX"
                                                required
+                                               maxlength="8"
                                                value="{{old("telefono")}}"
                                                name="telefono">
                                         @error('telefono')
@@ -95,6 +74,7 @@
                                     <div class="form-group">
                                         <label>Ingrese el correo (opcional):</label>
                                         <input class="form-control @error('email') is-invalid @enderror"
+                                               placeholder="Correo Electronico"
                                                type="email"
                                                value="{{old("email")}}"
                                                maxlength="100"
@@ -111,7 +91,7 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
+
                         <script>
                             function validar() {
                                 let isValid = false;

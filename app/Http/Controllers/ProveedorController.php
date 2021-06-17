@@ -16,14 +16,12 @@ class ProveedorController extends Controller
     }
 
     public function store(Request  $request){
-
-
         $this->validate($request,[
             "nombre"=>"required|max:80",
             "email"=>"unique:proveedors,email|max:100",
             "descripcion"=>"max:80",
             "direccion"=>"required|max:80",
-            "telefono"=>"required|unique:proveedors,telefono|max:99999999",
+            "telefono"=>"required|unique:proveedors,telefono|max:99999999|",
 
         ],[
             "nombre.required"=>"Se requiere ingresar el nombre del proveedor",
@@ -32,6 +30,7 @@ class ProveedorController extends Controller
             "direccion.required"=>"La dirección se requiere.",
             "telefono.unique"=>"El télefono ya ha sido registrado",
             "telefono.max"=>"El telefono debe ser menor a 8 caracteres",
+
         ]);
 
         //$telefono = str_replace("+504 ","", $request->telefono);
