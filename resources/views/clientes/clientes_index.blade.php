@@ -7,14 +7,17 @@
         <div class="table-responsive-sm -mr-2">
             <table class="table table-borderless table-hover table-sm">
                 <thead class="thead-dark">
-                <th scope="col">No.</th>
+                <th scope="col">N°</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Teléfono</th>
                 <th scope="col">Dirección</th>
                 <th scope="col">Editar</th>
                 <th scope="col">Borrar</th>
+
                 </tr>
+
                 </thead>
+
                 <tbody>
                 @foreach($clientes as $item=>$cliente)
                     <tr id="resultados">
@@ -25,7 +28,7 @@
                         <td>
                             <a class="btn-sm btn-success"
                                href="{{route('cliente.editar',['id'=>$cliente->id])}}"
-                               title="Editar"><i class="fa fa-pencil"> Editar</i>
+                               title="Editar"><i class="fa fa-pencil"></i>
                             </a>
                         </td>
                         <td>
@@ -33,7 +36,7 @@
                                     data-id="{{$cliente->id}}"
                                     data-toggle="modal" data-target="#modalBorrarApertura"
                                     onclick="recibir('{{$cliente->id}}')">
-                                <i class="fa fa-trash"></i> Borrar
+                                <i class="fa fa-trash"></i>
                             </button>
                         </td>
                     </tr>
