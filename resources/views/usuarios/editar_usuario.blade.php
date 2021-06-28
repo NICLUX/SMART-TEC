@@ -68,8 +68,8 @@
                             <input
                                 type="tel"
                                 pattern='\d{8}'
-                                   required
-                                   @if(old("telefono"))
+                                required
+                                @if(old("telefono"))
                                    value="{{old("telefono")}}"
                                    @else
                                    value="{{$user->telefono}}"

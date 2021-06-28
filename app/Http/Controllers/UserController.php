@@ -59,7 +59,7 @@ class userController extends Controller
             "email"=>"unique:users,email",
             "is_admin"=>"required|numeric",
             "usuario"=>"required|max:80|unique:users,name",
-            "telefono"=>"required|max:14|min:14|unique:users,telefono|unique:proveedors,telefono|unique:clientes,telefono",
+            "telefono"=>"required|max:8|min:8|unique:users,telefono|unique:proveedors,telefono|unique:clientes,telefono",
             "password"=>"required|min:8",
         ],[
             "nombre.required"=>"Se requiere ingresar el nombre del usuario",
@@ -75,10 +75,6 @@ class userController extends Controller
             "password"=>"La contraseña debe ser mayor o = 8 caracteres"
         ]);
 
-
-        $telefono = str_replace("+504 ","", $request->telefono);
-        $telefono = str_replace("-","", $telefono);
-
         $user = new User();
         $correo = new InformacionMailable($request->all());
         Mail::to($correo->email=$request->input('email'))->send($correo);
@@ -86,7 +82,7 @@ class userController extends Controller
         $user->email= $request->input("email");
         $user->is_admin= $request->input("is_admin");
         $user->usuario= $request->input("usuario");
-        $user->telefono=  $telefono;
+        $user->telefono=  $request->input("telefono");
         $user->password = bcrypt($request->input("password"));
         $user->save();
         return redirect()->route("usuarios.index")
@@ -137,7 +133,7 @@ class userController extends Controller
         $this->validate($request,[
             "name"=>"required|max:100",
             "usuario"=>"required|max:100|unique:users,name,".$id,
-            "telefono"=>"required|max:11|min:8|unique:users,telefono,".$id,
+            "telefono"=>"required|max:8|min:8|unique:users,telefono,".$id,
             "email"=>"required|unique:users,email,".$id
         ],[
             "name.required"=>"Se debe ingresar el nombre del usuario.",
@@ -151,14 +147,11 @@ class userController extends Controller
             "email.unique"=>"El email debe ser unico",
         ]);
 
-        $telefono = str_replace("+504 ","", $request->telefono);
-        $telefono = str_replace("-","", $telefono);
-
         $editarUsuario = User::findOrfail($request->id);
         $editarUsuario->name= $request->input("name");
         $editarUsuario->usuario= $request->input("usuario");
         $editarUsuario->is_admin= $request->input("is_admin");
-        $editarUsuario->telefono=  $telefono;
+        $editarUsuario->telefono= $request->input("telefono");
         $editarUsuario->email= $request->input("email");
         $editarUsuario->save();
         return redirect()->route("usuarios.index")
@@ -188,7 +181,7 @@ class userController extends Controller
         $editarUsuario->email= $request->input("email");
         $editarUsuario->save();
         return redirect()->route("profile.show")
-            ->with("exito","Se edito correctamente la categoria");
+            ->with("exito","Se editó correctamente la categoria");
     }
     /**
      * Remove the specified resource from storage.

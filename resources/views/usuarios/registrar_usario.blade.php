@@ -88,11 +88,12 @@
                                     <div class="form-group">
                                         <label for="costo_compra">Ingrese el telefono:</label>
                                         <input class="form-control phone_mascara @error('telefono') is-invalid @enderror" name="telefono"
+                                               pattern="[0-9]{8}"
                                                id="telefono"
                                                type="tel"
-                                               maxlength="14"
+                                               maxlength="8"
                                                required
-                                               placeholder="+504 XXXX-XXXX">
+                                               placeholder="">
                                         @error('telefono')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
