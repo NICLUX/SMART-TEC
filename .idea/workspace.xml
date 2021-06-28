@@ -22,28 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="Mejoras a las migraciones">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ServiciosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ServiciosController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_12_231623_create_tipo_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2013_10_11_00000_create_tipo_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_15_201515_create_proveedors_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_14_201515_create_proveedors_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Servicios/agregar_servicio.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/servicios/agregar_servicio.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Servicios/editar_servicio.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/servicios/editar_servicio.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Servicios/mejora_vista.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/servicios/mejora_vista.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Servicios/servicio.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/servicios/servicio.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Servicios/vista_tabla_servicios.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/servicios/vista_tabla_servicios.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/categorias/editar_categoria.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categorias/editar_categoria.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/clientes/clientes_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clientes/clientes_index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/clientes/editar_cliente.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clientes/editar_cliente.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/ventas/total_ventas_user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/ventas/total_ventas_user.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/principal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/principal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/proveedores/editar_proveedor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proveedores/editar_proveedor.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/tablaUsuario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/tablaUsuario.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/users.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="Mejoras a las migraciones" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -309,7 +288,7 @@
       <workItem from="1624485053313" duration="1479000" />
       <workItem from="1624650533513" duration="1935000" />
       <workItem from="1624845733578" duration="4672000" />
-      <workItem from="1624916281738" duration="4175000" />
+      <workItem from="1624916281738" duration="4479000" />
     </task>
     <task id="LOCAL-00001" summary="Creacion de cintrolador, modelo, migracion de categoria, productos, inventario">
       <created>1602800135286</created>
@@ -465,7 +444,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624917069854</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Mejoras a las migraciones">
+      <created>1624920680165</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1624920680165</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
