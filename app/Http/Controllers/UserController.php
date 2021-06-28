@@ -27,17 +27,20 @@ class userController extends Controller
         return view('usuarios.users')
             ->with('users',$users);
     }
+
     public function mostrar()
     {
         $users = User::paginate(12);
         return view('usuarios.tablaUsuario')
             ->with('users',$users);
     }
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         $tipos = Tipo_user::all();
@@ -46,12 +49,14 @@ class userController extends Controller
             ->with("users", $users)
             ->with("tipos", $tipos);
     }
+
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         $this->validate($request,[
@@ -88,11 +93,13 @@ class userController extends Controller
         return redirect()->route("usuarios.index")
             ->with("exito","Se creó exitosamente el usuario y se envio un mensage a su correo electronico");
     }
+
     public function editarFoto($id){
         $user=User::findOrFail($id);
         return view("usuarios.editar_foto")
             ->with("user",$user);
     }
+
     public function edit($id){
         $tipos=Tipo_user::all();
         $user=User::findOrFail($id);
@@ -100,11 +107,13 @@ class userController extends Controller
             ->with("user",$user)
                 ->with("tipos",$tipos);
     }
+
     public function editar($id){
         $user=User::findOrFail($id);
         return view("usuarios.editar_usuario")
             ->with("user",$user);
     }
+
     public function updateFoto(Request $request,$id){
         $editarUsuario = User::findOrfail($request->id);
         $path = public_path() . '\images\categorias';//Carpeta publica de las imagenes
@@ -125,10 +134,12 @@ class userController extends Controller
             copy($ruta, $destino);
             $editarUsuario->photo=$photo;
         }
+
         $editarUsuario->save();
         return redirect()->route("profile.show")
             ->with("exito","Se editó correctamente el usuario");
     }
+
     public function update(Request $request,$id){
         $this->validate($request,[
             "name"=>"required|max:100",
@@ -157,6 +168,7 @@ class userController extends Controller
         return redirect()->route("usuarios.index")
             ->with("exito","Se editó correctamente el usuario");
     }
+
     public function updat(Request $request,$id){
         $this->validate($request,[
             "name"=>"required|max:100",
@@ -174,6 +186,7 @@ class userController extends Controller
             "email.required"=>"Se debe ingresar el email de usuario.",
             "email.unique"=>"El email debe ser unico",
         ]);
+
         $editarUsuario = User::findOrfail($request->id);
         $editarUsuario->name= $request->input("name");
         $editarUsuario->usuario= $request->input("usuario");
@@ -183,12 +196,14 @@ class userController extends Controller
         return redirect()->route("profile.show")
             ->with("exito","Se editó correctamente la categoria");
     }
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
     {
         $user= User::findOrFail($id);
@@ -196,6 +211,7 @@ class userController extends Controller
         return redirect()->route("usuarios.index")
             ->with("exito", "Usuario eliminado exitosamente.");
     }
+
     public function borrar($id)
     {
         $user= User::findOrFail($id);

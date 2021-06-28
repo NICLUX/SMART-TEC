@@ -1,5 +1,5 @@
 @extends('layouts.formulario')
-@extends("Servicios.mejora_vista")
+@extends("servicios.mejora_vista")
 @section('contenido')
 
     <h1>SMARTEC</h1>

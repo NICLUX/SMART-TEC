@@ -1,6 +1,6 @@
 @extends("layouts.main")
 @extends("mejora_principal")
-@extends("Servicios.mejora_vista")
+@extends("servicios.mejora_vista")
 @section("content")
 @section("content")
     <style>

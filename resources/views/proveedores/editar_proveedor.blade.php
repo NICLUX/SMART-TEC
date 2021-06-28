@@ -1,5 +1,5 @@
 @extends("layouts.main")
-@extends("Servicios.mejora_vista")
+@extends("servicios.mejora_vista")
 @section("content")
 
     <div class="container register" id="detalle_form_prov">

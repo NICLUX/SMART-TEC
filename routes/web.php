@@ -107,7 +107,7 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/proveedor/{id}/editar",[\App\Http\Controllers\ProveedorController::class,"editar"])->name("proveedor.editar");//Muestra el formulario de editar proveedor
         Route::put("/proveedor/{id}/update",[\App\Http\Controllers\ProveedorController::class,"update"])->name("proveedor.update");//Guarda los datos de actualizar proveedor
         Route::get("/proveedor/{id}/destroy",[\App\Http\Controllers\ProveedorController::class,"destroy"])->name("proveedor.destroy");//Borra un proveedor desde la lista
-        //-----------Servicios------------------//
+        //-----------servicios------------------//
         Route::get("/servicios",[ServiciosController::class,"index"])->name("servicios.index");//muestra todos los servicios
         Route::get("/servicios/crear",[ServiciosController::class,"create"])->name("servicios.crear");//formulario de crear servicio
         Route::post('/servicios/crear', [ServiciosController::class,"store"])->name('servicios.store');//crea el nuevo servicio

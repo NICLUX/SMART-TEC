@@ -1,6 +1,18 @@
 @extends('layouts.tabla')
 @section('buscar')
-    CLIENTES <a class="btn-sm btn-success float-right" href="{{route("cliente.nuevo")}}"><i class="fa fa-plus"></i> Agregar</a>
+
+    <div class="col">
+        <ul class="list-group">
+            <li class="list-group-item" style="background-color:#1c2d3f">
+                <h2 style="color:#ffffff;">
+                    CLIENTES
+                    <a class="btn-sm btn-success float-right" href="{{route("cliente.nuevo")}}"><i
+                            class="fa fa-plus"></i> Agregar</a>
+                </h2>
+            </li>
+        </ul>
+    </div>
+
 @endsection
 @section("contenido")
     @if($clientes->count())
@@ -13,9 +25,7 @@
                 <th scope="col">Dirección</th>
                 <th scope="col">Editar</th>
                 <th scope="col">Borrar</th>
-
                 </tr>
-
                 </thead>
 
                 <tbody>

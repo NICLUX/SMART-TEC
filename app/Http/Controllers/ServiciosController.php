@@ -11,19 +11,19 @@ class ServiciosController extends Controller
     public function index()
     {
         $servicios = Servicio::paginate(10);
-        return view("Servicios.vista_tabla_servicios")->with("servicios", $servicios);
+        return view("servicios.vista_tabla_servicios")->with("servicios", $servicios);
     }
     public function mostrar()
     {
         $servicios = Servicio::paginate(10);
-        return view("Servicios.servicio")->with("servicios", $servicios);
+        return view("servicios.servicio")->with("servicios", $servicios);
     }
 
     public function create()
     {
         $servicios=Servicio::all();
         $categorias = Categoria::all();
-        return view("Servicios.agregar_servicio")
+        return view("servicios.agregar_servicio")
             ->with("categorias", $categorias)
             ->with("servicios", $servicios);
     }
@@ -71,7 +71,7 @@ class ServiciosController extends Controller
     public function edit($id){
         $servicioo = Servicio::findOrFail($id);
         $categorias = Categoria::all();
-        return view("Servicios.editar_servicio")->with("servicioo", $servicioo)->with('categorias',$categorias);
+        return view("servicios.editar_servicio")->with("servicioo", $servicioo)->with('categorias',$categorias);
     }
 
 
