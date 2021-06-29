@@ -1,18 +1,19 @@
 <div xmlns:wire="http://www.w3.org/1999/xhtml">
 
+    <div class="col">
+        <ul class="list-group">
+            <li class="list-group-item" style="background-color:#1c2d3f">
+                <h2 style="color:#ffffff;">
+                    APERTURA DE CAJA
+                    <button class="btn btn-success float-right "
+                            data-toggle="modal" data-target="#modalCrearApertura">Agregar
+                    </button>
+                </h2>
+            </li>
+        </ul>
+    </div>
 
     <div>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page">Apertura de Caja</li>
-            </ol>
-        </nav>
-
-
-        <button class="btn btn-success float-right "
-                data-toggle="modal" data-target="#modalCrearApertura">Agregar
-        </button>
-
         <br><br>
         @if(session("exito"))
             <div class="alert alert-success ">
@@ -66,7 +67,7 @@
 
         @else
             <div class="alert alert-info">
-                <h5><i class="fa fa-exclamation-triangle"></i> No hay aperturas de cajas registradas aun.</h5>
+                <h4>No hay apertura de caja aún, presiona el botón de agregar.</h4>
             </div>
 
         @endif

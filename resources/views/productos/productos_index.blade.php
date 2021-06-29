@@ -1,29 +1,43 @@
 @extends("layouts.tabla")
 @section("contenido")
 @section('buscar')
-    <form method="get" action="{{route('producto.buscar')}}">
-        PRODUCTOS
-        @csrf
-        <div class="form-inline my-2 my-lg-0 float-right">
-            <input class="form-control"
-                   name="busqueda"
-                   @if(isset($busqueda))
-                   value="{{$busqueda}}"
-                   @endif
-                   type="search" placeholder="Buscar">
-            <div class="input-group-append">
-                <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
-            </div>
-        </div>
-    </form>
+    <div class="col">
+        <ul class="list-group">
+            <li class="list-group-item" style="background-color:#1c2d3f">
+                    <form method="get" action="{{route('producto.buscar')}}">
+                        @csrf
+                        <div class="form-inline my-2 my-lg-0 float-right">
+                            <input class="form-control"
+                                   name="busqueda"
+                                   @if(isset($busqueda))
+                                   value="{{$busqueda}}"
+                                   @endif
+                                   type="search" placeholder="Buscar">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+            </li>
+        </ul>
+    </div>
 @endsection
-<div style="margin-bottom: 10px">
-    <a class="btn-success btn-sm float-right" href="{{route('producto.nuevo')}}"><i class="fa fa-plus"></i>
-        Agregar</a>
-    <a class="btn-warning btn-sm float-right" href="{{route('productos.imprimir')}}"><i class="fa fa-book" aria-hidden="true"></i>
-        Imprimir</a>
-    <a class="btn-sm btn-secondary btn-sm float-right" href="{{route("productos.mostrar")}}">Nueva Vista</a>
+<div class="col">
+    <ul class="list-group">
+        <li class="list-group-item" style="background-color:#1c2d3f">
+            <h2 style="color:#ffffff;">
+                PRODUCTOS
+                <a class="btn-success btn-sm float-right" href="{{route('producto.nuevo')}}"><i class="fa fa-plus"></i>
+                    Agregar</a>
+                <a class="btn-sm btn-success float-right" style="margin-right:3px"
+                   href="{{route("productos.mostrar")}}"><i class="fa fas fa-clone"></i> Lista </a>
+                <a class="btn-warning btn-sm float-right" href="{{route('productos.imprimir')}}"><i class="fa fa-book" aria-hidden="true"></i>
+                    Imprimir</a>
+            </h2>
+        </li>
+    </ul>
 </div>
+
 <div style="margin-top: 10px">
         <div class="card-body">
             @if($productos->count()>0)
@@ -72,7 +86,7 @@
         </div>
     @else
         <div class="alert alert-info">
-            No hay productos ingresados aun
+            <h4>No hay productos agregados aún, presiona el botón de agregar.</h4>
         </div>
     @endif
 

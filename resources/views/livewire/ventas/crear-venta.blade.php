@@ -1,18 +1,17 @@
 <div xmlns:wire="http://www.w3.org/1999/xhtml">
     <!--TODO validar que evite cerrar la ventana o ir hacia atras-->
-    <div class="card">
-        <div class="card-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm">
-                        <h3 style="align-items: flex-start;" class="card-title">Crear venta</h3>
-                    </div>
 
-                    <a class="btn btn-success btn-sm float-right" href="{{route("ventas.index")}}">
-                        Historial</a>
-                </div>
-            </div>
+        <div class="col">
+            <ul class="list-group">
+                <li class="list-group-item" style="background-color:#1c2d3f">
+                    <h2 style="color:#ffffff;">
+                        CREAR VENTA
+                        <a class="btn-sm btn-success float-right" href="{{route("ventas.index")}}"><i></i> Historial</a>
+                    </h2>
+                </li>
+            </ul>
         </div>
+
         @if(session("exito"))
         <div class="alert alert-success ">
             {{session("exito")}}

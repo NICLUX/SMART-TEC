@@ -1,10 +1,22 @@
 @extends('layouts.tabla')
 @section("contenido")
     @section('buscar')
-            PRODUCTOS
-            <a class="btn-sm btn-success float-right" href="{{route("producto.nuevo")}}"><i class="fa fa-plus"></i>Agregar</a>
-            <a class="btn-warning btn-sm float-right" href="{{route('productos.imprimir')}}"><i class="fa fa-book" aria-hidden="true"></i>Imprimir</a>
-            <a class="btn-sm btn-secondary btn-sm float-right" href="{{route("productos.index")}}">Nueva Vista</a>
+            <div class="col">
+                <ul class="list-group">
+                    <li class="list-group-item" style="background-color:#1c2d3f">
+                        <h2 style="color:#ffffff;">
+                            PRODUCTOS
+                            <a class="btn-success btn-sm float-right" href="{{route('producto.nuevo')}}"><i class="fa fa-plus"></i>
+                                Agregar</a>
+                            <a class="btn-sm btn-success float-right" style="margin-right:3px"
+                               href="{{route("productos.index")}}"><i class="fa fas fa-clone"></i> Tabla </a>
+                            <a class="btn-warning btn-sm float-right" href="{{route('productos.imprimir')}}"><i class="fa fa-book" aria-hidden="true"></i>
+                                Imprimir</a>
+                        </h2>
+                    </li>
+                </ul>
+            </div>
+
     @endsection
 @if(count($productos)>0)
     <div class="table-responsive-sm -mr-2">
@@ -52,7 +64,7 @@
         </table>
         @else
             <div class="alert alert-info">
-                No hay productos ingresados aun
+                <h4>No hay productos agregados aún, presiona el botón de agregar.</h4>
             </div>
         @endif
 <div class="modal fade" id="modalBorrarApertura" tabindex="-1" role="dialog">

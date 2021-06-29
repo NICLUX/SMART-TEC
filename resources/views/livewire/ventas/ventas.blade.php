@@ -1,7 +1,15 @@
 <div xmlns:wire="http://www.w3.org/1999/xhtml">
     <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">Ventas</h3>
+        <div class="col">
+            <ul class="list-group">
+                <li class="list-group-item" style="background-color:#1c2d3f">
+                    <h2 style="color:#ffffff;">
+                        VENTAS
+                        <a class="btn-sm btn-success float-right" href="{{route("venta.nuevo")}}"><i
+                                class="fa fa-plus"></i> Agregar</a>
+                    </h2>
+                </li>
+            </ul>
         </div>
 
         @if(session("exito"))
@@ -28,8 +36,6 @@
             </div>
         @endif
         <div class="card-body">
-            <a class="btn btn-success btn-sm float-right" href="{{route("venta.nuevo")}}"><i class="fa fa-plus"></i>
-                Crear</a>
             <br>
             <br>
 
@@ -71,7 +77,7 @@
                                     <a href='{{route("venta.imprimir_factura",["id"=>$venta->id])}}' class="btn btn-sm btn-warning">
                                             <i class="fa fa-book" aria-hidden="true"></i>
                                     </a>
-                                   
+
                                 </td>
                             </tr>
                         @endforeach

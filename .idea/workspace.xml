@@ -22,7 +22,28 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="Mejoras a las migraciones" />
+    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="Mejoras a la semilla DatabaseSeeder">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClienteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClienteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProveedorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProveedorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/clientes/clientes_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clientes/clientes_index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/compras/mostrarCompras.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/compras/mostrarCompras.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/hola.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/hola.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/aperturas/apertura-caja.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/aperturas/apertura-caja.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/ventas/crear-venta.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/ventas/crear-venta.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/ventas/ventas.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/ventas/ventas.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/productos/TablaProductos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/productos/TablaProductos.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/productos/productos_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/productos/productos_index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/proveedores/proveedores_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proveedores/proveedores_index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/servicios/servicio.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/servicios/servicio.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/servicios/vista_tabla_servicios.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/servicios/vista_tabla_servicios.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario_para_admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario_para_admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/registrar_usario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/registrar_usario.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/tablaUsuario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/tablaUsuario.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/users.blade.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -288,7 +309,7 @@
       <workItem from="1624485053313" duration="1479000" />
       <workItem from="1624650533513" duration="1935000" />
       <workItem from="1624845733578" duration="4672000" />
-      <workItem from="1624916281738" duration="4479000" />
+      <workItem from="1624916281738" duration="12293000" />
     </task>
     <task id="LOCAL-00001" summary="Creacion de cintrolador, modelo, migracion de categoria, productos, inventario">
       <created>1602800135286</created>
@@ -451,7 +472,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624920680165</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Mejoras a la semilla DatabaseSeeder">
+      <created>1624921163370</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1624921163370</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -490,6 +518,7 @@
     <MESSAGE value="Mejoras en la vista de clientes" />
     <MESSAGE value="Corrección de errores básicos" />
     <MESSAGE value="Mejoras a las migraciones" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mejoras a las migraciones" />
+    <MESSAGE value="Mejoras a la semilla DatabaseSeeder" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mejoras a la semilla DatabaseSeeder" />
   </component>
 </project>

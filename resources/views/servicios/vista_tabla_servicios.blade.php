@@ -1,9 +1,19 @@
 @extends('layouts.tabla')
 @section('buscar')
 
-    Tabla de servicios
-    <a class="btn-sm btn-success float-right" href="{{route("servicios.crear")}}"><i class="fa fa-plus"></i> Agregar</a>
-    <a class="btn-sm btn-secondary btn-sm float-right" href="{{route("servicios.nuevaVista")}}"><i class="fa fas fa-clone"></i> Lista </a>
+    <div class="col">
+        <ul class="list-group">
+            <li class="list-group-item" style="background-color:#1c2d3f">
+                <h2 style="color:#ffffff;">
+                    SERVICIOS
+                    <a class="btn-sm btn-success float-right" href="{{route("servicios.crear")}}"><i
+                            class="fa fa-plus"></i> Agregar</a>
+                    <a class="btn-sm btn-success float-right" style="margin-right:3px"
+                       href="{{route("servicios.nuevaVista")}}"><i class="fa fas fa-clone"></i> Lista </a>
+                </h2>
+            </li>
+        </ul>
+    </div>
 @endsection
 @section("contenido")
     @if(count($servicios)>0)
@@ -48,7 +58,7 @@
             </table>
             @else
                 <div class="alert alert-info">
-                    <h4>No hay servicios registrados aún, presiona el botón de agregar.</h4>
+                    <h4>No hay servicios agregados aún, presiona el botón de agregar.</h4>
                 </div>
             @endif
             <div class="card-footer1 ">

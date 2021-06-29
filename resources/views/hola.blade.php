@@ -26,7 +26,6 @@
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
                 <h1>SMARTEC</h1>
-                <p>Editar Usuario!</p>
                 <a id="btn-cancelar" class="btn btn-primary btn-round" href="{{route("usuarios.index")}}">Cancelar</a>
             </div>
             <div class="col-md-9 register-right">

@@ -37,15 +37,16 @@
 
                                 <form  id="form_proveedores" enctype="multipart/form-data"
                                        action="{{route("usuarios.store")}}"
-                                       method="post">
+                                       method="post" style="width: 550px">
                                     @csrf
-                                    <div class="form-group">
-                                        <label for="name">Ingrese el nombre:</label>
+                                    <div class="form-group" >
+                                        <label for="name">Nombre:</label>
                                         <input type="text"
-                                               pattern="[A-Za-z ]{2,20}"
+                                               pattern="^[A-Za-záéíóú \s]{2,20}"
+                                               title="Debe ingresar un nombre valido, ejemplo: Daniela Martinez"
+                                               maxlength="20"
                                                required
-                                               placeholder="Ingrese el nombre completo"
-                                               maxlength="80"
+                                               placeholder=""
                                                name="name" class="form-control  @error('name') is-invalid @enderror">
                                         @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -53,22 +54,25 @@
                                     </span>
                                         @enderror
                                     </div>
+
                                     <div class="form-group">
-                                        <label for="name">Ingrese el nombre de usuario:</label>
+                                        <label for="name">Usuario:</label>
                                         <input type="text"
-                                               pattern="[a-z]{2,20}"
+                                               pattern="[a-z-]{2,20}"
+                                               title="Debe ingresar un usuario valido, ejemplo: daniela-martinez"
+                                               maxlength="20"
                                                required
-                                               maxlength="30"
                                                id="usuario"  class="form-control @error('usuario') is-invalid @enderror" name="usuario"
-                                               placeholder="Ingrese el nombre de usuario">
+                                               placeholder="">
                                         @error('usuario')
                                         <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message}}</strong>
                                     </span>
                                         @enderror
                                     </div>
+
                                     <div class="form-group">
-                                        <label for="id_proveedor">Seleccione el tipo de usuario</label>
+                                        <label for="id_proveedor">Tipo de usuario</label>
                                         <div class="input-group">
                                             <select id="is_admin"
                                                     name="is_admin"
@@ -85,13 +89,15 @@
                                     </span>
                                         @enderror
                                     </div>
+
                                     <div class="form-group">
-                                        <label for="costo_compra">Ingrese el telefono:</label>
-                                        <input class="form-control phone_mascara @error('telefono') is-invalid @enderror" name="telefono"
+                                        <label for="costo_compra">Teléfono:</label>
+                                        <input class="form-control @error('telefono') is-invalid @enderror" name="telefono"
                                                pattern="[0-9]{8}"
+                                               title="Debe ingresar un número de teléfono valido, ejemplo: 99769965"
+                                               maxlength="8"
                                                id="telefono"
                                                type="tel"
-                                               maxlength="8"
                                                required
                                                placeholder="">
                                         @error('telefono')
@@ -100,30 +106,35 @@
                                     </span>
                                         @enderror
                                     </div>
+
                                     <div class="form-group">
-                                        <label for="costo_compra">Ingrese el email:</label>
+                                        <label for="costo_compra">Correo electronico:</label>
                                         <input class="form-control @error('email') is-invalid @enderror" name="email"
                                                id="email"
                                                type="email"
-                                               min="0"
+                                               pattern="^[a-z0-9._%+-]+@gmail.[a-z]{2,3}$"
+                                               title="Debe ingresar una dirección de correo electronico valida, ejemplo: smar-tec@gmail.com"
                                                required
-                                               placeholder="Ingrese el email" maxlength="80">
+                                               placeholder="" maxlength="80">
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                         @enderror
                                     </div>
+
                                     <div class="form-group">
-                                        <label for="costo_compra">Ingrese la Contraseña :</label>
+                                        <label for="costo_compra">Contraseña :</label>
                                     </div>
                                     <div class="input-group">
                                         <input class="form-control @error('password') is-invalid @enderror" name="password"
+                                               pattern="[A-Za-z0-9.-$ ]{8,15}"
+                                               title="Debe ingresar una contraseña valida, puede incluir mayusculas, minusculas, números, y los simbolos (. - $) "
                                                id="password"
                                                type="password"
                                                min="8"
                                                required
-                                               placeholder="Ingrese la Contraseña"
+                                               placeholder=""
                                                value="password" ><div class="input-group-append">
                                             <button id="show_password" class="btn btn-outline-success" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
                                         </div>

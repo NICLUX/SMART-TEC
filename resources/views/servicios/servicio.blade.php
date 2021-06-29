@@ -1,7 +1,5 @@
 @extends("layouts.tabla")
-@section("contenido")
-
-
+@section('buscar')
     <div class="col">
         <ul class="list-group">
             <li class="list-group-item" style="background-color:#1c2d3f">
@@ -15,7 +13,8 @@
             </li>
         </ul>
     </div>
-
+@endsection
+@section("contenido")
     <section>
         @if($servicios->count()>0)
             <div class="card-columns">
@@ -42,10 +41,8 @@
             </div>
         @else
             <div class="alert alert-info">
-                No hay Servicios registrados aun
+                <h4>No hay servicios agregados aún, presiona el botón de agregar.</h4>
             </div>
-            @endif
-            </div>
+        @endif
     </section>
-    </div>
 @endsection

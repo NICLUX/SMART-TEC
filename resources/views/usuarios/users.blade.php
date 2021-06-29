@@ -1,5 +1,6 @@
 @extends('layouts.main')
 @section("content")
+
     <div class="card-body" class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
         <!---Alerta y envia mensajes al cliente cuando hay un error o se registran -->
         @if(session("exito"))
@@ -10,6 +11,7 @@
                 </button>
             </div>
         @endif
+
         <div class="col">
             <ul class="list-group">
                 <li class="list-group-item" style="background-color:#1c2d3f">

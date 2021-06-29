@@ -12,111 +12,121 @@
             <div class="col-md-9 register-right">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <div class="row register-form">
-                <div class="col-md-6">
+                        <div class="row register-form">
+                            <div class="col-md-6">
 
-                    <form  id="form_proveedores"
-                           method="post" action="{{route("usuarios.updatee",['id'=>$user->id])}}"
-                          enctype="multipart/form-data">
-                        @method("PUT")
-                        @csrf
+                                <form id="form_proveedores"
+                                      method="post" action="{{route("usuarios.updatee",['id'=>$user->id])}}"
+                                      enctype="multipart/form-data">
+                                    @method("PUT")
+                                    @csrf
 
-                        <div class="form-group">
-                            <label>Ingrese el nombre:</label>
-                            <input
-                                type="text"
-                                pattern="[A-Za-z ]{2,20}"
-                                required
-                                @if(old("name"))
-                                   value="{{old("name")}}"
-                                @else
-                                   value="{{$user->name}}"
-                                @endif
-                                   name="name"
-                                   class="form-control  @error('name') is-invalid @enderror">
-                            <small class="text-muted">Maxima longitud 100 caracteres</small>
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
+                                    <div class="form-group">
+                                        <label>Nombre:</label>
+                                        <input
+                                            type="text"
+                                            pattern="^[A-Za-záéíóú \s]{2,20}"
+                                            title="Debe ingresar un nombre valido, ejemplo: Daniela Martinez"
+                                            maxlength="20"
+                                            required
+                                            @if(old("name"))
+                                            value="{{old("name")}}"
+                                            @else
+                                            value="{{$user->name}}"
+                                            @endif
+                                            name="name"
+                                            class="form-control  @error('name') is-invalid @enderror">
+                                        <small class="text-muted">Maxima longitud 20 caracteres</small>
+                                        @error('name')
+                                        <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                            @enderror
-                        </div>
+                                        @enderror
+                                    </div>
 
-                        <div class="form-group">
-                            <label>Ingrese el nombre de usuario:</label>
-                            <input
-                                type="text"
-                                pattern="[a-z]{2,20}"
-                                required
-                                @if(old("usuario"))
-                                   value="{{old("usuario")}}"
-                                @else
-                                   value="{{$user->usuario}}"
-                                @endif
-                                   name="usuario"
-                                   class="form-control  @error('usuario') is-invalid @enderror">
-                            <small class="text-muted">Maxima longitud 100 caracteres</small>
-                            @error('usuario')
-                            <span class="invalid-feedback" role="alert">
+                                    <div class="form-group">
+                                        <label>Usuario:</label>
+                                        <input
+                                            type="text"
+                                            pattern="[a-z-]{2,20}"
+                                            title="Debe ingresar un usuario valido, ejemplo: daniela-martinez"
+                                            maxlength="20"
+                                            required
+                                            @if(old("usuario"))
+                                            value="{{old("usuario")}}"
+                                            @else
+                                            value="{{$user->usuario}}"
+                                            @endif
+                                            name="usuario"
+                                            class="form-control  @error('usuario') is-invalid @enderror">
+                                        <small class="text-muted">Maxima longitud 100 caracteres</small>
+                                        @error('usuario')
+                                        <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                            @enderror
-                        </div>
+                                        @enderror
+                                    </div>
 
-                        <div class="form-group">
-                            <label>Ingrese el numero de Telefono:</label>
-                            <input
-                                type="tel"
-                                pattern='\d{8}'
-                                required
-                                @if(old("telefono"))
-                                   value="{{old("telefono")}}"
-                                   @else
-                                   value="{{$user->telefono}}"
-                                   @endif
-                                   name="telefono"
-                                   class="form-control phone_mascara @error('telefono') is-invalid @enderror">
-                            <small class="text-muted">Maxima longitud 8 caracteres</small>
-                            @error('telefono')
-                            <span class="invalid-feedback" role="alert">
+                                    <div class="form-group">
+                                        <label>Teléfono:</label>
+                                        <input
+                                            type="tel"
+                                            pattern="[0-9]{8}"
+                                            title="Debe ingresar un número de teléfono valido, ejemplo: 99769965"
+                                            maxlength="8"
+                                            required
+                                            @if(old("telefono"))
+                                            value="{{old("telefono")}}"
+                                            @else
+                                            value="{{$user->telefono}}"
+                                            @endif
+                                            name="telefono"
+                                            class="form-control phone_mascara @error('telefono') is-invalid @enderror">
+                                        <small class="text-muted">Maxima longitud 8 caracteres</small>
+                                        @error('telefono')
+                                        <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                            @enderror
-                        </div>
+                                        @enderror
+                                    </div>
 
-                        <div class="form-group">
-                            <label>Ingrese el numero de Email:</label>
-                            <input type="email" maxlength="80"
-                                   required
-                                   @if(old("email"))
-                                   value="{{old("email")}}"
-                                   @else
-                                   value="{{$user-> email}}"
-                                   @endif
-                                   name="email"
-                                   class="form-control  @error('email') is-invalid @enderror">
-                            <small class="text-muted">Maxima longitud 80 caracteres</small>
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
+                                    <div class="form-group">
+                                        <label>Correo electronico:</label>
+                                        <input type="email"
+                                               pattern="^[a-z0-9._%+-]+@gmail.[a-z]{2,3}$"
+                                               title="Debe ingresar una dirección de correo electronico valida, ejemplo: smar-tec@gmail.com"
+                                               maxlength="80"
+                                               required
+                                               @if(old("email"))
+                                               value="{{old("email")}}"
+                                               @else
+                                               value="{{$user-> email}}"
+                                               @endif
+                                               name="email"
+                                               class="form-control  @error('email') is-invalid @enderror">
+                                        <small class="text-muted">Maxima longitud 80 caracteres</small>
+                                        @error('email')
+                                        <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                            @enderror
-                        </div>
-                        <hr>
-                        <br>
-                        <div align="right">
-                            <button type="submit" class="alert btn-primary sm">Guardar</button>
-                            <a href="{{ route('profile.show') }}" type="button" class="alert btn-secondary sm" >
-                                Cerrar</a>
-                        </div>
+                                        @enderror
+                                    </div>
+                                    <hr>
+                                    <br>
+                                    <div align="right">
+                                        <button type="submit" class="alert btn-primary sm">Guardar</button>
+                                        <a href="{{ route('profile.show') }}" type="button"
+                                           class="alert btn-secondary sm">
+                                            Cerrar</a>
+                                    </div>
 
 
-                    </form>
-    <script>
-        //Permite mostrar la imagen seleccionada
-        var verImagen = function(event) {
-            var image = document.getElementById('imagen_previa');
-            image.src = URL.createObjectURL(event.target.files[0]);
-        };
-    </script>
+                                </form>
+                                <script>
+                                    //Permite mostrar la imagen seleccionada
+                                    var verImagen = function (event) {
+                                        var image = document.getElementById('imagen_previa');
+                                        image.src = URL.createObjectURL(event.target.files[0]);
+                                    };
+                                </script>
 @endsection

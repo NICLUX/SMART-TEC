@@ -1,6 +1,16 @@
 @extends('layouts.tabla')
 @section('buscar')
-    COMPRAS<a class="btn-sm btn-success float-right" href="{{route("compras.nuevo")}}"><i class="fa fa-plus"></i>Agregar</a>
+    <div class="col">
+        <ul class="list-group">
+            <li class="list-group-item" style="background-color:#1c2d3f">
+                <h2 style="color:#ffffff;">
+                    COMPRAS
+                    <a class="btn-sm btn-success float-right" href="{{route("compras.nuevo")}}"><i
+                            class="fa fa-plus"></i> Agregar</a>
+                </h2>
+            </li>
+        </ul>
+    </div>
 @endsection
 @section("contenido")
     @if($compras->count()>0)

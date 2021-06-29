@@ -1,6 +1,5 @@
 @extends('layouts.tabla')
 @section('buscar')
-
     <div class="col">
         <ul class="list-group">
             <li class="list-group-item" style="background-color:#1c2d3f">
@@ -12,7 +11,6 @@
             </li>
         </ul>
     </div>
-
 @endsection
 @section("contenido")
     @if($clientes->count())
@@ -55,7 +53,7 @@
             </table>
             @else
                 <div class="alert alert-info">
-                    No hay clientes ingresados aún.
+                    <h4>No hay clientes agregados aún, presiona el botón de agregar.</h4>
                 </div>
             @endif
             <div class="pagination pagination-sm justify-content-center">
