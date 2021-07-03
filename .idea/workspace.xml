@@ -22,7 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="Mejoras a de vistas y formulario de usuario">
+    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="Corrección de errores - Harol Miranda">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClienteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClienteController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProveedorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProveedorController.php" afterDir="false" />
@@ -311,7 +311,7 @@
       <workItem from="1625014234875" duration="46000" />
       <workItem from="1625014735402" duration="597000" />
       <workItem from="1625269870372" duration="2021000" />
-      <workItem from="1625277887834" duration="8176000" />
+      <workItem from="1625277887834" duration="8843000" />
     </task>
     <task id="LOCAL-00001" summary="Creacion de cintrolador, modelo, migracion de categoria, productos, inventario">
       <created>1602800135286</created>
@@ -529,6 +529,7 @@
     <MESSAGE value="Mejoras a las migraciones" />
     <MESSAGE value="Mejoras a la semilla DatabaseSeeder" />
     <MESSAGE value="Mejoras a de vistas y formulario de usuario" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mejoras a de vistas y formulario de usuario" />
+    <MESSAGE value="Corrección de errores - Harol Miranda" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrección de errores - Harol Miranda" />
   </component>
 </project>
