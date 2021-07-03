@@ -40,9 +40,11 @@
                                     @csrf
 
                                     <div class="form-group">
-                                        <label for="name">Ingrese el nombre:</label>
+                                        <label for="name">Nombre:</label>
                                         <input class="form-control" @error('nombre') is-invalid @enderror name="nombre"
                                                id="nombre"
+                                               pattern="[A-Za-z,.áéíóú ]{1,20}"
+                                               title="Debe ingresar un nombre valido, ejemplo: Programación"
                                                required
                                                maxlength="20">
                                         @error('nombre')
@@ -53,7 +55,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="id_categoria">Seleccione una categoria</label>
+                                        <label for="id_categoria">Categoria:</label>
                                         <div class="input-group">
                                             <select id="id_categoria"
                                                     name="id_categoria"
@@ -77,12 +79,12 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="descripcion">Ingrese la descripcion:</label>
+                                        <label for="descripcion">Descripción:</label>
                                         <textarea class="form-control @error('descripcion') is-invalid @enderror"
                                                   name="descripcion"
                                                   id="nombre"
                                                   required
-                                                  maxlength="20"></textarea>
+                                                  maxlength="40"></textarea>
                                         @error('descripcion')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>

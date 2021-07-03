@@ -21,16 +21,16 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            "nombre" => "required|max:80",
-            "direccion" => "required|max:80",
+            "nombre" => "required|max:20",
+            "direccion" => "required|max:40",
             "telefono" => "required|numeric|min:30000000|max:99999999|unique:clientes,telefono"
         ], [
             "nombre.required" => "Se requiere ingresar el nombre del cliente.",
-            "nombre.max" => "El nombre no debe ser máximo a 80 caracteres.",
+            "nombre.max" => "El nombre no debe ser máximo a 20 caracteres.",
             "direccion.required" => "Se requiere ingresar la dirección del cliente.",
-            "direccion.max" => "La dirección debe ser menor a 80 caracteres",
+            "direccion.max" => "La dirección debe ser menor a 40 caracteres",
             "telefono.required" => "Se requiere ingresar el télefono del cliente",
-            "telefono.max" => "El télefono debe ser menor a 8 caracteres",
+            "telefono.max" => "El télefono debe tener 8 caracteres",
             "telefono.min" => "El télefono debe tener 8 caracteres",
             "telefono.unique" => "El télefono ya ha sido registrado."
         ]);
@@ -55,15 +55,14 @@ class ClienteController extends Controller
         $this->validate($request, [
             "nombre" => "required|max:20",
             "direccion" => "required|max:20",
-            "telefono" => "required|unique",
-            //"telefono"=>"required|numeric|min:10000000|max:99999999|unique:clientes,telefono"
+            "telefono"=>"required|numeric|min:10000000|max:99999999|unique:clientes,telefono"
         ], [
             "nombre.required" => "Se requiere ingresar el nombre del cliente.",
-            "nombre.max" => "El nombre no debe ser máximo a 80 caracteres.",
+            "nombre.max" => "El nombre no debe ser máximo a 20 caracteres.",
             "direccion.required" => "Se requiere ingresar la dirección del cliente.",
-            "direccion.max" => "La dirección debe ser menor a 80 caracteres",
+            "direccion.max" => "La dirección debe ser menor a 40 caracteres",
             "telefono.required" => "Se requiere ingresar el télefono del cliente",
-            "telefono.max" => "El télefono debe ser menor a 8 caracteres",
+            "telefono.max" => "El télefono debe ser igual a 8 caracteres",
             "telefono.min" => "El télefono debe ser igual a 8 caracteres",
             "telefono.unique" => "El télefono ya ha sido registrado."
         ]);

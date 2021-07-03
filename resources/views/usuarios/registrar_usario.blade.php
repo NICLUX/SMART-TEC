@@ -77,7 +77,7 @@
                                             <select id="is_admin"
                                                     name="is_admin"
                                                     class="form-control @error('is_admin') is-invalid @enderror" required>
-                                                <option value="" selected disabled>Seleccione una opcion</option>
+                                                <option selected>Seleccione una opción</option>
                                                 @foreach($tipos as $tipo)
                                                     <option value="{{$tipo->id}}">{{$tipo->tipo_users}}</option>
                                                 @endforeach
@@ -108,14 +108,13 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="costo_compra">Correo electronico:</label>
+                                        <label for="costo_compra">Correo electrónico:</label>
                                         <input class="form-control @error('email') is-invalid @enderror" name="email"
                                                id="email"
                                                type="email"
-                                               pattern="^[a-z0-9._%+-]+@gmail.[a-z]{2,3}$"
                                                title="Debe ingresar una dirección de correo electronico valida, ejemplo: smar-tec@gmail.com"
                                                required
-                                               placeholder="" maxlength="80">
+                                               placeholder="" maxlength="25">
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -132,6 +131,7 @@
                                                title="Debe ingresar una contraseña valida, puede incluir mayusculas, minusculas, números, y los simbolos (. - $) "
                                                id="password"
                                                type="password"
+                                               minlength="8"
                                                min="8"
                                                required
                                                placeholder=""

@@ -19,12 +19,12 @@
                             @csrf
 
                             <div class="form-group">
-                                <label>Ingrese el nombre:</label>
+                                <label>Nombre:</label>
                                 <input class="form-control  @error('nombre') is-invalid @enderror"
                                        type="text"
                                        pattern="[A-Za-z ]{2,20}"
                                        required
-                                       placeholder="Nombre"
+                                       placeholder=""
                                        @if(old("nombre"))
                                        value="{{old("nombre")}}"
                                        @else
@@ -39,7 +39,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Ingrese la dirección:</label>
+                                <label>Dirección:</label>
                                 <textarea class="form-control @error('direccion') is-invalid @enderror"
                                           placeholder="Dirección"
                                           required
@@ -54,7 +54,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Ingrese el numero de Telefono:</label>
+                                <label>Teléfono:</label>
                                 <input
                                     type="tel"
                                     pattern='\d{8}'
@@ -66,7 +66,7 @@
                                     @endif
                                     name="telefono"
                                     class="form-control  @error('telefono') is-invalid @enderror">
-                                <small class="text-muted">Maxima longitud 8 caracteres</small>
+                                <small class="text-muted">Máxima longitud 8 caracteres</small>
                                 @error('telefono')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

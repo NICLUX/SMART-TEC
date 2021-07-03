@@ -27,7 +27,7 @@
                 <th scope="col" class="text-center">Usuario</th>
                 <th scope="col" class="text-center">Tipo</th>
                 <th scope="col" class="text-center">Correo</th>
-                <th scope="col" class="text-center">Telefono</th>
+                <th scope="col" class="text-center">Teléfono</th>
                 <th scope="col" class="text-center">Editar</th>
                 <th scope="col" class="text-center">Eliminar</th>
             </tr>

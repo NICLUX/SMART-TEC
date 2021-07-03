@@ -39,12 +39,12 @@
                     <div>
                         <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
                             <div class="form-group col-lg-8 col-sm-8 col-md-8 col-xs-12">
-                                <x-jet-label for="id_proveedore" value="{{ __('Proveedore') }}" />
+                                <x-jet-label for="id_proveedore" value="{{ __('Proveedores') }}" />
                                 <div class="input-group">
                                     <select id="id_proveedore"
                                             name="id_proveedore"
                                             class="form-control @error('id_proveedore') is-invalid @enderror" required>
-                                        <option value="" selected disabled>Seleccione una opcion</option>
+                                        <option value="" selected disabled>Seleccione una opción</option>
                                         @foreach($proveedores as $pro)
                                             <option value="{{$pro->id}}">{{$pro->nombre}}</option>
                                         @endforeach
@@ -58,8 +58,8 @@
                             </div>
 
                             <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-                                <x-jet-label for="numero_comprobante" value="{{ __('Numero comprobante:') }}" />
-                                <input placeholder="ingrese numero de comprobante" id="numero_comprobante"
+                                <x-jet-label for="numero_comprobante" value="{{ __('Numero de comprobante:') }}" />
+                                <input placeholder="" id="numero_comprobante"
                                     class="form-control" type="number" name="numero_comprobante"
                                     :value="old('numero_comprobante')" required autofocus
                                     autocomplete="numero_comprobante" />
@@ -69,11 +69,11 @@
 
                     <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
                         <div class="form-group col-lg-4 col-sm-4 col-md-4 col-xs-12">
-                            <x-jet-label for="pid_producto" value="{{ __('Ingrese el producto:') }}" />
+                            <x-jet-label for="pid_producto" value="{{ __('Productos') }}" />
                             <div class="input-group">
                                 <select name="pid_producto" id="pid_producto"
                                         class="form-control @error('pid_producto') is-invalid @enderror" required>
-                                    <option value="" selected disabled>Seleccione una opcion</option>
+                                    <option value="" selected disabled>Seleccione una opción</option>
                                     @foreach($productos as $item => $producto)
                                         <option value="{{$producto->id}}">{{$producto->nombre}}</option>
                                     @endforeach
@@ -90,17 +90,19 @@
                         <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
                             <x-jet-label for="pcosto_compra" value="{{ __('Precio de compra:') }}" />
                             <input type="number" class="form-control " id="pcosto_compra" name="pcosto_compra"
-                                   placeholder="Precio de compra">
+                                   placeholder="">
                         </div>
+
                         <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
                             <x-jet-label for="pcosto_venta" value="{{ __('Precio de venta:') }}" />
                             <input type="number" class="form-control " id="pcosto_venta" name="pcosto_venta"
-                                   placeholder="Precio de venta">
+                                   placeholder="">
                         </div>
+
                         <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
                             <x-jet-label for="pcantidad" value="{{ __('Cantidad:') }}" />
                             <input type="number" class="form-control" id="pcantidad" name="pcantidad"
-                                   placeholder="Cantidad">
+                                   placeholder="">
                         </div>
                         <div style="margin-top:3%" class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
                             <botton type="botton" class="col-sm-12 col-xs-12 btn btn-outline-primary"

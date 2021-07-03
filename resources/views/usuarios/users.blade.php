@@ -43,7 +43,7 @@
                             <br> Usuario: {{$user->usuario}}
                             <br> Tipo: {{$user->tipo_users}}
                             <br> Correo: {{$user->email}}
-                            <br> Telefono: {{$user->telefono}}
+                            <br> Teléfono: {{$user->telefono}}
                             <br> <br>
                             <hr/>
                             <br>

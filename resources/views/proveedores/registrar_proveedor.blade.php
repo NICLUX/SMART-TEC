@@ -17,9 +17,9 @@
                                     @csrf
 
                                     <div class="form-group">
-                                        <label>Ingrese el nombre:</label>
+                                        <label>Nombre:</label>
                                         <input class="form-control  @error('nombre') is-invalid @enderror"
-                                               placeholder="Nombre"
+                                               placeholder=""
                                                required
                                                value="{{old("nombre")}}"
                                                name="nombre"
@@ -32,10 +32,12 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Ingrese la descripción (opcional):</label>
+                                        <label>Descripción (opcional):</label>
                                         <textarea class="form-control @error('descripcion') is-invalid @enderror"
-                                                  placeholder="Descripción"
-                                                  maxlength="80" name="descripcion">{{old("descripcion")}}</textarea>
+                                                  pattern="[A-Za-z,.áéíóú ]{1,40}"
+                                                  title="Debe ingresar una descripción valido, ejemplo: Esto es una descripción."
+                                                  placeholder=""
+                                                  maxlength="40" name="descripcion">{{old("descripcion")}}</textarea>
                                         @error('descripcion')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -44,11 +46,13 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Ingrese la direccion:</label>
+                                        <label>Dirección:</label>
                                         <textarea class="form-control @error('direccion') is-invalid @enderror"
-                                                  placeholder="Dirección exacta"
+                                                  pattern="[A-Za-z,.áéíóú ]{1,40}"
+                                                  title="Debe ingresar una dirección valido, ejemplo: Esto es una descripción."
+                                                  placeholder=""
                                                   required
-                                                  maxlength="80" name="direccion">{{old("direccion")}}</textarea>
+                                                  maxlength="40" name="direccion">{{old("direccion")}}</textarea>
                                         @error('direccion')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -57,9 +61,9 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Ingrese el télefono:</label>
+                                        <label>Télefono:</label>
                                         <input class="form-control @error('telefono') is-invalid @enderror"
-                                               placeholder="XXXX-XXXX"
+                                               placeholder=""
                                                required
                                                maxlength="8"
                                                value="{{old("telefono")}}"
@@ -72,12 +76,14 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Ingrese el correo (opcional):</label>
+                                        <label>Correo electrónico:</label>
                                         <input class="form-control @error('email') is-invalid @enderror"
-                                               placeholder="Correo Electronico"
+                                               placeholder=""
+                                               id="email"
                                                type="email"
                                                value="{{old("email")}}"
-                                               maxlength="100"
+                                               maxlength="25"
+                                               required
                                                name="email">
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">

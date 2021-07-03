@@ -36,7 +36,7 @@
                                             @endif
                                             name="name"
                                             class="form-control  @error('name') is-invalid @enderror">
-                                        <small class="text-muted">Maxima longitud 20 caracteres</small>
+                                        <small class="text-muted">Máxima longitud 20 caracteres</small>
                                         @error('name')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -59,7 +59,7 @@
                                             @endif
                                             name="usuario"
                                             class="form-control  @error('usuario') is-invalid @enderror">
-                                        <small class="text-muted">Maxima longitud 100 caracteres</small>
+                                        <small class="text-muted">Máxima longitud 20 caracteres</small>
                                         @error('usuario')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -82,7 +82,7 @@
                                             @endif
                                             name="telefono"
                                             class="form-control phone_mascara @error('telefono') is-invalid @enderror">
-                                        <small class="text-muted">Maxima longitud 8 caracteres</small>
+                                        <small class="text-muted">Máxima longitud 8 caracteres</small>
                                         @error('telefono')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -91,7 +91,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Correo electronico:</label>
+                                        <label>Correo electrónico:</label>
                                         <input type="email"
                                                pattern="^[a-z0-9._%+-]+@gmail.[a-z]{2,3}$"
                                                title="Debe ingresar una dirección de correo electronico valida, ejemplo: smar-tec@gmail.com"
@@ -104,7 +104,7 @@
                                                @endif
                                                name="email"
                                                class="form-control  @error('email') is-invalid @enderror">
-                                        <small class="text-muted">Maxima longitud 80 caracteres</small>
+                                        <small class="text-muted">Máxima longitud 25 caracteres</small>
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

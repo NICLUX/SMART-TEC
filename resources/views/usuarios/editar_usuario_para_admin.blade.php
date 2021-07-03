@@ -30,7 +30,7 @@
                                        @endif
                                        name="name"
                                        class="form-control  @error('name') is-invalid @enderror">
-                                <small class="text-muted">Maxima longitud 20 caracteres</small>
+                                <small class="text-muted">Máxima longitud 20 caracteres</small>
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -52,7 +52,7 @@
                                        @endif
                                        name="usuario"
                                        class="form-control  @error('usuario') is-invalid @enderror">
-                                <small class="text-muted">Maxima longitud 20 caracteres</small>
+                                <small class="text-muted">Máxima longitud 20 caracteres (Solo acepta minúsculas y para separar el simbolo -)</small>
                                 @error('usuario')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -75,7 +75,7 @@
                                     @endif
                                     name="telefono"
                                     class="form-control  @error('telefono') is-invalid @enderror">
-                                <small class="text-muted">Maxima longitud 8 caracteres</small>
+                                <small class="text-muted">Máxima longitud 8 caracteres</small>
                                 @error('telefono')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -94,7 +94,7 @@
                                             @endif
                                             name="is_admin"
                                             class="form-control @error('is_admin') is-invalid @enderror" required>
-                                        <option value="" selected disabled>Seleccione una opcion</option>
+                                        <option value="$user->is_admin" selected >Seleccione una opción</option>
                                         @foreach($tipos as $tipo)
                                             <option value="{{$tipo->id}}">{{$tipo->tipo_users}}</option>
                                         @endforeach
@@ -108,11 +108,10 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Correo electronico:</label>
+                                <label>Correo electrónico:</label>
                                 <input type="email"
-                                       pattern="^[a-z0-9._%+-]+@gmail.[a-z]{2,3}$"
-                                       title="Debe ingresar una dirección de correo electronico valida, ejemplo: smar-tec@gmail.com"
-                                       maxlength="80"
+                                       id="email"
+                                       maxlength="25"
                                        required
                                        @if(old("email"))
                                        value="{{old("email")}}"
@@ -121,7 +120,7 @@
                                        @endif
                                        name="email"
                                        class="form-control  @error('email') is-invalid @enderror">
-                                <small class="text-muted">Maxima longitud 80 caracteres</small>
+                                <small class="text-muted">Máxima longitud 25 caracteres</small>
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -131,8 +130,6 @@
 
                             <hr>
                             <button id="btnRegister" type="submit" class="btn btn-success">Guardar</button>
-                            <!-- -->
-
                         </form>
                     </div>
                 </div>

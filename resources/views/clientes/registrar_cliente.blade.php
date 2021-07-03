@@ -14,12 +14,12 @@
                                method="post">
                             @csrf
                             <div class="form-group">
-                                <label>Ingrese el nombre:</label>
+                                <label>Nombre:</label>
                                 <input class="form-control  @error('nombre') is-invalid @enderror"
-                                       placeholder="Nombre"
+                                       placeholder=""
                                        required
                                        value="{{old("nombre")}}"
-                                       maxlength="80" name="nombre" id="nombre">
+                                       maxlength="20" name="nombre" id="nombre">
                                 @error('nombre')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -28,12 +28,15 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Ingrese la direccion:</label>
+                                <label>Dirección:</label>
                                 <input class="form-control @error('direccion') is-invalid @enderror"
-                                       placeholder="Direccion exacta"
+                                       placeholder=""
+                                       id="direccion"
+                                       pattern="[A-Za-z,.áéíóú ]{1,40}"
+                                       title="Debe ingresar una dirección valido, ejemplo: Esto es una descripción."
                                        required
                                        value="{{old("direccion")}}"
-                                       maxlength="80" name="direccion">
+                                       maxlength="40" name="direccion">
                                 @error('direccion')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -42,14 +45,14 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Ingrese el télefono:</label>
+                                <label>Télefono:</label>
                                 <input class="form-control @error('telefono') is-invalid @enderror"
-                                       placeholder="Télefono"
+                                       placeholder=""
                                        type="tel"
                                        pattern='\d{8}'
                                        required
                                        value="{{old("telefono")}}"
-                                       type="number"
+                                       maxlength="8"
                                        name="telefono">
                                 @error('telefono')
                                 <span class="invalid-feedback" role="alert">

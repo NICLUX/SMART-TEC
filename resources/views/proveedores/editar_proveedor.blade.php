@@ -24,11 +24,12 @@
                                     @csrf
 
                                     <div class="form-group">
-                                        <label>Ingrese el nombre:</label>
+                                        <label>Nombre:</label>
                                         <input class="form-control  @error('nombre') is-invalid @enderror"
                                                type="text"
                                                pattern="[A-Za-z ]{2,20}"
                                                required
+                                               maxlength="20"
                                                @if(old("nombre"))
                                                value="{{old("nombre")}}"
                                                @else
@@ -44,9 +45,9 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Ingrese la descripción (opcional):</label>
+                                        <label>Descripción (opcional):</label>
                                         <textarea class="form-control @error('descripcion') is-invalid @enderror"
-                                                  maxlength="80"
+                                                  maxlength="40"
                                                   name="descripcion">@if(old("descripcion")){{old("descripcion")}}
                                             @else{{$proveedor->descripcion}}@endif</textarea>
                                         @error('descripcion')
@@ -57,10 +58,10 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Ingrese la dirección:</label>
+                                        <label>Dirección:</label>
                                         <textarea class="form-control @error('direccion') is-invalid @enderror"
                                                   required
-                                                  maxlength="80"
+                                                  maxlength="40"
                                                   name="direccion">@if(old("direccion")){{old("direccion")}}
                                             @else{{$proveedor->direccion}}@endif</textarea>
                                         @error('direccion')
@@ -71,7 +72,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Ingrese el télefono:</label>
+                                        <label>Télefono:</label>
                                         <input class="form-control @error('telefono') is-invalid @enderror"
                                                type="tel"
                                                pattern='\d{8}'
@@ -81,6 +82,7 @@
                                                @else
                                                value="{{$proveedor->telefono}}"
                                                @endif
+                                               maxlength="8"
                                                name="telefono">
                                         @error('telefono')
                                         <span class="invalid-feedback" role="alert">
@@ -90,7 +92,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Ingrese el correo (opcional):</label>
+                                        <label>Correo electrónico:</label>
                                         <input class="form-control @error('email') is-invalid @enderror"
                                                type="email"
                                                @if(old("email"))
@@ -98,7 +100,8 @@
                                                @else
                                                value="{{$proveedor->email}}"
                                                @endif
-                                               maxlength="100"
+                                               maxlength="25"
+                                               required
                                                name="email">
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">

@@ -65,21 +65,21 @@ class userController extends Controller
             "name" => "required|max:20",
             "email" => "unique:users,email",
             "is_admin" => "required|numeric",
-            "usuario" => "required|max:15|unique:users,name",
-            "telefono" => "required|max:8|min:8|unique:users,telefono|unique:proveedors,telefono|unique:clientes,telefono",
+            "usuario" => "required|max:20|unique:users,name",
+            "telefono" => "required|max:8|unique:users,telefono|unique:proveedors,telefono|unique:clientes,telefono",
             "password" => "required|min:8",
         ], [
             "nombre.required" => "Se requiere ingresar el nombre del usuario",
             "usuario.unique" => "El usuario ya ha sido tomado.",
-            "name.max" => "El nombre del usuario debe ser menor a 15 caracteres",
+            "name.max" => "El nombre del usuario debe ser menor a 20 caracteres",
             "usuario.required" => "Se debe ingresar el nombre de usuario.",
-            "usuario.max" => "El nombre de usuario debe ser menor a 15 caracteres",
+            "usuario.max" => "El nombre de usuario debe ser menor a 20 caracteres",
             "telefono.required" => "Se debe ingresar el numero telefonico del de usuario.",
             "telefono.max" => "El numero de telefono del usuario debe tener 8 caracteres",
             "telefono.unique" => "El numero de telefono debe ser unico",
             "email.required" => "Se debe ingresar el email de usuario.",
             "email.unique" => "El email debe ser unico",
-            "password" => "La contraseña debe ser mayor o = 8 caracteres"
+            "password" => "La contraseña debe ser mayor o igual a 8 caracteres"
         ]);
 
         $user = new User();
@@ -150,15 +150,15 @@ class userController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            "name" => "required|max:100",
-            "usuario" => "required|max:100|unique:users,name," . $id,
+            "name" => "required|max:20",
+            "usuario" => "required|max:20|unique:users,name," . $id,
             "telefono" => "required|max:8|min:8|unique:users,telefono," . $id,
             "email" => "required|unique:users,email," . $id
         ], [
             "name.required" => "Se debe ingresar el nombre del usuario.",
-            "name.max" => "El nombre del usuario debe ser menor a 100 caracteres",
+            "name.max" => "El nombre del usuario debe ser menor a 20 caracteres",
             "usuario.required" => "Se debe ingresar el nombre de usuario.",
-            "usuario.max" => "El nombre de usuario debe ser menor a 100 caracteres",
+            "usuario.max" => "El nombre de usuario debe ser menor a 20 caracteres",
             "telefono.required" => "Se debe ingresar el numero telefonico del de usuario.",
             "telefono.max" => "El numero de telefono del usuario debe tener 8 caracteres",
             "telefono.unique" => "El numero de telefono debe ser unico",
@@ -180,15 +180,15 @@ class userController extends Controller
     public function updat(Request $request, $id)
     {
         $this->validate($request, [
-            "name" => "required|max:100",
-            "usuario" => "required|max:100|unique:users,name," . $id,
-            "telefono" => "required|max:11|min:8|unique:users,telefono," . $id,
+            "name" => "required|max:20",
+            "usuario" => "required|max:20|unique:users,name," . $id,
+            "telefono" => "required||unique:users,telefono," . $id,
             "email" => "required|unique:users,email," . $id
         ], [
             "name.required" => "Se debe ingresar el nombre del usuario.",
-            "name.max" => "El nombre del usuario debe ser menor a 100 caracteres",
+            "name.max" => "El nombre del usuario debe ser menor a 20 caracteres",
             "usuario.required" => "Se debe ingresar el nombre de usuario.",
-            "usuario.max" => "El nombre de usuario debe ser menor a 100 caracteres",
+            "usuario.max" => "El nombre de usuario debe ser menor a 20 caracteres",
             "telefono.required" => "Se debe ingresar el numero telefonico del de usuario.",
             "telefono.max" => "El numero de telefono del usuario debe tener 8 caracteres",
             "telefono.unique" => "El numero de telefono debe ser unico",
