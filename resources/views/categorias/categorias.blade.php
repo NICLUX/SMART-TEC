@@ -68,12 +68,14 @@
                 @endforeach
                 </tbody>
             </table>
+            @else
+            <div class="alert alert-info">
+                <h4>No hay categorias agregadas aún, presiona el botón de agregar.</h4>
+            </div>
             @endif
             <div class="pagination pagination-sm justify-content-center">
                 {{$categorias->links("pagination::bootstrap-4")}}
             </div>
-
-
 
             <div class="modal fade" id="modalCrear" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
@@ -146,9 +148,5 @@
                     </div>
                 </div>
             </div>
-
-
-
-
 
 @endsection

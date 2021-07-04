@@ -25,7 +25,7 @@
 
     #resultados:hover
     {
-        background-color: #f0ad4e;
+        background-color: #efefed;
         transition: 0.5s;
     }
 
