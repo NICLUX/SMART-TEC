@@ -34,9 +34,9 @@ class CategoriaController extends Controller
             "nombre"=>"required|max:80|unique:categorias,nombre",
 
         ],[
-            "nombre.required"=>"Se debe ingresar el nombre de la categoria.",
-            "nombre.unique"=>"El nombre de la categoria debe ser unico.",
-            "nombre.max"=>"El nombre de la categoria debe ser menor a 80 caracteres"
+            "nombre.required"=>"Se debe ingresar el nombre de la categoría.",
+            "nombre.unique"=>"El nombre de la categoría debe ser unico.",
+            "nombre.max"=>"El nombre de la categoría debe ser menor a 80 caracteres"
         ]);
 
         $nuevaCategoria = new Categoria();
@@ -61,18 +61,18 @@ class CategoriaController extends Controller
     public function store(Request $request){
         $this->nuevaCtegoria($request);
         return redirect()->route("categorias.index")
-            ->with("exito","Se creo exitosamente la categoria");
+            ->with("exito","Se creo exitosamente la categoría");
     }
 
     public function stor(Request $request){
         $this->nuevaCtegoria($request);
         return redirect()->route("producto.nuevo")
-            ->with("exito","Se creo exitosamente la categoria");
+            ->with("exito","Se creo exitosamente la categoría");
     }
     public function sto(Request $request){
         $this->nuevaCtegoria($request);
         return redirect()->route("servicios.crear")
-            ->with("exito","Se creo exitosamente la categoria");
+            ->with("exito","Se creo exitosamente la categoría");
     }
 
     public function editar($id){
@@ -85,9 +85,9 @@ class CategoriaController extends Controller
             "nombre"=>"required|max:80|unique:categorias,nombre,".$id,
 
         ],[
-            "nombre.required"=>"Se debe ingresar el nombre de la categoria.",
-            "nombre.unique"=>"El nombre de la categoria debe ser unico.",
-            "nombre.max"=>"El nombre de la categoria debe ser menor a 80 caracteres"
+            "nombre.required"=>"Se debe ingresar el nombre de la categoría.",
+            "nombre.unique"=>"El nombre de la categoría debe ser unico.",
+            "nombre.max"=>"El nombre de la categoría debe ser menor a 80 caracteres"
         ]);
 
         $editarCategoria= Categoria::findOrfail($request->id);
@@ -115,7 +115,7 @@ class CategoriaController extends Controller
         $editarCategoria->save();
 
         return redirect()->route("categorias.index")
-            ->with("exito","Se edito correctamente la categoria");
+            ->with("exito","Se editó correctamente la categoría");
     }
 
     //Metodo para borrar una categoria desde la tabla
@@ -126,7 +126,7 @@ class CategoriaController extends Controller
 
         if($categoriaAsignadaAProducto->count()>0){
             return redirect()->route("categorias.index")
-                ->with("error","No se puede eliminar la categoria porque ya esta asignada a Productos");
+                ->with("error","No se puede eliminar la categoría porque ya esta asignada a Productos");
         }
         /***Si la imagen exite se debe eliminar  **/
         $img_anterior=public_path()."/images/categorias/".$categoria->imagen;
@@ -135,6 +135,6 @@ class CategoriaController extends Controller
         }
         $categoria->delete();
         return redirect()->route("categorias.index")
-            ->with("exito","Se elimino correctamente la categoria");
+            ->with("exito","Se eliminó correctamente la categoría");
     }
 }
