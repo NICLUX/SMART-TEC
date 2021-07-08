@@ -9,14 +9,14 @@
 @endsection
 @section('modal')
     <div class="modal fade" id="modalCrear" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Crear Categoria</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" style="width: 150%;">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Nueva Categoría</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                 <div class="modal-body">
                     <div>
                         @if(session("exito"))
@@ -48,7 +48,8 @@
 
                                 <div class="col-md-9 register-right">
                                     <div class="row register-form">
-                                        <form method="post" action="{{route("categoria.stor")}}"
+                                        <form method="post" style="width: 100%;"
+                                              action="{{route("categoria.stor")}}"
                                               enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-group">
@@ -57,6 +58,8 @@
                                                        required
                                                        value="{{old("nombre")}}"
                                                        name="nombre"
+                                                       placeholder="Ingrese la categoría
+"
                                                        class="form-control  @error('nombre') is-invalid @enderror">
                                                 <small class="text-muted">Maxima longitud 80 caracteres</small>
                                                 @error('nombre')

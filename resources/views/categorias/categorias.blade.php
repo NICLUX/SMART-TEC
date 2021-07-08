@@ -1,6 +1,6 @@
 @extends('layouts.tabla')
     @section('buscar')
-        CATEGORIAS
+        CATEGORÍAS
         <a class="btn-sm btn-success float-right" data-toggle="modal" data-target="#modalCrear" style="color:#ffffff;">
             <i class="fa fa-plus"></i> Agregar</a>
     @endsection
@@ -41,7 +41,6 @@
                                 <i class="fa fa-trash"></i> Borar</a>
                         </td>
                     </tr>
-
                     <div class="modal fade" id="modalCrear_{{$categoria->id}}" tabindex="-1" role="dialog">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -51,7 +50,6 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-
                                 <div class="modal-body">
                                         <div class="row">
                                             <div class="col" align="center"> <a id="btnCancel" class="btn btn-primary btn-round" data-dismiss="modal">Cancelar</a>
@@ -62,7 +60,6 @@
                                             </div>
                                         </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -80,33 +77,34 @@
 
             <div class="modal fade" id="modalCrear" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
-                    <div class="modal-content">
+                    <div class="modal-content" style="width: 150%;">
                         <div class="modal-header">
-                            <h5 class="modal-title">AGREGAR CATEGORIA</h5>
+                            <h5 class="modal-title">Nueva Categoría</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-
                         <div class="modal-body">
                             <div>
-
-                                <div class="container register col-md-auto sm-12 " id="detalle_form_prov">
+                                <div class="container register col-md-auto" id="detalle_form_prov">
                                     <div class="row" id="detalle_form_prov">
                                         <div class="col-md-3 register-left">
                                             <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
                                             <h1>SMARTEC</h1>
                                         </div>
-
                                         <div class="col-md-9 register-right">
                                             <div class="row register-form">
-                                                <form method="post" action="{{route("categorias.store")}}"
+                                                <form method="post" style="width: 100%;"
+                                                      id="form_prove"
+                                                      action="{{route("categorias.store")}}"
                                                       enctype="multipart/form-data">
                                                     @csrf
+
                                                     <div class="form-group">
                                                         <label>Ingrese el nombre:</label>
                                                         <input type="text" maxlength="80"
                                                                required
+                                                               placeholder="Ingrese la categoría"
                                                                value="{{old("nombre")}}"
                                                                name="nombre"
                                                                class="form-control  @error('nombre') is-invalid @enderror">
@@ -129,15 +127,14 @@
                                                         @error('imagen')
                                                         <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
-                                            </span>
-                                                        @enderror
-                                                    </div>
-                                                    <button id="btnRegister" type="submit" class="btn btn-success"><i class="fa fa-save"></i>
-                                                        Guardar
-                                                    </button>
-                                                    <a id="btnCancel" class="btn btn-primary btn-round"
+                                            </span>@enderror</div>
+
+                                                    <button id="btnRegister" type="submit"
+                                                            class="btn btn-success"><i class="fa fa-save"></i> Guardar</button>
+                                                    <a id="btnCan" class="btn btn-round"
                                                        href="{{route("categorias.index")}}">Cancelar</a>
                                                     <!-- -->
+
                                                 </form>
                                             </div>
                                         </div>
@@ -145,9 +142,7 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
-
 @endsection

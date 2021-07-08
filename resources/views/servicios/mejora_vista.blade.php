@@ -193,7 +193,7 @@
         background: #228b22;
         color: #fff;
         font-weight: 600;
-        width: 50%;
+        width: 45%;
         cursor: pointer;
     }
 
@@ -205,7 +205,19 @@
         background: #8b2258;
         color: #fff;
         font-weight: 600;
-        width: 50%;
+        width: 45%;
+        cursor: pointer;
+    }
+    #btnCan{
+        float: left;
+        margin-top: -9.2%;
+        margin-right: 50px;
+        border: none;
+        border-radius: 1.5rem;
+        padding: 2%;
+        background: #8b2258;
+        color: #fff;
+        width: 45%;
         cursor: pointer;
     }
 
@@ -216,7 +228,6 @@
         border-radius: 1.5rem;
         width: 28%;
         float: right;
-
     }
 
 .register .nav-tabs .nav-link{

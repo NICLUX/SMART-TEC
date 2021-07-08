@@ -53,7 +53,8 @@
                                     <div class="row register-form">
                                         <div class="col-md-6">
 
-                                            <form id="form_proveedores" style="    width: 450px;" enctype="multipart/form-data"
+                                            <form id="form_proveedores" style="width: 450px;"
+                                                  enctype="multipart/form-data"
                                                 action="{{route("producto.stor")}}" method="post">
                                                 @csrf
                                                 <div class="form-group">

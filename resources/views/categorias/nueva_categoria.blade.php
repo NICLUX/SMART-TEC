@@ -80,7 +80,8 @@
                                     </span>
                                                 @enderror
                                             </div>
-                                            <button id="btnRegister" type="submit" class="btn btn-success"><i class="fa fa-save"></i>
+                                            <button id="btnRegister" type="submit" class="btn btn-success">
+                                                <i class="fa fa-save"></i>
                                                 Guardar
                                             </button>
                                             <a id="btnCancel" class="btn btn-primary btn-round"
