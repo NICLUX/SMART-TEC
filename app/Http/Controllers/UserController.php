@@ -62,17 +62,19 @@ class userController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            "name" => "required|max:20",
+            "name" => "required|max:20|min:3",
             "email" => "unique:users,email",
             "is_admin" => "required|numeric",
-            "usuario" => "required|max:20|unique:users,usuario",
+            "usuario" => "required|min:5|max:20|unique:users,usuario",
             "telefono" => "required|max:8|unique:users,telefono|unique:proveedors,telefono|unique:clientes,telefono",
             "password" => "required|min:8",
         ], [
             "nombre.required" => "Se requiere ingresar el nombre del usuario",
             "name.max" => "El nombre del usuario debe ser menor a 20 caracteres",
+            "name.min" => "El nombre del usuario debe mayor ó igual a 3 caracteres",
             "usuario.unique" => "El nombre usuario ya esta registrado.",
             "usuario.required" => "Se debe ingresar el nombre de usuario.",
+            "usuario.min" => "El nombre de usuario debe ser mayor ó igual a 5 caracteres",
             "usuario.max" => "El nombre de usuario debe ser menor a 20 caracteres",
             "telefono.required" => "Se debe ingresar el numero telefonico del de usuario.",
             "telefono.max" => "El numero de telefono del usuario debe tener 8 caracteres",
