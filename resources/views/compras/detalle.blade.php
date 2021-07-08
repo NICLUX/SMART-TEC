@@ -23,7 +23,7 @@
         <div class="card card-body" class="card card-body col-lg-12 col-sm-12 col-md-12 col-xs-12">
             <div class="container-fluid">
 
-                <form method="POST" action="{{ route('compras.nuevo') }}">
+                <form method="POST" action="{{ route('compras.nuevo') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="input-group">
                         <select id="id_usuario" style="display: none" name="id_usuario"
@@ -146,10 +146,10 @@
                                              float-right col-lg-2 col-sm-2 col-md-2 col-xs-12" type="submit"
                             href="{{route("compras.store")}}" role="alert">
                             Guardar</button>
-                        <button style="margin-right: 5px"
-                            class="btn-outline-danger alert alert-danger btn-sm float-right col-lg-2 col-sm-2 col-md-2 col-xs-12"
-                            type="reset" role="alert">
-                            Cancelar</button>
+                        <a style="margin-right: 5px; text-align: center"
+                           class="btn-outline-danger alert alert-danger btn-sm float-right
+                             col-lg-2 col-sm-2 col-md-2 col-xs-12"
+                           type="reset" role="alert" href="{{route("compras.index")}}">Cancelar</a>
                     </div>
                 </form>
             </div>

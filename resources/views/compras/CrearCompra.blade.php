@@ -21,7 +21,7 @@
                         costo_compra=$("#pcosto_compra").val();
                         costo_venta=$("#pcosto_venta").val();
 
-                        if(id_producto != "" && costo_compra != "" && costo_venta!="" && cantidad>0){
+                        if(id_producto > "" && costo_compra>0 && costo_venta>costo_compra && cantidad>0){
                             sub_total[cont]=(cantidad*costo_compra);
                             total=total+ sub_total[cont];
                             var fila = '<tr class="selected" id="fila'+cont+'" >' +
@@ -38,7 +38,10 @@
                             evaluar();
                             $("#detalles").append(fila);
                         }else {
-                            alert("error al ingresas detalles compra favor revise los datos compra");
+                            alert("error al ingresas detalles compra favor revise los datos:\n" +
+                                "# El precio de compras debe ser menor que el de venta\n" +
+                                "# Debe completar todos los campos\n" +
+                                "# La cantidad debe ser mayor a 0");
                         }
                     }
                     function evaluar(){

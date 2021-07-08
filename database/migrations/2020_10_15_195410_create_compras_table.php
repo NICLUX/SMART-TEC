@@ -17,7 +17,7 @@ class CreateComprasTable extends Migration
             $table->id();
             $table->foreignId("id_proveedore")->references("id")->on("proveedors");
             $table->foreignId("id_usuario")->references("id")->on("users");
-            $table->double("numero_comprobante");
+            $table->double("numero_comprobante")->unique();
             $table->date("feche_hora")->nullable();
             $table->timestamps();
         });

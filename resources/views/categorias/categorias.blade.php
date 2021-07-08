@@ -107,7 +107,8 @@
                                                                placeholder="Ingrese la categoría"
                                                                value="{{old("nombre")}}"
                                                                name="nombre"
-                                                               class="form-control  @error('nombre') is-invalid @enderror">
+                                                               class="form-control  @error('nombre')
+                                                                   is-invalid @enderror">
                                                         <small class="text-muted">Máxima longitud 80 caracteres</small>
                                                         @error('nombre')
                                                         <span class="invalid-feedback" role="alert">
