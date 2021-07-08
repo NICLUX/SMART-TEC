@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Compra;
 use App\Models\Proveedor;
 use Illuminate\Http\Request;
 
@@ -109,10 +110,14 @@ class ProveedorController extends Controller
         return redirect()->route("proveedores.index")
             ->with("exito", "Se editó exitosamente el proveedor");
     }
-
     public function destroy($id)
     {
         $proveedor = Proveedor::findOrFail($id);
+        $proveedorAsignadaAcompra = Compra::where("id_proveedore","=",$id)->get();
+        if($proveedorAsignadaAcompra->count()>0){
+            return redirect()->route("proveedores.index")
+                ->with("error","No se puede eliminar el proveedor porque ya esta asignada a compras");
+        }
         $proveedor->delete();
 
         return redirect()->route("proveedores.index")

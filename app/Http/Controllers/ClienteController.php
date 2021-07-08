@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
+use App\Models\Producto;
+use App\Models\Venta;
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
@@ -80,6 +82,11 @@ class ClienteController extends Controller
     public function destroy($id)
     {
         $cliente = Cliente::findOrfail($id);
+        $clienteAsignadaAventa =Venta::where("id_cliente","=",$id)->get();
+        if($clienteAsignadaAventa->count()>0){
+            return redirect()->route("clientes.index")
+                ->with("error","No se puede eliminar el cliente porque ya esta asignada a venta");
+        }
         $cliente->delete();
 
         //TODO en caso de que el cliente este relacionado con otra tabla, deben borrarse los registros antes.
