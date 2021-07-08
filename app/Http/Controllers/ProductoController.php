@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categoria;
+use App\Models\Detalle_compra;
 use App\Models\Inventario;
 use App\Models\Producto;
 use Illuminate\Http\Request;
@@ -207,8 +208,11 @@ class ProductoController extends Controller
     public function destroy($id)
     {
         $producto= Producto::findOrFail($id);
-        $inventario = Inventario::where("id_producto","=",$id);
-        $inventario->delete();
+        $categoriaAsignadaAProducto = Detalle_compra::where("id_producto","=",$id)->get();
+        if($categoriaAsignadaAProducto->count()>0){
+            return redirect()->route("productos.index")
+                ->with("error","No se puede eliminar la compra porque ya esta asignada al detalle de compras");
+        }
         /***Si la imagen exite se debe eliminar  **/
         $img_anterior=public_path()."/images/productos/".$producto->imagen_url;
         if (File::exists($img_anterior)){
@@ -218,8 +222,6 @@ class ProductoController extends Controller
         return redirect()->route("productos.index")
             ->with("exito", "Se elimino exitosamente el producto.");
     }
-
-
     public function imprimir_productos()
     {
         $producto= Producto::all();
@@ -231,5 +233,4 @@ class ProductoController extends Controller
                 $dompdf->render();
                 $dompdf->stream("Reporte Productos -N#".now().".pdf");
     }
-
 }
