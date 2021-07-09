@@ -11,6 +11,7 @@ use App\Models\Inventario;
 use Illuminate\Http\Request;
 
 use App\Models\Categoria;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use Http\Request\ComprasFromRequest;
@@ -67,7 +68,6 @@ class CompraController extends Controller
                 'id_usuario' => "required",
                 "id_proveedore" => "required",
                 "numero_comprobante" => "required",
-
             ], [
                 "id_usuario.required" => "Se requiere ingresar el nombre de usuario",
                 "id_proveedore.required" => "Se requiere ingresar el nombre del proveedor",
@@ -145,11 +145,16 @@ class CompraController extends Controller
     }
     public function destroy($id){
         $compra = Compra::findOrfail($id);
-        $detalle = Detalle_compra::findOrfail($id);
+
+        $cmpraAsignadaAdetalle = Detalle_compra::where("id_compra","=",$id)->get();
+        if($cmpraAsignadaAdetalle->count()>0){
+            $detalle = Detalle_compra::findOrfail($id);
+            $detalle->delete();
+        }
         $compra->delete();
-        $detalle->delete();
+
         return redirect()->route("compras.index")
-            ->with("exito","Se elimino correctamente la compra");
+            ->with("exito","Se elimino correctamente la compra junto con su detalle de compra");
     }
 
 }
