@@ -19,6 +19,7 @@
 <style>
     #tabla_prove tr:hover{
         background-color: gainsboro;
+
     }
 </style>
 @if(count($proveedores)>0)
@@ -29,9 +30,9 @@
             <tr>
                 <th scope="col">N°</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Dirección</th>
+                <th scope="col" style="white-space: nowra">Dirección</th>
                 <th scope="col">Teléfono</th>
-                <th scope="col">Descripción</th>
+                <th scope="col" style="white-space: nowra">Descripción</th>
                 <th scope="col">Correo</th>
                 <th scope="col">Opciones</th>
             </tr>
@@ -41,10 +42,10 @@
             <tr id="resultados">
                 <th scope="col">{{$item+$proveedores->firstItem()}}</th>
                 <td>{{$proveedor->nombre}}</td>
-                <td>{{$proveedor->direccion}}</td>
+                <td style="white-space: nowra">{{$proveedor->direccion}}</td>
                 <td>{{$proveedor->telefono}}</td>
                 @if($proveedor->descripcion)
-                <td>{{$proveedor->descripcion}}</td>
+                <td style="white-space: nowra">{{$proveedor->descripcion}}</td>
                 @else
                 <td>n/a</td>
                 @endif
