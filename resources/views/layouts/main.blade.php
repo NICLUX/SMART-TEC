@@ -97,7 +97,7 @@
                         <ul class="sub-menu children dropdown-menu" id="lista">
                             <li><i class="fa fa-product-hunt"></i><a href="{{route("productos.index")}}">Productos</a></li>
                             <li><i class="fa fa-product-hunt"></i><a href="{{route("servicios.index")}}">Servicios</a></li>
-                            <li><i class="fa fa-cc-jcb"></i><a href="{{route("categorias.index")}}">Categorias</a></li>
+                            <li><i class="fa fa-cc-jcb"></i><a href="{{route("categorias.index")}}">Categorías</a></li>
                         </ul>
                     </li>
 
