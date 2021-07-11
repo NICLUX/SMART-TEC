@@ -2,7 +2,7 @@
     <div xmlns:wire="http://www.w3.org/1999/xhtml">
     <div class="card">
             <div class="card-header">
-                <h1>Ingresoso diarias {{$fecha}}</h1>
+                <h1>Ingresos diarios {{$fecha}}</h1>
             </div>
             <div class="card-body">
                 <div class="container">
@@ -11,13 +11,13 @@
                             <h3 wire:model="total_ingreso_del_dia">Ingresos del día: <span class="badge badge-warning" >L. {{$total_ingreso_del_dia}}</span></h3>
                         </div>
                         <div class="col-sm">
-                            <h3>Costo de venta: <span class="badge badge-danger" >L. {{$total_costo_del_dia}}</span></h3> 
+                            <h3>Costo de venta: <span class="badge badge-danger" >L. {{$total_costo_del_dia}}</span></h3>
                         </div>
                         <div class="col-sm">
-                            <h3>Total Margen de ganancia: <span class="badge {{ (isset($total_ganacia_del_dia)?$total_ganacia_del_dia:-1<0)?'badge-success':'badge-danger'}}">L. {{$total_ganacia_del_dia}}</span></h3> 
+                            <h3>Total Margen de ganancia: <span class="badge {{ (isset($total_ganacia_del_dia)?$total_ganacia_del_dia:-1<0)?'badge-success':'badge-danger'}}">L. {{$total_ganacia_del_dia}}</span></h3>
                         </div>
                     </div>
-                
+
                 </div>
             </div>
     </div>
@@ -50,7 +50,7 @@
                 </div>
             @endif
             <div class="card-body">
-                
+
                 <div class="form-group float-right" style="width: 400px">
                     <div class="input-group-prepend" >
                         <input placeholder="Buscar..."
@@ -70,7 +70,7 @@
 
                 @if(count($ventas)>0)
                     <div class="table-responsive-sm -mr-2">
-                        
+
                         <table class="table table-borderless table-hover table-sm">
                             <thead class="thead-dark">
                             <tr>
