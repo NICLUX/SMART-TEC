@@ -7,22 +7,29 @@
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <h1 class="register-heading">REGISTRAR PROVEEDOR</h1>
+
             <div class="row register-form">
-                <div class="col-md-6">
+                
 
                     <form id="form_proveedores" name="form_proveedores" enctype="multipart/form-data"
                         action="{{route("proveedor.store")}}" method="post">
                         @csrf
 
-                        <div class="form-group">
-                            <label>Nombre:</label>
-                            <input class="form-control  @error('nombre') is-invalid @enderror" placeholder="" required
+                        <div class="row">
+                            <div class="col">
+                                <label>Nombre:</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input  class="form-control  @error('nombre') is-invalid @enderror" placeholder="" required
                                 value="{{old("nombre")}}" name="nombre" id="nombre">
                             @error('nombre')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
+                            </div>
                         </div>
 
                         <div class="form-group">
@@ -76,7 +83,7 @@
                         <button id="btnRegister" onclick="validar()" class="btn btn-success">Guardar
                         </button>
                     </form>
-                </div>
+
             </div>
         </div>
     </div>
