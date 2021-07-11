@@ -64,7 +64,7 @@ class ServiciosController extends Controller
         }
         $servicio ->save();
         return redirect()->route("servicios.index")
-            ->with("exito", "Se creo exitosamente el servicio.");
+            ->with("exito", "Se creó, exitosamente el servicio.");
     }
 
 
