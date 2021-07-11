@@ -62,7 +62,7 @@
                                     <label>Télefono:</label>
                                     <input class="form-control @error('telefono') is-invalid @enderror" type="tel"
                                         pattern='\d{8}' required @if(old("direccion")) value="{{old("telefono")}}" @else
-                                        value="{{$proveedor->telefono}}" @endif maxlength="8" name="telefono">
+                                        value="{{$proveedor->telefono}}" @endif maxlength="8" minlength="8" name=" telefono">
                                     @error('telefono')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -86,10 +86,8 @@
                             </form>
                         </div>
                     </div>
-
                 </div>
             </div>
-
         </div>
     </div>
 </div>
