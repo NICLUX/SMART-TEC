@@ -67,8 +67,8 @@
                                                         @endforeach
                                                     </select>
                                                     <div class="input-group-append">
-                                                        <a class="btn btn-outline-success"
-                                                        data-toggle="modal" data-target="#modalCrear" type="button"><i
+                                                        <a class="btn btn-outline-success" data-toggle="modal"
+                                                            data-target="#modalCrear" type="button"><i
                                                                 class="fa fa-plus"></i></a>
                                                     </div>
                                                 </div>
