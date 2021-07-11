@@ -55,7 +55,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
-                                                <label for="id_categoria">Categoria:</label>
+                                                <label for="id_categoria">Categoría:</label>
                                                 <div class="input-group">
                                                     <select id="id_categoria" name="id_categoria"
                                                         class="form-control @error('id_categoria') is-invalid @enderror" required>
@@ -121,7 +121,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Crear Categoria</h5>
+                            <h5 class="modal-title">Crear Categoría</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>

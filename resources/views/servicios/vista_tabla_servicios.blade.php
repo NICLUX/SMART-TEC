@@ -25,7 +25,7 @@
                     <th scope="col" class="text-justify">Nombre</th>
                     <th scope="col" class="text-justify">Descripcion</th>
                     <th scope="col" class="text-justify">Costo</th>
-                    <th scope="col" class="text-justify">Categoria</th>
+                    <th scope="col" class="text-justify">Categoría</th>
                     <th scope="col" class="text-justify">Editar</th>
                     <th scope="col" class="text-justify">Eliminar</th>
                 </tr>
