@@ -46,7 +46,7 @@
                                             <input class="form-control" @error('nombre') is-invalid @enderror name="nombre"
                                                 id="nombre" pattern="[A-Za-z,.áéíóú ]{1,20}"
                                                 title="Debe ingresar un nombre valido, ejemplo: Programación" required
-                                                maxlength="50">
+                                                maxlength="80">
                                             @error('nombre')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -87,7 +87,8 @@
                                 <div class="form-group">
                                     <label for="descripcion">Descripción:</label>
                                     <textarea class="form-control @error('descripcion') is-invalid @enderror"
-                                        name="descripcion" id="nombre" required maxlength="200"></textarea>
+                                        name="descripcion" id="nombre" required maxlength="190">
+                                    </textarea>
                                     @error('descripcion')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
