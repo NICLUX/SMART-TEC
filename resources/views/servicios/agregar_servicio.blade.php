@@ -98,8 +98,8 @@
 
                                 <div class="form-group">
                                     <label for="costo_de_venta">Precio:</label>
-                                    <input class="form-control @error('costo_de_venta') is-invalid @enderror"
-                                        name="costo_de_venta" id="costo_de_venta" type="number" min="0" required
+                                    <input type="text" onkeypress="return isNumberKey(event)" class="form-control @error('costo_de_venta') is-invalid @enderror"
+                                        name="costo_de_venta" id="costo_de_venta"  name="my-num" required
                                         maxlength="20">
                                     @error('costo_de_venta')
                                     <span class="invalid-feedback" role="alert">
@@ -208,4 +208,5 @@
                 </div>
             </div>
         </div>
+
         @endsection
