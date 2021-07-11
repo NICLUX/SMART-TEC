@@ -49,7 +49,7 @@
                 @else
                 <td>n/a</td>
                 @endif
-                @if($proveedor->descripcion)
+                @if($proveedor->email)
                 <td>{{$proveedor->email}}</td>
                 @else
                 <td>n/a</td>
