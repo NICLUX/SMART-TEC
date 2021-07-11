@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categoria;
 use App\Models\Servicio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ServiciosController extends Controller
 {
@@ -44,27 +45,35 @@ class ServiciosController extends Controller
             "id_categoria"=>"Se requiere ingresar la categoria."
         ]);
 
-        $servicio = new Servicio();
-        $servicio ->nombre = $request->input("nombre");
-        $servicio ->id_categoria = $request->input("id_categoria");
-        $servicio ->costo_de_venta = $request->input("costo_de_venta");
-        $servicio ->descripcion = $request->input("descripcion");
-        $path = public_path() . '\images\productos';//Carpeta publica de las imagenes de los productos
-        if ($request->imagen_url) {
-            $imagen = $_FILES["imagen_url"]["name"];
-            $ruta = $_FILES["imagen_url"]["tmp_name"];
-            //-------------VALIDAR SI LA CARPETA EXISTE---------------------
-            if (!file_exists($path)) {
-                mkdir($path, 0777, true);
+        $servicio_existente = DB::select('select * from servicios where nombre = ?', [$request->input("nombre")]);
+        if(count($servicio_existente)>0){
+            return redirect()->route("servicios.index")
+            ->with("error", "El Servicio ya esta creado.");
+        }else{
+            $servicio = new Servicio();
+            $servicio ->nombre = $request->input("nombre");
+            $servicio ->id_categoria = $request->input("id_categoria");
+            $servicio ->costo_de_venta = $request->input("costo_de_venta");
+            $servicio ->descripcion = $request->input("descripcion");
+            $path = public_path() . '\images\productos';//Carpeta publica de las imagenes de los productos
+            if ($request->imagen_url) {
+                $imagen = $_FILES["imagen_url"]["name"];
+                $ruta = $_FILES["imagen_url"]["tmp_name"];
+                //-------------VALIDAR SI LA CARPETA EXISTE---------------------
+                if (!file_exists($path)) {
+                    mkdir($path, 0777, true);
+                }
+                //-------------------------------------------------------------
+                $destino = "images/productos/" . $imagen;
+                copy($ruta, $destino);
+                $servicio ->imagen_url = $imagen;
             }
-            //-------------------------------------------------------------
-            $destino = "images/productos/" . $imagen;
-            copy($ruta, $destino);
-            $servicio ->imagen_url = $imagen;
+            $servicio ->save();
+
+            return redirect()->route("servicios.index")
+                ->with("exito", "Se creó, exitosamente el servicio.");
         }
-        $servicio ->save();
-        return redirect()->route("servicios.index")
-            ->with("exito", "Se creó, exitosamente el servicio.");
+
     }
 
 
