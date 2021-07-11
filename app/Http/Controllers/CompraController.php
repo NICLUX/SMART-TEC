@@ -68,10 +68,19 @@ class CompraController extends Controller
                 'id_usuario' => "required",
                 "id_proveedore" => "required",
                 "numero_comprobante" => "required",
+                "costo_compra" => "required|numeric",
+                "costo_venta" => "required|numeric",
+                "cantidad" => "required|numeric",
             ], [
                 "id_usuario.required" => "Se requiere ingresar el nombre de usuario",
                 "id_proveedore.required" => "Se requiere ingresar el nombre del proveedor",
-                "numero_comprobante" => "se requiere imngrese el numero de comprovante"
+                "numero_comprobante" => "se requiere imngrese el numero de comprovante",
+                "costo_compra.required" => "Se requiere que ingrese el costo de compra",
+                "costo_compra.numeric" => "El costo de compra debe ser un numero",
+                "costo_venta.required" => "Se requiere el costo de venta.",
+                "costo_venta.numeric" => "Se requiere que el costo de venta sea un numero",
+                "cantidad.required" => "Se requiere la cantidad.",
+                "cantidad.numeric" => "Se requiere que la cantidad sea un numero",
             ]);
             DB::beginTransaction();
             $nuevaCompra = new Compra();
