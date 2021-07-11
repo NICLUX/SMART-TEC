@@ -93,7 +93,7 @@
                 @if(auth()->user()->is_admin == '1')
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Catalogo</a>
+                           aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Catálogo</a>
                         <ul class="sub-menu children dropdown-menu" id="lista">
                             <li><i class="fa fa-product-hunt"></i><a href="{{route("productos.index")}}">Productos</a></li>
                             <li><i class="fa fa-product-hunt"></i><a href="{{route("servicios.index")}}">Servicios</a></li>
