@@ -31,7 +31,7 @@
                         <br>
                         <a class="btn btn-sm btn-success" href="{{route("servicios.editar",["id"=>$servicio->id])}}">
                             <i class="fa fa-pencil"></i></a>
-                        <a class="btn btn-danger btn-sm" href="{{route("servicios.destroy",["id"=>$servicio->id])}}">
+                        <a class="btn btn-danger btn-sm" href="{{route("servicios.destroy2",["id"=>$servicio->id])}}">
                             <i class="fa fa-trash"></i></a>
                     </div>
                 </div>

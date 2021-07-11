@@ -114,6 +114,7 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/servicios/{id}/editar",[ServiciosController::class,"edit"])->name("servicios.editar");//Llama el formulario editar un servicio
         Route::put("/servicios/{id}/update",[ServiciosController::class,"update"])->name("servicios.update");//Actualiza el servicio en el formulario editar
         Route::get('/servicios/{id}/destroy',[ServiciosController::class,"destroy"])->name("servicios.destroy");//Borrar el servicio desde la tabla
+        Route::get('/servicios/{id}/destroy2',[ServiciosController::class,"destroy2"])->name("servicios.destroy2");//Borrar el servicio desde la tabla
         Route::get("/servicio/busqueda",[ServiciosController::class,"buscarServicio"])->name("servicios.buscar");//Buscar Producto
         Route::get("/servicio/vistaTabla",[ServiciosController::class,"mostrar"])->name("servicios.nuevaVista");//Buscar Producto
         //----------Ventas diarias-----------//

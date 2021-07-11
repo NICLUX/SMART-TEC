@@ -120,4 +120,13 @@ class ServiciosController extends Controller
             ->with("exito","Se eliminó exitosamente el Servicio");
 
     }
+
+    public function destroy2($id){
+        $servicio = Servicio::findOrFail($id);
+        $servicio->delete();
+
+        return redirect()->route("servicios.nuevaVista")
+            ->with("exito","Se eliminó exitosamente el Servicio");
+
+    }
 }
