@@ -19,13 +19,12 @@
     @if($servicios->count()>0)
     <div class="card-columns">
             @foreach($servicios as $servicio)
-
                 <div class="card p-3">
                     <div class="card-body" >
                         <h5 class="card-title">{{$servicio->nombre}}</h5>
                         <p class="card-text"><i class="fa fa-codepen"></i> {{$servicio->id_categoria}}</p>
                         @if($servicio->descripcion)
-                        <p class="card-text"><strong>Descripcion:</strong> {{$servicio->descripcion}}</p>
+                        <p class="card-text"><strong>Descripción:</strong> {{$servicio->descripcion}}</p>
                         @endif
                         <small class="text-muted"><strong>Valor:
                                 Lps.</strong> {{$servicio->costo_de_venta}}</small>
@@ -36,7 +35,6 @@
                             <i class="fa fa-trash"></i></a>
                     </div>
                 </div>
-
             @endforeach
     </div>
     @else
