@@ -144,6 +144,19 @@
                                     </span>
                                         @enderror
                                     </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label>Seleccione una imagen (opcional):</label>
+                                        <input class="form-control  @error('imagen') is-invalid @enderror"
+                                            accept="image/*" name="imagen_url" type="file"
+                                            placeholder="Ingrese una imagen">
+                                        <small class="text-muted">Solo formatos en imagen (.png, .jpg, .jpeg)</small>
+                                        @error('imagen')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
                                     <div class="items-center justify-end mt-4">
                                         <button id="btnRegister" type="submit" class="btn btn-success">Guardar</button>
                                     </div>

@@ -113,6 +113,18 @@
                                     </div>
                                     <hr>
                                     <br>
+                                    <div class="form-group">
+                                        <label>Seleccione una imagen (opcional):</label>
+                                        <input class="form-control  @error('imagen') is-invalid @enderror"
+                                            accept="image/*" name="imagen_url" type="file"
+                                            placeholder="Ingrese una imagen">
+                                        <small class="text-muted">Solo formatos en imagen (.png, .jpg, .jpeg)</small>
+                                        @error('imagen')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
                                     <div align="right">
                                         <button type="submit" class="alert btn-primary sm">Guardar</button>
                                         <a href="{{ route('profile.show') }}" type="button"

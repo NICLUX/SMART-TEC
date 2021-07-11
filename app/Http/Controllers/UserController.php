@@ -93,6 +93,21 @@ class userController extends Controller
         $user->usuario = $request->input("usuario");
         $user->telefono = $request->input("telefono");
         $user->password = bcrypt($request->input("password"));
+        $path = public_path() . '\images\user';//Carpeta publica de las imagenes
+        if($request->imagen_url){
+
+            $imagen = $_FILES["imagen_url"]["name"];
+            $ruta = $_FILES["imagen_url"]["tmp_name"];
+            //-------------VALIDAR SI LA CARPETA EXISTE---------------------
+            if (!file_exists($path)) {
+                mkdir($path, 0777, true);
+
+            }
+            //-------------------------------------------------------------
+            $destino = "images/user/" . $imagen;
+            copy($ruta, $destino);
+            $user->photo=$imagen;
+        }
         $user->save();
 
         return redirect()->route("usuarios.index")
@@ -174,6 +189,21 @@ class userController extends Controller
         $editarUsuario->is_admin = $request->input("is_admin");
         $editarUsuario->telefono = $request->input("telefono");
         $editarUsuario->email = $request->input("email");
+        $path = public_path() . '\images\user';//Carpeta publica de las imagenes
+        if($request->imagen_url){
+
+            $imagen = $_FILES["imagen_url"]["name"];
+            $ruta = $_FILES["imagen_url"]["tmp_name"];
+            //-------------VALIDAR SI LA CARPETA EXISTE---------------------
+            if (!file_exists($path)) {
+                mkdir($path, 0777, true);
+
+            }
+            //-------------------------------------------------------------
+            $destino = "images/user/" . $imagen;
+            copy($ruta, $destino);
+            $editarUsuario->photo=$imagen;
+        }
         $editarUsuario->save();
         return redirect()->route("usuarios.index")
             ->with("exito", "Se editó correctamente el usuario");
@@ -203,6 +233,21 @@ class userController extends Controller
         $editarUsuario->usuario = $request->input("usuario");
         $editarUsuario->telefono = $request->input("telefono");
         $editarUsuario->email = $request->input("email");
+        $path = public_path() . '\images\user';//Carpeta publica de las imagenes
+        if($request->imagen_url){
+
+            $imagen = $_FILES["imagen_url"]["name"];
+            $ruta = $_FILES["imagen_url"]["tmp_name"];
+            //-------------VALIDAR SI LA CARPETA EXISTE---------------------
+            if (!file_exists($path)) {
+                mkdir($path, 0777, true);
+
+            }
+            //-------------------------------------------------------------
+            $destino = "images/user/" . $imagen;
+            copy($ruta, $destino);
+            $editarUsuario->photo=$imagen;
+        }
         $editarUsuario->save();
         return redirect()->route("profile.show")
             ->with("exito", "Se editó correctamente la categoria");

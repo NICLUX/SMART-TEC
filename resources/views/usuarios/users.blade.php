@@ -33,7 +33,7 @@
                         <img class="float-left mr-2"
                              width="350px"
                              height="300px"
-                             src="/images/categorias/{{$user->photo}}"
+                             src="/images/user/{{$user->photo}}"
                              onerror="this.src='/images/no_image.jpg'">
                         <div>
                             <strong>{{$user->name}} </strong>
