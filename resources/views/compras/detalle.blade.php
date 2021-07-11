@@ -58,7 +58,7 @@
                             </div>
 
                             <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-                                <x-jet-label for="numero_comprobante" value="{{ __('Numero de comprobante:') }}" />
+                                <x-jet-label for="numero_comprobante" value="{{ __('Número de comprobante:') }}" />
                                 <input placeholder="" id="numero_comprobante"
                                     class="form-control" type="number" name="numero_comprobante"
                                     :value="old('numero_comprobante')" required autofocus
