@@ -43,8 +43,8 @@
                                     <div class="row">
                                         <div class="col">
                                             <label for="name">Nombre:</label>
-                                            <input class="form-control" @error('nombre') is-invalid @enderror name="nombre"
-                                                id="nombre" pattern="[A-Za-z,.áéíóú ]{1,20}"
+                                            <input class="form-control" @error('nombre') is-invalid @enderror
+                                                name="nombre" id="nombre" pattern="[A-Za-z,.áéíóú ]{1,20}"
                                                 title="Debe ingresar un nombre valido, ejemplo: Programación" required
                                                 maxlength="80">
                                             @error('nombre')
@@ -58,15 +58,18 @@
                                                 <label for="id_categoria">Categoría:</label>
                                                 <div class="input-group">
                                                     <select id="id_categoria" name="id_categoria"
-                                                        class="form-control @error('id_categoria') is-invalid @enderror" required>
+                                                        class="form-control @error('id_categoria') is-invalid @enderror"
+                                                        required>
                                                         <option value="" selected disabled></option>
                                                         @foreach($categorias as $categoria)
-                                                        <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+                                                        <option value="{{$categoria->id}}">{{$categoria->nombre}}
+                                                        </option>
                                                         @endforeach
                                                     </select>
                                                     <div class="input-group-append">
-                                                        <a class="btn btn-outline-success" href="{{route("categorias.crear")}}"
-                                                            type="button"><i class="fa fa-plus"></i></a>
+                                                        <a class="btn btn-outline-success"
+                                                        data-toggle="modal" data-target="#modalCrear" type="button"><i
+                                                                class="fa fa-plus"></i></a>
                                                     </div>
                                                 </div>
                                                 @error('id_categoria')
@@ -98,9 +101,9 @@
 
                                 <div class="form-group">
                                     <label for="costo_de_venta">Precio:</label>
-                                    <input type="text" onkeypress="return isNumberKey(event)" class="form-control @error('costo_de_venta') is-invalid @enderror"
-                                        name="costo_de_venta" id="costo_de_venta"  name="my-num" required
-                                        maxlength="20">
+                                    <input type="text" onkeypress="return isNumberKey(event)"
+                                        class="form-control @error('costo_de_venta') is-invalid @enderror"
+                                        name="costo_de_venta" id="costo_de_venta" name="my-num" required maxlength="20">
                                     @error('costo_de_venta')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -208,5 +211,7 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
-        @endsection
+@endsection
