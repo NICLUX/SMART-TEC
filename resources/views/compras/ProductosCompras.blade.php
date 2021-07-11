@@ -70,7 +70,7 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="id_categoria">Seleccione una categoria</label>
+                                                    <label for="id_categoria">Seleccione una categoría</label>
                                                     <div class="input-group">
                                                         <select id="id_categoria" name="id_categoria"
                                                             class="form-control @error('id_categoria') is-invalid @enderror"
@@ -91,11 +91,11 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="descripcion">Ingrese la descripcion:</label>
+                                                    <label for="descripcion">Ingrese la descripción:</label>
                                                     <textarea
                                                         class="form-control @error('descripcion') is-invalid @enderror"
                                                         name="descripcion" id="nombre" required
-                                                        placeholder="Ingrese la descripcion" maxlength="80"></textarea>
+                                                        placeholder="Ingrese la descripción" maxlength="80"></textarea>
                                                     @error('descripcion')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
