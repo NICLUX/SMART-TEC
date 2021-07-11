@@ -5,7 +5,7 @@
         <ul class="list-group">
             <li class="list-group-item" style="background-color:#1c2d3f">
                 <h2 style="color:#ffffff;">
-                    SERVICIOS
+                    Tabla de Servicios
                     <a class="btn-sm btn-success float-right" href="{{route("servicios.crear")}}"><i
                             class="fa fa-plus"></i> Agregar</a>
                     <a class="btn-sm btn-success float-right" style="margin-right:3px"
