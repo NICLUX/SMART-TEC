@@ -15,10 +15,17 @@
 
 @endsection
 @section("contenido")
+
+<style>
+    #tabla_prove tr:hover{
+        background-color: gainsboro;
+    }
+</style>
 @if(count($proveedores)>0)
+
 <div class="table-responsive-sm -mr-2">
-    <table class="table table-borderless table-hover table-sm">
-        <thead class="thead-dark">
+    <table id="tabla_prove" name="tabla_prove" class="table table-borderless table-sm">
+        <thead>
             <tr>
                 <th scope="col">N°</th>
                 <th scope="col">Nombre</th>
