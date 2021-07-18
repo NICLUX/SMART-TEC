@@ -72,7 +72,7 @@
                             <x-jet-label for="pid_producto" value="{{ __('Productos') }}" />
                             <div class="input-group">
                                 <select name="pid_producto" id="pid_producto"
-                                        class="form-control @error('pid_producto') is-invalid @enderror" required>
+                                        class="form-control @error('id_producto') is-invalid @enderror" required>
                                     <option value="" selected disabled>Seleccione una opción</option>
                                     @foreach($productos as $item => $producto)
                                         <option value="{{$producto->id}}">{{$producto->nombre}}</option>
@@ -80,7 +80,7 @@
                                 </select>
                                 @yield('nuevo_prod')
                             </div>
-                            @error('pid_producto')
+                            @error('id_producto')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

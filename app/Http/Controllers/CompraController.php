@@ -43,7 +43,6 @@ class CompraController extends Controller
         }
     }
 
-
     public function crear(){
         $categorias = Categoria::all();
         $users=User::all();
@@ -60,65 +59,65 @@ class CompraController extends Controller
             ->with("categorias", $categorias);
     }
 
-    public function store(Request $request)
-    {
+    public function store(Request $request){
+        $this->validate($request, [
+            'id_usuario' => "required",
+            "id_proveedore" => "required",
+            "numero_comprobante"=>"required",
+            "id_producto"=>"required",
+            "costo_compra"=>"required|min:1",
+            "costo_venta"=>"required|min:costo_compra",
+            "cantidad"=>"required",
 
-        try {
-            $this->validate($request, [
-                'id_usuario' => "required",
-                "id_proveedore" => "required",
-                "numero_comprobante" => "required",
-                "costo_compra" => "required|numeric",
-                "costo_venta" => "required|numeric",
-                "cantidad" => "required|numeric",
-            ], [
-                "id_usuario.required" => "Se requiere ingresar el nombre de usuario",
-                "id_proveedore.required" => "Se requiere ingresar el nombre del proveedor",
-                "numero_comprobante" => "se requiere imngrese el numero de comprovante",
-                "costo_compra.required" => "Se requiere que ingrese el costo de compra",
-                "costo_compra.numeric" => "El costo de compra debe ser un numero",
-                "costo_venta.required" => "Se requiere el costo de venta.",
-                "costo_venta.numeric" => "Se requiere que el costo de venta sea un numero",
-                "cantidad.required" => "Se requiere la cantidad.",
-                "cantidad.numeric" => "Se requiere que la cantidad sea un numero",
-            ]);
-            DB::beginTransaction();
-            $nuevaCompra = new Compra();
-            $nuevaCompra->id_usuario = $request->input("id_usuario");
-            $nuevaCompra->id_proveedore = $request->input("id_proveedore");
-            $nuevaCompra->numero_comprobante = $request->input("numero_comprobante");
-            $mytime = Carbon::now('America/tegucigalpa');
-            $nuevaCompra->feche_hora = $mytime->toDateTimeLocalString();
-            $nuevaCompra->save();
+        ], [
+            "id_usuario.required" => "Se requiere ingresar el nombre de usuario",
+            "id_proveedore.required" => "Se requiere ingresar el nombre del proveedor",
+            "numero_comprobante"=>"se requiere imngrese el numero de comprovante",
+            "id_producto.required" => "Se requiere ingresar el nombre del producto",
+            "costo_compra.required" => "Se requiere ingresar el costo de compra del producto",
+            "costo_venta.required" => "Se requiere ingresar el costo de venta del producto",
+            "cantidad.required" => "Se requiere ingresar la cantidad del producto",
+        ]);
+        DB::beginTransaction();
+        $nuevaCompra=new Compra();
+        $nuevaCompra->id_usuario= $request->input("id_usuario");
+        $nuevaCompra->id_proveedore= $request->input("id_proveedore");
+        $nuevaCompra->numero_comprobante= $request->input("numero_comprobante");
+        $mytime=Carbon::now('America/tegucigalpa');
+        $nuevaCompra->feche_hora = $mytime->toDateTimeLocalString();
+        $nuevaCompra->save();
 
-            $id_producto = $request->input("id_producto");
-            $costo_compra = $request->input("costo_compra");
-            $costo_venta = $request->input("costo_venta");
-            $cantidad = $request->input("cantidad");
+        $id_producto = $request->input("id_producto");
+        $costo_compra = $request->input("costo_compra");
+        $costo_venta = $request->input("costo_venta");
+        $cantidad = $request->input("cantidad");
 
-            $cont = 0;
-            while ($cont < count($id_producto)) {
-                $detalle = new Detalle_compra();
-                $detalle->id_compra = $nuevaCompra->id;
-                $detalle->id_producto = $id_producto[$cont];
-                $detalle->costo_venta = $costo_venta[$cont];
-                $detalle->costo_compra = $costo_compra[$cont];
-                $detalle->cantidad = $cantidad[$cont];
-                $detalle->save();
-                $cont = $cont + 1;
-            }
-            $this->inventario($request);
-            DB::commit();
-        }catch (\Exception $exception){
-            DB::rollBack();
-            return redirect()->route("compras.nuevo")->with("exito", "El campo nombre del producto es oblegatorio");
+        $cont = 0;
+        while($cont < count($id_producto))
+        {
+            $detalle = new Detalle_compra();
+            $detalle->id_compra=$nuevaCompra->id;
+            $detalle->id_producto = $id_producto[$cont];
+            $detalle->costo_venta=$costo_venta[$cont];
+            $detalle->costo_compra=$costo_compra[$cont];
+            $detalle->cantidad=$cantidad[$cont];
+            $detalle->save();
+            $cont = $cont+1;
         }
-        return redirect()->route("compras.index")->with("exito", "Se registró exitosamente");
-
+        $this->inventario($request);
+        DB::commit();
+        return redirect()->route("compras.index")->with("exito","Se registró exitosamente");
     }
-
     public function inventario(Request $request){
 
+        $this->validate($request, [
+            "id_producto"=>"required",
+            "cantidad"=>"required",
+
+        ], [
+            "id_producto.required" => "Se requiere ingresar el nombre del producto",
+            "cantidad.required" => "Se requiere ingresar la cantidad del producto",
+        ]);
         $id_producto = $request->input("id_producto");
         $cantidad = $request->input("cantidad");
         $cont = 0;
@@ -158,6 +157,12 @@ class CompraController extends Controller
         $cmpraAsignadaAdetalle = Detalle_compra::where("id_compra","=",$id)->get();
         if($cmpraAsignadaAdetalle->count()>0){
             $detalle = Detalle_compra::findOrfail($id);
+            $detalle->delete();
+        }
+        //SI HAY ERROR VEIFICAR ESTA PARTE
+        $cmpraAsignadaInventaio = Inventario::where("id_compra","=",$id)->get();
+        if($cmpraAsignadaInventaio->count()>0){
+            $detalle = Inventario::findOrfail($id);
             $detalle->delete();
         }
         $compra->delete();
