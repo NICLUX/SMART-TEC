@@ -16,9 +16,17 @@
     </button>
 </div>
 @endif
+<div class="alert alert-dark">
+        <ul class="list-group">
+            <li class="list-group-item" style="background-color:#1c2d3f">
+                <h2 style="color:#ffffff;">
+                    DETALLE DE COMPRA
+                    <a class="btn-sm btn-success float-right" href="{{route("compras.index")}}">Historial</a>
+                </h2>
+            </li>
+        </ul>
+</div>
 <div data-class="card card-body col-lg-12 col-sm-12 col-md-12 col-xs-12">
-    <h1 class="alert alert-dark" role="alert" class="card card-body col-lg-12 col-sm-12 col-md-12 col-xs-12">Detalle
-        compra</h1>
     <div class="panel-body">
         <div class="card card-body" class="card card-body col-lg-12 col-sm-12 col-md-12 col-xs-12">
             <div class="container-fluid">
