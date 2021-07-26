@@ -42,10 +42,10 @@
             <tr id="resultados">
                 <th scope="col">{{$item+$proveedores->firstItem()}}</th>
                 <td>{{$proveedor->nombre}}</td>
-                <td style="white-space: nowra">{{$proveedor->direccion}}</td>
+                <td style="white-space: normal">{{$proveedor->direccion}}</td>
                 <td>{{$proveedor->telefono}}</td>
                 @if($proveedor->descripcion)
-                <td style="white-space: nowra">{{$proveedor->descripcion}}</td>
+                <td style="white-space: normal">{{$proveedor->descripcion}}</td>
                 @else
                 <td>n/a</td>
                 @endif
@@ -56,11 +56,11 @@
                 @endif
                 <td>
                     <a class="btn-sm btn-success" href="{{route("proveedor.editar",["id"=>$proveedor->id])}}"
-                        title="Editar"><i class="fa fa-pencil"></i> Editar</a>
+                        title="Editar"><i class="fa fa-pencil"></i></a>
 
                     <button class="btn-sm btn-danger" data-id="{{$proveedor->id}}" data-toggle="modal"
                         data-target="#modalBorrarApertura">
-                        <i class="fa fa-trash"></i> Borrar
+                        <i class="fa fa-trash"></i>
                     </button>
                 </td>
             </tr>
