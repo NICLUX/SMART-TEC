@@ -42,12 +42,13 @@
                                     <div class="form-group" >
                                         <label for="name">Nombre:</label>
                                         <input type="text"
-                                               pattern="^[A-Za-záéíóú \s]{2,20}"
+                                               pattern="^[A-Za-záéíóú \s]{2,50}"
                                                title="Debe ingresar un nombre valido, ejemplo: Daniela Martinez"
-                                               maxlength="20"
+                                               maxlength="50"
                                                required
                                                placeholder=""
                                                name="name" class="form-control  @error('name') is-invalid @enderror">
+                                        <small class="text-muted">Máxima longitud 50 caracteres</small>
                                         @error('name')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -64,6 +65,7 @@
                                                required
                                                id="usuario"  class="form-control @error('usuario') is-invalid @enderror" name="usuario"
                                                placeholder="">
+                                        <small class="text-muted">Máxima longitud 20 caracteres</small>
                                         @error('usuario')
                                         <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message}}</strong>
@@ -100,6 +102,7 @@
                                                type="tel"
                                                required
                                                placeholder="">
+                                        <small class="text-muted">Máxima longitud 8 caracteres</small>
                                         @error('telefono')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -114,7 +117,8 @@
                                                type="email"
                                                title="Debe ingresar una dirección de correo electronico valida, ejemplo: smar-tec@gmail.com"
                                                required
-                                               placeholder="" maxlength="25">
+                                               placeholder="" maxlength="50">
+                                        <small class="text-muted">Máxima longitud 50 caracteres</small>
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

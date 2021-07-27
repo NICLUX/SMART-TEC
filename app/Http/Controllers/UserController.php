@@ -62,16 +62,16 @@ class userController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            "name" => "required|max:20|min:3",
+            "name" => "required|max:50|min:2",
             "email" => "unique:users,email",
             "is_admin" => "required|numeric",
-            "usuario" => "required|min:5|max:20|unique:users,usuario",
+            "usuario" => "required|min:2|max:20|unique:users,usuario",
             "telefono" => "required|max:8|unique:users,telefono|unique:proveedors,telefono|unique:clientes,telefono",
             "password" => "required|min:8",
         ], [
             "nombre.required" => "Se requiere ingresar el nombre del usuario",
-            "name.max" => "El nombre del usuario debe ser menor a 20 caracteres",
-            "name.min" => "El nombre del usuario debe mayor ó igual a 3 caracteres",
+            "name.max" => "El nombre del usuario debe ser menor a 50 caracteres",
+            "name.min" => "El nombre del usuario debe mayor ó igual a 2 caracteres",
             "usuario.unique" => "El nombre usuario ya esta registrado.",
             "usuario.required" => "Se debe ingresar el nombre de usuario.",
             "usuario.min" => "El nombre de usuario debe ser mayor ó igual a 5 caracteres",
@@ -167,15 +167,15 @@ class userController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            "name" => "required|max:20",
+            "name" => "required|max:50",
             "usuario" => "required|max:20|unique:users,name," . $id,
             "telefono" => "required|max:8|min:8|unique:users,telefono," . $id,
             "email" => "required|unique:users,email," . $id
         ], [
             "name.required" => "Se debe ingresar el nombre del usuario.",
-            "name.max" => "El nombre del usuario debe ser menor a 20 caracteres",
+            "name.max" => "El nombre debe ser menor o igual a 50 caracteres",
             "usuario.required" => "Se debe ingresar el nombre de usuario.",
-            "usuario.max" => "El nombre de usuario debe ser menor a 20 caracteres",
+            "usuario.max" => "El nombre de usuario debe ser menor o igual a 20 caracteres",
             "telefono.required" => "Se debe ingresar el numero telefonico del de usuario.",
             "telefono.max" => "El numero de telefono del usuario debe tener 8 caracteres",
             "telefono.unique" => "El numero de telefono debe ser unico",
@@ -212,13 +212,13 @@ class userController extends Controller
     public function updat(Request $request, $id)
     {
         $this->validate($request, [
-            "name" => "required|max:20",
+            "name" => "required|max:50",
             "usuario" => "required|max:20|unique:users,name," . $id,
             "telefono" => "required||unique:users,telefono," . $id,
             "email" => "required|unique:users,email," . $id
         ], [
             "name.required" => "Se debe ingresar el nombre del usuario.",
-            "name.max" => "El nombre del usuario debe ser menor a 20 caracteres",
+            "name.max" => "El nombre debe ser menor o igual a 50 caracteres",
             "usuario.required" => "Se debe ingresar el nombre de usuario.",
             "usuario.max" => "El nombre de usuario debe ser menor a 20 caracteres",
             "telefono.required" => "Se debe ingresar el numero telefonico del de usuario.",

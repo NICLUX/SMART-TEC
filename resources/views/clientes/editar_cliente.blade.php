@@ -18,11 +18,12 @@
                             @method("PUT")
                             @csrf
 
-                            <div class="form-group">
+                            <div class="form-group col-md-11">
                                 <label>Nombre:</label>
                                 <input class="form-control  @error('nombre') is-invalid @enderror"
                                        type="text"
-                                       pattern="[A-Za-z ]{2,20}"
+                                       pattern="[A-Za-z. ]{2,50}"
+                                       maxlength="50"
                                        required
                                        placeholder=""
                                        @if(old("nombre"))
@@ -31,6 +32,7 @@
                                        value="{{$cliente->nombre}}"
                                        @endif
                                        name="nombre">
+                                <small class="text-muted">Máxima longitud 50 caracteres</small>
                                 @error('nombre')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -38,7 +40,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-md-11">
                                 <label>Dirección:</label>
                                 <textarea class="form-control @error('direccion') is-invalid @enderror"
                                           placeholder="Dirección"
@@ -46,6 +48,7 @@
                                           maxlength="80"
                                           name="direccion">@if(old("direccion")){{old("direccion")}}
                                     @else{{$cliente->direccion}}@endif</textarea>
+                                <small class="text-muted">Máxima longitud 80 caracteres</small>
                                 @error('direccion')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -53,12 +56,13 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-md-11">
                                 <label>Teléfono:</label>
                                 <input
                                     type="tel"
                                     pattern='\d{8}'
                                     required
+                                    maxlength="8"
                                     @if(old("telefono"))
                                     value="{{old("telefono")}}"
                                     @else
@@ -75,7 +79,9 @@
                             </div>
 
                             <br>
-                            <button id="btnRegister" type="submit" class="btn btn-success">Guardar</button>
+                            <div class="form-group col-md-11">
+                                <button id="btnRegister" type="submit" class="btn btn-success">Guardar</button>
+                            </div>
                         </form>
                     </div>
                 </div>

@@ -25,7 +25,7 @@ class ProveedorController extends Controller
             "nombre" => "required|max:50",
             "email" => "unique:proveedors,email|max:50",
             "descripcion" => "max:150",
-            "direccion" => "required|max:50",
+            "direccion" => "required|max:80",
             "telefono" => "required|unique:proveedors,telefono|max:99999999|",
         ], [
             "nombre.required" => "Se requiere ingresar el nombre del proveedor",
@@ -54,7 +54,7 @@ class ProveedorController extends Controller
             "nombre" => "required|max:50",
             "email" => "unique:proveedors,email|max:50",
             "descripcion" => "max:150",
-            "direccion" => "required|max:50",
+            "direccion" => "required|max:80",
             "telefono" => "required|unique:proveedors,telefono|max:99999999",
         ], [
             "nombre.required" => "Se requiere ingresar el nombre del proveedor",
@@ -89,7 +89,7 @@ class ProveedorController extends Controller
             "nombre" => "required|max:50",
             "email" => "unique:proveedors,email," . $id,
             "descripcion" => "max:150",
-            "direccion" => "required|max:50",
+            "direccion" => "required|max:80",
             "telefono" => "required|max:99999999|unique:proveedors,telefono," . $id,
         ], [
             "nombre.required" => "Se requiere ingresar el nombre del proveedor",

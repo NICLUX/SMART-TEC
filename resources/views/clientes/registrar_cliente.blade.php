@@ -10,16 +10,18 @@
                 <div class="row register-form">
                     <div class="col-md-6">
 
-                        <form  id="form_proveedores" enctype="multipart/form-data" action="{{route("cliente.store")}}"
-                               method="post">
+                        <form id="form_proveedores" enctype="multipart/form-data" action="{{route("cliente.store")}}"
+                              method="post">
                             @csrf
-                            <div class="form-group">
+                            <div class="form-group col-md-11">
                                 <label>Nombre:</label>
                                 <input class="form-control  @error('nombre') is-invalid @enderror"
                                        placeholder=""
+                                       pattern="[A-Za-z. ]{2,50}"
                                        required
                                        value="{{old("nombre")}}"
-                                       maxlength="20" name="nombre" id="nombre">
+                                       maxlength="50" name="nombre" id="nombre">
+                                <small class="text-muted">Máxima longitud 50 caracteres</small>
                                 @error('nombre')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -27,16 +29,17 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-md-11">
                                 <label>Dirección:</label>
                                 <input class="form-control @error('direccion') is-invalid @enderror"
                                        placeholder=""
                                        id="direccion"
-                                       pattern="[A-Za-z,.áéíóú ]{1,40}"
+                                       pattern="[A-Za-z,.áéíóú ]{1,80}"
                                        title="Debe ingresar una dirección valido, ejemplo: Esto es una descripción."
                                        required
                                        value="{{old("direccion")}}"
-                                       maxlength="40" name="direccion">
+                                       maxlength="80" name="direccion">
+                                <small class="text-muted">Máxima longitud 80 caracteres</small>
                                 @error('direccion')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -44,7 +47,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-md-11">
                                 <label>Télefono:</label>
                                 <input class="form-control @error('telefono') is-invalid @enderror"
                                        placeholder=""
@@ -54,6 +57,7 @@
                                        value="{{old("telefono")}}"
                                        maxlength="8"
                                        name="telefono">
+                                <small class="text-muted">Máxima longitud 8 caracteres</small>
                                 @error('telefono')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -62,8 +66,9 @@
                             </div>
 
                             <br>
-                            <button id="btnRegister" onclick="validar()" class="btn btn-success">Guardar</button>
-
+                            <div class="form-group col-md-11">
+                                <button id="btnRegister" onclick="validar()" class="btn btn-success">Guardar</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -72,19 +77,19 @@
 
         <script>
             function validar() {
-             let isValid = false;
-             var v_figura = document.getElementById('nombre').value;
-             const pattern = new RegExp("^[a-zA-Z ]*$");
-               if(pattern.test(v_figura)) {
-               } else {
-                   toastr.options =
-                       {
-                           "closeButton" : true,
-                           "progressBar" : true
-                       }
-                   toastr.error("No pueden ir números en el Nombre");
-                   event.preventDefault();
-               }
-           }
-       </script>
+                let isValid = false;
+                var v_figura = document.getElementById('nombre').value;
+                const pattern = new RegExp("^[a-zA-Z ]*$");
+                if (pattern.test(v_figura)) {
+                } else {
+                    toastr.options =
+                        {
+                            "closeButton": true,
+                            "progressBar": true
+                        }
+                    toastr.error("No pueden ir números en el Nombre");
+                    event.preventDefault();
+                }
+            }
+        </script>
 @endsection

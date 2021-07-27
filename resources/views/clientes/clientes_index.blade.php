@@ -13,26 +13,33 @@
     </div>
 @endsection
 @section("contenido")
+    <style>
+        #tabla_prove tr:hover {
+            background-color: gainsboro;
+        }
+    </style>
+
     @if($clientes->count())
         <div class="table-responsive-sm -mr-2">
-            <table class="table table-borderless table-hover table-sm">
-                <thead class="thead-dark">
+            <table name="tabla_prove" class="table">
+                <thead style="background: #1C2D3F; color: #ffffff">
                 <th scope="col">N°</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Teléfono</th>
                 <th scope="col">Dirección</th>
                 <th scope="col">Editar</th>
-                <th scope="col">Borrar</th>
+                <th scope="col">Eliminar</th>
+
                 </tr>
                 </thead>
 
                 <tbody>
                 @foreach($clientes as $item=>$cliente)
                     <tr id="resultados">
-                        <th>{{$item+$clientes->firstItem()}}</th>
-                        <td>{{$cliente->nombre}}</td>
-                        <td>{{$cliente->telefono}}</td>
-                        <td>{{$cliente->direccion}}</td>
+                        <th style="font: caption; font-style: normal" >{{$item+$clientes->firstItem()}}</th>
+                        <td style="font: caption; font-style: normal">{{$cliente->nombre}}</td>
+                        <td style="font: caption; font-style: normal">{{$cliente->telefono}}</td>
+                        <td style="font: caption; text-align: justify">{{$cliente->direccion}}</td>
                         <td>
                             <a class="btn-sm btn-success"
                                href="{{route('cliente.editar',['id'=>$cliente->id])}}"

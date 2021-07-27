@@ -16,12 +16,12 @@
                               method="post" enctype="multipart/form-data">
                             @method("PUT")
                             @csrf
-                            <div class="form-group">
+                            <div class="form-group col-md-11">
                                 <label>Nombre:</label>
                                 <input type="text"
-                                       pattern="^[A-Za-záéíóú \s]{2,20}"
+                                       pattern="^[A-Za-záéíóú \s]{2,50}"
                                        title="Debe ingresar un nombre valido, ejemplo: Daniela Martinez"
-                                       maxlength="20"
+                                       maxlength="50"
                                        required
                                        @if(old("name"))
                                        value="{{old("name")}}"
@@ -30,7 +30,7 @@
                                        @endif
                                        name="name"
                                        class="form-control  @error('name') is-invalid @enderror">
-                                <small class="text-muted">Máxima longitud 20 caracteres</small>
+                                <small class="text-muted">Máxima longitud 50 caracteres</small>
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -38,7 +38,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-md-11">
                                 <label>Usuario:</label>
                                 <input type="text"
                                        pattern="[a-z-]{2,20}"
@@ -60,7 +60,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-md-11">
                                 <label>Teléfono:</label>
                                 <input
                                     type="tel"
@@ -83,7 +83,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-md-11">
                                 <label for="id_proveedor">Tipo de usuario</label>
                                 <div class="input-group">
                                     <select id="is_admin"
@@ -107,11 +107,11 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-md-11">
                                 <label>Correo electrónico:</label>
                                 <input type="email"
                                        id="email"
-                                       maxlength="25"
+                                       maxlength="50"
                                        required
                                        @if(old("email"))
                                        value="{{old("email")}}"
@@ -120,7 +120,7 @@
                                        @endif
                                        name="email"
                                        class="form-control  @error('email') is-invalid @enderror">
-                                <small class="text-muted">Máxima longitud 25 caracteres</small>
+                                <small class="text-muted">Máxima longitud 50 caracteres</small>
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -128,7 +128,7 @@
                                 @enderror
                             </div>
                             <br>
-                                    <div class="form-group">
+                                    <div class="form-group col-md-11">
                                         <label>Seleccione una imagen (opcional):</label>
                                         <input class="form-control  @error('imagen') is-invalid @enderror"
                                             accept="image/*" name="imagen_url" type="file"
@@ -141,7 +141,9 @@
                                         @enderror
                                     </div>
                             <hr>
-                            <button id="btnRegister" type="submit" class="btn btn-success">Guardar</button>
+                            <div class="form-group col-md-11">
+                                <button id="btnRegister" type="submit" class="btn btn-success">Guardar</button>
+                            </div>
                         </form>
                     </div>
                 </div>

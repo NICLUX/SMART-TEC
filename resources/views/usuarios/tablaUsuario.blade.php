@@ -20,14 +20,14 @@
 @if(count($users)>0)
     <div class="table-responsive-sm -mr-2">
         <table class="table table-borderless table-hover table-sm">
-            <thead class="thead-dark">
-            <tr>
-                <th scope="col" class="text-center">N°</th>
-                <th scope="col" class="text-center">Nombre</th>
-                <th scope="col" class="text-center">Usuario</th>
-                <th scope="col" class="text-center">Tipo</th>
-                <th scope="col" class="text-center">Correo</th>
-                <th scope="col" class="text-center">Teléfono</th>
+            <thead>
+            <tr style="background: #1C2D3F; color: #ffffff">
+                <th scope="col" style="text-align: center">N°</th>
+                <th scope="col" style="text-align: justify">Nombre</th>
+                <th scope="col" style="text-align: justify">Usuario</th>
+                <th scope="col" style="text-align: justify">Tipo</th>
+                <th scope="col" style="text-align: justify">Correo Electrónico</th>
+                <th scope="col" style="text-align: justify">Teléfono</th>
                 <th scope="col" class="text-center">Editar</th>
                 <th scope="col" class="text-center">Eliminar</th>
             </tr>
@@ -35,12 +35,12 @@
             <tbody>
             @foreach($users as $item=> $user)
                 <tr id="">
-                    <th style="text-align: center;">{{$user->id}}</th>
-                    <td style="text-align: center;">{{$user->name}}</td>
-                    <td style="text-align: center;">{{$user->usuario}}</td>
-                    <td style="text-align: center;">{{$user ->is_admin}}</td>
-                    <td style="text-align: center;">{{$user ->email}}</td>
-                    <td style="text-align: center;">{{$user ->telefono}}</td>
+                    <th style="font: caption; text-align: right">{{$user->id}}</th>
+                    <td style="font: caption; text-align: justify">{{$user->name}}</td>
+                    <td style="font: caption; text-align: justify">{{$user->usuario}}</td>
+                    <td style="font: caption; text-align: justify">{{$user ->is_admin}}</td>
+                    <td style="font: caption; text-align: justify">{{$user ->email}}</td>
+                    <td style="font: caption; text-align: justify">{{$user ->telefono}}</td>
                     <td align="center">
                         <a class="btn-sm btn-success"
 

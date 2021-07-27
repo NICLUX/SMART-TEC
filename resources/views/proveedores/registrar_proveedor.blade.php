@@ -2,6 +2,7 @@
 @section("contenido")
     <h1>SMARTEC</h1>
     <a id="btn-cancelar" class="btn btn-primary btn-round" href="{{route("proveedores.index")}}">Cancelar</a>
+
     </div>
     <div class="col-md-9 register-right">
         <div class="tab-content" id="myTabContent">
@@ -10,39 +11,36 @@
 
                 <div class="row register-form">
 
-
                     <form id="form_proveedores" name="form_proveedores" enctype="multipart/form-data"
                           action="{{route("proveedor.store")}}" method="post">
                         @csrf
 
-                        <div class="row">
-                            <div class="col">
-                                <label>Nombre:</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <input class="form-control  @error('nombre') is-invalid @enderror"
-                                       placeholder=""
-                                       pattern="[A-Za-z ]{2,50}"
-                                       required
-                                       maxlength="50"
-                                       value="{{old("nombre")}}" name="nombre" id="nombre">
-                                @error('nombre')
-                                <span class="invalid-feedback" role="alert">
+
+                        <div class="form-group col-md-11">
+                            <label>Nombre:</label>
+                            <input class="form-control  @error('nombre') is-invalid @enderror"
+                                   placeholder=""
+                                   pattern="[A-Za-z ]{2,50}"
+                                   required
+                                   maxlength="50"
+                                   value="{{old("nombre")}}" name="nombre" id="nombre">
+                            <small class="text-muted">Máxima longitud 50 caracteres</small>
+                            @error('nombre')
+                            <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
-                                @enderror
-                            </div>
+                            @enderror
                         </div>
 
-                        <div class="form-group">
+
+                        <div class="form-group col-md-11">
                             <label>Descripción (opcional):</label>
                             <textarea class="form-control @error('descripcion') is-invalid @enderror"
                                       pattern="[A-Za-z ,.áéíóú]{0,150}"
                                       maxlength="150"
                                       title="Debe ingresar una descripción valido, ejemplo: Esto es una descripción."
                                       placeholder="" name="descripcion">{{old("descripcion")}}</textarea>
+                            <small class="text-muted">Máxima longitud 150 caracteres</small>
                             @error('descripcion')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -50,13 +48,14 @@
                             @enderror
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group col-md-11">
                             <label>Dirección:</label>
                             <textarea class="form-control @error('direccion') is-invalid @enderror"
-                                      pattern="[A-Za-z,.áéíóú ]{1,50}"
+                                      pattern="[A-Za-z,.áéíóú ]{1,80}"
                                       title="Debe ingresar una dirección valido, ejemplo: Esto es una descripción."
-                                      placeholder="" required maxlength="40"
+                                      placeholder="" required maxlength="80"
                                       name="direccion">{{old("direccion")}}</textarea>
+                            <small class="text-muted">Máxima longitud 80 caracteres</small>
                             @error('direccion')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -64,7 +63,7 @@
                             @enderror
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group col-md-3">
                             <label>Télefono:</label>
                             <input class="form-control @error('telefono') is-invalid @enderror"
                                    placeholder=""
@@ -79,7 +78,7 @@
                             @enderror
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group col-md-8">
                             <label>Correo electrónico:</label>
                             <input class="form-control @error('email') is-invalid @enderror" placeholder="" id="email"
                                    type="email" value="{{old("email")}}" maxlength="50" required name="email">
@@ -90,8 +89,9 @@
                             @enderror
                         </div>
                         <hr>
-                        <button id="btnRegister" onclick="validar()" class="btn btn-success">Guardar
-                        </button>
+                        <div class="form-group col-md-11">
+                            <button id="btnRegister" onclick="validar()" class="btn btn-success">Guardar</button>
+                        </div>
                     </form>
 
                 </div>
