@@ -25,9 +25,9 @@
                                     <div class="form-group">
                                         <label>Nombre:</label>
                                         <input class="form-control  @error('nombre') is-invalid @enderror" type="text"
-                                               pattern="[A-Za-z ]{2,20}"
+                                               pattern="[A-Za-z ]{2,50}"
                                                required
-                                               maxlength="20"
+                                               maxlength="50"
                                                @if(old("nombre"))
                                                value="{{old("nombre")}}" @else value="{{$proveedor->nombre}}" @endif
                                                id="nombre" name="nombre">
@@ -41,8 +41,8 @@
                                     <div class="form-group">
                                         <label>Descripción (opcional):</label>
                                         <textarea class="form-control @error('descripcion') is-invalid @enderror"
-                                                  pattern="[A-Za-z ,.áéíóú]{1,40}"
-                                                  maxlength="40"
+                                                  pattern="[A-Za-z ,.áéíóú]{0,150}"
+                                                  maxlength="150"
                                                   name="descripcion">
                                         @if(old("descripcion")){{old("descripcion")}}
                                             @else{{$proveedor->descripcion}}@endif</textarea>
@@ -56,7 +56,8 @@
                                     <div class="form-group">
                                         <label>Dirección:</label>
                                         <textarea class="form-control @error('direccion') is-invalid @enderror" required
-                                                  maxlength="40"
+                                                  pattern="[A-Za-z ,.áéíóú]{0,50}"
+                                                  maxlength="50"
                                                   name="direccion">@if(old("direccion")){{old("direccion")}}
                                             @else{{$proveedor->direccion}}@endif</textarea>
                                         @error('direccion')
@@ -88,7 +89,7 @@
                                         <input class="form-control @error('email') is-invalid @enderror" type="email"
                                                @if(old("email")) value="{{old("email")}}"
                                                @else value="{{$proveedor->email}}"
-                                               @endif maxlength="25" required name="email">
+                                               @endif maxlength="50" required name="email">
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

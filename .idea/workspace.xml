@@ -22,14 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="Corrección de errores - Harol Miranda">
+    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="Corrección de proveedores - Harol Miranda">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProveedorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProveedorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/proveedores/editar_proveedor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proveedores/editar_proveedor.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/proveedores/proveedores_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proveedores/proveedores_index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/proveedores/registrar_proveedor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proveedores/registrar_proveedor.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/servicios/agregar_servicio.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/servicios/agregar_servicio.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -309,7 +307,8 @@
       <workItem from="1627071050456" duration="174000" />
       <workItem from="1627104490330" duration="38000" />
       <workItem from="1627277180587" duration="831000" />
-      <workItem from="1627325729098" duration="1634000" />
+      <workItem from="1627325729098" duration="3795000" />
+      <workItem from="1627357810265" duration="1032000" />
     </task>
     <task id="LOCAL-00001" summary="Creacion de cintrolador, modelo, migracion de categoria, productos, inventario">
       <created>1602800135286</created>
@@ -507,7 +506,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625288560581</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Corrección de proveedores - Harol Miranda">
+      <created>1627327623564</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1627327623564</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -549,6 +555,7 @@
     <MESSAGE value="Mejoras a la semilla DatabaseSeeder" />
     <MESSAGE value="Mejoras a de vistas y formulario de usuario" />
     <MESSAGE value="Corrección de errores - Harol Miranda" />
-    <option name="LAST_COMMIT_MESSAGE" value="Corrección de errores - Harol Miranda" />
+    <MESSAGE value="Corrección de proveedores - Harol Miranda" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrección de proveedores - Harol Miranda" />
   </component>
 </project>

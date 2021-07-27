@@ -24,9 +24,9 @@
                             <div class="col">
                                 <input class="form-control  @error('nombre') is-invalid @enderror"
                                        placeholder=""
-                                       pattern="[A-Za-z ]{2,20}"
+                                       pattern="[A-Za-z ]{2,50}"
                                        required
-                                       maxlength="20"
+                                       maxlength="50"
                                        value="{{old("nombre")}}" name="nombre" id="nombre">
                                 @error('nombre')
                                 <span class="invalid-feedback" role="alert">
@@ -39,8 +39,8 @@
                         <div class="form-group">
                             <label>Descripción (opcional):</label>
                             <textarea class="form-control @error('descripcion') is-invalid @enderror"
-                                      pattern="[A-Za-z,.áéíóú ]{1,40}"
-                                      maxlength="40"
+                                      pattern="[A-Za-z ,.áéíóú]{0,150}"
+                                      maxlength="150"
                                       title="Debe ingresar una descripción valido, ejemplo: Esto es una descripción."
                                       placeholder="" name="descripcion">{{old("descripcion")}}</textarea>
                             @error('descripcion')
@@ -53,7 +53,7 @@
                         <div class="form-group">
                             <label>Dirección:</label>
                             <textarea class="form-control @error('direccion') is-invalid @enderror"
-                                      pattern="[A-Za-z,.áéíóú ]{1,40}"
+                                      pattern="[A-Za-z,.áéíóú ]{1,50}"
                                       title="Debe ingresar una dirección valido, ejemplo: Esto es una descripción."
                                       placeholder="" required maxlength="40"
                                       name="direccion">{{old("direccion")}}</textarea>
@@ -68,8 +68,10 @@
                             <label>Télefono:</label>
                             <input class="form-control @error('telefono') is-invalid @enderror"
                                    placeholder=""
+                                   pattern='\d{8}'
                                    required
-                                   maxlength="8" value="{{old("telefono")}}" name="telefono">
+                                   maxlength="8"
+                                   value="{{old("telefono")}}" name="telefono">
                             @error('telefono')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -80,7 +82,7 @@
                         <div class="form-group">
                             <label>Correo electrónico:</label>
                             <input class="form-control @error('email') is-invalid @enderror" placeholder="" id="email"
-                                   type="email" value="{{old("email")}}" maxlength="25" required name="email">
+                                   type="email" value="{{old("email")}}" maxlength="50" required name="email">
                             @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

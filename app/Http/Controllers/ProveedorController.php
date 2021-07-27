@@ -22,15 +22,15 @@ class ProveedorController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            "nombre" => "required|max:20",
-            "email" => "unique:proveedors,email|max:25",
-            "descripcion" => "max:40",
-            "direccion" => "required|max:40",
+            "nombre" => "required|max:50",
+            "email" => "unique:proveedors,email|max:50",
+            "descripcion" => "max:150",
+            "direccion" => "required|max:50",
             "telefono" => "required|unique:proveedors,telefono|max:99999999|",
         ], [
             "nombre.required" => "Se requiere ingresar el nombre del proveedor",
             "email.unique" => "El correo ya ha sido registrado.",
-            "descripcion.max" => "La descripción debe ser menor o igual a 40 caracteres",
+            "descripcion.max" => "La descripción debe ser menor o igual a 150 caracteres",
             "direccion.required" => "La dirección se requiere.",
             "telefono.unique" => "El télefono ya ha sido registrado",
             "telefono.max" => "El telefono debe ser menor o igual a 8 caracteres",
@@ -51,15 +51,15 @@ class ProveedorController extends Controller
     public function stor(Request $request)
     {
         $this->validate($request, [
-            "nombre" => "required|max:20",
-            "email" => "unique:proveedors,email|max:25",
-            "descripcion" => "max:40",
-            "direccion" => "required|max:40",
+            "nombre" => "required|max:50",
+            "email" => "unique:proveedors,email|max:50",
+            "descripcion" => "max:150",
+            "direccion" => "required|max:50",
             "telefono" => "required|unique:proveedors,telefono|max:99999999",
         ], [
             "nombre.required" => "Se requiere ingresar el nombre del proveedor",
             "email.unique" => "El correo ya ha sido registrado.",
-            "descripcion.max" => "La descripción debe ser menor o igual a 40 caracteres",
+            "descripcion.max" => "La descripción debe ser menor o igual a 150 caracteres",
             "direccion.required" => "La dirección se requiere.",
             "telefono.unique" => "El télefono ya ha sido registrado",
             "telefono.max" => "El telefono debe ser menor o igual a 8 caracteres",
@@ -86,15 +86,15 @@ class ProveedorController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            "nombre" => "required|max:20",
+            "nombre" => "required|max:50",
             "email" => "unique:proveedors,email," . $id,
-            "descripcion" => "max:40",
-            "direccion" => "required|max:40",
+            "descripcion" => "max:150",
+            "direccion" => "required|max:50",
             "telefono" => "required|max:99999999|unique:proveedors,telefono," . $id,
         ], [
             "nombre.required" => "Se requiere ingresar el nombre del proveedor",
             "email.unique" => "El correo ya ha sido registrado.",
-            "descripcion.max" => "La descripción debe ser menor a 40 caracteres",
+            "descripcion.max" => "La descripción debe ser menor o igual a 150 caracteres",
             "direccion.required" => "La dirección se requiere.",
             "telefono.unique" => "El télefono ya ha sido registrado",
             "telefono.max" => "El telefono debe ser menor a 8 caracteres",

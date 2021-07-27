@@ -30,9 +30,9 @@
             <tr>
                 <th scope="col">N°</th>
                 <th scope="col">Nombre</th>
-                <th scope="col" style="white-space: nowra">Dirección</th>
+                <th scope="col" style="white-space: normal">Dirección</th>
                 <th scope="col">Teléfono</th>
-                <th scope="col" style="white-space: nowra">Descripción</th>
+                <th scope="col" style="white-space: normal">Descripción</th>
                 <th scope="col">Correo</th>
                 <th scope="col">Opciones</th>
             </tr>
