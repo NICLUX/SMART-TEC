@@ -48,12 +48,15 @@
                             <i class="fa fa-pencil"></i></a>
                     </td>
                     <td align="center">
+                        @if (auth()->user()->is_admin != $user->is_admin)
                         <button class="btn-sm btn-danger"
-                                data-id="{{$user->id}}"
-                                data-toggle="modal" data-target="#modalBorrarApertura"
-                                onclick="recibir('{{$user->id}}')">
-                            <i class="fa fa-trash"></i>
+                        data-id="{{$user->id}}"
+                        data-toggle="modal" data-target="#modalBorrarApertura"
+                        onclick="recibir('{{$user->id}}')">
+                    <i class="fa fa-trash"></i>
                         </button>
+                    @endif
+
                     </td>
                 </tr>
             @endforeach

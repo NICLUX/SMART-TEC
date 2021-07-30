@@ -53,12 +53,16 @@
                                href="{{route("usuarios.editar",["id"=>$user->id])}}">
                                 <i class="fa fa-pencil"></i> Editar</a>
 
-                            <button class="btn-sm btn-danger"
+                                @if (auth()->user()->is_admin != $user->is_admin)
+                                <button class="btn-sm btn-danger"
                                     data-id="{{$user->id}}"
                                     data-toggle="modal" data-target="#modalBorrarApertura"
                                     onclick="recibir('{{$user->id}}')">
                                 <i class="fa fa-trash"></i> Borrar
                             </button>
+                            @endif
+
+
                 @endforeach
             </ul>
         </div>

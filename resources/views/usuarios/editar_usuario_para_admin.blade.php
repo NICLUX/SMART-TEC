@@ -89,7 +89,10 @@
                                     <select id="is_admin"
 
                                             name="is_admin"
-                                            class="form-control @error('is_admin') is-invalid @enderror" required>
+                                            class="form-control @error('is_admin') is-invalid @enderror" required
+                                            @if (auth()->user()->is_admin == $user->is_admin)
+                                                disabled
+                                            @endif>
                                         <option value="" selected >Seleccione una opción</option>
 
 
