@@ -94,7 +94,7 @@
         <script>
             function recibir(numero) {
                 var id = numero;
-                document.formulario_eliminar.action = "/cliente/" + id + "/destroy";
+                document.formulario_eliminar.action = "/cliente/" + id + "/eliminar";
             }
         </script>
 @endsection

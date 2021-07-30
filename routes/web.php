@@ -59,7 +59,7 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/usuarios/{id}/editar",[UserController::class,"edit"])->name("usuarios.editar");
         Route::put("/usuarios/{id}/editar",[UserController::class,"update"])->name("usuarios.update");
         Route::post("/usuarios/store",[UserController::class,"store"])->name("usuarios.store");
-        Route::get("/usuarios/{id}/eliminar",[UserController::class,"destroy"])->name("usuarios.destroy");// Eliminar el suario de la tabla
+        Route::delete("/usuarios/{id}/eliminar",[UserController::class,"destroy"])->name("usuarios.destroy");// Eliminar el suario de la tabla
         Route::get("/usuarios/{id}/borrar",[UserController::class,"borrar"])->name("usuarios.borrar");
         //________________comprass__________________________//
         Route::get("/compras",[\App\Http\Controllers\CompraController::class,"index"])->name("compras.index");//muestra todas las compras
@@ -106,7 +106,7 @@ Route::group(["middleware"=>"auth"],function () {
         Route::post("/proveedor/stor",[\App\Http\Controllers\ProveedorController::class,"stor"])->name("proveedor.stor");//Guardar el proveedor del formulario agregar
         Route::get("/proveedor/{id}/editar",[\App\Http\Controllers\ProveedorController::class,"editar"])->name("proveedor.editar");//Muestra el formulario de editar proveedor
         Route::put("/proveedor/{id}/update",[\App\Http\Controllers\ProveedorController::class,"update"])->name("proveedor.update");//Guarda los datos de actualizar proveedor
-        Route::get("/proveedor/{id}/destroy",[\App\Http\Controllers\ProveedorController::class,"destroy"])->name("proveedor.destroy");//Borra un proveedor desde la lista
+        Route::delete("/proveedor/{id}/destroy",[\App\Http\Controllers\ProveedorController::class,"destroy"])->name("proveedor.destroy");//Borra un proveedor desde la lista
         //-----------servicios------------------//
         Route::get("/servicios",[ServiciosController::class,"index"])->name("servicios.index");//muestra todos los servicios
         Route::get("/servicios/crear",[ServiciosController::class,"create"])->name("servicios.crear");//formulario de crear servicio

@@ -60,9 +60,12 @@
                                title="Editar"><i class="fa fa-pencil"></i></a>
 
                             <button class="btn-sm btn-danger" data-id="{{$proveedor->id}}" data-toggle="modal"
-                                    data-target="#modalBorrarApertura">
+                                    data-target="#modalBorrarApertura"
+                                    onclick="recibir('{{$proveedor->id}}')">
                                 <i class="fa fa-trash"></i>
                             </button>
+
+
                         </td>
                     </tr>
                 @endforeach
@@ -88,17 +91,25 @@
                         <div class="modal-body">
                             <p>¿Está seguro que deseas borrar el proveedor?</p>
                         </div>
-                        <form name="formulario_eliminar" action="procesar.asp" method="POST">
+                        <form name="formulario_eliminar" action="" method="POST">
                             <div class="modal-footer">
+                                @csrf
+                                @method('DELETE')
                                 <input id="idApertura" name="id">
-                                <a class="btn-danger btn-sm"
-                                   href="{{route('proveedor.destroy',['id'=>isset($proveedor->id)?$proveedor->id:0])}}">
-                                    Eliminar</a>
-                                <button type="button" class="btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
+                                <input type="submit" class="btn btn-danger" value="Eliminar"> </input>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                             </div>
                         </form>
                     </div>
                 </div>
 
             </div>
+
+            <script>
+                function recibir(numero) {
+                    var id = numero;
+
+                    document.formulario_eliminar.action = "/proveedor/" + id + "/destroy";
+                }
+            </script>
 @endsection

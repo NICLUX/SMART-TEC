@@ -55,7 +55,8 @@
 
                             <button class="btn-sm btn-danger"
                                     data-id="{{$user->id}}"
-                                    data-toggle="modal" data-target="#modalBorrarApertura">
+                                    data-toggle="modal" data-target="#modalBorrarApertura"
+                                    onclick="recibir('{{$user->id}}')">
                                 <i class="fa fa-trash"></i> Borrar
                             </button>
                 @endforeach
@@ -81,13 +82,14 @@
                 <div class="modal-body">
                     <p>¿Esta seguro que deseas borrar el usuario?</p>
                 </div>
-                <form>
+                <form name="formulario_eliminar" action="procesar.asp" method="POST">
                     <div class="modal-footer">
+                        @csrf
+                        @method('DELETE')
                         <input id="idApertura" name="id">
-                        <a class="btn btn-danger"
-                           href="{{route("usuarios.destroy",["id"=>$user->id])}}"> Eliminar</a>
+                        <input type="submit" class="btn btn-danger" value="Eliminar"> </input>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    </div>
+                   </div>
                 </form>
             </div>
         </div>
@@ -123,5 +125,11 @@
             margin: 10px;
         }
     </style>
+    <script>
+        function recibir(numero) {
+            var id = numero;
+            document.formulario_eliminar.action = "/usuarios/" + id + "/eliminar";
+        }
+    </script>
 @endsection
 
