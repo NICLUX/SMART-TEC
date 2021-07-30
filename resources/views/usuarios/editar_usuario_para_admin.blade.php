@@ -16,6 +16,9 @@
                               method="post" enctype="multipart/form-data">
                             @method("PUT")
                             @csrf
+
+                            <input type="text" id="is_admin" name="is_admin" value="{{$user->is_admin}}" style="display: none">
+
                             <div class="form-group col-md-11">
                                 <label>Nombre:</label>
                                 <input type="text"

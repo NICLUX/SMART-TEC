@@ -166,6 +166,7 @@ class userController extends Controller
 
     public function update(Request $request, $id)
     {
+
         $this->validate($request, [
             "name" => "required|max:50",
             "usuario" => "required|max:20|unique:users,name," . $id,
@@ -183,7 +184,7 @@ class userController extends Controller
             "email.unique" => "El email debe ser unico",
         ]);
 
-        $editarUsuario = User::findOrfail($request->id);
+        $editarUsuario = User::findOrfail($id);
         $editarUsuario->name = $request->input("name");
         $editarUsuario->usuario = $request->input("usuario");
         $editarUsuario->is_admin = $request->input("is_admin");
