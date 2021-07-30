@@ -87,16 +87,22 @@
                                 <label for="id_proveedor">Tipo de usuario</label>
                                 <div class="input-group">
                                     <select id="is_admin"
-                                            @if(old("is_admin"))
-                                            value="{{old("is_admin")}}"
-                                            @else
-                                            value="{{$user->is_admin}}"
-                                            @endif
+
                                             name="is_admin"
                                             class="form-control @error('is_admin') is-invalid @enderror" required>
-                                        <option value="$user->is_admin" selected >Seleccione una opción</option>
+                                        <option value="" selected >Seleccione una opción</option>
+
+
                                         @foreach($tipos as $tipo)
-                                            <option value="{{$tipo->id}}">{{$tipo->tipo_users}}</option>
+                                        <option value="{{$tipo->id}}" @if($user->is_admin)
+                                            value="{{$user->is_admins}}"
+                                            {{$user->is_admin == $tipo->id ? 'selected="selected"':''}}
+                                            @endif
+                                            @if(old("is_admin"))
+                                            {{old("is_admin") == $tipo->id ? 'selected="selected"':''}}
+                                            @endif
+                                            >{{$tipo->tipo_users}}
+                                        </option>
                                         @endforeach
                                     </select>
                                 </div>
