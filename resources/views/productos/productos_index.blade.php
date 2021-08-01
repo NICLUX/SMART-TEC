@@ -94,7 +94,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Eliminar Producto</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -104,9 +104,9 @@
                     </div>
                     <div class="modal-footer">
                         <input id="idApertura" name="id">
-                        <a class="btn btn-danger"
+                        <a class="btn-sm btn-danger"
                            href="{{route("producto.destroy",["id"=>$producto->id])}}"> Eliminar</a>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn-sm btn-secondary" data-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
             </div>
