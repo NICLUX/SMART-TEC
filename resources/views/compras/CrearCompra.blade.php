@@ -18,10 +18,10 @@
                         id_producto=$("#pid_producto").val();
                         producto=$("#pid_producto option:selected").text();
                         cantidad=$("#pcantidad").val();
-                        costo_compra=$("#pcosto_compra").val();
-                        costo_venta=$("#pcosto_venta").val();
+                        costo_compra= parseInt($("#pcosto_compra").val());
+                        costo_venta= parseInt($("#pcosto_venta").val());
 
-                        if(id_producto > "" && costo_compra>0 && costo_venta>costo_compra && cantidad>0){
+                        if(id_producto > "" && costo_compra > 0 && costo_compra < costo_venta && cantidad > 0){
                             sub_total[cont]=(cantidad*costo_compra);
                             total=total+ sub_total[cont];
                             var fila = '<tr class="selected" id="fila'+cont+'" >' +
