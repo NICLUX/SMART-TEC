@@ -51,11 +51,11 @@
                         <div class="form-group col-md-11">
                             <label>Dirección:</label>
                             <textarea class="form-control @error('direccion') is-invalid @enderror"
-                                      pattern="[A-Za-z,.áéíóú ]{1,80}"
+                                      pattern="[A-Za-z,.áéíóú ]{1,150}"
                                       title="Debe ingresar una dirección valido, ejemplo: Esto es una descripción."
-                                      placeholder="" required maxlength="80"
+                                      placeholder="" required maxlength="150"
                                       name="direccion">{{old("direccion")}}</textarea>
-                            <small class="text-muted">Máxima longitud 80 caracteres</small>
+                            <small class="text-muted">Máxima longitud 150 caracteres</small>
                             @error('direccion')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -68,6 +68,7 @@
                             <input class="form-control @error('telefono') is-invalid @enderror"
                                    placeholder=""
                                    pattern='\d{8}'
+                                   onkeypress="return valideKey(event);"
                                    required
                                    maxlength="8"
                                    value="{{old("telefono")}}" name="telefono">
@@ -98,6 +99,7 @@
             </div>
         </div>
     </div>
+
     <script>
         function validar() {
             let isValid = false;
@@ -111,6 +113,17 @@
                 }
                 toastr.error("El nombre no puede incluir números");
                 event.preventDefault();
+            }
+        }
+
+        function valideKey(evt){
+            var code = (evt.which) ? evt.which : evt.keyCode;
+            if(code==8) {
+                return true;
+            } else if(code>=48 && code<=57) {
+                return true;
+            } else{
+                return false;
             }
         }
     </script>

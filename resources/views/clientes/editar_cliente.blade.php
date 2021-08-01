@@ -45,10 +45,10 @@
                                 <textarea class="form-control @error('direccion') is-invalid @enderror"
                                           placeholder="Dirección"
                                           required
-                                          maxlength="80"
+                                          maxlength="150"
                                           name="direccion">@if(old("direccion")){{old("direccion")}}
                                     @else{{$cliente->direccion}}@endif</textarea>
-                                <small class="text-muted">Máxima longitud 80 caracteres</small>
+                                <small class="text-muted">Máxima longitud 150 caracteres</small>
                                 @error('direccion')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -63,6 +63,7 @@
                                     pattern='\d{8}'
                                     required
                                     maxlength="8"
+                                    onkeypress="return valideKey(event);"
                                     @if(old("telefono"))
                                     value="{{old("telefono")}}"
                                     @else
@@ -87,6 +88,18 @@
                 </div>
             </div>
         </div>
+        <script>
+            function valideKey(evt){
+                var code = (evt.which) ? evt.which : evt.keyCode;
+                if(code==8) {
+                    return true;
+                } else if(code>=48 && code<=57) {
+                    return true;
+                } else{
+                    return false;
+                }
+            }
+        </script>
 
 @endsection
 

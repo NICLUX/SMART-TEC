@@ -11,8 +11,8 @@ CATEGORÍAS
         <thead class="thead-dark">
             <tr>
                 <th scope="col">N°</th>
-                <th scope="col">Nombre</th>
                 <th scope="col">Imagen</th>
+                <th scope="col">Nombre</th>
                 <th scope="col">Editar</th>
                 <th scope="col">Borrar</th>
             </tr>
@@ -21,22 +21,22 @@ CATEGORÍAS
             @foreach($categorias as $item=> $categoria)
             <tr id="resultados">
                 <th scope="row">{{$item+ $categorias->firstItem()}}</th>
-                <td>{{$categoria->nombre}}</td>
                 <td width="20%" height="10%">
                     <img src="/images/categorias/{{$categoria->imagen}}"
                         onclick="$('#callModalVistaPrevia{{$categoria->id}}').click()"
                         onerror="this.src='/images/no_image.jpg'"></td>
                 </td>
+                <td>{{$categoria->nombre}}</td>
                 <td>
                     <!---Boton Editar-->
                     <a class="btn-success btn-sm" href="{{route("categoria.editar",['id'=>$categoria->id])}}"
-                        title="Editar"><i class="fa fa-pencil"></i> Editar</a>
+                        title="Editar"><i class="fa fa-pencil"></i></a>
                     <!---Boton Eliminar-->
                 </td>
                 <td>
                     <a class="btn-danger btn-sm" data-toggle="modal" data-target="#modalCrear_{{$categoria->id}}"
                         title="Eliminar" style="color:#ffffff;">
-                        <i class="fa fa-trash"></i> Borar</a>
+                        <i class="fa fa-trash"></i></a>
                 </td>
             </tr>
             <div class="modal fade" id="modalCrear_{{$categoria->id}}" tabindex="-1" role="dialog">

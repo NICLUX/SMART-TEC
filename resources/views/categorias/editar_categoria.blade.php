@@ -47,7 +47,7 @@
                                    @endif
                                    name="nombre"
                                    class="form-control  @error('nombre') is-invalid @enderror">
-                            <small class="text-muted">Maxima longitud 80 caracteres</small>
+                            <small class="text-muted">Máxima longitud 80 caracteres</small>
                             @error('nombre')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

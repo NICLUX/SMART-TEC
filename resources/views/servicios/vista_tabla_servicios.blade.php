@@ -23,7 +23,7 @@
             <tr>
                 <th scope="col" class="text-justify">#</th>
                 <th scope="col" class="text-justify">Nombre</th>
-                <th scope="col" class="text-justify">Descripcion</th>
+                <th scope="col" class="text-justify">Descripción</th>
                 <th scope="col" class="text-justify">Costo</th>
                 <th scope="col" class="text-justify">Categoría</th>
                 <th scope="col" class="text-justify">Editar</th>
@@ -33,15 +33,15 @@
         <tbody>
             @foreach($servicios as $item=> $servicioo)
             <tr class="text-justify">
-                <th scope="row">{{$servicioo->id}}</th>
-                <td>{{$servicioo->nombre}}</td>
+                <th style="font: caption; text-align: center" scope="row">{{$servicioo->id}}</th>
+                <td style="font: caption; text-align: justify" >{{$servicioo->nombre}}</td>
                 @if($servicioo->descripcion)
-                <td>{{$servicioo->descripcion}}</td>
+                <td style="font: caption; text-align: justify">{{$servicioo->descripcion}}</td>
                 @else
                 <td>n/a</td>
                 @endif
-                <td>{{$servicioo->costo_de_venta}}</td>
-                <td>{{$servicioo ->id_categoria}}</td>
+                <td style="font: caption; text-align: center" >{{$servicioo->costo_de_venta}}</td>
+                <td style="font: caption; text-align: center" >{{$servicioo ->id_categoria}}</td>
                 <td>
                     <a class="btn-sm btn-success" href="{{route("servicios.editar",["id"=>$servicioo->id])}}">
                         <i class="fa fa-pencil"></i></a>

@@ -28,6 +28,7 @@
                                             pattern="^[A-Za-záéíóú \s]{2,50}"
                                             title="Debe ingresar un nombre valido, ejemplo: Daniela Martinez"
                                             maxlength="50"
+                                            onkeypress="return valideLetter(event);"
                                             required
                                             @if(old("name"))
                                             value="{{old("name")}}"
@@ -74,6 +75,7 @@
                                             pattern="[0-9]{8}"
                                             title="Debe ingresar un número de teléfono valido, ejemplo: 99769965"
                                             maxlength="8"
+                                            onkeypress="return valideKey(event);"
                                             required
                                             @if(old("telefono"))
                                             value="{{old("telefono")}}"
@@ -115,8 +117,8 @@
                                     <div class="form-group">
                                         <label>Seleccione una imagen (opcional):</label>
                                         <input class="form-control  @error('imagen') is-invalid @enderror"
-                                            accept="image/*" name="imagen_url" type="file"
-                                            placeholder="Ingrese una imagen">
+                                               accept="image/*" name="imagen_url" type="file"
+                                               placeholder="Ingrese una imagen">
                                         <small class="text-muted">Solo formatos en imagen (.png, .jpg, .jpeg)</small>
                                         @error('imagen')
                                         <span class="invalid-feedback" role="alert">
@@ -133,7 +135,45 @@
 
 
                                 </form>
+
                                 <script>
+                                    function validar() {
+                                        let isValid = false;
+                                        var v_figura = document.getElementById('nombre').value;
+                                        const pattern = new RegExp("^[a-zA-Z ]*$");
+                                        if (pattern.test(v_figura)) {
+                                        } else {
+                                            toastr.options = {
+                                                "closeButton": true,
+                                                "progressBar": true
+                                            }
+                                            toastr.error("El nombre no puede incluir números");
+                                            event.preventDefault();
+                                        }
+                                    }
+
+                                    function valideKey(evt) {
+                                        var code = (evt.which) ? evt.which : evt.keyCode;
+                                        if (code == 8) {
+                                            return true;
+                                        } else if (code >= 48 && code <= 57) {
+                                            return true;
+                                        } else {
+                                            return false;
+                                        }
+                                    }
+
+                                    function valideLetter(evt){
+                                        var code = (evt.which) ? evt.which : evt.keyCode;
+                                        if(code==8 || code==32) {
+                                            return true;
+                                        } else if(code>=65 && code<=122) {
+                                            return true;
+                                        } else{
+                                            return false;
+                                        }
+                                    }
+
                                     //Permite mostrar la imagen seleccionada
                                     var verImagen = function (event) {
                                         var image = document.getElementById('imagen_previa');

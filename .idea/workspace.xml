@@ -22,22 +22,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="Corrección de proveedores - Harol Miranda">
+    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="Solución al error de ProveedorFactory">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClienteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClienteController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProveedorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProveedorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/clientes/clientes_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clientes/clientes_index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ServiciosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ServiciosController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/categorias/categorias.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categorias/categorias.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/categorias/editar_categoria.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categorias/editar_categoria.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/clientes/editar_cliente.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clientes/editar_cliente.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/clientes/registrar_cliente.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clientes/registrar_cliente.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/update-password-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/update-password-form.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/proveedores/editar_proveedor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proveedores/editar_proveedor.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/proveedores/proveedores_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proveedores/proveedores_index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/proveedores/registrar_proveedor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proveedores/registrar_proveedor.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/servicios/agregar_servicio.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/servicios/agregar_servicio.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/servicios/editar_servicio.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/servicios/editar_servicio.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/servicios/vista_tabla_servicios.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/servicios/vista_tabla_servicios.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario_para_admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario_para_admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/usuarios/registrar_usario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/registrar_usario.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/tablaUsuario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/tablaUsuario.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -318,7 +320,11 @@
       <workItem from="1627104490330" duration="38000" />
       <workItem from="1627277180587" duration="831000" />
       <workItem from="1627325729098" duration="3795000" />
-      <workItem from="1627357810265" duration="13223000" />
+      <workItem from="1627357810265" duration="13704000" />
+      <workItem from="1627406261827" duration="828000" />
+      <workItem from="1627569217894" duration="2017000" />
+      <workItem from="1627761948039" duration="1526000" />
+      <workItem from="1627772629255" duration="8413000" />
     </task>
     <task id="LOCAL-00001" summary="Creacion de cintrolador, modelo, migracion de categoria, productos, inventario">
       <created>1602800135286</created>
@@ -530,7 +536,21 @@
       <option name="project" value="LOCAL" />
       <updated>1627359069731</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Mejoras de visualización en vistas y formularios">
+      <created>1627373582258</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1627373582258</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Solución al error de ProveedorFactory">
+      <created>1627406319152</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1627406319152</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -549,7 +569,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Creacion de migracion, controlador y modelo de Apertura de caja y plantilla principal y vista general principal" />
     <MESSAGE value="Creacion de cintrolador, modelo, migracion de categoria, productos, inventario" />
     <MESSAGE value="Creacion de proveedores su respectivo CRUD" />
     <MESSAGE value="Creacion de clientes_index.blade.php su respectivo CRUD" />
@@ -573,6 +592,8 @@
     <MESSAGE value="Mejoras a de vistas y formulario de usuario" />
     <MESSAGE value="Corrección de errores - Harol Miranda" />
     <MESSAGE value="Corrección de proveedores - Harol Miranda" />
-    <option name="LAST_COMMIT_MESSAGE" value="Corrección de proveedores - Harol Miranda" />
+    <MESSAGE value="Mejoras de visualización en vistas y formularios" />
+    <MESSAGE value="Solución al error de ProveedorFactory" />
+    <option name="LAST_COMMIT_MESSAGE" value="Solución al error de ProveedorFactory" />
   </component>
 </project>

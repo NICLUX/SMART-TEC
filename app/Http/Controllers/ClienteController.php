@@ -24,13 +24,13 @@ class ClienteController extends Controller
     {
         $this->validate($request, [
             "nombre" => "required|max:50",
-            "direccion" => "required|max:80",
-            "telefono" => "required|numeric|min:33000000|max:99999999|unique:clientes,telefono"
+            "direccion" => "required|max:150",
+            "telefono" => "required|numeric|max:99999999|unique:clientes,telefono"
         ], [
             "nombre.required" => "Se requiere ingresar el nombre del cliente.",
             "nombre.max" => "El nombre no debe ser máximo a 50 caracteres.",
             "direccion.required" => "Se requiere ingresar la dirección del cliente.",
-            "direccion.max" => "La dirección debe ser menor o igual a 80 caracteres",
+            "direccion.max" => "La dirección debe ser menor o igual a 150 caracteres",
             "telefono.required" => "Se requiere ingresar el télefono del cliente",
             "telefono.max" => "El télefono debe tener 8 caracteres",
             "telefono.min" => "El télefono debe tener 8 caracteres",
@@ -56,13 +56,13 @@ class ClienteController extends Controller
     {
         $this->validate($request, [
             "nombre" => "required|max:50",
-            "direccion" => "required|max:80",
+            "direccion" => "required|max:150",
             "telefono" => "required|unique:proveedors,telefono|max:99999999",
         ], [
             "nombre.required" => "Se requiere ingresar el nombre del cliente.",
             "nombre.max" => "El nombre no debe ser máximo a 50 caracteres.",
             "direccion.required" => "Se requiere ingresar la dirección del cliente.",
-            "direccion.max" => "La dirección debe ser menor o igual a 80 caracteres",
+            "direccion.max" => "La dirección debe ser menor o igual a 150 caracteres",
             "telefono.required" => "Se requiere ingresar el télefono del cliente",
             "telefono.max" => "El télefono debe ser igual a 8 caracteres",
             "telefono.min" => "El télefono debe ser igual a 8 caracteres",

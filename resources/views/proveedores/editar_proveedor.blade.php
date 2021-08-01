@@ -57,11 +57,11 @@
                                     <div class="form-group col-md-11">
                                         <label>Dirección:</label>
                                         <textarea class="form-control @error('direccion') is-invalid @enderror" required
-                                                  pattern="[A-Za-z ,.áéíóú°-_]{0,80}"
-                                                  maxlength="80"
+                                                  pattern="[A-Za-z ,.áéíóú°-_]{0,150}"
+                                                  maxlength="150"
                                                   name="direccion">@if(old("direccion")){{old("direccion")}}
                                             @else{{$proveedor->direccion}}@endif</textarea>
-                                        <small class="text-muted">Máxima longitud 80 caracteres</small>
+                                        <small class="text-muted">Máxima longitud 1500 caracteres</small>
                                         @error('direccion')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -76,6 +76,7 @@
                                                required
                                                maxlength="8"
                                                minlength="8"
+                                               onkeypress="return valideKey(event);"
                                                @if(old("direccion")) value="{{old("telefono")}}" @else
                                                value="{{$proveedor->telefono}}" @endif
                                                name=" telefono">
@@ -109,5 +110,33 @@
                 </div>
             </div>
     </div>
+
+    <script>
+        function validar() {
+            let isValid = false;
+            var v_figura = document.getElementById('nombre').value;
+            const pattern = new RegExp("^[a-zA-Z ]*$");
+            if (pattern.test(v_figura)) {
+            } else {
+                toastr.options = {
+                    "closeButton": true,
+                    "progressBar": true
+                }
+                toastr.error("El nombre no puede incluir números");
+                event.preventDefault();
+            }
+        }
+
+        function valideKey(evt){
+            var code = (evt.which) ? evt.which : evt.keyCode;
+            if(code==8) {
+                return true;
+            } else if(code>=48 && code<=57) {
+                return true;
+            } else{
+                return false;
+            }
+        }
+    </script>
 
 @endsection

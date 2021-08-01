@@ -42,15 +42,18 @@
 
                                     <div class="form-group">
                                         <label for="nombre">Ingrese el nombre:</label>
-                                        <input class="form-control @error('nombre') is-invalid @enderror" name="nombre"
+                                        <input class="form-control @error('nombre') is-invalid @enderror"
+                                               name="nombre"
                                                id="nombre"
+                                               maxlength="80"
+                                               pattern="[A-Za-z,.áéíóú ]{1,80}"
+                                               onkeypress="return valideLetter(event);"
                                                @if(old("nombre"))
                                                value="{{old("nombre")}}"
                                                @else
                                                value="{{$servicioo->nombre}}"
                                                @endif
-                                               required
-                                               maxlength="20">
+                                               required>
                                         @error('nombre')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -89,20 +92,21 @@
                                             <label>Ingrese la descripción:</label>
                                             <textarea class="form-control @error('descripcion') is-invalid @enderror"
                                                       required
-                                                      maxlength="20"
+                                                      maxlength="150"
                                                       name="descripcion">@if(old("descripcion")){{old("descripcion")}}
                                                 @else{{$servicioo->descripcion}}@endif</textarea>
-                                                @error('descripcion')
-                                                <span class="invalid-feedback" role="alert">
+                                            @error('descripcion')
+                                            <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
-                                                @enderror
+                                            @enderror
                                         </div>
 
                                         <div class="form-group">
                                             <label for="costo_venta">Ingrese el costo de la venta:</label>
                                             <input class="form-control @error('costo_venta') is-invalid @enderror"
                                                    name="costo_venta"
+                                                   onkeypress="return valideKey(event);"
                                                    id="costo_venta"
                                                    @if(old("costo_venta"))
                                                    value="{{old("costo_venta")}}"
@@ -224,4 +228,28 @@
                     </div>
                 </div>
             </div>
+
+            <script>
+                function valideKey(evt) {
+                    var code = (evt.which) ? evt.which : evt.keyCode;
+                    if (code == 8) {
+                        return true;
+                    } else if (code >= 48 && code <= 57) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+
+                function valideLetter(evt) {
+                    var code = (evt.which) ? evt.which : evt.keyCode;
+                    if (code == 8 || code == 32) {
+                        return true;
+                    } else if (code >= 65 && code <= 122) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            </script>
 @endsection

@@ -44,10 +44,11 @@
                                             <div class="col">
                                                 <label for="name">Nombre:</label>
                                                 <input class="form-control" @error('nombre') is-invalid @enderror
-                                                name="nombre" id="nombre" pattern="[A-Za-z,.áéíóú ]{1,20}"
+                                                name="nombre" id="nombre" pattern="[A-Za-z,.áéíóú ]{1,80}"
                                                        title="Debe ingresar un nombre valido, ejemplo: Programación"
                                                        required
-                                                       maxlength="20">
+                                                       onkeypress="return valideLetter(event);"
+                                                       maxlength="80">
                                                 @error('nombre')
                                                 <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -83,18 +84,13 @@
                                             </div>
                                         </div>
 
-
-                                    </div>
-
-
                                     <div class="form-group">
                                         <label for="descripcion">Descripción:</label>
                                         <textarea class="form-control @error('descripcion') is-invalid @enderror"
                                                   name="descripcion"
                                                   id="descripcion"
                                                   required
-                                                  maxlength="40">
-                                    </textarea>
+                                                  maxlength="150"></textarea>
                                         @error('descripcion')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -107,6 +103,7 @@
                                         <input type="text" onkeypress="return isNumberKey(event)"
                                                class="form-control @error('costo_de_venta') is-invalid @enderror"
                                                name="costo_de_venta"
+                                               onkeypress="return valideKey(event);"
                                                id="costo_de_venta"
                                                name="my-num" required
                                                maxlength="10">
@@ -153,9 +150,7 @@
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
-
                                         </div>
-
                                     @endif
 
                                     <div class="container register col-md-auto sm-12 " id="detalle_form_prov">
@@ -219,5 +214,27 @@
             </div>
         </div>
     </div>
+    <script>
+        function valideKey(evt) {
+            var code = (evt.which) ? evt.which : evt.keyCode;
+            if (code == 8) {
+                return true;
+            } else if (code >= 48 && code <= 57) {
+                return true;
+            } else {
+                return false;
+            }
+        }
 
+        function valideLetter(evt) {
+            var code = (evt.which) ? evt.which : evt.keyCode;
+            if (code == 8 || code == 32) {
+                return true;
+            } else if (code >= 65 && code <= 122) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
 @endsection

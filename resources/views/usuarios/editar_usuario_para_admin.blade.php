@@ -17,7 +17,8 @@
                             @method("PUT")
                             @csrf
 
-                            <input type="text" id="is_admin" name="is_admin" value="{{$user->is_admin}}" style="display: none">
+                            <input type="text" id="is_admin" name="is_admin" value="{{$user->is_admin}}"
+                                   style="display: none">
 
                             <div class="form-group col-md-11">
                                 <label>Nombre:</label>
@@ -26,6 +27,7 @@
                                        title="Debe ingresar un nombre valido, ejemplo: Daniela Martinez"
                                        maxlength="50"
                                        required
+                                       onkeypress="return valideLetter(event);"
                                        @if(old("name"))
                                        value="{{old("name")}}"
                                        @else
@@ -55,7 +57,8 @@
                                        @endif
                                        name="usuario"
                                        class="form-control  @error('usuario') is-invalid @enderror">
-                                <small class="text-muted">Máxima longitud 20 caracteres (Solo acepta minúsculas y para separar el simbolo -)</small>
+                                <small class="text-muted">Máxima longitud 20 caracteres (Solo acepta minúsculas y para
+                                    separar el simbolo -)</small>
                                 @error('usuario')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -70,6 +73,7 @@
                                     pattern="[0-9]{8}"
                                     title="Debe ingresar un número de teléfono valido, ejemplo: 99769965"
                                     maxlength="8"
+                                    onkeypress="return valideKey(event);"
                                     required
                                     @if(old("telefono"))
                                     value="{{old("telefono")}}"
@@ -90,25 +94,24 @@
                                 <label for="id_proveedor">Tipo de usuario</label>
                                 <div class="input-group">
                                     <select id="is_admin"
-
                                             name="is_admin"
                                             class="form-control @error('is_admin') is-invalid @enderror" required
                                             @if (auth()->user()->is_admin == $user->is_admin)
-                                                disabled
-                                            @endif>
-                                        <option value="" selected >Seleccione una opción</option>
+                                            disabled
+                                        @endif>
+                                        <option value="" selected>Seleccione una opción</option>
 
 
                                         @foreach($tipos as $tipo)
-                                        <option value="{{$tipo->id}}" @if($user->is_admin)
+                                            <option value="{{$tipo->id}}" @if($user->is_admin)
                                             value="{{$user->is_admins}}"
-                                            {{$user->is_admin == $tipo->id ? 'selected="selected"':''}}
-                                            @endif
+                                                {{$user->is_admin == $tipo->id ? 'selected="selected"':''}}
+                                                @endif
                                             @if(old("is_admin"))
-                                            {{old("is_admin") == $tipo->id ? 'selected="selected"':''}}
-                                            @endif
+                                                {{old("is_admin") == $tipo->id ? 'selected="selected"':''}}
+                                                @endif
                                             >{{$tipo->tipo_users}}
-                                        </option>
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -140,18 +143,18 @@
                                 @enderror
                             </div>
                             <br>
-                                    <div class="form-group col-md-11">
-                                        <label>Seleccione una imagen (opcional):</label>
-                                        <input class="form-control  @error('imagen') is-invalid @enderror"
-                                            accept="image/*" name="imagen_url" type="file"
-                                            placeholder="Ingrese una imagen">
-                                        <small class="text-muted">Solo formatos en imagen (.png, .jpg, .jpeg)</small>
-                                        @error('imagen')
-                                        <span class="invalid-feedback" role="alert">
+                            <div class="form-group col-md-11">
+                                <label>Seleccione una imagen (opcional):</label>
+                                <input class="form-control  @error('imagen') is-invalid @enderror"
+                                       accept="image/*" name="imagen_url" type="file"
+                                       placeholder="Ingrese una imagen">
+                                <small class="text-muted">Solo formatos en imagen (.png, .jpg, .jpeg)</small>
+                                @error('imagen')
+                                <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
-                                        @enderror
-                                    </div>
+                                @enderror
+                            </div>
                             <hr>
                             <div class="form-group col-md-11">
                                 <button id="btnRegister" type="submit" class="btn btn-success">Guardar</button>
@@ -159,4 +162,49 @@
                         </form>
                     </div>
                 </div>
+
+                <script>
+                    function validar() {
+                        let isValid = false;
+                        var v_figura = document.getElementById('nombre').value;
+                        const pattern = new RegExp("^[a-zA-Z ]*$");
+                        if (pattern.test(v_figura)) {
+                        } else {
+                            toastr.options = {
+                                "closeButton": true,
+                                "progressBar": true
+                            }
+                            toastr.error("El nombre no puede incluir números");
+                            event.preventDefault();
+                        }
+                    }
+
+                    function valideKey(evt) {
+                        var code = (evt.which) ? evt.which : evt.keyCode;
+                        if (code == 8) {
+                            return true;
+                        } else if (code >= 48 && code <= 57) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+
+                    function valideLetter(evt){
+                        var code = (evt.which) ? evt.which : evt.keyCode;
+                        if(code==8 || code==32) {
+                            return true;
+                        } else if(code>=65 && code<=122) {
+                            return true;
+                        } else{
+                            return false;
+                        }
+                    }
+
+                    //Permite mostrar la imagen seleccionada
+                    var verImagen = function (event) {
+                        var image = document.getElementById('imagen_previa');
+                        image.src = URL.createObjectURL(event.target.files[0]);
+                    };
+                </script>
 @endsection

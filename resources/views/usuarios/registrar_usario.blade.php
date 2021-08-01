@@ -44,6 +44,9 @@
                                         <input type="text"
                                                pattern="^[A-Za-záéíóú \s]{2,50}"
                                                title="Debe ingresar un nombre valido, ejemplo: Daniela Martinez"
+                                               id="name"
+                                               onkeypress="return valideLetter(event);"
+                                               value="{{old("name")}}"
                                                maxlength="50"
                                                required
                                                placeholder=""
@@ -63,6 +66,7 @@
                                                title="Debe ingresar un usuario valido, ejemplo: daniela-martinez"
                                                maxlength="20"
                                                required
+                                               value="{{old("usuario")}}"
                                                id="usuario"  class="form-control @error('usuario') is-invalid @enderror" name="usuario"
                                                placeholder="">
                                         <small class="text-muted">Máxima longitud 20 caracteres</small>
@@ -98,9 +102,11 @@
                                                pattern="[0-9]{8}"
                                                title="Debe ingresar un número de teléfono valido, ejemplo: 99769965"
                                                maxlength="8"
+                                               onkeypress="return valideKey(event);"
                                                id="telefono"
                                                type="tel"
                                                required
+                                               value="{{old("telefono")}}"
                                                placeholder="">
                                         <small class="text-muted">Máxima longitud 8 caracteres</small>
                                         @error('telefono')
@@ -116,6 +122,7 @@
                                                id="email"
                                                type="email"
                                                title="Debe ingresar una dirección de correo electronico valida, ejemplo: smar-tec@gmail.com"
+                                               value="{{old("email")}}"
                                                required
                                                placeholder="" maxlength="50">
                                         <small class="text-muted">Máxima longitud 50 caracteres</small>
@@ -181,6 +188,28 @@
             }else{
                 cambio.type = "password";
                 $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+            }
+        }
+
+        function valideKey(evt){
+            var code = (evt.which) ? evt.which : evt.keyCode;
+            if(code==8) {
+                return true;
+            } else if(code>=48 && code<=57) {
+                return true;
+            } else{
+                return false;
+            }
+        }
+
+        function valideLetter(evt){
+            var code = (evt.which) ? evt.which : evt.keyCode;
+            if(code==8 || code==32) {
+                return true;
+            } else if(code>=65 && code<=122) {
+                return true;
+            } else{
+                return false;
             }
         }
 

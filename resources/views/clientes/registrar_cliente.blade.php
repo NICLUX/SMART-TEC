@@ -31,20 +31,18 @@
 
                             <div class="form-group col-md-11">
                                 <label>Dirección:</label>
-                                <input class="form-control @error('direccion') is-invalid @enderror"
-                                       placeholder=""
-                                       id="direccion"
-                                       pattern="[A-Za-z,.áéíóú ]{1,80}"
+                                <textarea class="form-control @error('direccion') is-invalid @enderror"
+                                          name="direccion" placeholder="" id="direccion" maxlength="150"
+                                       pattern="[A-Za-z,.áéíóú° ]{1,150}"
                                        title="Debe ingresar una dirección valido, ejemplo: Esto es una descripción."
-                                       required
-                                       value="{{old("direccion")}}"
-                                       maxlength="80" name="direccion">
-                                <small class="text-muted">Máxima longitud 80 caracteres</small>
+                                       required>{{old("direccion")}}</textarea>
+                                <small class="text-muted">Máxima longitud 150 caracteres</small>
                                 @error('direccion')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+
                             </div>
 
                             <div class="form-group col-md-11">
@@ -53,6 +51,7 @@
                                        placeholder=""
                                        type="tel"
                                        pattern='\d{8}'
+                                       onkeypress="return valideKey(event);"
                                        required
                                        value="{{old("telefono")}}"
                                        maxlength="8"
@@ -76,6 +75,17 @@
         </div>
 
         <script>
+            function valideKey(evt){
+                var code = (evt.which) ? evt.which : evt.keyCode;
+                if(code==8) {
+                    return true;
+                } else if(code>=48 && code<=57) {
+                    return true;
+                } else{
+                    return false;
+                }
+            }
+
             function validar() {
                 let isValid = false;
                 var v_figura = document.getElementById('nombre').value;
