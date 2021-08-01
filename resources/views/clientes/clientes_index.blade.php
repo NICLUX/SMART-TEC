@@ -43,7 +43,7 @@
                         <td>
                             <a class="btn-sm btn-success"
                                href="{{route('cliente.editar',['id'=>$cliente->id])}}"
-                               title="Editar"><i class="fa fa-pencil"></i>
+                               title="Editar"><i class="fa fa-pencil"> Editar</i>
                             </a>
                         </td>
                         <td>
