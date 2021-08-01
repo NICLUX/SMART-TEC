@@ -15,11 +15,11 @@
 
                     $("#guardar").hide();
                     function agregar(){
-                        id_producto=$("#pid_producto").val();
+                        id_producto=parseInt($("#pid_producto").val());
                         producto=$("#pid_producto option:selected").text();
                         cantidad=$("#pcantidad").val();
-                        costo_compra= parseInt($("#pcosto_compra").val());
-                        costo_venta= parseInt($("#pcosto_venta").val());
+                        costo_compra= parseFloat($("#pcosto_compra").val());
+                        costo_venta= parseFloat($("#pcosto_venta").val());
 
                         if(id_producto > "" && costo_compra > 0 && costo_compra < costo_venta && cantidad > 0){
                             sub_total[cont]=(cantidad*costo_compra);
