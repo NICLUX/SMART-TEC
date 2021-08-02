@@ -75,10 +75,8 @@
 
                                 <button class="btn-sm btn-danger"
                                         data-id="{{$producto->id}}"
-                                        data-toggle="modal" data-target="#modalBorrarApertura"
-                                        onclick= "recibir('{{$producto->id}}')" >
-                                    <i class="fa fa-trash"></i> Borrar
-                                </button>
+                                        data-toggle="modal" data-target="#modalBorrarApertura">
+                                    <i class="fa fa-trash"></i> borrar</button>
                             </div>
                         </div>
                     @endforeach
@@ -91,36 +89,27 @@
     @endif
 
 
-<div class="modal fade" id="modalBorrarApertura" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Eliminar producto</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>¿Esta seguro que deseas borrar el producto?</p>
-            </div>
-            <form name="formulario_eliminar" action="producto.destroy" method="POST" >
-                <div class="modal-footer">
-                    @csrf
-                    @method('DELETE')
-                    <input id="idApertura" name="id">
-                    <input type="submit" class="btn btn-danger" value="Eliminar"> </input>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <!-- Modal -->
+        <div class="modal fade"id="modalBorrarApertura" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Eliminar Producto</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Esta seguro que deseas borrar el producto?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <input id="idApertura" name="id">
+                        <a class="btn-sm btn-danger"
+                           href="{{route("producto.destroy",["id"=>$producto->id])}}"> Eliminar</a>
+                        <button type="button" class="btn-sm btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
                 </div>
-            </form>
+            </div>
         </div>
-    </div>
-</div>
-    <script>
-        function recibir(numero){
-            alert(numero);
-            var id =  numero;
-            document.formulario_eliminar.action="/producto/"+id+"/eliminar";
-            alert(document.formulario_eliminar.action);
-        }
-    </script>
+
 @endsection

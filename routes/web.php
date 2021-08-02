@@ -86,7 +86,7 @@ Route::group(["middleware"=>"auth"],function () {
         Route::post("/categorias/sto",[CategoriaController::class,"sto"])->name("categoria.sto");//Crea una nueva categoria del formulario
         Route::get("/categoria/{id}/editar",[CategoriaController::class,"editar"])->name("categoria.editar");//Llama el formulario editar una categoria
         Route::put("/categoria/{id}/update",[CategoriaController::class,"update"])->name("categoria.update");//Actualiza la categoria en el formulario editar
-        Route::get('/categoria/{id}/destroy',[CategoriaController::class,"destroy"])->name("categoria.destroy");//Borrar la categoria desde la tabla
+        Route::delete('/categoria/{id}/destroy',[CategoriaController::class,"destroy"])->name("categoria.destroy");//Borrar la categoria desde la tabla
         //-------------------Productos--------------------//
         Route::get("/productos",[ProductoController::class,"index"])->name("productos.index");//Muestra todos los productos en una tabla
         Route::get("/productost",[ProductoController::class,"mostrar"])->name("productos.mostrar");
@@ -96,9 +96,10 @@ Route::group(["middleware"=>"auth"],function () {
         Route::post("/producto/stor",[ProductoController::class,"stor"])->name("producto.stor");//Guarda el producto del formulario de productos
         Route::get("/producto/{id}/editar",[ProductoController::class,"editar"])->name("producto.editar");//Muestra el formulario de editar un producto
         Route::put("/producto/{id}/editar",[ProductoController::class,"update"])->name("producto.update");//Guarda los datos del formulario editar
-        Route::delete("/producto/{id}/eliminar",[ProductoController::class,"destroy"])->name("producto.destroy");// Eliminar el producto de la tabla
         Route::get("/producto/vistaTabla",[ServiciosController::class,"nuevaVista"])->name("producto.nuevaVista");//Buscar Producto
         Route::get("/producto/reporte",[\App\Http\Controllers\ProductoController::class,"imprimir_productos"])->name("productos.imprimir");
+        Route::get("producto/{id}/destroy",[\App\Http\Controllers\ProductoController::class,"destroy"])->name("producto.destroy");//Borra un proveedor desde la lista
+
         //------------------Proveedores-----------------------//
         Route::get("/proveedores",[\App\Http\Controllers\ProveedorController::class,"index"])->name("proveedores.index");//Muestra todos los proveedores registrados
         Route::get("/proveedor/crear",[\App\Http\Controllers\ProveedorController::class,"nuevo"])->name("proveedor.nuevo");//Muestra el formulario para crear un nuevo proveedor
@@ -113,8 +114,8 @@ Route::group(["middleware"=>"auth"],function () {
         Route::post('/servicios/crear', [ServiciosController::class,"store"])->name('servicios.store');//crea el nuevo servicio
         Route::get("/servicios/{id}/editar",[ServiciosController::class,"edit"])->name("servicios.editar");//Llama el formulario editar un servicio
         Route::put("/servicios/{id}/update",[ServiciosController::class,"update"])->name("servicios.update");//Actualiza el servicio en el formulario editar
-        Route::get('/servicios/{id}/destroy',[ServiciosController::class,"destroy"])->name("servicios.destroy");//Borrar el servicio desde la tabla
-        Route::get('/servicios/{id}/destroy2',[ServiciosController::class,"destroy2"])->name("servicios.destroy2");//Borrar el servicio desde la tabla
+        Route::get('/servicios/{id}/destroy',[\App\Http\Controllers\ServiciosController::class,"destroy"])->name("servicios.destroy");//Borrar la categoria desde la tabla
+        Route::delete('/servicios/{id}/destroy2',[\App\Http\Controllers\ServiciosController::class,"destroy"])->name("proveedor.destroy2");//Borra un proveedor desde la lista
         Route::get("/servicio/busqueda",[ServiciosController::class,"buscarServicio"])->name("servicios.buscar");//Buscar Producto
         Route::get("/servicio/vistaTabla",[ServiciosController::class,"mostrar"])->name("servicios.nuevaVista");//Buscar Producto
         //----------Ventas diarias-----------//

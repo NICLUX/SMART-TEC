@@ -23,7 +23,7 @@
             <tr>
                 <th scope="col" class="text-justify">#</th>
                 <th scope="col" class="text-justify">Nombre</th>
-                <th scope="col" class="text-justify">Descripción</th>
+                <th scope="col" class="text-justify">Descripcion</th>
                 <th scope="col" class="text-justify">Costo</th>
                 <th scope="col" class="text-justify">Categoría</th>
                 <th scope="col" class="text-justify">Editar</th>
@@ -31,38 +31,62 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($servicios as $item=> $servicioo)
+            @foreach($servicios as $item=> $servicio)
             <tr class="text-justify">
-                <th style="font: caption; text-align: center" scope="row">{{$servicioo->id}}</th>
-                <td style="font: caption; text-align: justify" >{{$servicioo->nombre}}</td>
-                @if($servicioo->descripcion)
-                <td style="font: caption; text-align: justify">{{$servicioo->descripcion}}</td>
+                <th scope="row">{{$servicio->id}}</th>
+                <td>{{$servicio->nombre}}</td>
+                @if($servicio->descripcion)
+                <td>{{$servicio->descripcion}}</td>
                 @else
                 <td>n/a</td>
                 @endif
-                <td style="font: caption; text-align: center" >{{$servicioo->costo_de_venta}}</td>
-                <td style="font: caption; text-align: center" >{{$servicioo ->id_categoria}}</td>
+                <td>{{$servicio->costo_de_venta}}</td>
+                <td>{{$servicio ->id_categoria}}</td>
                 <td>
-                    <a class="btn-sm btn-success" href="{{route("servicios.editar",["id"=>$servicioo->id])}}">
+                    <a class="btn-sm btn-success" href="{{route("servicios.editar",["id"=>$servicio->id])}}">
                         <i class="fa fa-pencil"></i></a>
                 </td>
                 <td>
-                    <a class="btn-sm btn-danger" href="{{route("servicios.destroy",["id"=>$servicioo->id])}}">
-                        <i class="fa fa-trash"></i></a>
+                    <button class="btn-sm btn-danger"
+                            data-id="{{$servicio->id}}"
+                            data-toggle="modal" data-target="#modalBorrarApertura">
+                        <i class="fa fa-trash"></i></button>
                 </td>
             </tr>
             @endforeach
         </tbody>
+        <!-- Modal -->
+        <div class="modal fade"id="modalBorrarApertura" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Eliminar Producto</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Esta seguro que deseas borrar el servicio?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <input id="idApertura" name="id">
+                        <a class="btn-sm btn-danger"
+                           href="{{route("servicios.destroy",["id"=>$servicio->id])}}"> Eliminar</a>
+                        <button type="button" class="btn-sm btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer1 ">
+            <div class="pagination pagination-sm justify-content-center">
+                {{$servicios->links("pagination::bootstrap-4")}}
+            </div>
+        </div>
     </table>
     @else
     <div class="alert alert-info">
         <h4>No hay servicios agregados aún, presiona el botón de agregar.</h4>
     </div>
     @endif
-    <div class="card-footer1 ">
-        <div class="pagination pagination-sm justify-content-center">
-            {{$servicios->links("pagination::bootstrap-4")}}
-        </div>
-    </div>
-</div>
+
 @endsection

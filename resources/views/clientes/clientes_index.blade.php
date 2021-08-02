@@ -43,20 +43,40 @@
                         <td>
                             <a class="btn-sm btn-success"
                                href="{{route('cliente.editar',['id'=>$cliente->id])}}"
-                               title="Editar"><i class="fa fa-pencil"></i>
+                               title="Editar"><i class="fa fa-pencil"> Editar</i>
                             </a>
                         </td>
                         <td>
                             <button class="btn-sm btn-danger"
                                     data-id="{{$cliente->id}}"
-                                    data-toggle="modal" data-target="#modalBorrarApertura"
-                                    onclick="recibir('{{$cliente->id}}')">
-                                <i class="fa fa-trash"></i>
-                            </button>
+                                    data-toggle="modal" data-target="#modalBorrarApertura">
+                                <i class="fa fa-trash"></i> borrar</button>
                         </td>
                     </tr>
                 @endforeach
                 </tbody>
+                <!-- Modal -->
+                <div class="modal fade"id="modalBorrarApertura" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Eliminar Cliente</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Esta seguro que deseas borrar el cliente?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <input id="idApertura" name="id">
+                                <a class="btn-sm btn-danger"
+                                   href="{{route("cliente.destroy",["id"=>$cliente->id])}}"> Eliminar</a>
+                                <button type="button" class="btn-sm btn-secondary" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </table>
             @else
                 <div class="alert alert-info">
@@ -66,35 +86,5 @@
             <div class="pagination pagination-sm justify-content-center">
                 {{$clientes->links()}}
             </div>
-            <div class="modal fade" id="modalBorrarApertura" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Eliminar cliente</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p>¿Esta seguro que deseas borrar el cliente?</p>
-                        </div>
-                        <form name="formulario_eliminar" action="procesar.asp" method="POST">
-                            <div class="modal-footer">
-                                @csrf
-                                @method('DELETE')
-                                <input id="idApertura" name="id">
-                                <input type="submit" class="btn btn-danger" value="Eliminar"> </input>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script>
-            function recibir(numero) {
-                var id = numero;
-                document.formulario_eliminar.action = "/cliente/" + id + "/eliminar";
-            }
-        </script>
+
 @endsection

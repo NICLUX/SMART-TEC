@@ -31,8 +31,10 @@
                         <br>
                         <a class="btn btn-sm btn-success" href="{{route("servicios.editar",["id"=>$servicio->id])}}">
                             <i class="fa fa-pencil"></i></a>
-                        <a class="btn btn-danger btn-sm" href="{{route("servicios.destroy2",["id"=>$servicio->id])}}">
-                            <i class="fa fa-trash"></i></a>
+                        <button class="btn-sm btn-danger"
+                                data-id="{{$servicio->id}}"
+                                data-toggle="modal" data-target="#modalBorrarApertura">
+                            <i class="fa fa-trash"></i> borrar</button>
                     </div>
                 </div>
             @endforeach
@@ -42,5 +44,26 @@
         <h4>No hay servicios agregados aún, presiona el botón de agregar.</h4>
     </div>
     @endif
-</section>
+    <!-- Modal -->
+        <div class="modal fade"id="modalBorrarApertura" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Eliminar Producto</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Esta seguro que deseas borrar el servicio?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <input id="idApertura" name="id">
+                        <a class="btn-sm btn-danger"
+                           href="{{route("servicios.destroy",["id"=>$servicio->id])}}"> Eliminar</a>
+                        <button type="button" class="btn-sm btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 @endsection
