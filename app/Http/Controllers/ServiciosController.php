@@ -14,6 +14,7 @@ class ServiciosController extends Controller
         $servicios = Servicio::paginate(10);
         return view("servicios.vista_tabla_servicios")->with("servicios", $servicios);
     }
+
     public function mostrar()
     {
         $servicios = Servicio::paginate(10);
@@ -22,39 +23,39 @@ class ServiciosController extends Controller
 
     public function create()
     {
-        $servicios=Servicio::all();
+        $servicios = Servicio::all();
         $categorias = Categoria::all();
         return view("servicios.agregar_servicio")
             ->with("categorias", $categorias)
             ->with("servicios", $servicios);
     }
+
     public function store(Request $request)
     {
         $this->validate($request, [
             "nombre" => "required|max:80",
             "costo_de_venta" => "required|numeric",
             "descripcion" => "max:150",
-            "id_categoria"=>'required'
-
+            "id_categoria" => 'required'
         ], [
             "nombre.required" => "Se requiere ingresar el nombre",
             "nombre.max" => "El nombre debe ser menor o igual que 80 caracteres",
             "costo_de_venta.required" => "Se requiere el costo de venta.",
             "costo_de_venta.numeric" => "Se requiere que el costo de venta sea un numero",
             "descripcion.max" => "La descripcion debe ser menor o igual que 150 caracteres",
-            "id_categoria"=>"Se requiere ingresar la categoria."
+            "id_categoria" => "Se requiere ingresar la categoria."
         ]);
 
         $servicio_existente = DB::select('select * from servicios where nombre = ?', [$request->input("nombre")]);
-        if(count($servicio_existente)>0){
+        if (count($servicio_existente) > 0) {
             return redirect()->route("servicios.index")
-            ->with("error", "El Servicio ya esta creado.");
-        }else{
+                ->with("error", "El Servicio ya esta creado.");
+        } else {
             $servicio = new Servicio();
-            $servicio ->nombre = $request->input("nombre");
-            $servicio ->id_categoria = $request->input("id_categoria");
-            $servicio ->costo_de_venta = $request->input("costo_de_venta");
-            $servicio ->descripcion = $request->input("descripcion");
+            $servicio->nombre = $request->input("nombre");
+            $servicio->id_categoria = $request->input("id_categoria");
+            $servicio->costo_de_venta = $request->input("costo_de_venta");
+            $servicio->descripcion = $request->input("descripcion");
             $path = public_path() . '\images\productos';//Carpeta publica de las imagenes de los productos
             if ($request->imagen_url) {
                 $imagen = $_FILES["imagen_url"]["name"];
@@ -66,9 +67,9 @@ class ServiciosController extends Controller
                 //-------------------------------------------------------------
                 $destino = "images/productos/" . $imagen;
                 copy($ruta, $destino);
-                $servicio ->imagen_url = $imagen;
+                $servicio->imagen_url = $imagen;
             }
-            $servicio ->save();
+            $servicio->save();
 
             return redirect()->route("servicios.index")
                 ->with("exito", "Se creó, exitosamente el servicio.");
@@ -77,20 +78,22 @@ class ServiciosController extends Controller
     }
 
 
-    public function edit($id){
+    public function edit($id)
+    {
         $servicioo = Servicio::findOrFail($id);
         $categorias = Categoria::all();
-        return view("servicios.editar_servicio")->with("servicioo", $servicioo)->with('categorias',$categorias);
+        return view("servicios.editar_servicio")->with("servicioo", $servicioo)->with('categorias', $categorias);
     }
 
 
-    public  function update(Request $request,$id){
+    public function update(Request $request, $id)
+    {
 
         $this->validate($request, [
             "nombre" => "required|max:80",
             "costo_venta" => "required|numeric",
             "descripcion" => "max:150",
-            "id_categoria"=>'required'
+            "id_categoria" => 'required'
 
         ], [
             "nombre.required" => "Se requiere ingresar el nombre",
@@ -98,10 +101,10 @@ class ServiciosController extends Controller
             "costo_venta.required" => "Se requiere el costo de venta.",
             "costo_venta.numeric" => "Se requiere que el costo de venta sea un numero",
             "descripcion.max" => "La descripcion debe ser menor o igual que 150 caracteres",
-            "id_categoria"=>"Se requiere ingresar la categoria."
+            "id_categoria" => "Se requiere ingresar la categoria."
         ]);
 
-        $servicio =  Servicio::findOrFail($id);
+        $servicio = Servicio::findOrFail($id);
         $servicio->nombre = $request->input("nombre");
         $servicio->id_categoria = $request->input("id_categoria");
         $servicio->costo_de_venta = $request->input("costo_venta");
@@ -109,24 +112,22 @@ class ServiciosController extends Controller
         $servicio->save();
 
         return redirect()->route("servicios.index")
-            ->with("exito","Se editó exitosamente el Servicio");
+            ->with("exito", "Se editó exitosamente el Servicio");
     }
 
-    public function destroy($id){
+    public function destroy($id)
+    {
         $servicio = Servicio::findOrFail($id);
         $servicio->delete();
-
         return redirect()->route("servicios.index")
-            ->with("exito","Se eliminó exitosamente el Servicio");
-
+            ->with("exito", "Se eliminó exitosamente el Servicio");
     }
 
-    public function destroy2($id){
+    public function destroy2($id)
+    {
         $servicio = Servicio::findOrFail($id);
         $servicio->delete();
-
         return redirect()->route("servicios.nuevaVista")
-            ->with("exito","Se eliminó exitosamente el Servicio");
-
+            ->with("exito", "Se eliminó exitosamente el Servicio");
     }
 }

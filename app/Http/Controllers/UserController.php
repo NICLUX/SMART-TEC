@@ -72,7 +72,7 @@ class userController extends Controller
             "nombre.required" => "Se requiere ingresar el nombre del usuario",
             "name.max" => "El nombre del usuario debe ser menor a 50 caracteres",
             "name.min" => "El nombre del usuario debe mayor ó igual a 2 caracteres",
-            "usuario.unique" => "El nombre usuario ya esta registrado.",
+            "usuario.unique" => "El usuario ya esta registrado.",
             "usuario.required" => "Se debe ingresar el nombre de usuario.",
             "usuario.min" => "El nombre de usuario debe ser mayor ó igual a 5 caracteres",
             "usuario.max" => "El nombre de usuario debe ser menor a 20 caracteres",
@@ -169,12 +169,13 @@ class userController extends Controller
 
         $this->validate($request, [
             "name" => "required|max:50",
-            "usuario" => "required|max:20|unique:users,name," . $id,
+            "usuario" => "required|max:20|unique:users,usuario," . $id,
             "telefono" => "required|max:8|min:8|unique:users,telefono," . $id,
             "email" => "required|unique:users,email," . $id
         ], [
             "name.required" => "Se debe ingresar el nombre del usuario.",
             "name.max" => "El nombre debe ser menor o igual a 50 caracteres",
+            "usuario.unique" => "El usuario ya esta registrado.",
             "usuario.required" => "Se debe ingresar el nombre de usuario.",
             "usuario.max" => "El nombre de usuario debe ser menor o igual a 20 caracteres",
             "telefono.required" => "Se debe ingresar el numero telefonico del de usuario.",
@@ -220,6 +221,7 @@ class userController extends Controller
         ], [
             "name.required" => "Se debe ingresar el nombre del usuario.",
             "name.max" => "El nombre debe ser menor o igual a 50 caracteres",
+            "usuario.unique" => "El usuario ya esta registrado.",
             "usuario.required" => "Se debe ingresar el nombre de usuario.",
             "usuario.max" => "El nombre de usuario debe ser menor a 20 caracteres",
             "telefono.required" => "Se debe ingresar el numero telefonico del de usuario.",

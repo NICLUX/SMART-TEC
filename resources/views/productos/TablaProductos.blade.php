@@ -47,13 +47,13 @@
                     <td>
                         <a class="btn-sm btn-success"
                            href="{{route("producto.editar",["id"=>$producto->id])}}">
-                            <i class="fa fa-pencil"></i>Editar</a>
+                            <i class="fa fa-pencil"></i></a>
                     </td>
                     <td>
                         <button class="btn-sm btn-danger"
                                 data-id="{{$producto->id}}"
                                 data-toggle="modal" data-target="#modalBorrarApertura">
-                            <i class="fa fa-trash"></i> borrar</button>
+                            <i class="fa fa-trash"></i></button>
                     </td>
                 </tr>
             @endforeach

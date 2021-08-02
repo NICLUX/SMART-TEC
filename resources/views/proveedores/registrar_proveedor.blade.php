@@ -21,6 +21,7 @@
                             <input class="form-control  @error('nombre') is-invalid @enderror"
                                    placeholder=""
                                    pattern="[A-Za-z ]{2,50}"
+                                   onkeypress="return valideLetter(event);"
                                    required
                                    maxlength="50"
                                    value="{{old("nombre")}}" name="nombre" id="nombre">
@@ -113,6 +114,17 @@
                 }
                 toastr.error("El nombre no puede incluir números");
                 event.preventDefault();
+            }
+        }
+
+        function valideLetter(evt){
+            var code = (evt.which) ? evt.which : evt.keyCode;
+            if(code==8 || code==32) {
+                return true;
+            } else if(code>=65 && code<=122) {
+                return true;
+            } else{
+                return false;
             }
         }
 

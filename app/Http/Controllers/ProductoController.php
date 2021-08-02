@@ -18,7 +18,9 @@ class ProductoController extends Controller
         $productos = Producto::paginate(10);
         return view("productos.productos_index")->with("productos", $productos);
     }
-    public function nuevaVista (){
+
+    public function nuevaVista()
+    {
         $productos = Producto::paginate(10);
         return view("servicios.vista_tabla_servicios")->with("productos", $productos);
     }
@@ -29,15 +31,17 @@ class ProductoController extends Controller
         return view("productos.TablaProductos")->with("productos", $productos);
     }
 
-    public function buscarProducto(Request $request){
+    public function buscarProducto(Request $request)
+    {
         $busqueda = $request->input("busqueda");
         $productos = Producto::where("nombre",
-            "like","%".$request->input("busqueda")."%")
+            "like", "%" . $request->input("busqueda") . "%")
             ->paginate(10);
 
         return view("productos.productos_index")
-            ->with("busqueda",$busqueda)->with("productos", $productos);
+            ->with("busqueda", $busqueda)->with("productos", $productos);
     }
+
     public function nuevo()
     {
         $categorias = Categoria::all();
@@ -207,30 +211,31 @@ class ProductoController extends Controller
 
     public function destroy($id)
     {
-        $producto= Producto::findOrFail($id);
-        $categoriaAsignadaAProducto = Detalle_compra::where("id_producto","=",$id)->get();
-        if($categoriaAsignadaAProducto->count()>0){
+        $producto = Producto::findOrFail($id);
+        $categoriaAsignadaAProducto = Detalle_compra::where("id_producto", "=", $id)->get();
+        if ($categoriaAsignadaAProducto->count() > 0) {
             return redirect()->route("productos.index")
-                ->with("error","No se puede eliminar la compra porque ya esta asignada al detalle de compras");
+                ->with("error", "No se puede eliminar la compra porque ya esta asignada al detalle de compras");
         }
         /***Si la imagen exite se debe eliminar  **/
-        $img_anterior=public_path()."/images/productos/".$producto->imagen_url;
-        if (File::exists($img_anterior)){
+        $img_anterior = public_path() . "/images/productos/" . $producto->imagen_url;
+        if (File::exists($img_anterior)) {
             File::delete($img_anterior);
         }
         $producto->delete();
         return redirect()->route("productos.index")
             ->with("exito", "Se elimino exitosamente el producto.");
     }
+
     public function imprimir_productos()
     {
-        $producto= Producto::all();
+        $producto = Producto::all();
 
-        $vista = view('imprimir_productos')->with('productos',$producto);
-                $dompdf = new Dompdf();
-                $dompdf->loadHtml($vista);
-                $dompdf->setPaper('A4', 'landscape');
-                $dompdf->render();
-                $dompdf->stream("Reporte Productos -N#".now().".pdf");
+        $vista = view('imprimir_productos')->with('productos', $producto);
+        $dompdf = new Dompdf();
+        $dompdf->loadHtml($vista);
+        $dompdf->setPaper('A4', 'landscape');
+        $dompdf->render();
+        $dompdf->stream("Reporte Productos -N#" . now() . ".pdf");
     }
 }

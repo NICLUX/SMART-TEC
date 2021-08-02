@@ -39,7 +39,7 @@
                                       enctype="multipart/form-data" method="POST">
                                     @csrf
 
-                                    <div class="form-group">
+                                    <div class="form-group col-md-11">
                                         <div class="row">
                                             <div class="col">
                                                 <label for="name">Nombre:</label>
@@ -55,6 +55,7 @@
                                             </span>
                                                 @enderror
                                             </div>
+
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label for="id_categoria">Categoría:</label>

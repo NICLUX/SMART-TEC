@@ -36,14 +36,14 @@
                              src="/images/user/{{$user->photo}}"
                              onerror="this.src='/images/no_image.jpg'">
                         <div>
-                            <strong>{{$user->name}} </strong>
+                            <p class="card-text" style="text-align: justify"><strong>{{$user->name}}</strong></p>
+                            <br>
                             <br>
                             <hr>
-                            <br> N°: {{$user->id}}
-                            <br> Usuario: {{$user->usuario}}
-                            <br> Tipo: {{$user->tipo_users}}
-                            <br> Correo: {{$user->email}}
-                            <br> Teléfono: {{$user->telefono}}
+                        <p class="card-text" style="text-align: justify">N°:   <strong>{{$user->id}}</strong></p>
+                            <p class="card-text" style="text-align: justify">Usuario:   <strong>{{$user->usuario}}</strong></p>
+                            <p class="card-text" style="text-align: justify">Correo Electrónico:   <strong>{{$user->email}}</strong></p>
+                            <p class="card-text" style="text-align: justify">Teléfono:   <strong>+504 {{$user->telefono}}</strong></p>
                             <br> <br>
                             <hr/>
                             <br>
@@ -51,14 +51,13 @@
 
                             <a class="btn-sm btn-success"
                                href="{{route("usuarios.editar",["id"=>$user->id])}}">
-                                <i class="fa fa-pencil"></i> Editar</a>
+                                <i class="fa fa-pencil"></i></a>
 
                                 @if (auth()->user()->is_admin != $user->is_admin)
                                 <button class="btn-sm btn-danger"
                                     data-id="{{$user->id}}"
                                     data-toggle="modal" data-target="#modalBorrarApertura"
-                                    onclick="recibir('{{$user->id}}')">
-                                <i class="fa fa-trash"></i> Borrar
+                                    onclick="recibir('{{$user->id}}')"><i class="fa fa-trash"></i>
                             </button>
                             @endif
 

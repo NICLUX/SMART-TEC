@@ -28,6 +28,7 @@
                                                pattern="[A-Za-z. ]{2,50}"
                                                required
                                                maxlength="50"
+                                               onkeypress="return valideLetter(event);"
                                                @if(old("nombre"))
                                                value="{{old("nombre")}}" @else value="{{$proveedor->nombre}}" @endif
                                                id="nombre" name="nombre">
@@ -124,6 +125,17 @@
                 }
                 toastr.error("El nombre no puede incluir números");
                 event.preventDefault();
+            }
+        }
+
+        function valideLetter(evt){
+            var code = (evt.which) ? evt.which : evt.keyCode;
+            if(code==8 || code==32) {
+                return true;
+            } else if(code>=65 && code<=122) {
+                return true;
+            } else{
+                return false;
             }
         }
 

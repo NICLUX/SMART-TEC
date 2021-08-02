@@ -24,6 +24,19 @@
   <component name="ChangeListManager">
     <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="Solución de errores - Harol Miranda">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClienteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClienteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ServiciosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ServiciosController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/clientes/clientes_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clientes/clientes_index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/productos/TablaProductos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/productos/TablaProductos.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/productos/productos_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/productos/productos_index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/proveedores/editar_proveedor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proveedores/editar_proveedor.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/proveedores/registrar_proveedor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proveedores/registrar_proveedor.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/servicios/agregar_servicio.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/servicios/agregar_servicio.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/servicios/editar_servicio.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/servicios/editar_servicio.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/servicios/servicio.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/servicios/servicio.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/users.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -309,6 +322,7 @@
       <workItem from="1627569217894" duration="2017000" />
       <workItem from="1627761948039" duration="1526000" />
       <workItem from="1627772629255" duration="9296000" />
+      <workItem from="1627930426810" duration="7570000" />
     </task>
     <task id="LOCAL-00001" summary="Creacion de cintrolador, modelo, migracion de categoria, productos, inventario">
       <created>1602800135286</created>
@@ -541,7 +555,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627783148757</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Solución de errores - Harol Miranda">
+      <created>1627930589139</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1627930589139</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

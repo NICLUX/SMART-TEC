@@ -32,7 +32,7 @@
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <h1 class="register-heading">EDITAR SERVICIO</h1>
                         <div class="row register-form">
-                            <div class="col-md-6">
+                            <div class="col-md-7">
 
                                 <form action="{{route("servicios.update",["id"=>$servicioo->id])}}"
                                       id="form_proveedores" enctype="multipart/form-data"
@@ -40,60 +40,68 @@
                                     @method("PUT")
                                     @csrf
 
-                                    <div class="form-group">
-                                        <label for="nombre">Ingrese el nombre:</label>
-                                        <input class="form-control @error('nombre') is-invalid @enderror"
-                                               name="nombre"
-                                               id="nombre"
-                                               maxlength="80"
-                                               pattern="[A-Za-z,.áéíóú ]{1,80}"
-                                               onkeypress="return valideLetter(event);"
-                                               @if(old("nombre"))
-                                               value="{{old("nombre")}}"
-                                               @else
-                                               value="{{$servicioo->nombre}}"
-                                               @endif
-                                               required>
-                                        @error('nombre')
-                                        <span class="invalid-feedback" role="alert">
+                                    <div class="form-group col-md-11">
+                                        <div class="row">
+                                            <div class="col">
+                                                <label for="nombre">Ingrese el nombre:</label>
+                                                <input class="form-control @error('nombre') is-invalid @enderror"
+                                                       name="nombre"
+                                                       id="nombre"
+                                                       maxlength="80"
+                                                       pattern="[A-Za-z,.áéíóú ]{1,80}"
+                                                       onkeypress="return valideLetter(event);"
+                                                       @if(old("nombre"))
+                                                       value="{{old("nombre")}}"
+                                                       @else
+                                                       value="{{$servicioo->nombre}}"
+                                                       @endif
+                                                       required>
+                                                @error('nombre')
+                                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                        @enderror
-                                    </div>
+                                                @enderror
+                                            </div>
 
-                                    <div class="form-group">
-                                        <label for="id_categoria">Seleccione una categoria</label>
-                                        <div class="input-group">
-                                            <select id="id_categoria"
-                                                    name="id_categoria"
-                                                    class="form-control @error('id_categoria') is-invalid @enderror"
-                                                    required>
-                                                <option value="" selected disabled></option>
-                                                @foreach($categorias as $categoria)
-                                                    <option value="{{$categoria->id}}"
-                                                    @if($servicioo->id_categoria)
-                                                        {{$servicioo->id_categoria == $categoria->id ? 'selected="selected"':''}}
-                                                        @endif
-                                                    >{{$categoria->nombre}}</option>
-                                                @endforeach
-                                            </select>
-                                            <div class="input-group-append">
-                                                <a class="btn btn-outline-success" href="{{route("categorias.crear")}}"
-                                                   type="button"><i class="fa fa-plus"></i></a>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="id_categoria">Seleccione una categoria</label>
+                                                    <div class="input-group">
+                                                        <select id="id_categoria"
+                                                                name="id_categoria"
+                                                                class="form-control @error('id_categoria') is-invalid @enderror"
+                                                                required>
+                                                            <option value="" selected disabled></option>
+                                                            @foreach($categorias as $categoria)
+                                                                <option value="{{$categoria->id}}"
+                                                                @if($servicioo->id_categoria)
+                                                                    {{$servicioo->id_categoria == $categoria->id ? 'selected="selected"':''}}
+                                                                    @endif
+                                                                >{{$categoria->nombre}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        <div class="input-group-append">
+                                                            <a class="btn btn-outline-success"
+                                                               href="{{route("categorias.crear")}}"
+                                                               type="button"><i class="fa fa-plus"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    @error('id_categoria')
+                                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                    @enderror
+                                                </div>
                                             </div>
                                         </div>
-                                        @error('id_categoria')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                        @enderror
 
                                         <div class="form-group">
                                             <label>Ingrese la descripción:</label>
-                                            <textarea class="form-control @error('descripcion') is-invalid @enderror"
-                                                      required
-                                                      maxlength="150"
-                                                      name="descripcion">@if(old("descripcion")){{old("descripcion")}}
+                                            <textarea
+                                                class="form-control @error('descripcion') is-invalid @enderror"
+                                                required
+                                                maxlength="150"
+                                                name="descripcion">@if(old("descripcion")){{old("descripcion")}}
                                                 @else{{$servicioo->descripcion}}@endif</textarea>
                                             @error('descripcion')
                                             <span class="invalid-feedback" role="alert">
@@ -104,19 +112,20 @@
 
                                         <div class="form-group">
                                             <label for="costo_venta">Ingrese el costo de la venta:</label>
-                                            <input class="form-control @error('costo_venta') is-invalid @enderror"
-                                                   name="costo_venta"
-                                                   onkeypress="return valideKey(event);"
-                                                   id="costo_venta"
-                                                   @if(old("costo_venta"))
-                                                   value="{{old("costo_venta")}}"
-                                                   @else
-                                                   value="{{$servicioo->costo_de_venta}}"
-                                                   @endif
-                                                   type="number"
-                                                   min="0"
-                                                   required
-                                                   maxlength="20">
+                                            <input
+                                                class="form-control @error('costo_venta') is-invalid @enderror"
+                                                name="costo_venta"
+                                                onkeypress="return valideKey(event);"
+                                                id="costo_venta"
+                                                @if(old("costo_venta"))
+                                                value="{{old("costo_venta")}}"
+                                                @else
+                                                value="{{$servicioo->costo_de_venta}}"
+                                                @endif
+                                                type="number"
+                                                min="0"
+                                                required
+                                                maxlength="20">
                                             @error('costo_venta')
                                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -124,7 +133,8 @@
                                             @enderror
                                         </div>
                                         <div class="items-center justify-end mt-4">
-                                            <button id="btnRegister" type="submit" class="btn btn-success">Guardar
+                                            <button id="btnRegister" type="submit" class="btn btn-success">
+                                                Guardar
                                             </button>
                                         </div>
                                 </form>

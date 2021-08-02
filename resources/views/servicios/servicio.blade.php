@@ -1,51 +1,54 @@
 @extends("layouts.tabla")
 @section('buscar')
-<div class="col">
-    <ul class="list-group">
-        <li class="list-group-item" style="background-color:#1c2d3f">
-            <h2 style="color:#ffffff;">
-                Servicios
-                <a class="btn-sm btn-success float-right" href="{{route("servicios.crear")}}"><i class="fa fa-plus"></i>
-                    Agregar</a>
-                <a class="btn-sm btn-success float-right" style="margin-right:3px"
-                    href="{{route("servicios.index")}}"><i class="fa fas fa-clone"></i> Volver </a>
-            </h2>
-        </li>
-    </ul>
-</div>
+    <div class="col">
+        <ul class="list-group">
+            <li class="list-group-item" style="background-color:#1c2d3f">
+                <h2 style="color:#ffffff;">
+                    Servicios
+                    <a class="btn-sm btn-success float-right" href="{{route("servicios.crear")}}"><i
+                            class="fa fa-plus"></i>
+                        Agregar</a>
+                    <a class="btn-sm btn-success float-right" style="margin-right:3px"
+                       href="{{route("servicios.index")}}"><i class="fa fas fa-clone"></i> Tabla</a>
+                </h2>
+            </li>
+        </ul>
+    </div>
 @endsection
 @section("contenido")
-<section>
-    @if($servicios->count()>0)
-    <div class="card-columns">
-            @foreach($servicios as $servicio)
-                <div class="card p-3">
-                    <div class="card-body" >
-                        <h5 class="card-title">{{$servicio->nombre}}</h5>
-                        <p class="card-text"><i class="fa fa-codepen"></i> {{$servicio->id_categoria}}</p>
-                        @if($servicio->descripcion)
-                        <p class="card-text"><strong>Descripción:</strong> {{$servicio->descripcion}}</p>
-                        @endif
-                        <small class="text-muted"><strong>Valor:
-                                Lps.</strong> {{$servicio->costo_de_venta}}</small>
-                        <br>
-                        <a class="btn btn-sm btn-success" href="{{route("servicios.editar",["id"=>$servicio->id])}}">
-                            <i class="fa fa-pencil"></i></a>
-                        <button class="btn-sm btn-danger"
-                                data-id="{{$servicio->id}}"
-                                data-toggle="modal" data-target="#modalBorrarApertura">
-                            <i class="fa fa-trash"></i> borrar</button>
+    <section>
+        @if($servicios->count()>0)
+            <div class="card-columns">
+                @foreach($servicios as $servicio)
+                    <div class="card p-3">
+                        <div class="card-body">
+                            <p class="card-text" style="text-align: center"><i class="fa fa-codepen"></i></p>
+                            <p class="card-text" style="text-align: justify"><strong>{{$servicio->nombre}}</strong></p>
+                            <p class="card-text"><strong>Categoría:</strong> {{$servicio->id_categoria}}</p>
+                            @if($servicio->descripcion)
+                                <p class="card-text"><strong>Descripción:</strong> {{$servicio->descripcion}}</p>
+                            @endif
+                            <p class="card-text"><strong>Valor:</strong> L. {{$servicio->costo_de_venta}}</p>
+                            <br>
+                            <a class="btn-sm btn-success" href="{{route("servicios.editar",["id"=>$servicio->id])}}">
+                                <i class="fa fa-pencil"></i></a>
+
+                            <button class="btn-sm btn-danger"
+                                    data-id="{{$servicio->id}}"
+                                    data-toggle="modal" data-target="#modalBorrarApertura">
+                                <i class="fa fa-trash"></i></button>
+                        </div>
                     </div>
-                </div>
-            @endforeach
-    </div>
-    @else
-    <div class="alert alert-info">
-        <h4>No hay servicios agregados aún, presiona el botón de agregar.</h4>
-    </div>
+                @endforeach
+            </div>
+        @else
+            <div class="alert alert-info">
+                <h4>No hay servicios agregados aún, presiona el botón de agregar.</h4>
+            </div>
     @endif
     <!-- Modal -->
-        <div class="modal fade"id="modalBorrarApertura" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modalBorrarApertura" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
