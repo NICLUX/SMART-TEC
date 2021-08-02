@@ -7,7 +7,7 @@
     <x-slot name="content">
         {{ __('Elimina tu cuenta de forma permanente.') }}
 
-        <br><br><x-jet-danger-button wire:click="confirmUserDeletion" wire:loading.attr="disabled">
+        <x-jet-danger-button wire:click="confirmUserDeletion" wire:loading.attr="disabled">
                 {{ __('Eliminar cuenta') }}
             </x-jet-danger-button>
 
@@ -41,4 +41,3 @@
         </x-jet-dialog-modal>
     </x-slot>
 </x-jet-action-section>
-<br><br>

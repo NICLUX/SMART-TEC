@@ -139,27 +139,30 @@ class userController extends Controller
 
     public function updateFoto(Request $request, $id)
     {
-        $editarUsuario = User::findOrfail($request->id);
-        $path = public_path() . '\images\categorias';//Carpeta publica de las imagenes
-        if ($request->imagen_url) {
-            /***Si la imagen es enviada por el usuario se debe eliminar la anterior **/
-            $img_anterior = public_path() . "/images/categorias/" . $editarUsuario->photo;
+        $editarUsuario = User::findOrfail($id);
+
+        $path = public_path() . '\images\user';//Carpeta publica de las imagenes
+        if($request->imagen_url){
+
+            $img_anterior = public_path() . '/images/user/' . $editarUsuario->photo;
+
             if (File::exists($img_anterior)) {
                 File::delete($img_anterior);
             }
-            $photo = $_FILES["imagen_url"]["name"];
+            $imagen = $_FILES["imagen_url"]["name"];
             $ruta = $_FILES["imagen_url"]["tmp_name"];
             //-------------VALIDAR SI LA CARPETA EXISTE---------------------
             if (!file_exists($path)) {
                 mkdir($path, 0777, true);
+
             }
             //-------------------------------------------------------------
-            $destino = "images/categorias/" . $photo;
+            $destino = "images/user/" . $imagen;
             copy($ruta, $destino);
-            $editarUsuario->photo = $photo;
+            $editarUsuario->photo=$imagen;
         }
-
         $editarUsuario->save();
+
         return redirect()->route("profile.show")
             ->with("exito", "Se editó correctamente el usuario");
     }
