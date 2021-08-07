@@ -1,33 +1,17 @@
-@extends('layouts.main')
-@extends('servicios.mejora_vista')
-@section("content")
+@extends('layouts.tabla')
+@section('buscar')
+    <div class="col">
+        <ul class="list-group">
+            <li class="list-group-item" style="background-color:#1d334b">
+                <h2 style="color:#ffffff;">
+                    Ventas totales por usuario
+                </h2>
+            </li>
+        </ul>
+    </div>
+@endsection
+@section("contenido")
     <br>
-    <form method="get" action="{{route("ventas.buscar")}}">
-        @csrf
-        <div class="form-inline my-2 my-lg-0 float-right">
-            <input class="form-control"
-                   name="busqueda"
-                   @if(isset($busqueda))
-                   value="{{$busqueda}}"
-                   @endif
-                   type="search" placeholder="Buscar">
-            <div class="input-group-append">
-                <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
-            </div>
-        </div>
-    </form>
-
-    <br>
-    <div class="container-fluid" >
-        <div class="panel panel-success" id="encabezado">
-            <div class="panel-heading">
-                <div class="row" id="color_panel">
-                    <div class="col-xs-12 col-sm-12 col-md-3" >
-                        <h2 class="text-center pull-left">
-                            <span class="glyphicon glyphicon-list-alt"> </span>Ventas totales por usuario</h2>
-                    </div>
-                </div>
-                <br>
                 <div class="panel-body">
                     @if($total->count()>0)
                         <table class="table table-sm">
@@ -52,7 +36,7 @@
                         </table>
                     @else
                         <div class="alert alert-info">
-                            <h4>No hay ventas registrados aún.</h4>
+                            <h4>No hay ventas registradas aún.</h4>
                         </div>
                     @endif
         </div>
