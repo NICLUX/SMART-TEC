@@ -39,15 +39,20 @@
 </div>
 
 <div style="margin-top: 10px">
-        <div class="card-body">
+
+        <div class="card-body" >
+
             @if($productos->count()>0)
                 <div class="card-columns">
                     @foreach($productos as $producto)
                         <div class="card">
-                            <img src="/images/productos/{{$producto->imagen_url}}"
+
+                            <img style="max-height: 250px; min-height: 250px" src="/images/productos/{{$producto->imagen_url}}"
                                  class="card-img-top"
                                  onclick="$('#callModalVistaPrevia{{$producto->id}}').click()"
                                  onerror="this.src='/images/no_image.jpg'">
+
+
                             <div class="card-body">
                                 <h5 class="card-title">{{$producto->nombre}}</h5>
                                 <p class="card-text"><i class="fa fa-codepen"></i> {{$producto->getNombreCategoriaAttribute()}}</p>
@@ -59,16 +64,18 @@
                                 <br>
                                 <small class="text-muted"><i class="fa fa-money"></i> <strong>Costo venta:
                                         Lps.</strong> {{$producto->costo_venta}}</small>
-                                <br>
                                 @if($producto->en_stock)
-                                    <small class="text-muted"><i class="fa fa-star"></i> <strong>En Stock:
-                                            #</strong> {{$producto->en_stock}}</small>
+                                    <div class="alert alert-warning">
+                                        <small class="text-muted"><i class="fa fa-star"></i> <strong>En Stock:
+                                                #</strong> {{$producto->en_stock}}</small>
+                                    </div>
+
                                 @else
                                     <div class="alert alert-warning">
                                         <small>Este producto no hay en stock</small>
                                     </div>
                                 @endif
-                                <br>
+                                <div>
                                 <a class="btn-sm btn-success"
                                    href="{{route('producto.editar',['id'=>$producto->id])}}">
                                     <i class="fa fa-pencil"></i> Editar</a>
@@ -78,10 +85,11 @@
                                         data-toggle="modal" data-target="#modalBorrarApertura">
                                     <i class="fa fa-trash"></i> borrar</button>
                             </div>
+                                </div>
                         </div>
                     @endforeach
                 </div>
-        </div>
+             </div>
     @else
         <div class="alert alert-info">
             <h4>No hay productos agregados aún, presiona el botón de agregar.</h4>
@@ -105,11 +113,12 @@
                     <div class="modal-footer">
                         <input id="idApertura" name="id">
                         <a class="btn-sm btn-danger"
-                           href="{{route("productos.destroy",["id"=>$producto->id])}}"> Eliminar</a>
+                           href="{{route("producto.destroy",["id"=>$producto->id])}}"> Eliminar</a>
                         <button type="button" class="btn-sm btn-secondary" data-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
             </div>
+
         </div>
 
 @endsection
