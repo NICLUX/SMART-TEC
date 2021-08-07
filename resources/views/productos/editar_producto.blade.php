@@ -62,15 +62,8 @@
                                     <div class="form-group">
                                         <label for="descripcion">Ingrese la descripcion:</label>
                                         <textarea class="form-control @error('descripcion') is-invalid @enderror" name="descripcion"
-                                                  id="nombre"
-                                                  required
-                                                  placeholder="Ingrese la descripcion" maxlength="80">
-                         @if(old("descripcion"))
-                                                {{old("descripcion")}}
-                                            @else
-                                                {{$producto->descripcion}}</textarea>
+                                                  id="nombre" required placeholder="Ingrese la descripcion" maxlength="80">@if(old("descripcion")){{old("descripcion")}}@else{{$producto->descripcion}}</textarea>
                                             @endif
-
                                         @error('descripcion')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -133,7 +126,7 @@
                                                 @endforeach
                                             </select>
                                             <div class="input-group-append">
-                                                <a class="btn btn-outline-success" href="{{route("categoria.nueva")}}"
+                                                <a class="btn btn-outline-success" href="{{route("categorias.crear")}}"
                                                    type="button"><i
                                                         class="fa fa-plus"></i></a>
                                             </div>

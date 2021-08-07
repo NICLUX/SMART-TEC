@@ -41,7 +41,7 @@
                             <div class="col-md-3 register-left">
                                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
                                 <h1>SMARTEC</h1>
-                                <p>Registra nuevas categorias!</p>
+                                <p style="color: white">Registra nuevas categorias!</p>
                             </div>
 
                             <div class="col-md-9 register-right">
