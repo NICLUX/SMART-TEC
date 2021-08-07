@@ -8,7 +8,7 @@
                             PRODUCTOS
                             <a class="btn-success btn-sm float-right" href="{{route('producto.nuevo')}}"><i class="fa fa-plus"></i>
                                 Agregar</a>
-                            <a class="btn-sm btn-success float-right" style="margin-right:3px"
+                            <a class="btn-sm btn-info float-right" style="margin-right:3px"
                                href="{{route("productos.index")}}"><i class="fa fas fa-clone"></i> Tabla </a>
                             <a class="btn-warning btn-sm float-right" href="{{route('productos.imprimir')}}"><i class="fa fa-book" aria-hidden="true"></i>
                                 Imprimir</a>

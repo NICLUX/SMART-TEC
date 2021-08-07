@@ -29,7 +29,7 @@
                 PRODUCTOS
                 <a class="btn-success btn-sm float-right" href="{{route('producto.nuevo')}}"><i class="fa fa-plus"></i>
                     Agregar</a>
-                <a class="btn-sm btn-success float-right" style="margin-right:3px"
+                <a class="btn-sm btn-info float-right" style="margin-right:3px"
                    href="{{route("productos.mostrar")}}"><i class="fa fas fa-clone"></i> Lista </a>
                 <a class="btn-warning btn-sm float-right" href="{{route('productos.imprimir')}}"><i class="fa fa-book" aria-hidden="true"></i>
                     Imprimir</a>
@@ -48,7 +48,6 @@
                                  class="card-img-top"
                                  onclick="$('#callModalVistaPrevia{{$producto->id}}').click()"
                                  onerror="this.src='/images/no_image.jpg'">
-
 
                             <div class="card-body">
                                 <h5 class="card-title">{{$producto->nombre}}</h5>
