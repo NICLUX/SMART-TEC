@@ -14,16 +14,14 @@
     <br>
                 <div class="panel-body">
                     @if($total->count()>0)
-                        <table class="table table-sm">
-                            <thead class="table table-hover">
-                            <tr>
+                        <table style="margin-top: 10px" class="table table-sm">
+                            <tr id="tabla" style="background-color: black; color: whitesmoke">
                                 <th scope="col" class="text-justify">Fecha de compra</th>
                                 <th scope="col" class="text-justify">Nombre</th>
                                 <th scope="col" class="text-justify">Nombre Usuario</th>
                                 <th scope="col" class="text-justify">Total Venta</th>
                             </tr>
-                            </thead>
-                            <tbody class="table table-hover">
+
                             @foreach($total as $item=> $to)
                                 <tr id="resultados">
                                     <td>{{$to->fecha_venta}}</td>
@@ -32,7 +30,7 @@
                                     <td>{{$to ->total}}</td>
                             </tr>
                             @endforeach
-                            </tbody>
+
                         </table>
                     @else
                         <div class="alert alert-info">
