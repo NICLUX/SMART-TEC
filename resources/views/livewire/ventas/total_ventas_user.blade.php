@@ -4,7 +4,7 @@
         <ul class="list-group">
             <li class="list-group-item" style="background-color:#1d334b">
                 <h2 style="color:#ffffff;">
-                    Ventas totales por usuario
+                    VENTAS TOTALES POR USUARIO
                 </h2>
             </li>
         </ul>
