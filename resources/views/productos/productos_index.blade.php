@@ -37,11 +37,8 @@
         </li>
     </ul>
 </div>
-
 <div style="margin-top: 10px">
-
         <div class="card-body" >
-
             @if($productos->count()>0)
                 <div class="card-columns">
                     @foreach($productos as $producto)
