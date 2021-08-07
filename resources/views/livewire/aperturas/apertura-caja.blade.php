@@ -95,6 +95,7 @@
                             <label for="efectivo_inicial">Efectivo inicial:</label>
                             <div class="input-group">
                                 <input placeholder="Ingrese efectivo inicial"
+                                       onkeypress="return solonumeros(event)" onpaste="return false"
                                        id="efectivo_inicial"
                                        wire:model="efectivo_inicial"
                                        required
@@ -155,7 +156,7 @@
                             <div class="form-group">
                                 <label>Ingrese el efectivo inicial:</label>
                                 <input class="form-control"
-                                       min="0"
+                                       min="0" onkeypress="return solonumeros(event)" onpaste="return false"
                                        wire:model="efectivo_inicial"
                                        required
                                        name="efectivo_inicial" type="number">
@@ -173,3 +174,22 @@
 
     </div>
 </div>
+<script>
+    function solonumeros(e){
+        key = e.keyCode || e.which;
+        teclado = String.fromCharCode(key);
+        numeros = "0123456789";
+        especiales = "8-37-38-46"
+        teclado_especial = false;
+
+        for (var i in especiales){
+
+            if (key==especiales[i]){
+                teclado_especial=true;
+            }
+        }
+        if (numeros.indexOf(teclado)==-1 && !teclado_especial){
+            return false;
+        }
+    }
+</script>
