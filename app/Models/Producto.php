@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Producto extends Model
 {
@@ -18,8 +19,15 @@ class Producto extends Model
         return $nombreCategoria;
     }
     public  function getEnStockAttribute(){
-        $inventario= Inventario::where("id_producto","=",$this->id)->value("cantidad");
+       $inventario= Detalle_compra::where("id_producto","=",$this->id)
+           ->value( DB::raw('SUM(cantidad)'));
         return $inventario;
+    }
+    public  function getCostoCompra(){
+        $inventario= Detalle_compra::where("id_producto","=",$this->id)
+            ->value( DB::raw('max(id)'));
+        return $inventario;
+        return $detalles;
     }
 
 }

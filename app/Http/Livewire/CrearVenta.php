@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 use App\Models\Cliente;
+use App\Models\Detalle_compra;
 use App\Models\DetalleVenta;
 use App\Models\Inventario;
 use App\Models\Producto;
@@ -65,14 +66,14 @@ class CrearVenta extends Component
             $detalleVenta->id_producto = $this->id_producto;
             $detalleVenta->id_venta = $this->id_venta;
             $producto = Producto::findOrFail($this->id_producto);
-            $inventario = Inventario::firstWhere('id_producto',$this->id_producto);
+            $inventario = Detalle_compra::firstWhere('id_producto',$this->id_producto);
             if ($producto->en_stock>= $this->cantidad) {
                 $detalleVenta->costo_compra = $producto->costo_compra;
                 $detalleVenta->costo_venta = $producto->costo_venta;
                 $detalleVenta->cantidad = $this->cantidad;
                 $inventario->cantidad = (int)$inventario->cantidad - (int)$this->cantidad;
                 $inventario->save();
-        
+
                 $detalleVenta->save();
                 $this->calcularTotalPagar();
                 $this->cargarProductoEnCola();
@@ -99,7 +100,7 @@ class CrearVenta extends Component
             $detalleVenta->id_venta = $this->id_venta;
 
             $producto = Producto::findOrFail($this->id_producto);
-            $inventario = Inventario::firstWhere('id_producto',$this->id_producto);
+            $inventario = Detalle_compra::firstWhere('id_producto',$this->id_producto);
             if ($producto->en_stock>=$this->cantidad){
                 $detalleVenta->costo_compra = $producto->costo_compra;
                 $detalleVenta->costo_venta = $producto->costo_venta;
@@ -107,7 +108,7 @@ class CrearVenta extends Component
                 $detalleVenta->save();
                 $inventario->cantidad = (int)$inventario->cantidad - (int)$this->cantidad;
                 $inventario->save();
-        
+
                 $this->calcularTotalPagar();
                 $this->limpiar();
                 $this->cargarProductoEnCola();
@@ -126,7 +127,7 @@ class CrearVenta extends Component
                 ->select(DB::raw("sum(costo_venta * cantidad) as venta"))
                 ->where("id_venta", "=", $this->id_venta)
                 ->value("venta");
-                
+
         } else {
             $this->total_venta = 0.00;
         }
@@ -150,7 +151,7 @@ class CrearVenta extends Component
     }
     public function guardarVenta()
     {
-       
+
         return redirect()->route("venta.nuevo");
     }
 }
