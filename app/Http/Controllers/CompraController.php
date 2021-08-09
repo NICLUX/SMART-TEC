@@ -102,12 +102,19 @@ class CompraController extends Controller
             $detalle->costo_compra=$costo_compra[$cont];
             $detalle->cantidad=$cantidad[$cont];
             $detalle->save();
+
+            $prod = Producto::findOrFail($detalle->id_producto);
+            $prod->costo_compra = $detalle->costo_compra;
+            $prod->costo_venta =  $detalle->costo_venta;
+            $prod->update();
+
             $cont = $cont+1;
         }
         $this->inventario($request);
         DB::commit();
         return redirect()->route("compras.index")->with("exito","Se registró exitosamente");
     }
+
     public function inventario(Request $request){
 
         $this->validate($request, [
