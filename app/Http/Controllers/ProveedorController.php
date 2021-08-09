@@ -110,6 +110,7 @@ class ProveedorController extends Controller
         return redirect()->route("proveedores.index")
             ->with("exito", "Se editó exitosamente el proveedor");
     }
+
     public function destroy($id)
     {
         $proveedor = Proveedor::findOrFail($id);

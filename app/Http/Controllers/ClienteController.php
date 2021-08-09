@@ -93,5 +93,4 @@ class ClienteController extends Controller
         return redirect()->route("clientes.index")
             ->with("exito", "Se eliminó exitosamente el cliente");
     }
-
 }

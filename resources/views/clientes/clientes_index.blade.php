@@ -49,8 +49,10 @@
                         <td>
                             <button class="btn-sm btn-danger"
                                     data-id="{{$cliente->id}}"
-                                    data-toggle="modal" data-target="#modalBorrarApertura">
-                                <i class="fa fa-trash"></i></button>
+                                    data-toggle="modal" data-target="#modalBorrarApertura"
+                                    onclick="recibir('{{$cliente->id}}')">
+                                <i class="fa fa-trash"></i>
+                            </button>
                         </td>
                     </tr>
                 @endforeach
@@ -68,12 +70,15 @@
                             <div class="modal-body">
                                 <p>Esta seguro que deseas borrar el cliente?</p>
                             </div>
-                            <div class="modal-footer">
-                                <input id="idApertura" name="id">
-                                <a class="btn-sm btn-danger"
-                                   href="{{route("cliente.destroy",["id"=>$cliente->id])}}"> Eliminar</a>
-                                <button type="button" class="btn-sm btn-secondary" data-dismiss="modal">Cerrar</button>
-                            </div>
+                            <form name="formulario_eliminar" action="procesar.asp" method="POST">
+                                <div class="modal-footer">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input id="idApertura" name="id">
+                                    <input type="submit" class="btn btn-danger" value="Eliminar"> </input>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -87,4 +92,10 @@
                 {{$clientes->links()}}
             </div>
 
+            <script>
+                function recibir(numero) {
+                    var id = numero;
+                    document.formulario_eliminar.action = "/cliente/" + id + "/eliminar";
+                }
+            </script>
 @endsection
