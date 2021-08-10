@@ -44,7 +44,7 @@
                     @foreach($productos as $producto)
                         <div class="card">
 
-                            <img style="max-height: 250px; min-height: 250px" src="/images/productos/{{$producto->imagen_url}}"
+                            <img height="250px" width="250px" src="/images/productos/{{$producto->imagen_url}}"
                                  class="card-img-top"
                                  onclick="$('#callModalVistaPrevia{{$producto->id}}').click()"
                                  onerror="this.src='/images/no_image.jpg'">
