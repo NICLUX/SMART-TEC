@@ -70,7 +70,8 @@
                                     </a>
 
                                     <button class="btn btn-danger btn-sm"
-                                    wire:click.prevent="eliminarVenta({{$venta->id}})">
+                                    data-toggle="modal" data-target="#modalCrear_{{$item}}"
+                                   >
                                         <i class="fa fa-trash-o"></i>
                                     </button>
 
@@ -80,6 +81,34 @@
 
                                 </td>
                             </tr>
+
+                            <div wire:ignore class="modal fade" id="modalCrear_{{$item}}" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">¿Desea eliminar esta venta?</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col" align="center"> <a id="btnCancel" class="btn btn-primary btn-round"
+                                                        data-dismiss="modal">Cancelar</a>
+                                                </div>
+                                                <div class="col" align="center">
+                                                    <a id="btnCancel"
+                                                    wire:click.prevent="eliminarVenta({{$venta->id}})"
+                                                        class="btn btn-success"
+                                                        data-dismiss="modal"><i class="fa fa-trash"></i>
+                                                        Eliminar
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         @endforeach
                         </tbody>
                     </table>
