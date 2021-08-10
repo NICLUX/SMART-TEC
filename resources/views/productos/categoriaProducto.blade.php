@@ -51,10 +51,10 @@
                                         @csrf
                                         <div class="form-group">
                                             <label>Ingrese el nombre:</label>
-                                            <input type="text" maxlength="80" required value="{{old("nombre")}}"
-                                                name="nombre" placeholder="Ingrese la categoría
-                                                                "
-                                                class="form-control  @error('nombre') is-invalid @enderror">
+                                            <input type="text" maxlength="80" required pattern="[A-Za-z]+" value="{{old("nombre")}}"
+                                                name="nombre" placeholder="Ingrese la categoría"
+                                                class="form-control  @error('nombre') is-invalid @enderror"
+                                                >
                                             <small class="text-muted">Maxima longitud 80 caracteres</small>
                                             @error('nombre')
                                             <span class="invalid-feedback" role="alert">
