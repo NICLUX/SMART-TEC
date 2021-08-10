@@ -11,10 +11,10 @@
                             <h3 wire:model="total_ingreso_del_dia">Ingresos: <span class="badge badge-warning" >L. {{$total_ingreso_del_dia}}</span></h3>
                         </div>
                         <div class="col-sm">
-                            <h3>Costo de venta: <span class="badge badge-danger" >L. {{$total_costo_del_dia}}</span></h3> 
+                            <h3>Costo de venta: <span class="badge badge-danger" >L. {{$total_costo_del_dia}}</span></h3>
                         </div>
                         <div class="col-sm">
-                            <h3>Total Margen de ganancia: <span class="badge {{ (isset($total_ganacia_del_dia)?$total_ganacia_del_dia:-1<0)?'badge-success':'badge-danger'}}">L. {{$total_ganacia_del_dia}}</span></h3> 
+                            <h3>Total Margen de ganancia: <span class="badge {{ (isset($total_ganacia_del_dia)?$total_ganacia_del_dia:-1<0)?'badge-success':'badge-danger'}}">L. {{$total_ganacia_del_dia}}</span></h3>
                         </div>
                     </div>
                     <br>
@@ -25,9 +25,9 @@
                                         </div>
                                 <div class="table-wrapper-scroll-y my-custom-scrollbar">
                                 @if(count($productos_mas_vendidos_mes)>0)
-                                     
+
                                     <div class="table-responsive-sm -mr-2">
-                                        
+
                                         <table class="table table-borderless table-hover table-sm">
                                             <thead class="thead-dark">
                                             <tr>
@@ -59,7 +59,7 @@
                                     </div>
                                 @endif
                                 </div>
-                            
+
                         </div>
                         <div class="col-sm">
                             <div class="alert alert-info">
@@ -67,16 +67,16 @@
                                         </div>
                                 <div class="table-wrapper-scroll-y my-custom-scrollbar">
                                 @if(count($clientes_mas_consumidores)>0)
-                                     
+
                                     <div class="table-responsive-sm -mr-2">
-                                        
+
                                         <table class="table table-borderless table-hover table-sm">
                                             <thead class="thead-dark">
                                             <tr>
                                                 <th scope="col">#</th>
                                                 <th scope="col">Cliente</th>
                                                 <th scope="col">Total ingreos por cliente</th>
-                                                
+
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -100,10 +100,10 @@
                                     </div>
                                 @endif
                                 </div>
-                            
+
                         </div>
                     </div>
-                
+
                 </div>
             </div>
     </div>
@@ -136,7 +136,7 @@
                 </div>
             @endif
             <div class="card-body">
-                
+
                 <div class="form-group float-right" style="width: 400px">
                     <div class="input-group-prepend" >
                         <input placeholder="Buscar Mes..."
@@ -144,11 +144,12 @@
                                wire:model="fecha"
                                required
                                class="form-control">
-                        <div class="input-prepend">
-                            <button class="btn btn-light"  type="submit">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </div>
+                               <div class="input-prepend">
+
+                                <div  style="margin: 9px"  type="submit">
+                                    <i class="fa fa-search"></i>
+                                </div>
+                            </div>
                     </div>
                 </div>
                 <br>
@@ -156,7 +157,7 @@
 
                 @if(count($ventas)>0)
                     <div class="table-responsive-sm -mr-2">
-                        
+
                         <table class="table table-borderless table-hover table-sm">
                             <thead class="thead-dark">
                             <tr>
