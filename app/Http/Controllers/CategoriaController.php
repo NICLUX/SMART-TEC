@@ -32,11 +32,12 @@ class CategoriaController extends Controller
     public function nuevaCtegoria(Request $request){
         $this->validate($request,[
             "nombre"=>"required|max:80|unique:categorias,nombre",
-
+            "imagen_url"=>"image",
         ],[
             "nombre.required"=>"Se debe ingresar el nombre de la categoría.",
             "nombre.unique"=>"El nombre de la categoría debe ser unico.",
-            "nombre.max"=>"El nombre de la categoría debe ser menor a 80 caracteres"
+            "nombre.max"=>"El nombre de la categoría debe ser menor a 80 caracteres",
+            "imagen_url.image"=>"Tiene que elegir una imagen real."
         ]);
 
         $nuevaCategoria = new Categoria();
@@ -81,13 +82,16 @@ class CategoriaController extends Controller
     }
 
     public function update(Request $request,$id){
+
         $this->validate($request,[
             "nombre"=>"required|max:80|unique:categorias,nombre,".$id,
+            "imagen_url"=>"image",
 
         ],[
             "nombre.required"=>"Se debe ingresar el nombre de la categoría.",
             "nombre.unique"=>"El nombre de la categoría debe ser unico.",
-            "nombre.max"=>"El nombre de la categoría debe ser menor a 80 caracteres"
+            "nombre.max"=>"El nombre de la categoría debe ser menor a 80 caracteres",
+            "imagen_url.image"=>"Tiene que elegir una imagen real."
         ]);
 
         $editarCategoria= Categoria::findOrfail($request->id);
