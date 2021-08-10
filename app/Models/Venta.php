@@ -12,7 +12,7 @@ class Venta extends Model
     protected $table="ventas";
 
     protected $appends=["detalle_venta","cliente","total_venta","usuario"];
-    public function getDetalleVenta(){
+    public function getDetalleVentaAttribute(){
         $detalle = DetalleVenta::where("id_venta","=",$this->id)->get();
         return $detalle;
     }

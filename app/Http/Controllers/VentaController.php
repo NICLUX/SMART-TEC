@@ -24,7 +24,7 @@ class VentaController extends Controller
 
         $vista = view('factura')->with('id',$id)->with('fecha_venta',$venta[0]->fecha_venta)
         ->with('cliente',$cliente)
-            ->with('detalle_ventas',$venta[0]->getDetalleVenta())->with("vendedor", $venta[0]
+            ->with('detalle_ventas',$venta->getDetalleVenta())->with("vendedor", $venta[0]
                 ->getUsuarioAttribute()->usuario);
 
             $dompdf = new Dompdf();

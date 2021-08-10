@@ -59,9 +59,10 @@
                                required
                                class="form-control">
                         <div class="input-prepend">
-                            <button class="btn btn-light"  type="submit">
+
+                            <div  style="margin: 9px"  type="submit">
                                 <i class="fa fa-search"></i>
-                            </button>
+                            </div>
                         </div>
                     </div>
                 </div>
