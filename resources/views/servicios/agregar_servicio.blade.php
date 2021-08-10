@@ -168,7 +168,7 @@
                                                         @csrf
                                                         <div class="form-group">
                                                             <label>Ingrese el nombre:</label>
-                                                            <input type="text" maxlength="80" required
+                                                            <input type="text" maxlength="80" required pattern="[A-Za-z]+"
                                                                    value="{{old("nombre")}}" name="nombre"
                                                                    class="form-control  @error('nombre') is-invalid @enderror">
                                                             <small class="text-muted">Maxima longitud 80
