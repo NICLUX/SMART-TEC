@@ -219,7 +219,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 
 <script>
-    $('.phone_mascara').mask('+000 0000-0000');
+    $('.phone_mascara').mask('00000000');
 </script>
 
 

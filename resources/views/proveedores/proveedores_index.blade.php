@@ -7,8 +7,7 @@
                 <h2 style="color:#ffffff;">
                     PROVEEDORES
                     <a class="btn-sm btn-success float-right" href="{{route("proveedor.nuevo")}}"><i
-                            class="fa fa-plus"></i>
-                        Agregar</a>
+                            class="fa fa-plus"></i>Agregar</a>
                 </h2>
             </li>
         </ul>
@@ -27,7 +26,7 @@
 
         <div class="table-responsive-sm -mr-2">
             <table name="tabla_prove" class="table">
-                <thead >
+                <thead>
                 <tr style="background: #1C2D3F; color: #ffffff">
                     <th scope="col">N°</th>
                     <th scope="col">Nombre</th>
@@ -64,15 +63,13 @@
                                     onclick="recibir('{{$proveedor->id}}')">
                                 <i class="fa fa-trash"></i>
                             </button>
-
-
                         </td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
             <div class="pagination pagination-sm justify-content-center">
-                {{$proveedores->links()}}
+                {{$proveedores->links("pagination::bootstrap-4")}}
             </div>
             @else
                 <div class="alert alert-info">

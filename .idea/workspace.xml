@@ -25,10 +25,24 @@
     <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="Solución de errores - Harol Miranda">
       <change afterPath="$PROJECT_DIR$/public/images/user/00bfdf9475c0cd17f199d15f018d8798.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoriaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoriaController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClienteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClienteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductoController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProveedorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProveedorController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/categorias/categorias.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categorias/categorias.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/categorias/editar_categoria.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categorias/editar_categoria.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/clientes/clientes_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clientes/clientes_index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/clientes/editar_cliente.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clientes/editar_cliente.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/clientes/registrar_cliente.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clientes/registrar_cliente.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/principal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/principal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/productos/TablaProductos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/productos/TablaProductos.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/productos/productos_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/productos/productos_index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/proveedores/proveedores_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proveedores/proveedores_index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario_para_admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario_para_admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/registrar_usario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/registrar_usario.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -215,19 +229,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\SMART-TEC\public\assets\css" />
-      <recent name="C:\wamp64\www\SMART-TEC\public\assets\js" />
-      <recent name="C:\wamp64\www\SMART-TEC\resources\views\livewire\ventas" />
-      <recent name="C:\wamp64\www\SMART-TEC\resources\views" />
-      <recent name="C:\wamp64\www\SMART-TEC\resources\views\categorias" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\SMART-TEC\public\assets\js" />
       <recent name="C:\wamp64\www\SMART-TEC\public\js" />
       <recent name="C:\wamp64\www\SMART-TEC\public\images" />
       <recent name="C:\wamp64\www\SMART-TEC\public\images\logo" />
       <recent name="C:\wamp64\www\SMART-TEC\public" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\WampServer\www\SMART-TEC\public\images" />
+      <recent name="C:\wamp64\www\SMART-TEC\public\assets\css" />
+      <recent name="C:\wamp64\www\SMART-TEC\public\assets\js" />
+      <recent name="C:\wamp64\www\SMART-TEC\resources\views\livewire\ventas" />
+      <recent name="C:\wamp64\www\SMART-TEC\resources\views" />
     </key>
   </component>
   <component name="RunManager">
@@ -317,7 +331,8 @@
       <workItem from="1627772629255" duration="9296000" />
       <workItem from="1627930426810" duration="8185000" />
       <workItem from="1628442584479" duration="123000" />
-      <workItem from="1628528200292" duration="5236000" />
+      <workItem from="1628528200292" duration="5707000" />
+      <workItem from="1628630325804" duration="13163000" />
     </task>
     <task id="LOCAL-00001" summary="Creacion de cintrolador, modelo, migracion de categoria, productos, inventario">
       <created>1602800135286</created>
@@ -564,7 +579,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627939020661</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Solución de errores - Harol Miranda">
+      <created>1628539007434</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1628539007434</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -57,9 +57,10 @@ class ClienteController extends Controller
         $this->validate($request, [
             "nombre" => "required|max:50",
             "direccion" => "required|max:150",
+            //"telefono" => "required|unique:proveedors,telefono|max:99999999",
             "telefono" => "required|max:99999999|unique:clientes,telefono," . $id,
         ], [
-            "nombre.required" => "Se requiere el nombre del cliente.",
+            "nombre.required" => "Se requiere ingresar el nombre del cliente.",
             "nombre.max" => "El nombre no debe ser máximo a 50 caracteres.",
             "direccion.required" => "Se requiere ingresar la dirección del cliente.",
             "direccion.max" => "La dirección debe ser menor o igual a 150 caracteres",
@@ -82,15 +83,14 @@ class ClienteController extends Controller
     public function destroy($id)
     {
         $cliente = Cliente::findOrfail($id);
-        $clienteAsignadaAventa =Venta::where("id_cliente","=",$id)->get();
+        $clienteAsignadaAventa = Venta::where("id_cliente","=",$id)->get();
         if($clienteAsignadaAventa->count()>0){
             return redirect()->route("clientes.index")
                 ->with("error","No se puede eliminar el cliente porque ya esta asignada a venta");
         }
         $cliente->delete();
 
-        //TODO en caso de que el cliente este relacionado con otra tabla, deben borrarse los registros antes.
         return redirect()->route("clientes.index")
-            ->with("exito", "Se eliminó exitosamente el cliente");
+            ->with("exito", "Se eliminó exitosamente el proveedor");
     }
 }

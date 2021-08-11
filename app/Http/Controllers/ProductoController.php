@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Categoria;
 use App\Models\Detalle_compra;
-use App\Models\Inventario;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-
 use Dompdf\Dompdf;
 
 class ProductoController extends Controller

@@ -40,6 +40,7 @@
                             <label>Ingrese el nombre:</label>
                             <input type="text" maxlength="80"
                                    required
+                                   onkeypress="return valideLetter(event);"
                                    @if(old("nombre"))
                                    value="{{old("nombre")}}"
                                    @else
@@ -58,8 +59,8 @@
                         <div class="row">
                             <div class="col-2">
                                 <img
-                                        id="imagen_previa" src="/images/categorias/{{$categoria->imagen}}"
-                                        onerror="this.src='/images/no_image.jpg'">
+                                    id="imagen_previa" src="/images/categorias/{{$categoria->imagen}}"
+                                    onerror="this.src='/images/no_image.jpg'">
                             </div>
                             <div class="col-9">
                                 <div class="form-group">
@@ -92,6 +93,18 @@
     </div>
 
     <script>
+        function valideLetter(evt) {
+            var code = (evt.which) ? evt.which : evt.keyCode;
+            if (code == 8 || code == 32) {
+                return true;
+            } else if (code >= 65 && code <= 122) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+
         //Permite mostrar la imagen seleccionada
         var verImagen = function (event) {
             var image = document.getElementById('imagen_previa');

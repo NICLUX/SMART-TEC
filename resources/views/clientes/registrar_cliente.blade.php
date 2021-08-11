@@ -17,6 +17,7 @@
                                 <label>Nombre:</label>
                                 <input class="form-control  @error('nombre') is-invalid @enderror"
                                        placeholder=""
+                                       onkeypress="return valideLetter(event);"
                                        pattern="[A-Za-z. ]{2,50}"
                                        required
                                        value="{{old("nombre")}}"
@@ -85,6 +86,19 @@
                     return false;
                 }
             }
+
+            function valideLetter(evt){
+                var code = (evt.which) ? evt.which : evt.keyCode;
+                if(code==8 || code==32) {
+                    return true;
+                } else if(code>=65 && code<=122) {
+                    return true;
+                } else{
+                    return false;
+                }
+            }
+
+
 
             function validar() {
                 let isValid = false;

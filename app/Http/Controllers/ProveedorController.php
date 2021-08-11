@@ -117,7 +117,7 @@ class ProveedorController extends Controller
         $proveedorAsignadaAcompra = Compra::where("id_proveedore","=",$id)->get();
         if($proveedorAsignadaAcompra->count()>0){
             return redirect()->route("proveedores.index")
-                ->with("error","No se puede eliminar el proveedor porque ya esta asignada a compras");
+                ->with("error","No se puede eliminar el proveedor porque ya esta asignado a compras");
         }
         $proveedor->delete();
 

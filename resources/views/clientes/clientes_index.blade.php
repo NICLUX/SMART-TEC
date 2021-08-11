@@ -1,5 +1,6 @@
 @extends('layouts.tabla')
 @section('buscar')
+
     <div class="col">
         <ul class="list-group">
             <li class="list-group-item" style="background-color:#1c2d3f">
@@ -11,6 +12,7 @@
             </li>
         </ul>
     </div>
+
 @endsection
 @section("contenido")
     <style>
@@ -27,29 +29,23 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Teléfono</th>
                 <th scope="col">Dirección</th>
-                <th scope="col">Editar</th>
-                <th scope="col">Eliminar</th>
-
+                <th scope="col">Opciones</th>
                 </tr>
                 </thead>
 
                 <tbody>
                 @foreach($clientes as $item=>$cliente)
                     <tr id="resultados">
-                        <th style="font: caption; font-style: normal" >{{$item+$clientes->firstItem()}}</th>
+                        <th style="font: caption; font-style: normal">{{$item+$clientes->firstItem()}}</th>
                         <td style="font: caption; font-style: normal">{{$cliente->nombre}}</td>
                         <td style="font: caption; font-style: normal">{{$cliente->telefono}}</td>
                         <td style="font: caption; text-align: justify">{{$cliente->direccion}}</td>
                         <td>
-                            <a class="btn-sm btn-success"
-                               href="{{route('cliente.editar',['id'=>$cliente->id])}}"
-                               title="Editar"><i class="fa fa-pencil"></i>
-                            </a>
-                        </td>
-                        <td>
-                            <button class="btn-sm btn-danger"
-                                    data-id="{{$cliente->id}}"
-                                    data-toggle="modal" data-target="#modalBorrarApertura"
+                            <a class="btn-sm btn-success" href="{{route("cliente.editar",["id"=>$cliente->id])}}"
+                               title="Editar"><i class="fa fa-pencil"></i></a>
+
+                            <button class="btn-sm btn-danger" data-id="{{$cliente->id}}" data-toggle="modal"
+                                    data-target="#modalBorrarApertura"
                                     onclick="recibir('{{$cliente->id}}')">
                                 <i class="fa fa-trash"></i>
                             </button>
@@ -58,7 +54,8 @@
                 @endforeach
                 </tbody>
                 <!-- Modal -->
-                <div class="modal fade"id="modalBorrarApertura" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="modalBorrarApertura" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -70,7 +67,7 @@
                             <div class="modal-body">
                                 <p>Esta seguro que deseas borrar el cliente?</p>
                             </div>
-                            <form name="formulario_eliminar" action="procesar.asp" method="POST">
+                            <form name="formulario_eliminar" action="" method="POST">
                                 <div class="modal-footer">
                                     @csrf
                                     @method('DELETE')
@@ -89,13 +86,13 @@
                 </div>
             @endif
             <div class="pagination pagination-sm justify-content-center">
-                {{$clientes->links()}}
+                {{$clientes->links("pagination::bootstrap-4")}}
             </div>
 
             <script>
                 function recibir(numero) {
                     var id = numero;
-                    document.formulario_eliminar.action = "/cliente/" + id + "/eliminar";
+                    document.formulario_eliminar.action = "/cliente/" + id + "/destroy";
                 }
             </script>
 @endsection

@@ -65,6 +65,7 @@
                                                pattern="[a-z-]{2,20}"
                                                title="Debe ingresar un usuario valido, ejemplo: daniela-martinez"
                                                maxlength="20"
+                                               onkeypress="return valideUser(event);"
                                                required
                                                value="{{old("usuario")}}"
                                                id="usuario"  class="form-control @error('usuario') is-invalid @enderror" name="usuario"
@@ -207,6 +208,17 @@
             if(code==8 || code==32) {
                 return true;
             } else if(code>=65 && code<=122) {
+                return true;
+            } else{
+                return false;
+            }
+        }
+
+        function valideUser(evt){
+            var code = (evt.which) ? evt.which : evt.keyCode;
+            if(code==45) {
+                return true;
+            } else if(code>=97 && code<=122) {
                 return true;
             } else{
                 return false;

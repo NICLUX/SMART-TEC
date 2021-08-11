@@ -26,6 +26,7 @@
                                        maxlength="50"
                                        required
                                        placeholder=""
+                                       onkeypress="return valideLetter(event);"
                                        @if(old("nombre"))
                                        value="{{old("nombre")}}"
                                        @else
@@ -97,6 +98,33 @@
                     return true;
                 } else{
                     return false;
+                }
+            }
+
+            function valideLetter(evt){
+                var code = (evt.which) ? evt.which : evt.keyCode;
+                if(code==8 || code==32) {
+                    return true;
+                } else if(code>=65 && code<=122) {
+                    return true;
+                } else{
+                    return false;
+                }
+            }
+
+            function validar() {
+                let isValid = false;
+                var v_figura = document.getElementById('nombre').value;
+                const pattern = new RegExp("^[a-zA-Z ]*$");
+                if (pattern.test(v_figura)) {
+                } else {
+                    toastr.options =
+                        {
+                            "closeButton": true,
+                            "progressBar": true
+                        }
+                    toastr.error("No pueden ir números en el Nombre");
+                    event.preventDefault();
                 }
             }
         </script>

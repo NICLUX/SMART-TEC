@@ -13,12 +13,12 @@ class CategoriaController extends Controller
 
     //Metodo para mostrar todas las categorias
     public function index (){
-        $categorias = Categoria::paginate(5);
+        $categorias = Categoria::paginate(10);
         return view("categorias.categorias")->with("categorias",$categorias);
     }
 
     public function crear(){
-        $categorias = Categoria::paginate(5);
+        $categorias = Categoria::paginate(10);
         return view("categorias.nueva_categoria")->with("categorias",$categorias);
     }
 
