@@ -1,7 +1,10 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="es">
 <!--<![endif]-->
@@ -34,13 +37,13 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-
      alpha/css/bootstrap.css" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-	<link rel="stylesheet" type="text/css"
-     href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 </head>
@@ -53,39 +56,46 @@
                     aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand" ><img src="/images/logo/logo.png" alt="Logo"></a>
-            <a class="navbar-brand hidden" ><img src="/images/logo/logo.png" alt="Logo"></a>
+            <a class="navbar-brand"><img src="/images/logo/logo.png" alt="Logo"></a>
+            <a class="navbar-brand hidden"><img src="/images/logo/logo.png" alt="Logo"></a>
         </div>
+
         <div id="main-menu" class="main-menu collapse navbar-collapse">
-            <ul class="nav navbar-nav" id="lista">
+            <ul class="nav navbar-nav" id="lista" >
                 <li class="active">
                     <a href="/dashboard"> <i class="menu-icon fa fa-home"></i>Inicio</a>
                 </li>
 
                 @if(auth()->user()->is_admin == '1')
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Administrador</a>
-                        <ul class="sub-menu children dropdown-menu" id="lista">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            <i class="menu-icon fa fa-laptop"></i>Administrador</a>
+                        <ul class="sub-menu children dropdown-menu" id="lista" style="overflow-x: hidden;overflow-y: hidden;">
                             <li><i class="fa fa-users"></i><a href="{{route("usuarios.index")}}">Usuarios</a></li>
-                            <li><i class="fa fa-user-md"></i><a href="{{route("proveedores.index")}}">Proveedores</a></li>
+                            <li><i class="fa fa-user-md"></i><a href="{{route("proveedores.index")}}">Proveedores</a>
+                            </li>
                             <li><i class="fa fa-user-plus"></i><a href="{{route("clientes.index")}}">Clientes</a></li>
                             <li><i class="fa fa-dollar"></i><a href="{{route("apertura.index")}}">Apertura</a></li>
-                            <li><i class="fa fa-money "></i><a href="{{route("venta.nuevo")}}">Punto de venta</a></li>
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("compras.index")}}">Compras</a></li>
-
+                            <li><i class="fa fa-money "></i><a href="{{route("venta.nuevo")}}">Ventas</a></li>
+                            <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("compras.index")}}">Compras</a>
+                            </li>
                         </ul>
                     </li>
                 @endif
                 @if(auth()->user()->is_admin == '2' || auth()->user()->is_admin == '3')
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
                             <i class="menu-icon fa fa-laptop"></i>Ventas</a>
-                        <ul class="sub-menu children dropdown-menu" id="lista">
+                        <ul class="sub-menu children dropdown-menu" id="lista" style="overflow-x: hidden;overflow-y: hidden;">
                             @if(auth()->user()->is_admin == '3')
-                                <li><i class="fa fa-money "></i><a href="{{route("apertura.index")}}">Apertura de caja</a></li>
+                                <li><i class="fa fa-money "></i><a href="{{route("apertura.index")}}">Apertura de
+                                        caja</a></li>
                             @endif
                             <li><i class="fa fa-money "></i><a href="{{route("venta.nuevo")}}">Punto de venta</a></li>
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("ventas_diarias.index")}}">Ventas diarias</a></li>
+                            <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("ventas_diarias.index")}}">Ventas
+                                    diarias</a></li>
                         </ul>
                     </li>
                 @endif
@@ -94,9 +104,11 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Catálogo</a>
-                        <ul class="sub-menu children dropdown-menu" id="lista">
-                            <li><i class="fa fa-product-hunt"></i><a href="{{route("productos.index")}}">Productos</a></li>
-                            <li><i class="fa fa-product-hunt"></i><a href="{{route("servicios.index")}}">Servicios</a></li>
+                        <ul class="sub-menu children dropdown-menu" id="lista" style="overflow-x: hidden;overflow-y: hidden;">
+                            <li><i class="fa fa-product-hunt"></i><a href="{{route("productos.index")}}">Productos</a>
+                            </li>
+                            <li><i class="fa fa-product-hunt"></i><a href="{{route("servicios.index")}}">Servicios</a>
+                            </li>
                             <li><i class="fa fa-cc-jcb"></i><a href="{{route("categorias.index")}}">Categorías</a></li>
                         </ul>
                     </li>
@@ -104,33 +116,44 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-pencil-square-o"></i>Detalles</a>
-                        <ul class="sub-menu children dropdown-menu" id="lista">
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("ventas_diarias.index")}}">Ventas diarias</a></li>
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("vesta_total")}}">Total ventas diarias por empleado</a></li>
-                            <li><i class="menu-icon fa fa-paper-plane"></i><a href="{{route("ventas_mensuales.index")}}">Ventas mensuales</a></li>
-                            <li><i class="menu-icon fa fa-paper-plane"></i><a href="{{route("ventas_anuales.index")}}">Ventas Anuales</a></li>
+                        <ul class="sub-menu children dropdown-menu" id="lista" style="overflow-x: hidden;overflow-y: hidden;">
+                            <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("ventas_diarias.index")}}">Ventas
+                                    diarias</a></li>
+                            <li><i class="menu-icon fa fa-sign-in"></i><a href="{{route("vesta_total")}}">Total ventas
+                                    diarias por empleado</a></li>
+                            <li><i class="menu-icon fa fa-paper-plane"></i><a
+                                    href="{{route("ventas_mensuales.index")}}">Ventas mensuales</a></li>
+                            <li><i class="menu-icon fa fa-paper-plane"></i><a href="{{route("ventas_anuales.index")}}">Ventas
+                                    Anuales</a></li>
                         </ul>
                     </li>
 
                 @endif
 
-
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-pencil-square-o"></i>Enlaces Directos</a>
-                    <ul class="sub-menu children dropdown-menu" id="lista">
-                        <li id="letras" ><i class="menu-icon fa fa-sign-in"></i><a href="https://www.ip.gob.hn/"  target="_blank">Instituto de la Propiedad</a></li>
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://www.sar.gob.hn/" target="_blank">SAR</a></li>
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://www.sar.gob.hn/consulta-rtn/"  target="_blank">Consulta RTN SAR</a></li>
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://placas.ip.gob.hn/enlace/consulta"  target="_blank">Consulta RTN IP</a></li>
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://placas.ip.gob.hn/vehiculos"  target="_blank">Tasa Vehicular</a></li>
+                       aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-pencil-square-o"></i>Enlaces
+                        Directos</a>
+                    <ul class="sub-menu children dropdown-menu" id="lista" style="overflow-x: hidden;overflow-y: hidden;">
+                        <li id="letras"><i class="menu-icon fa fa-sign-in"></i><a href="https://www.ip.gob.hn/"
+                                                                                  target="_blank">Instituto de la
+                                Propiedad</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://www.sar.gob.hn/"
+                                                                      target="_blank">SAR</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://www.sar.gob.hn/consulta-rtn/"
+                                                                      target="_blank">Consulta RTN SAR</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://placas.ip.gob.hn/enlace/consulta"
+                                                                      target="_blank">Consulta RTN IP</a></li>
+                        <li><i class="menu-icon fa fa-sign-in"></i><a href="https://placas.ip.gob.hn/vehiculos"
+                                                                      target="_blank">Tasa Vehicular</a></li>
                     </ul>
                 </li>
 
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-info-circle"></i>Acerca de </a>
-                    <ul class="sub-menu children dropdown-menu" id="lista">
+                       aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-info-circle"></i>Acerca de
+                    </a>
+                    <ul class="sub-menu children dropdown-menu" id="lista" style="overflow-x: hidden;overflow-y: hidden;">
                         <li><i class="menu-icon fa fa-coffee"></i><a href="{{route("acerca_de")}}">NiCLUX</a></li>
                     </ul>
                 </li>
@@ -138,12 +161,6 @@
         </div><!-- /navbar-collapse -->
     </nav>
 </aside><!-- /#left-panel -->
-
-
-
-<!-- Left Panel -->
-
-<!-- Right Panel -->
 
 <div id="right-panel" class="right-panel">
 
@@ -200,7 +217,7 @@
     <script src="/assets/js/bootstrap-select.min.js"></script>
     <script src="/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
     <script>
-        (function($) {
+        (function ($) {
             "use strict";
             jQuery('#vmap').vectorMap({
                 map: 'world_en',
@@ -216,11 +233,11 @@
             });
         })(jQuery);
     </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 
-<script>
-    $('.phone_mascara').mask('00000000');
-</script>
+    <script>
+        $('.phone_mascara').mask('00000000');
+    </script>
 
 
 </div>

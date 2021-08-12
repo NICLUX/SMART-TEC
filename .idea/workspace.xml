@@ -22,19 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="Solución de errores - Harol Miranda">
+    <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="Vocales tildadas y letra ñ">
       <change afterPath="$PROJECT_DIR$/public/images/user/00bfdf9475c0cd17f199d15f018d8798.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/categorias/editar_categoria.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categorias/editar_categoria.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/categorias/nueva_categoria.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categorias/nueva_categoria.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/clientes/editar_cliente.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clientes/editar_cliente.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/clientes/registrar_cliente.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clientes/registrar_cliente.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/productos/editar_producto.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/productos/editar_producto.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/productos/nuevo_producto.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/productos/nuevo_producto.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/proveedores/registrar_proveedor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proveedores/registrar_proveedor.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario_para_admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario_para_admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/registrar_usario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/registrar_usario.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/compras/CrearCompra.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/compras/CrearCompra.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/compras/mostrarCompras.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/compras/mostrarCompras.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -327,7 +320,7 @@
       <workItem from="1628644220165" duration="1046000" />
       <workItem from="1628734972279" duration="16587000" />
       <workItem from="1628795025088" duration="67000" />
-      <workItem from="1628800321313" duration="4676000" />
+      <workItem from="1628800321313" duration="8544000" />
     </task>
     <task id="LOCAL-00001" summary="Creacion de cintrolador, modelo, migracion de categoria, productos, inventario">
       <created>1602800135286</created>
@@ -602,7 +595,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628755453646</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Vocales tildadas y letra ñ">
+      <created>1628805974942</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1628805974943</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -621,7 +621,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Creacion de proveedores su respectivo CRUD" />
     <MESSAGE value="Creacion de clientes_index.blade.php su respectivo CRUD" />
     <MESSAGE value="Permitir eliminar un cliente en clientes_index.blade.php" />
     <MESSAGE value="Correción de direccion en crear_cliente por input en vez de TextArea" />
@@ -646,6 +645,7 @@
     <MESSAGE value="Mejoras de visualización en vistas y formularios" />
     <MESSAGE value="Solución al error de ProveedorFactory" />
     <MESSAGE value="Solución de errores - Harol Miranda" />
-    <option name="LAST_COMMIT_MESSAGE" value="Solución de errores - Harol Miranda" />
+    <MESSAGE value="Vocales tildadas y letra ñ" />
+    <option name="LAST_COMMIT_MESSAGE" value="Vocales tildadas y letra ñ" />
   </component>
 </project>
