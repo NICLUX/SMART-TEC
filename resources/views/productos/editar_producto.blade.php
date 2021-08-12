@@ -27,16 +27,14 @@
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
                 <h1>SMARTEC</h1>
-                <p>Registra nuevo producto!</p>
                 <a id="btn-cancelar" class="btn btn-primary btn-round" href="{{route('productos.index')}}">Cancelar</a>
             </div>
             <div class="col-md-9 register-right">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <h1 class="register-heading">Agregar Nuevo Producto</h1>
+                        <h1 class="register-heading">EDITAR PRODUCTO</h1>
                         <div class="row register-form">
                             <div class="col-md-6">
-
 
                                     <form  id="form_proveedores" enctype="multipart/form-data" action="{{route("producto.update",['id'=>$producto->id])}}"
                                            method="post">
@@ -45,6 +43,8 @@
                                     <div class="form-group">
                                         <label for="nombre">Ingrese el nombre:</label>
                                         <input class="form-control @error('nombre') is-invalid @enderror" name="nombre"
+                                               onkeypress="return valideLetter(event);"
+                                               pattern="[A-Za-záéíóúñÑ ]{2,80}"
                                                id="nombre"
                                                @if(old("nombre"))
                                                value="{{old("nombre")}}"
@@ -168,4 +168,18 @@
                                 </form>
                             </div>
                         </div>
+
+                        <script>
+                            function valideLetter(evt) {
+                                var code = (evt.which) ? evt.which : evt.keyCode;
+                                if (code == 8 || code == 32) {
+                                    return true;
+                                } else if (code >= 65) {
+                                    return true;
+                                } else {
+                                    return false;
+                                }
+                            }
+                        </script>
 @endsection
+

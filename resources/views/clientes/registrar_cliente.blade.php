@@ -18,7 +18,7 @@
                                 <input class="form-control  @error('nombre') is-invalid @enderror"
                                        placeholder=""
                                        onkeypress="return valideLetter(event);"
-                                       pattern="[A-Za-z. ]{2,50}"
+                                       pattern="[A-Za-záéíóúñÑ ]{2,50}"
                                        required
                                        value="{{old("nombre")}}"
                                        maxlength="50" name="nombre" id="nombre">
@@ -91,19 +91,17 @@
                 var code = (evt.which) ? evt.which : evt.keyCode;
                 if(code==8 || code==32) {
                     return true;
-                } else if(code>=65 && code<=122) {
-                    return true;
+                } else if(code>=65) {
+                return true;
                 } else{
                     return false;
                 }
             }
 
-
-
             function validar() {
                 let isValid = false;
                 var v_figura = document.getElementById('nombre').value;
-                const pattern = new RegExp("^[a-zA-Z ]*$");
+                const pattern = new RegExp("^[A-Za-záéíóúñÑ ]*$");
                 if (pattern.test(v_figura)) {
                 } else {
                     toastr.options =
@@ -111,7 +109,7 @@
                             "closeButton": true,
                             "progressBar": true
                         }
-                    toastr.error("No pueden ir números en el Nombre");
+                    toastr.error("No pueden ir números o simbolos en el nombre");
                     event.preventDefault();
                 }
             }

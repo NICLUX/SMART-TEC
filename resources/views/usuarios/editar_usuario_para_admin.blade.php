@@ -23,7 +23,7 @@
                             <div class="form-group col-md-11">
                                 <label>Nombre:</label>
                                 <input type="text"
-                                       pattern="^[A-Za-záéíóú \s]{2,50}"
+                                       pattern="[A-Za-záéíóúñÑ ]{2,50}"
                                        title="Debe ingresar un nombre valido, ejemplo: Daniela Martinez"
                                        maxlength="50"
                                        required
@@ -46,7 +46,7 @@
                             <div class="form-group col-md-11">
                                 <label>Usuario:</label>
                                 <input type="text"
-                                       pattern="[a-z-]{2,20}"
+                                       pattern="[a-z-ñÑ]{2,20}"
                                        title="Debe ingresar un usuario valido, ejemplo: daniela-martinez"
                                        maxlength="20"
                                        onkeypress="return valideUser(event);"
@@ -168,7 +168,7 @@
                     function validar() {
                         let isValid = false;
                         var v_figura = document.getElementById('nombre').value;
-                        const pattern = new RegExp("^[a-zA-Z ]*$");
+                        const pattern = new RegExp("^[A-Za-záéíóúñÑ ]*$");
                         if (pattern.test(v_figura)) {
                         } else {
                             toastr.options = {
@@ -195,7 +195,7 @@
                         var code = (evt.which) ? evt.which : evt.keyCode;
                         if(code==8 || code==32) {
                             return true;
-                        } else if(code>=65 && code<=122) {
+                        } else if(code>=65) {
                             return true;
                         } else{
                             return false;
@@ -206,7 +206,7 @@
                         var code = (evt.which) ? evt.which : evt.keyCode;
                         if(code==45) {
                             return true;
-                        } else if(code>=97 && code<=122) {
+                        } else if(code>=65) {
                             return true;
                         } else{
                             return false;

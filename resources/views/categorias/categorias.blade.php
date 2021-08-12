@@ -83,7 +83,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content" style="width: 150%;">
                         <div class="modal-header">
-                            <h5 class="modal-title">Nueva Categoría</h5>
+                            <h5 class="modal-title">AGREGAR CATEGORIA</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -108,6 +108,7 @@
                                                         <input type="text" maxlength="80" required
                                                                onkeypress="return valideLetter(event);"
                                                                placeholder="Ingrese la categoría"
+                                                               pattern="[A-Za-záéíóúñÑ ]{2,80}"
                                                                value="{{old("nombre")}}"
                                                                name="nombre" class="form-control  @error('nombre')
                                                             is-invalid @enderror">
@@ -155,7 +156,7 @@
                     var code = (evt.which) ? evt.which : evt.keyCode;
                     if (code == 8 || code == 32) {
                         return true;
-                    } else if (code >= 65 && code <= 122) {
+                    } else if (code >= 65) {
                         return true;
                     } else {
                         return false;

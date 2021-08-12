@@ -25,19 +25,16 @@
     <list default="true" id="eb2744c9-8511-45f0-8bbb-3eea6cde547c" name="Default Changelist" comment="Solución de errores - Harol Miranda">
       <change afterPath="$PROJECT_DIR$/public/images/user/00bfdf9475c0cd17f199d15f018d8798.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CompraController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CompraController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/compras/CrearCompra.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/compras/CrearCompra.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/compras/ProductosCompras.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/compras/ProductosCompras.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/compras/detalle.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/compras/detalle.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/compras/mostrarCompras.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/compras/mostrarCompras.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/d_compras/d_compras.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/d_compras/d_compras.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/ventas/crear-venta.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/ventas/crear-venta.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/ventas/detalle-venta.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/ventas/detalle-venta.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/ventas/ventas.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/ventas/ventas.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/categorias/editar_categoria.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categorias/editar_categoria.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/categorias/nueva_categoria.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categorias/nueva_categoria.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/clientes/editar_cliente.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clientes/editar_cliente.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/clientes/registrar_cliente.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clientes/registrar_cliente.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/productos/editar_producto.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/productos/editar_producto.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/productos/nuevo_producto.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/productos/nuevo_producto.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/proveedores/editar_proveedor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proveedores/editar_proveedor.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/proveedores/registrar_proveedor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proveedores/registrar_proveedor.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario_para_admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/editar_usuario_para_admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/usuarios/registrar_usario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usuarios/registrar_usario.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -328,7 +325,9 @@
       <workItem from="1628528200292" duration="5707000" />
       <workItem from="1628630325804" duration="13669000" />
       <workItem from="1628644220165" duration="1046000" />
-      <workItem from="1628734972279" duration="16272000" />
+      <workItem from="1628734972279" duration="16587000" />
+      <workItem from="1628795025088" duration="67000" />
+      <workItem from="1628800321313" duration="4676000" />
     </task>
     <task id="LOCAL-00001" summary="Creacion de cintrolador, modelo, migracion de categoria, productos, inventario">
       <created>1602800135286</created>
@@ -596,7 +595,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628644665505</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Solución de errores - Harol Miranda">
+      <created>1628755453646</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1628755453646</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

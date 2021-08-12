@@ -41,6 +41,7 @@
                             <input type="text" maxlength="80"
                                    required
                                    onkeypress="return valideLetter(event);"
+                                   pattern="[A-Za-záéíóúñÑ ]{2,80}"
                                    @if(old("nombre"))
                                    value="{{old("nombre")}}"
                                    @else
@@ -97,7 +98,7 @@
             var code = (evt.which) ? evt.which : evt.keyCode;
             if (code == 8 || code == 32) {
                 return true;
-            } else if (code >= 65 && code <= 122) {
+            } else if (code >= 65) {
                 return true;
             } else {
                 return false;

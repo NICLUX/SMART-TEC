@@ -49,7 +49,7 @@
                                         <label>Usuario:</label>
                                         <input
                                             type="text"
-                                            pattern="[a-z-]{2,20}"
+                                            pattern="[a-z-ñÑ]{2,20}"
                                             title="Debe ingresar un usuario valido, ejemplo: daniela-martinez"
                                             maxlength="20"
                                             onkeypress="return valideUser(event);"
@@ -168,7 +168,7 @@
                                         var code = (evt.which) ? evt.which : evt.keyCode;
                                         if(code==8 || code==32) {
                                             return true;
-                                        } else if(code>=65 && code<=122) {
+                                        } else if(code>=65) {
                                             return true;
                                         } else{
                                             return false;
@@ -179,7 +179,7 @@
                                         var code = (evt.which) ? evt.which : evt.keyCode;
                                         if(code==45) {
                                             return true;
-                                        } else if(code>=97 && code<=122) {
+                                        } else if(code>=65) {
                                             return true;
                                         } else{
                                             return false;

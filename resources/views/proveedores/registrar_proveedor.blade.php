@@ -20,7 +20,7 @@
                             <label>Nombre:</label>
                             <input class="form-control  @error('nombre') is-invalid @enderror"
                                    placeholder=""
-                                   pattern="[A-Za-z ]{2,50}"
+                                   pattern="[A-Za-záéíóúñÑ ]{2,50}"
                                    onkeypress="return valideLetter(event);"
                                    required
                                    maxlength="50"
@@ -105,7 +105,7 @@
         function validar() {
             let isValid = false;
             var v_figura = document.getElementById('nombre').value;
-            const pattern = new RegExp("^[a-zA-Z ]*$");
+            const pattern = new RegExp("^[A-Za-záéíóúñÑ ]*$");
             if (pattern.test(v_figura)) {
             } else {
                 toastr.options = {
@@ -121,7 +121,7 @@
             var code = (evt.which) ? evt.which : evt.keyCode;
             if(code==8 || code==32) {
                 return true;
-            } else if(code>=65 && code<=122) {
+            } else if(code>=65) {
                 return true;
             } else{
                 return false;

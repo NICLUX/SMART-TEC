@@ -42,7 +42,7 @@
                                     <div class="form-group" >
                                         <label for="name">Nombre:</label>
                                         <input type="text"
-                                               pattern="^[A-Za-záéíóú \s]{2,50}"
+                                               pattern="[A-Za-záéíóúñÑ ]{2,50}"
                                                title="Debe ingresar un nombre valido, ejemplo: Daniela Martinez"
                                                id="name"
                                                onkeypress="return valideLetter(event);"
@@ -62,7 +62,7 @@
                                     <div class="form-group">
                                         <label for="name">Usuario:</label>
                                         <input type="text"
-                                               pattern="[a-z-]{2,20}"
+                                               pattern="[a-z-Ññ]{2,20}"
                                                title="Debe ingresar un usuario valido, ejemplo: daniela-martinez"
                                                maxlength="20"
                                                onkeypress="return valideUser(event);"
@@ -203,22 +203,22 @@
             }
         }
 
-        function valideLetter(evt){
+        function valideUser(evt){
             var code = (evt.which) ? evt.which : evt.keyCode;
-            if(code==8 || code==32) {
+            if(code==45) {
                 return true;
-            } else if(code>=65 && code<=122) {
+            } else if(code>=97) {
                 return true;
             } else{
                 return false;
             }
         }
 
-        function valideUser(evt){
+        function valideLetter(evt){
             var code = (evt.which) ? evt.which : evt.keyCode;
-            if(code==45) {
+            if(code==8 || code==32) {
                 return true;
-            } else if(code>=97 && code<=122) {
+            } else if(code>=65) {
                 return true;
             } else{
                 return false;
@@ -227,8 +227,8 @@
 
         function validar() {
             let isValid = false;
-            var v_figura = document.getElementById('name').value;
-            const pattern = new RegExp("^[a-zA-Z ]*$");
+            var v_figura = document.getElementById('nombre').value;
+            const pattern = new RegExp("^[A-Za-záéíóúñÑ ]*$");
             if (pattern.test(v_figura)) {
             } else {
                 toastr.options =
@@ -236,7 +236,7 @@
                         "closeButton": true,
                         "progressBar": true
                     }
-                toastr.error("El nombre no puede incluir números");
+                toastr.error("No pueden ir números o simbolos en el nombre");
                 event.preventDefault();
             }
         }
