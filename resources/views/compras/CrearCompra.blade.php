@@ -9,6 +9,7 @@
                             agregar();
                         })
                     })
+
                     var cont =0;
                     total=0;
                     sub_total=[];
@@ -23,7 +24,7 @@
 
                         if(id_producto > "" && costo_compra > 0 && costo_compra < costo_venta && cantidad > 0){
                             sub_total[cont]=(cantidad*costo_compra);
-                            total=total+ sub_total[cont];
+                            total=total+sub_total[cont];
                             var fila = '<tr class="selected" id="fila'+cont+'" >' +
                                 '<td><button class="btn btn-warning btn-sm" type="botton" onclick="eliminar('+cont+');" >X</button></td>' +
                                 '<td><input type="hidden" style="text-align: center" name="id_producto[]" value="'+id_producto+'">'+producto+'</td>'+

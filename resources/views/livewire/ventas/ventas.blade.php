@@ -44,7 +44,7 @@
                     <table class="table table-borderless table-hover table-sm">
                         <thead class="thead-dark">
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">N°</th>
                             <th scope="col">Cliente</th>
                             <th scope="col">Fecha</th>
                             <th scope="col">Usuario</th>
@@ -57,27 +57,29 @@
                             <tr>
                                 <th>{{$item+$ventas->firstItem()}}</th>
                                 <td>{{$venta->cliente->nombre}}</td>
-                                <td>{{$venta->fecha_venta}}</td>
+                                <td>{{\Carbon\Carbon::parse($venta->fecha)->locale("es")->isoFormat("DD MMMM, YYYY")}}
+                                </td>
                                 <td>{{$venta->usuario->usuario}}</td>
                                 @if($venta->total_venta)
-                                <td>Lps. {{$venta->total_venta}}</td>
+                                    <td>L. {{$venta->total_venta}}</td>
                                 @else
-                                    <td>Lps. 0.00</td>
+                                    <td>L. 0.00</td>
                                 @endif
                                 <td>
-                                    <a href="{{route("venta.detalle",["id"=>$venta->id])}}" class="btn btn-sm btn-success">
+                                    <a href="{{route("venta.detalle",["id"=>$venta->id])}}"
+                                       class="btn btn-sm btn-warning">
                                         <i class="fa fa-info-circle"></i>
                                     </a>
 
                                     <button class="btn btn-danger btn-sm"
-                                    data-toggle="modal" data-target="#modalCrear_{{$item}}"
-                                   >
+                                            data-toggle="modal" data-target="#modalCrear_{{$item}}"
+                                    >
                                         <i class="fa fa-trash-o"></i>
                                     </button>
 
-                                    <a href='{{route("venta.imprimir_factura",["id"=>$venta->id])}}' class="btn btn-sm btn-warning">
+                                <!-- <a href='{{route("venta.imprimir_factura",["id"=>$venta->id])}}' class="btn btn-sm btn-warning">
                                             <i class="fa fa-book" aria-hidden="true"></i>
-                                    </a>
+                                    </a> -->
 
                                 </td>
                             </tr>
@@ -93,14 +95,15 @@
                                         </div>
                                         <div class="modal-body">
                                             <div class="row">
-                                                <div class="col" align="center"> <a id="btnCancel" class="btn btn-primary btn-round"
-                                                        data-dismiss="modal">Cancelar</a>
+                                                <div class="col" align="center"><a id="btnCancel"
+                                                                                   class="btn btn-primary btn-round"
+                                                                                   data-dismiss="modal">Cancelar</a>
                                                 </div>
                                                 <div class="col" align="center">
                                                     <a id="btnCancel"
-                                                    wire:click.prevent="eliminarVenta({{$venta->id}})"
-                                                        class="btn btn-success"
-                                                        data-dismiss="modal"><i class="fa fa-trash"></i>
+                                                       wire:click.prevent="eliminarVenta({{$venta->id}})"
+                                                       class="btn btn-success"
+                                                       data-dismiss="modal"><i class="fa fa-trash"></i>
                                                         Eliminar
                                                     </a>
                                                 </div>

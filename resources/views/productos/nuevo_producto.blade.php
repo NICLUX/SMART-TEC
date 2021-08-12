@@ -53,6 +53,7 @@
                             </span>
                             @enderror
                         </div>
+
                         <div style="display: none" class="form-group">
                             <label for="costo_compra">Ingrese el costo de la compra:</label>
                             <input class="form-control @error('costo_compra') is-invalid @enderror" name="costo_compra"
@@ -64,6 +65,7 @@
                             </span>
                             @enderror
                         </div>
+
                         <div style="display: none" class="form-group">
                             <label for="costo_venta">Ingrese el costo de la venta:</label>
                             <input class="form-control @error('costo_venta') is-invalid @enderror" name="costo_venta"

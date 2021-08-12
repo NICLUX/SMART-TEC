@@ -73,7 +73,7 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/compras/{id}/detalle",[\App\Http\Controllers\CompraController::class,"show"])->name("compras.show");//lleva al formulario de creado
         Route::get("/compras/crear",[\App\Http\Controllers\CompraController::class,"crear"])->name("compras.nuevo");//lleva al formulario de creado
         Route::post("/compras/crear",[\App\Http\Controllers\CompraController::class,"store"])->name("compras.store");//crea la nueva compra
-        Route::get('/compras/{id}/destroy',[\App\Http\Controllers\CompraController::class,"destroy"])->name("compras.destroy");//Borrar la categoria desde la tabla
+        Route::delete('/compras/{id}/destroy',[\App\Http\Controllers\CompraController::class,"destroy"])->name("compras.destroy");//Borrar la categoria desde la tabla
 
         //----------------------Clientes-----------------------//
         Route::get("/clientes",[\App\Http\Controllers\ClienteController::class,"index"])->name("clientes.index");//Muestra todos los clientes en una tabla

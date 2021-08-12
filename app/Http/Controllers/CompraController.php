@@ -67,8 +67,7 @@ class CompraController extends Controller
             "id_producto"=>"required",
             "costo_compra"=>"required|min:1",
             "costo_venta"=>"required|min:costo_compra",
-            "cantidad"=>"required",
-
+            "cantidad"=>"required|min:1",
         ], [
             "id_usuario.required" => "Se requiere ingresar el nombre de usuario",
             "id_proveedore.required" => "Se requiere ingresar el nombre del proveedor",
@@ -119,7 +118,7 @@ class CompraController extends Controller
 
         $this->validate($request, [
             "id_producto"=>"required",
-            "cantidad"=>"required",
+            "cantidad"=>"required|min:1",
 
         ], [
             "id_producto.required" => "Se requiere ingresar el nombre del producto",
@@ -167,12 +166,7 @@ class CompraController extends Controller
             $detalle->delete();
         }
         //SI HAY ERROR VEIFICAR ESTA PARTE
-        $cmpraAsignadaInventaio = Inventario::where("id_compra","=",$id)->get();
-        if($cmpraAsignadaInventaio->count()>0){
-            $detalle = Inventario::findOrfail($id);
-            $detalle->delete();
-        }
-        $compra->delete();
+
 
         return redirect()->route("compras.index")
             ->with("exito","Se elimino correctamente la compra junto con su detalle de compra");

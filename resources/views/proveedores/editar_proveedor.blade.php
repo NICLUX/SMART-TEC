@@ -62,7 +62,7 @@
                                                   maxlength="150"
                                                   name="direccion">@if(old("direccion")){{old("direccion")}}
                                             @else{{$proveedor->direccion}}@endif</textarea>
-                                        <small class="text-muted">Máxima longitud 1500 caracteres</small>
+                                        <small class="text-muted">Máxima longitud 150 caracteres</small>
                                         @error('direccion')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
