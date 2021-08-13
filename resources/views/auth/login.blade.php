@@ -54,10 +54,7 @@
                                                 <img src="/images/logo/logo.png">
                                             </div>
                                             @if ($errors->any())
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}
-                                                @endforeach
-
+                                                <p>Has ingresado credenciales incorrectas; vuelve a intentarlo.</p>
                                             @endif
                                         </div>
                                         <div class="card-body">
