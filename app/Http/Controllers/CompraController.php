@@ -151,8 +151,8 @@ class CompraController extends Controller
             $detalle->delete();
         }
         if($detalleinventario->count()>0){
-            $inventario = Inventario::findOrfail($id);
-            $inventario->delete();
+            $detalle = Inventario::findOrfail($id);
+            $detalle->delete();
         }
         //SI HAY ERROR VEIFICAR ESTA PARTE
         $compra->delete();
