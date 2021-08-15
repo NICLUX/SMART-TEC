@@ -8,6 +8,7 @@ use App\Models\Producto;
 use App\Models\Proveedor;
 use App\Models\User;
 use App\Models\Inventario;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 use App\Models\Categoria;
@@ -63,7 +64,7 @@ class CompraController extends Controller
         $this->validate($request, [
             'id_usuario' => "required",
             "id_proveedore" => "required",
-            "numero_comprobante"=>"required",
+            "numero_comprobante"=>"required|unique:compras,numero_comprobante",
             "id_producto"=>"required",
             "costo_compra"=>"required|min:1",
             "costo_venta"=>"required|min:costo_compra",
@@ -71,7 +72,8 @@ class CompraController extends Controller
         ], [
             "id_usuario.required" => "Se requiere ingresar el nombre de usuario",
             "id_proveedore.required" => "Se requiere ingresar el nombre del proveedor",
-            "numero_comprobante"=>"se requiere imngrese el numero de comprovante",
+            "numero_comprobante.required"=>"se requiere imngrese el numero de comprovante",
+            "numero_comprobante.unique"=>"se requiere imngrese el numero de comprovante unico",
             "id_producto.required" => "Se requiere ingresar el nombre del producto",
             "costo_compra.required" => "Se requiere ingresar el costo de compra del producto",
             "costo_venta.required" => "Se requiere ingresar el costo de venta del producto",
@@ -102,6 +104,12 @@ class CompraController extends Controller
             $detalle->cantidad=$cantidad[$cont];
             $detalle->save();
 
+            $inventario = new Inventario();
+            $inventario->id_compra=$nuevaCompra->id;
+            $inventario->id_producto = $id_producto[$cont];
+            $inventario->cantidad=$cantidad[$cont];
+            $inventario->save();
+
             $prod = Producto::findOrFail($detalle->id_producto);
             $prod->costo_compra = $detalle->costo_compra;
             $prod->costo_venta =  $detalle->costo_venta;
@@ -109,33 +117,11 @@ class CompraController extends Controller
 
             $cont = $cont+1;
         }
-        $this->inventario($request);
         DB::commit();
         return redirect()->route("compras.index")->with("exito","Se registró exitosamente");
     }
 
-    public function inventario(Request $request){
 
-        $this->validate($request, [
-            "id_producto"=>"required",
-            "cantidad"=>"required|min:1",
-
-        ], [
-            "id_producto.required" => "Se requiere ingresar el nombre del producto",
-            "cantidad.required" => "Se requiere ingresar la cantidad del producto",
-        ]);
-        $id_producto = $request->input("id_producto");
-        $cantidad = $request->input("cantidad");
-        $cont = 0;
-        while($cont < count($id_producto))
-        {
-            $detalle = new Inventario();
-            $detalle->id_producto = $id_producto[$cont];
-            $detalle->cantidad=$cantidad[$cont];
-            $detalle->save();
-            $cont = $cont+1;
-        }
-    }
     public function show($id)
     {
         $compra = DB::table('compras as c')
@@ -159,9 +145,13 @@ class CompraController extends Controller
     }
     public function destroy($id){
         $compra = Compra::findOrfail($id);
-
         $detalle = Detalle_compra::where("id_compra","=",$id)->get();
+        $detalleinventario = Inventario::where("id_compra","=",$id)->get();
         if($detalle->count()>0){
+            $detalle = Detalle_compra::findOrfail($id);
+            $detalle->delete();
+        }
+        if($detalleinventario->count()>0){
             $detalle = Detalle_compra::findOrfail($id);
             $detalle->delete();
         }
@@ -170,5 +160,4 @@ class CompraController extends Controller
         return redirect()->route("compras.index")
             ->with("exito","Se elimino correctamente la compra junto con su detalle de compra");
     }
-
 }

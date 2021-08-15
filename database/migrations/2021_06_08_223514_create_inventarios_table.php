@@ -17,6 +17,7 @@ class CreateInventariosTable extends Migration
             $table->id();
             $table->double('cantidad');
             $table->foreignId('id_producto')->deferrable('id')->on('productos');
+            $table->foreignId('id_compra')->deferrable('id')->on('compras');
             $table->timestamps();
         });
     }
