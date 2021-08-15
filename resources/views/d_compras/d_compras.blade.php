@@ -39,7 +39,8 @@
                                      onerror="this.src='/images/no_image.jpg'">
                                 <strong> {{$det->nombre}} </strong>
                                 <br><strong>Precio de compra: </strong> L. {{$det->costo_compra}}
-                                <br><strong>Unidades: </strong>{{$det->cantidad}}</li>
+                                <br><strong>Unidades: </strong>{{$det->cantidad}}
+                            <br><strong>Sub-total: </strong>{{$det->total}}</li>
                         @endforeach
                     </ul>
                 </div>

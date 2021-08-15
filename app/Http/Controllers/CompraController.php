@@ -125,13 +125,12 @@ class CompraController extends Controller
     public function show($id)
     {
         $compra = DB::table('compras as c')
-            ->join('users as s', 'c.id_usuario', '=', 's.id')
             ->join('proveedors as p', 'c.id_proveedore', '=', 'p.id')
             ->join('detalle_compras as d', 'c.id', '=', 'd.id_compra')
-            ->select('c.*','p.nombre','s.name','d.costo_compra',
-                DB::raw('SUM(d.costo_compra*d.cantidad) as total'))
+            ->select('c.*','p.nombre',
+                DB::raw('SUM(costo_compra*cantidad) as total'))
             ->where('c.id','=',$id)
-            ->groupBy('c.id','c.feche_hora','c.numero_comprobante','p.nombre','s.name','d.costo_compra')
+            ->groupBy('c.id','p.nombre')
             ->first();
         $detalles=DB::table('detalle_compras as d')
             ->join('productos as pr', 'd.id_producto', '=', 'pr.id')
@@ -139,7 +138,7 @@ class CompraController extends Controller
             ->select('d.costo_compra','d.costo_venta','d.cantidad','pr.nombre','pr.imagen_url'
                 ,DB::raw('(d.costo_compra*d.cantidad) as total'))
             ->where('c.id','=',$id)
-            ->groupBy('d.costo_compra','d.costo_venta','d.cantidad','pr.nombre','pr.imagen_url')
+            ->groupBy('d.costo_compra','d.costo_venta','d.cantidad','pr.nombre','c.id','pr.imagen_url')
             ->get();
         return view("d_compras.d_compras")->with("compra",$compra)->with("detalles",$detalles);
     }
@@ -152,8 +151,8 @@ class CompraController extends Controller
             $detalle->delete();
         }
         if($detalleinventario->count()>0){
-            $detalle = Detalle_compra::findOrfail($id);
-            $detalle->delete();
+            $inventario = Inventario::findOrfail($id);
+            $inventario->delete();
         }
         //SI HAY ERROR VEIFICAR ESTA PARTE
         $compra->delete();

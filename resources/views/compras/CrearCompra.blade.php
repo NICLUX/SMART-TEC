@@ -44,7 +44,9 @@
                                 "# Debe completar todos los campos\n" +
                                 "# La cantidad debe ser mayor a 0");
                         }
+
                     }
+
                     function evaluar(){
                         if(total>0){
                             $("#guardar").show();
