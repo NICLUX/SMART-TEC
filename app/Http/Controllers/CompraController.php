@@ -160,14 +160,13 @@ class CompraController extends Controller
     public function destroy($id){
         $compra = Compra::findOrfail($id);
 
-        $cmpraAsignadaAdetalle = Detalle_compra::where("id_compra","=",$id)->get();
-        if($cmpraAsignadaAdetalle->count()>0){
+        $detalle = Detalle_compra::where("id_compra","=",$id)->get();
+        if($detalle->count()>0){
             $detalle = Detalle_compra::findOrfail($id);
             $detalle->delete();
         }
         //SI HAY ERROR VEIFICAR ESTA PARTE
-
-
+        $compra->delete();
         return redirect()->route("compras.index")
             ->with("exito","Se elimino correctamente la compra junto con su detalle de compra");
     }

@@ -66,7 +66,7 @@ class CrearVenta extends Component
             $detalleVenta->id_producto = $this->id_producto;
             $detalleVenta->id_venta = $this->id_venta;
             $producto = Producto::findOrFail($this->id_producto);
-            $inventario = Detalle_compra::firstWhere('id_producto',$this->id_producto);
+            $inventario = Inventario::firstWhere('id_producto',$this->id_producto);
             if ($producto->en_stock>= $this->cantidad) {
                 $detalleVenta->costo_compra = $producto->costo_compra;
                 $detalleVenta->costo_venta = $producto->costo_venta;
@@ -100,7 +100,7 @@ class CrearVenta extends Component
             $detalleVenta->id_venta = $this->id_venta;
 
             $producto = Producto::findOrFail($this->id_producto);
-            $inventario = Detalle_compra::firstWhere('id_producto',$this->id_producto);
+            $inventario = Inventario::firstWhere('id_producto',$this->id_producto);
             if ($producto->en_stock>=$this->cantidad){
                 $detalleVenta->costo_compra = $producto->costo_compra;
                 $detalleVenta->costo_venta = $producto->costo_venta;

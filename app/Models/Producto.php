@@ -19,7 +19,7 @@ class Producto extends Model
         return $nombreCategoria;
     }
     public  function getEnStockAttribute(){
-       $inventario= Detalle_compra::where("id_producto","=",$this->id)
+       $inventario= Inventario::where("id_producto","=",$this->id)
            ->value( DB::raw('SUM(cantidad)'));
         return $inventario;
     }
