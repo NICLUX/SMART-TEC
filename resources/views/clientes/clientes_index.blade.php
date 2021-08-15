@@ -1,3 +1,4 @@
+
 @extends('layouts.tabla')
 @section('buscar')
 
@@ -85,8 +86,9 @@
                     <h4>No hay clientes agregados aún, presiona el botón de agregar.</h4>
                 </div>
             @endif
-            <div class="pagination pagination-sm justify-content-center">
-                {{$clientes->links("pagination::bootstrap-4")}}
+
+            <div class="col-md-5" style="text-align: center; margin: 0 auto; margin-bottom: 10px; margin-top: 12px;">
+                {{ $clientes->links('pagination::bootstrap-4') }}
             </div>
 
             <script>

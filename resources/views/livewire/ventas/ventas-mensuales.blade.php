@@ -1,29 +1,49 @@
 <div>
     <div xmlns:wire="http://www.w3.org/1999/xhtml">
-    <div class="card">
-            <div class="card-header">
-                <h1>Ingresos de {{$fecha_mes}}</h1>
+        <div class="card">
+            <div class="list-group-item active">
+                <div class="form-group float-left center-block" style="width: 300px">
+                    <h1>Ingresos de <strong>{{\Carbon\Carbon::parse($fecha)->locale("es")->isoFormat("MMMM")}}</strong> </h1>
+                </div>
+                <div class="form-group float-right" style="width: 300px">
+                    <div class="input-group-prepend">
+                        <input placeholder="Buscar..."
+                               type="date"
+                               wire:model="fecha"
+                               required
+                               class="form-control">
+                        <div class="input-prepend">
+                            <div style="margin: 9px" type="submit">
+                                <i class="fa fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="card-body">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm">
-                            <h3 wire:model="total_ingreso_del_dia">Ingresos: <span class="badge badge-warning" >L. {{$total_ingreso_del_dia}}</span></h3>
+                            <h3 wire:model="total_ingreso_del_dia">Ingresos: <span
+                                    class="badge badge-warning">L. {{$total_ingreso_del_dia}}</span></h3>
                         </div>
                         <div class="col-sm">
-                            <h3>Costo de venta: <span class="badge badge-danger" >L. {{$total_costo_del_dia}}</span></h3>
+                            <h3>Costo de venta: <span class="badge badge-danger">L. {{$total_costo_del_dia}}</span>
+                            </h3>
                         </div>
                         <div class="col-sm">
-                            <h3>Total Margen de ganancia: <span class="badge {{ (isset($total_ganacia_del_dia)?$total_ganacia_del_dia:-1<0)?'badge-success':'badge-danger'}}">L. {{$total_ganacia_del_dia}}</span></h3>
+                            <h3>Margen de ganancia: <span
+                                    class="badge {{ (isset($total_ganacia_del_dia)?$total_ganacia_del_dia:-1<0)?'badge-success':'badge-danger'}}">L. {{$total_ganacia_del_dia}}</span>
+                            </h3>
                         </div>
                     </div>
                     <br>
                     <div class="row">
-                    <div class="col-sm">
+                        <div class="col-sm">
                             <div class="alert alert-info">
-                                            Productos mas vendidos en <strong>{{$fecha_mes}}</strong>
-                                        </div>
-                                <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                                Productos más vendidos:
+                            </div>
+                            <div class="table-wrapper-scroll-y my-custom-scrollbar">
                                 @if(count($productos_mas_vendidos_mes)>0)
 
                                     <div class="table-responsive-sm -mr-2">
@@ -33,7 +53,7 @@
                                             <tr>
                                                 <th scope="col">#</th>
                                                 <th scope="col">Producto</th>
-                                                <th scope="col">Cantidad </th>
+                                                <th scope="col">Cantidad</th>
                                                 <th scope="col">Total ingresos</th>
                                             </tr>
                                             </thead>
@@ -55,17 +75,17 @@
                                     </div>
                                 @else
                                     <div class="alert alert-info">
-                                        No se han registrado ventas en el mes de <strong>{{$fecha_mes}}</strong>
+                                        No se han registrado ventas.
                                     </div>
                                 @endif
-                                </div>
+                            </div>
 
                         </div>
                         <div class="col-sm">
                             <div class="alert alert-info">
-                                           Cliente que generan mas ingresos <strong>{{$fecha_mes}}</strong>
-                                        </div>
-                                <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                                Cliente que generan más ingresos:
+                            </div>
+                            <div class="table-wrapper-scroll-y my-custom-scrollbar">
                                 @if(count($clientes_mas_consumidores)>0)
 
                                     <div class="table-responsive-sm -mr-2">
@@ -75,7 +95,7 @@
                                             <tr>
                                                 <th scope="col">#</th>
                                                 <th scope="col">Cliente</th>
-                                                <th scope="col">Total ingreos por cliente</th>
+                                                <th scope="col">Total ingresos por cliente</th>
 
                                             </tr>
                                             </thead>
@@ -96,20 +116,20 @@
                                     </div>
                                 @else
                                     <div class="alert alert-info">
-                                        No se han registrado ventas en el mes de <strong>{{$fecha_mes}}</strong>
+                                        No se han registrado ventas.
                                     </div>
                                 @endif
-                                </div>
+                            </div>
 
                         </div>
                     </div>
 
                 </div>
             </div>
-    </div>
+        </div>
         <div class="card">
-            <div class="card-header">
-                <h1>Ventas de {{$fecha_mes}}</h1>
+            <div class="list-group-item active">
+                <h1>Ingresos de <strong>{{\Carbon\Carbon::parse($fecha)->locale("es")->isoFormat("MMMM")}}</strong> </h1>
             </div>
 
             @if(session("exito"))
@@ -136,25 +156,6 @@
                 </div>
             @endif
             <div class="card-body">
-
-                <div class="form-group float-right" style="width: 400px">
-                    <div class="input-group-prepend" >
-                        <input placeholder="Buscar Mes..."
-                                type="date"
-                               wire:model="fecha"
-                               required
-                               class="form-control">
-                               <div class="input-prepend">
-
-                                <div  style="margin: 9px"  type="submit">
-                                    <i class="fa fa-search"></i>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-                <br>
-                <br>
-
                 @if(count($ventas)>0)
                     <div class="table-responsive-sm -mr-2">
 
@@ -162,8 +163,8 @@
                             <thead class="thead-dark">
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Codigo </th>
-                                <th scope="col">Cliente </th>
+                                <th scope="col">Codigo</th>
+                                <th scope="col">Cliente</th>
                                 <th scope="col">Total de Venta</th>
                             </tr>
                             </thead>
@@ -182,10 +183,10 @@
                             @endfor
                             </tbody>
                         </table>
-                       </div>
+                    </div>
                 @else
                     <div class="alert alert-info">
-                        No se han registrado ventas en el mes de <strong>{{$fecha_mes}}</strong>
+                        No se han registrado ventas.
                     </div>
                 @endif
             </div>

@@ -12,14 +12,14 @@
                                @if(isset($busqueda))
                                value="{{$busqueda}}"
                                @endif
-                               type="search" placeholder="Buscar Por Usuario">
+                               type="search" placeholder="Buscar">
                         <div class="input-group-append">
                             <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
                 </form>
-                <h2 style="color:#ffffff;">
-                    VENTAS TOTALES POR USUARIO
+                <h2 style="color:#ffffff; margin-top: 10px">
+                    VENTAS POR USUARIO
                 </h2>
             </li>
         </ul>

@@ -1,9 +1,25 @@
 <div>
     <div xmlns:wire="http://www.w3.org/1999/xhtml">
     <div class="card">
-            <div class="card-header">
-                <h1>Ingresos diarios {{$fecha}}</h1>
+        <div class="list-group-item active">
+            <div class="form-group float-left center-block" style="width: 300px">
+                <h1>Ingresos del <strong>{{\Carbon\Carbon::parse($fecha)->locale("es")->isoFormat("DD MMMM, YYYY")}}</strong> </h1>
             </div>
+            <div class="form-group float-right" style="width: 300px">
+                <div class="input-group-prepend">
+                    <input placeholder="Buscar..."
+                           type="date"
+                           wire:model="fecha"
+                           required
+                           class="form-control">
+                    <div class="input-prepend">
+                        <div style="margin: 9px" type="submit">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
             <div class="card-body">
                 <div class="container">
                     <div class="row">
@@ -22,8 +38,8 @@
             </div>
     </div>
         <div class="card">
-            <div class="card-header">
-                <h1>Ventas diarias de la fecha {{$fecha}}</h1>
+            <div class="list-group-item active">
+                <h1>Ingresos del <strong>{{\Carbon\Carbon::parse($fecha)->locale("es")->isoFormat("DD MMMM, YYYY")}}</strong> </h1>
             </div>
 
             @if(session("exito"))
@@ -50,25 +66,6 @@
                 </div>
             @endif
             <div class="card-body">
-
-                <div class="form-group float-right" style="width: 400px">
-                    <div class="input-group-prepend" >
-                        <input placeholder="Buscar..."
-                               type="date"
-                               wire:model="fecha"
-                               required
-                               class="form-control">
-                        <div class="input-prepend">
-
-                            <div  style="margin: 9px"  type="submit">
-                                <i class="fa fa-search"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <br>
-
                 @if(count($ventas)>0)
                     <div class="table-responsive-sm -mr-2">
 
@@ -99,7 +96,7 @@
                        </div>
                 @else
                     <div class="alert alert-info">
-                        No se han registrado ventas aún con esta fecha <strong>{{$fecha}}</strong>
+                        No se han registrado ventas aún.
                     </div>
                 @endif
             </div>
