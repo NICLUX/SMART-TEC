@@ -92,8 +92,7 @@
                             <option selected value="">Seleccione un producto</option>
                             @foreach($productos as $producto)
                                 <option value="{{$producto->id}}">
-                                    <p style="font: caption">PRODUCTO: </p>{{$producto->nombre}}
-                                    <p>EN EXISTENCIA: </p>{{$producto->getEnStockAttribute()}}</option>
+                                    <p style="font: caption"></p>{{$producto->nombre}}
                             @endforeach
                         </select>
 

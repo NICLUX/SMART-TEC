@@ -1,19 +1,30 @@
-
 @extends('layouts.tabla')
 @section('buscar')
-
     <div class="col">
         <ul class="list-group">
             <li class="list-group-item" style="background-color:#1c2d3f">
+                <form style="margin-top: 10px; " method="get" action="{{route('cliente.buscar')}}">
+                    @csrf
+                    <div class="form-inline my-2 my-lg-0 float-right">
+                        <input class="form-control"
+                               name="busqueda"
+                               @if(isset($busqueda))
+                               value="{{$busqueda}}"
+                               @endif
+                               type="search" placeholder="Buscar cliente">
+                        <div style="margin-left: 3px;" class="input-group-append">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </form>
                 <h2 style="color:#ffffff;">
                     CLIENTES
-                    <a class="btn-sm btn-success float-right" href="{{route("cliente.nuevo")}}"><i
-                            class="fa fa-plus"></i> Agregar</a>
+                    <a class="btn-sm btn-success float-right" style="margin-right: 10px; width: 38px; height: 38px" href="{{route("cliente.nuevo")}}"><i
+                            class="fa fa-plus" style="margin: 0 auto; text-align: center"></i></a>
                 </h2>
             </li>
         </ul>
     </div>
-
 @endsection
 @section("contenido")
     <style>

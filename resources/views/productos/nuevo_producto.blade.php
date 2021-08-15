@@ -1,7 +1,6 @@
 @extends("layouts.formulario")
 @section("contenido")
     <h1>SMARTEC</h1>
-    <p style="color: white">Registra nuevo producto!</p>
     <a id="btn-cancelar" class="btn btn-primary btn-round" href="{{route("productos.index")}}">Cancelar</a>
     </div>
     <div class="col-md-9 register-right">
@@ -19,8 +18,6 @@
                                 <input class="form-control @error('nombre') is-invalid @enderror" name="nombre"
                                        id="nombre"
                                        required placeholder="Ingrese el nombre"
-                                       onkeypress="return valideLetter(event);"
-                                       pattern="[A-Za-záéíóúñÑ ]{2,50}"
                                        maxlength="80">
                                 @error('nombre')
                                 <span class="invalid-feedback" role="alert">
@@ -107,17 +104,5 @@
             </div>
         </div>
 
-        <script>
-            function valideLetter(evt) {
-                var code = (evt.which) ? evt.which : evt.keyCode;
-                if (code == 8 || code == 32) {
-                    return true;
-                } else if (code >= 65) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        </script>
     @yield('modal')
 @endsection

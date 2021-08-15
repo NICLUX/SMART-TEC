@@ -93,4 +93,15 @@ class ClienteController extends Controller
         return redirect()->route("clientes.index")
             ->with("exito", "Se eliminó exitosamente el proveedor");
     }
+
+    public function buscarCliente(Request $request)
+    {
+        $busqueda = $request->input("busqueda");
+        $clientes = Cliente::where("nombre",
+            "like", "%" . $request->input("busqueda") . "%")
+            ->paginate(10);
+
+        return view("clientes.clientes_index")
+            ->with("busqueda", $busqueda)->with("clientes", $clientes);
+    }
 }

@@ -82,7 +82,7 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/cliente/{id}/editars",[\App\Http\Controllers\ClienteController::class,"editar"])->name("cliente.editar");//Muestra un formulario de editar un cliente
         Route::put("/cliente/{id}/update",[\App\Http\Controllers\ClienteController::class,"update"])->name("cliente.update");//Actualiza los datos del formulario de editar cliente
         Route::delete("/cliente/{id}/destroy",[\App\Http\Controllers\ClienteController::class,"destroy"])->name("cliente.destroy");//Elimina el cliente de la tabla
-
+        Route::get("/cliente/busqueda",[ClienteController::class,"buscarCliente"])->name("cliente.buscar");//Buscar Cliente
         //-----------Apertura de Caja ------------------//
         // Route::get("/apertura_caja",AperturaCajas::class)->name("apertura.index");//Trae todos las aperturas realizadas
         //Route::post("/apertura/crear",[AperturaCajaController::class,"store"])->name("apertura.crear");//Crea una nueva apertura de caja
@@ -119,6 +119,7 @@ Route::group(["middleware"=>"auth"],function () {
         Route::get("/proveedor/{id}/editar",[\App\Http\Controllers\ProveedorController::class,"editar"])->name("proveedor.editar");//Muestra el formulario de editar proveedor
         Route::put("/proveedor/{id}/update",[\App\Http\Controllers\ProveedorController::class,"update"])->name("proveedor.update");//Guarda los datos de actualizar proveedor
         Route::delete("/proveedor/{id}/destroy",[\App\Http\Controllers\ProveedorController::class,"destroy"])->name("proveedor.destroy");//Borra un proveedor desde la lista
+        Route::get("/proveedor/busqueda",[\App\Http\Controllers\ProveedorController::class,"buscarProveedor"])->name("proveedor.buscar");//Buscar Proveedor
 
         //-----------servicios------------------//
         Route::get("/servicios",[ServiciosController::class,"index"])->name("servicios.index");//muestra todos los servicios

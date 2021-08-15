@@ -3,7 +3,7 @@
         <div class="card">
             <div class="list-group-item active">
                 <div class="form-group float-left center-block" style="width: 300px">
-                    <h1>Ingresos de <strong>{{\Carbon\Carbon::parse($fecha)->locale("es")->isoFormat("MMMM")}}</strong> </h1>
+                    <h1>Ingresos de <strong>{{\Carbon\Carbon::parse($fecha)->locale("es")->isoFormat("MMMM, YYYY")}}</strong> </h1>
                 </div>
                 <div class="form-group float-right" style="width: 300px">
                     <div class="input-group-prepend">
@@ -129,7 +129,7 @@
         </div>
         <div class="card">
             <div class="list-group-item active">
-                <h1>Ingresos de <strong>{{\Carbon\Carbon::parse($fecha)->locale("es")->isoFormat("MMMM")}}</strong> </h1>
+                <h1>Ingresos de <strong>{{\Carbon\Carbon::parse($fecha)->locale("es")->isoFormat("MMMM, YYYY")}}</strong> </h1>
             </div>
 
             @if(session("exito"))

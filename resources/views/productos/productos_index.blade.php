@@ -4,7 +4,7 @@
     <div class="col">
         <ul class="list-group">
             <li class="list-group-item" style="background-color:#1c2d3f">
-                <form method="get" action="{{route('producto.buscar')}}">
+                <form style="margin-top: 10px; " method="get" action="{{route('producto.buscar')}}">
                     @csrf
                     <div class="form-inline my-2 my-lg-0 float-right">
                         <input class="form-control"
@@ -12,33 +12,27 @@
                                @if(isset($busqueda))
                                value="{{$busqueda}}"
                                @endif
-                               type="search" placeholder="Buscar">
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
+                               type="search" placeholder="Buscar producto">
+                        <div style="margin-left: 3px;" class="input-group-append">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
                 </form>
+                <h2 style="color:#ffffff;">
+                    PRODUCTOS
+                    <a class="btn-sm btn-success float-right" style="margin-right: 10px; width: 38px; height: 38px" href="{{route("producto.nuevo")}}"><i
+                            class="fa fa-plus" style="margin: 0 auto; text-align: center"></i></a>
+                    <a class="btn-sm btn-info float-right" style="margin-right: 10px; width: 38px; height: 38px" href="{{route("productos.mostrar")}}"><i
+                            class="fa fas fa-clone" style="margin: 0 auto; text-align: center"></i></a>
+                    <a class="btn-sm btn-warning float-right" style="margin-right: 10px; width: 38px; height: 38px" href="{{route("productos.imprimir")}}"><i
+                            class="fa fa-book" style="margin: 0 auto; text-align: center"></i></a>
+
+                </h2>
             </li>
         </ul>
     </div>
 @endsection
 
-<div class="col">
-    <ul class="list-group">
-        <li class="list-group-item" style="background-color:#1c2d3f">
-            <h2 style="color:#ffffff;">
-                PRODUCTOS
-                <a class="btn-success btn-sm float-right" href="{{route('producto.nuevo')}}"><i class="fa fa-plus"></i>
-                    Agregar</a>
-                <a class="btn-sm btn-info float-right" style="margin-right:3px"
-                   href="{{route("productos.mostrar")}}"><i class="fa fas fa-clone"></i> Lista </a>
-                <a class="btn-warning btn-sm float-right" href="{{route('productos.imprimir')}}"><i class="fa fa-book"
-                                                                                                    aria-hidden="true"></i>
-                    Imprimir</a>
-            </h2>
-        </li>
-    </ul>
-</div>
 <div style="margin-top: 10px">
     <div class="card-body">
         @if($productos->count()>0)
