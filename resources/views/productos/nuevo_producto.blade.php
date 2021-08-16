@@ -13,7 +13,7 @@
                         <form id="form_proveedores" enctype="multipart/form-data" action="{{route("producto.store")}}"
                               method="post">
                             @csrf
-                            <div class="form-group">
+                            <div class="form-group col-md-11">
                                 <label for="nombre">Ingrese el nombre:</label>
                                 <input class="form-control @error('nombre') is-invalid @enderror" name="nombre"
                                        id="nombre"
@@ -26,7 +26,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-md-11">
                                 <label for="id_categoria">Seleccione una categoria</label>
                                 <div class="input-group">
                                     <select id="id_categoria" name="id_categoria"
@@ -44,7 +44,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-md-11">
                                 <label for="descripcion">Ingrese la descripcion:</label>
                                 <textarea class="form-control @error('descripcion') is-invalid @enderror"
                                           name="descripcion"
@@ -57,7 +57,7 @@
                                 @enderror
                             </div>
 
-                            <div style="display: none" class="form-group">
+                            <div style="display: none" class="form-group col-md-11">
                                 <label for="costo_compra">Ingrese el costo de la compra:</label>
                                 <input class="form-control @error('costo_compra') is-invalid @enderror"
                                        name="costo_compra"
@@ -71,7 +71,7 @@
                                 @enderror
                             </div>
 
-                            <div style="display: none" class="form-group">
+                            <div style="display: none" class="form-group col-md-11">
                                 <label for="costo_venta">Ingrese el costo de la venta:</label>
                                 <input class="form-control @error('costo_venta') is-invalid @enderror"
                                        name="costo_venta"
@@ -85,7 +85,7 @@
                                 @enderror
                             </div>
                             <!-- Para ingresar una imagen -->
-                            <div class="form-group">
+                            <div class="form-group col-md-11">
                                 <label>Seleccione una imagen (opcional):</label>
                                 <input class="form-control  @error('imagen') is-invalid @enderror" accept="image/*"
                                        name="imagen_url" type="file" placeholder="Ingrese una imagen">
@@ -96,8 +96,9 @@
                             </span>
                                 @enderror
                             </div>
-                            <!-- -->
-                            <button id="btnRegister" type="submit" class="btn btn-success">Guardar</button>
+                            <div class="form-group col-md-11">
+                                <button id="btnRegister" type="submit" class="btn btn-success">Guardar</button>
+                            </div>
                         </form>
                     </div>
                 </div>

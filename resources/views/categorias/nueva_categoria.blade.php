@@ -50,8 +50,6 @@
                                         <div class="form-group">
                                             <label>Ingrese el nombre:</label>
                                             <input type="text" maxlength="80" required value="{{old("nombre")}}"
-                                                   onkeypress="return valideLetter(event);"
-                                                   pattern="[A-Za-záéíóúñÑ ]{2,80}"
                                                 name="nombre"
                                                 class="form-control  @error('nombre') is-invalid @enderror">
                                             <small class="text-muted">Máxima longitud 80 caracteres</small>
@@ -92,17 +90,4 @@
         </div>
     </div>
 </div>
-
-<script>
-    function valideLetter(evt) {
-        var code = (evt.which) ? evt.which : evt.keyCode;
-        if (code == 8 || code == 32) {
-            return true;
-        } else if (code >= 65) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-</script>
 @endsection

@@ -31,7 +31,7 @@ class CategoriaController extends Controller
 
     public function nuevaCtegoria(Request $request){
         $this->validate($request,[
-            "nombre"=>"required|alpha|max:80|unique:categorias,nombre",
+            "nombre"=>"required|max:80|unique:categorias,nombre",
             "imagen_url"=>"image",
         ],[
             "nombre.required"=>"Se debe ingresar el nombre de la categoría.",
