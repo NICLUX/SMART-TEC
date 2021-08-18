@@ -153,11 +153,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-
-
-
                         <div style="margin-top: 10px" class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
                             <input name="_token" value="{{csrf_token()}}" type="hidden">
 
@@ -166,7 +161,6 @@
                                     href="{{route("compras.store")}}" role="alert">
                                 Guardar
                             </button>
-
                             <a style="margin-right: 5px; text-align: center"
                                class="btn-outline-danger alert alert-danger btn-sm float-right
                              col-lg-2 col-sm-2 col-md-2 col-xs-12"
@@ -177,9 +171,6 @@
             </div>
         </div>
     </div>
-    <script>
-
-    </script>
     @yield('modal')
     @yield('modals')
 @endsection

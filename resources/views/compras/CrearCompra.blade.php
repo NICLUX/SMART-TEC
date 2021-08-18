@@ -1,7 +1,32 @@
 @extends("layouts.main")
 @extends("servicios.mejora_vista")
 @section("content")
-            @yield('contenido')
+    <div class="modal fadeOutUpBig"
+         tabindex="-1"
+         aria-labelledby="exampleModalLabel"
+         id="myModal" aria-hidden="true"
+         role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #0d152a;color: white">
+                    <h5 class="modal-title">Error al ingresas detalles compra favor revise los siguientes datos</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h6>1 - El precio de compras debe ser menor que el de venta.</h6>
+                    <h6>2 - Debe completar todos los campos.</h6>
+                    <h6>3 - La cantidad debe ser mayor a 0.</h6>
+                </div>
+                <div class="modal-footer" style="background-color: #dbdbdc">
+                    <button type="button" class="btn btn-outline-primary" style="border-radius: 10px" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @yield('contenido')
             @push('scripts')
                 <script>
                     $(document).ready(function(){
@@ -39,14 +64,11 @@
                             evaluar();
                             $("#detalles").append(fila);
                         }else {
-                            alert("error al ingresas detalles compra favor revise los datos:\n" +
-                                "# El precio de compras debe ser menor que el de venta\n" +
-                                "# Debe completar todos los campos\n" +
-                                "# La cantidad debe ser mayor a 0");
-                        }
-
+                                $(function (){
+                                    $('#myModal').modal();
+                                });
+                            }
                     }
-
                     function evaluar(){
                         if(total>0){
                             $("#guardar").show();
@@ -65,6 +87,8 @@
                         $("#fila"+index).remove();
                         evaluar();
                     }
+
                 </script>
+
     @endpush
 @endsection
